@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "undeadremains:block/calipo_slab"
+    },
+    "type=double": {
+      "model": "undeadremains:block/calipo_planks"
+    },
+    "type=top": {
+      "model": "undeadremains:block/calipo_slab_top"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "undeadremains:item/undying_whispers_music_disc"
+  }
+}

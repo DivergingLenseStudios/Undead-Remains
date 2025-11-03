@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "tag": "forge:metatorbernite"
+    }
+  },
+  "pattern": [
+    "SSS",
+    " A ",
+    " A "
+  ],
+  "result": {
+    "item": "undeadremains:metatorbernite_pickaxe"
+  },
+  "show_notification": true
+}

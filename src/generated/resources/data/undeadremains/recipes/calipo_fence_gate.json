@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "undeadremains:calipo_planks"
+    }
+  },
+  "pattern": [
+    "   ",
+    "ASA",
+    "ASA"
+  ],
+  "result": {
+    "item": "undeadremains:calipo_fence_gate"
+  },
+  "show_notification": true
+}

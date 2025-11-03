@@ -1,0 +1,142 @@
+{
+  "item.undeadremains.fossil": "Fossil",
+  "item.undeadremains.rare_fossil": "Seltenes Fossil",
+  "item.undeadremains.raw_fossil": "Rohfossil",
+  "item.undeadremains.raw_deepslate_fossil": "Rohtiefenschieferfossil",
+
+  "item.undeadremains.fossilized_drumstick": "Fossilisierte Hähnchenkeule",
+  "item.undeadremains.the_fossils_eye": "Das Fossil Auge",
+  "item.undeadremains.raw_langrite": "Rohlangrit",
+  "item.undeadremains.langrite_ingot": "Langrit Barren",
+
+  "item.undeadremains.spike": "Stachel",
+  "item.undeadremains.xanarian_spine": "Xanarianische wirbelsäule",
+  "item.undeadremains.xanarian_horn": "Xanarianisches Horn",
+  "item.undeadremains.empty_fuel_cell": "Leere Treibstoffzelle",
+  "item.undeadremains.metatorbernite": "Metatorbernit",
+  "item.undeadremains.metaturbornite": "Metaturbornit",
+  "block.undeadremains.metatorbernite_ore": "Metatorbernit-Erz",
+
+  "item.undeadremains.gas_mask": "Gasmaske",
+  "item.undeadremains.metatorbernite_gas_mask": "Metatorbernit-Gasmaske",
+
+  "item.undeadremains.fossil_sword": "Fossilschwert",
+  "item.undeadremains.fossil_pickaxe": "Fossilspitzhacke",
+  "item.undeadremains.fossil_axe": "Fossilaxt",
+  "item.undeadremains.fossil_shovel": "Fossilschaufel",
+  "item.undeadremains.fossil_hoe": "Fossilhacke",
+
+  "item.undeadremains.rare_fossil_sword": "Seltenes Fossilschwert",
+  "item.undeadremains.rare_fossil_pickaxe": "Seltenee Fossilspitzhacke",
+  "item.undeadremains.rare_fossil_axe": "Seltenee Fossilaxt",
+  "item.undeadremains.rare_fossil_shovel": "Seltenee Fossilschaufel",
+  "item.undeadremains.rare_fossil_hoe": "Seltenee Fossilhacke",
+
+  "item.undeadremains.metatorbernite_swordaxe": "Metatorbernit-schwertaxt",
+  "item.undeadremains.metatorbernite_pickaxe": "Metatorbernit Spitzhacke",
+  "item.undeadremains.metatorbernite_shovel": "Metatorbernit Schaufel",
+  "item.undeadremains.metatorbernite_hoe": "Metatorbernit Hacke",
+  
+  "item.undeadremains.sunglasses": "Sonnenbrille",
+  "item.undeadremains.fossil_helmet": "Fossilhelm",
+  "item.undeadremains.fossil_chestplate": "Fossilbrustplatte",
+  "item.undeadremains.fossil_leggings": "Fossilhosen",
+  "item.undeadremains.fossil_boots": "Fossilschuhe",
+  "item.undeadremains.rare_fossil_helmet": "Seltener Fossilhelm",
+  "item.undeadremains.rare_fossil_chestplate": "Seltene Fossilbrustplatte",
+  "item.undeadremains.rare_fossil_leggings": "Seltener Fossilhosen",
+  "item.undeadremains.rare_fossil_boots": "Seltener Fossilschuhe",
+  "item.undeadremains.metatorbernite_helmet": "Metatorbernit-Helm",
+  "item.undeadremains.metatorbernite_chestplate": "Metatorbernit-Brustplatte",
+  "item.undeadremains.metatorbernite_leggings": "Metatorbernit-Hosen",
+  "item.undeadremains.metatorbernite_boots": "Metatorbernit-Schuhe",
+  "item.undeadremains.metatorbernite_grenade": "Metatorbernit-Grenade",
+
+  "item.undeadremains.undeadarcheologist_spawn_egg": "Untoter Archäologe-Spawn-Ei",
+  "item.undeadremains.supreme_zombie_spawn_egg": "Höchster Zombie-Spawn-Ei",
+  "item.undeadremains.fossilized_zombie_spawn_egg": "Fossilierter Zombie-Spawn-Ei",
+  "item.undeadremains.cow_zombie_spawn_egg": "Kuhzombie-Spawn-Ei",
+  "item.undeadremains.spike_spawn_egg": "Spike Spawn-Ei",
+  "item.undeadremains.hammer_zombie_spawn_egg": "Hammerzombie-Spawn-Ei",
+  "item.undeadremains.xanarian_spawn_egg": "Xanarianer-Spawn-Ei",
+  "item.undeadremains.four_eyed_xanarian_spawn_egg": "Vieräugiger Xanarianer-Spawn-Ei",
+  "item.undeadremains.horned_xanarian_spawn_egg": "Gehörnter Xanarianer-Spawn-Ei",
+
+  "item.undeadremains.ash_boat": "Enschenholzboot",
+  "item.undeadremains.ash_chest_boat": "Eschenholztruhenboot",
+
+  "block.undeadremains.fossil_lucky_block": "Fossil-Luckyblock",
+  "block.undeadremains.metatorbernite_lucky_block": "Metatorbernit-Luckyblock",
+
+  "block.undeadremains.fossil_altar": "Xanarianisches Tor",
+
+  "block.undeadremains.fossil_block": "Fossilblock",
+  "block.undeadremains.raw_fossil_block": "Rohfossilblock",
+  "block.undeadremains.langstone": "Langstein",
+  "block.undeadremains.living_langstone": "Lebender Langstein",
+
+  "block.undeadremains.fossil_polisher": "Polierer",
+
+  "block.undeadremains.langrite_ore": "Langriterz",
+  "block.undeadremains.raw_langrite_block": "Rohlangritblock",
+  "block.undeadremains.langrite_block": "Langritblock",
+  "block.undeadremains.fossil_ore": "Fossilerz",
+  "block.undeadremains.deepslate_fossil_ore": "Tiefenschieferfossilerz",
+
+  "block.undeadremains.metatorbernite_block": "Metatorbernitblock",
+
+  "block.undeadremains.ash_sapling": "Eschenholzsetzling",
+
+  "block.undeadremains.fossil_stairs": "Fossiltreppe",
+  "block.undeadremains.fossil_slab": "Fossilstufe",
+  "block.undeadremains.fossil_button": "Fossilknopf",
+  "block.undeadremains.fossil_pressure_plate": "Fossildruckplatte",
+  "block.undeadremains.fossil_fence": "Fossilzaun",
+  "block.undeadremains.fossil_fence_gate": "Fossilzauntor",
+  "block.undeadremains.fossil_wall": "Fossilwand",
+  "block.undeadremains.fossil_door": "Fossiltür",
+  "block.undeadremains.fossil_trapdoor": "Fossilfalltür",
+
+  "block.undeadremains.ash_stairs": "Eschenholztreppe",
+  "block.undeadremains.ash_slab": "Eschenholzstufe",
+  "block.undeadremains.ash_button": "Eschenholzknopf",
+  "block.undeadremains.ash_pressure_plate": "Eschenholzdruckplatte",
+  "block.undeadremains.ash_fence": "Eschenholzzaun",
+  "block.undeadremains.ash_fence_gate": "Eschenholzzauntor",
+  "block.undeadremains.ash_door": "Eschenholztür",
+  "block.undeadremains.ash_trapdoor": "Eschenholzfalltür",
+
+  "block.undeadremains.ash_log": "Eschenstamm",
+  "block.undeadremains.ash_planks": "Eschenplanken",
+  "block.undeadremains.ash_wood": "Eschenholz",
+  "block.undeadremains.stripped_ash_log": "Entrindeter Eschenstamm",
+  "block.undeadremains.stripped_ash_wood": "Entrindetes Eschenholz",
+  "block.undeadremains.ash_leaves": "Eschenlaub",
+
+  "block.undeadremains.calipo_log": "Calipostamm",
+  "block.undeadremains.calipo_planks": "Calipoplanken",
+  "block.undeadremains.calipo_wood": "Calipoholz",
+  "block.undeadremains.stripped_calipo_log": "Entrindeter Calipostamm",
+  "block.undeadremains.stripped_calipo_wood": "Entrindetes Calipoholz",
+  "block.undeadremains.calipo_leaves": "Calipolaub",
+
+  "block.undeadremains.ash_sign": "Eschenholzschild",
+  "block.undeadremains.ash_hanging_sign": "Eschenholzhängeschild",
+
+  "entity.undeadremains.supreme_knight": "Sahn Uzal",
+  "entity.undeadremains.cow_zombie": "Kuhzombie",
+  "entity.undeadremains.fossilized_zombie": "Fossilierter Zombie",
+  "entity.undeadremains.four_eyed_xanarian": "Vieräugiger Xanarianer",
+  "entity.undeadremains.hammer_zombie": "Hammer Zombie",
+  "entity.undeadremains.horned_xanarian": "Gehörnter Xanarianer",
+  "entity.undeadremains.spike": "Spike",
+  "entity.undeadremains.supreme_zombie": "Höchster Zombie",
+  "entity.undeadremains.undead_archeologist": "Untoter Archäologe",
+  "entity.undeadremains.xanarian": "Xanarianer",
+
+  "item.undeadremains.undying_whispers_music_disc": "Undying Whispers Schallplatte",
+
+  "creativetab.tutorial_tab": "Undead Remains"
+
+
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "undeadremains:calipo_planks"
+    }
+  ],
+  "result": {
+    "item": "undeadremains:calipo_button"
+  }
+}

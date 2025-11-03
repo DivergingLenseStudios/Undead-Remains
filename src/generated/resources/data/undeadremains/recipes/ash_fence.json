@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "undeadremains:ash_planks"
+    }
+  },
+  "pattern": [
+    "   ",
+    "SAS",
+    "SAS"
+  ],
+  "result": {
+    "count": 3,
+    "item": "undeadremains:ash_fence"
+  },
+  "show_notification": true
+}

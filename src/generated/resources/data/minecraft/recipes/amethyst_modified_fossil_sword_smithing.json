@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "base": {
+    "item": "undeadremains:fossil_sword"
+  },
+  "result": {
+    "item": "undeadremains:amethyst_modified_fossil_sword"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "undeadremains:block/stripped_calipo_log",
+    "side": "undeadremains:block/stripped_calipo_log"
+  }
+}

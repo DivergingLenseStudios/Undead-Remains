@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "undeadremains:block/langstone_pilar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "undeadremains:block/langstone_pilar"
+    },
+    "axis=z": {
+      "model": "undeadremains:block/langstone_pilar_horizontal",
+      "x": 90
+    }
+  }
+}

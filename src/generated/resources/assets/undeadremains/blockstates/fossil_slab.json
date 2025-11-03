@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "undeadremains:block/fossil_slab"
+    },
+    "type=double": {
+      "model": "undeadremains:block/fossil_block"
+    },
+    "type=top": {
+      "model": "undeadremains:block/fossil_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "undeadremains:block/ash_slab"
+    },
+    "type=double": {
+      "model": "undeadremains:block/ash_planks"
+    },
+    "type=top": {
+      "model": "undeadremains:block/ash_slab_top"
+    }
+  }
+}

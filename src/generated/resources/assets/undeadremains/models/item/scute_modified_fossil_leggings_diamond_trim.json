@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "undeadremains:item/scute_modified_fossil_leggings",
+    "layer1": "minecraft:trims/items/leggings_trim_diamond"
+  }
+}

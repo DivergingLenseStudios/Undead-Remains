@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "undeadremains:langrite_ingot"
+    }
+  },
+  "pattern": [
+    "SSS",
+    " A ",
+    " A "
+  ],
+  "result": {
+    "item": "undeadremains:langrite_pickaxe"
+  },
+  "show_notification": true
+}

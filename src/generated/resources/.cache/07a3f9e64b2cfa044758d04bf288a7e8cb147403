@@ -1,0 +1,4 @@
+// 1.20.1	2025-10-18T11:08:44.2274444	Global Loot Modifiers : undeadremains
+514c8a75a93eaf5cae51923da33631ea388d84bd data/forge/loot_modifiers/global_loot_modifiers.json
+e9bf81d0ebcb7ef5858acb51f4209dac671eb17a data/undeadremains/loot_modifiers/metal_detector_from_jungle_temples.json
+a4d25f2ad6a0ec8a55b2bb0c6286542abb1d909a data/undeadremains/loot_modifiers/metal_detector_from_suspicious_sand.json

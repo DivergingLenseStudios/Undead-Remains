@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    },
+    {
+      "item": "undeadremains:langrite_ingot"
+    }
+  ],
+  "result": {
+    "item": "undeadremains:langrite_block"
+  }
+}

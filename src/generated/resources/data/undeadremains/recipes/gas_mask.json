@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:coals"
+    },
+    "D": {
+      "item": "minecraft:leather_helmet"
+    },
+    "Q": {
+      "item": "minecraft:leather"
+    },
+    "Y": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "pattern": [
+    "Q Q",
+    "ADA",
+    "YYY"
+  ],
+  "result": {
+    "item": "undeadremains:gas_mask"
+  },
+  "show_notification": true
+}

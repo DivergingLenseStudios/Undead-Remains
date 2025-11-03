@@ -1,0 +1,17 @@
+{
+    "structures": [
+      {
+        "structure": "undeadremains:metatorbernite_trap_mesa",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "salt": 9375646,
+  
+      "spacing": 20,
+  
+      "separation": 6,
+  
+      "type": "minecraft:random_spread"
+    }
+  }

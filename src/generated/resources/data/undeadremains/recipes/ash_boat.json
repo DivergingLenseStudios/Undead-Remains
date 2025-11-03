@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "undeadremains:ash_planks"
+    }
+  },
+  "pattern": [
+    "   ",
+    "SS ",
+    "SSS"
+  ],
+  "result": {
+    "item": "undeadremains:ash_boat"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": {
+      "item": "undeadremains:calipo_log"
+    }
+  },
+  "pattern": [
+    "WW ",
+    "WW ",
+    "   "
+  ],
+  "result": {
+    "count": 3,
+    "item": "undeadremains:calipo_wood"
+  },
+  "show_notification": true
+}

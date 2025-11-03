@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#minecraft:has_structure/swamp_hut",
+  "spawners": {
+    "type": "undeadremains:hammer_zombie",
+    "maxCount": 4,
+    "minCount": 2,
+    "weight": 100
+  }
+}

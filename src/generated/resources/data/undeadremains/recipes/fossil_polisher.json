@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:planks"
+    },
+    "D": {
+      "item": "minecraft:deepslate"
+    },
+    "Q": {
+      "item": "minecraft:iron_ingot"
+    },
+    "Y": {
+      "item": "minecraft:stonecutter"
+    }
+  },
+  "pattern": [
+    "QQA",
+    "QYA",
+    "DDD"
+  ],
+  "result": {
+    "item": "undeadremains:fossil_polisher"
+  },
+  "show_notification": true
+}

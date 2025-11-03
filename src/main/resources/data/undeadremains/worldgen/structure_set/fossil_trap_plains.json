@@ -1,0 +1,17 @@
+{
+    "structures": [
+      {
+        "structure": "undeadremains:fossil_trap_plains",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "salt": 8367238,
+  
+      "spacing": 20,
+  
+      "separation": 6,
+  
+      "type": "minecraft:random_spread"
+    }
+  }

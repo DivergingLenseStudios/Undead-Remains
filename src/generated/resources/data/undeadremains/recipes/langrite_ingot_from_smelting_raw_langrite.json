@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "langrite",
+  "ingredient": {
+    "item": "undeadremains:raw_langrite"
+  },
+  "result": "undeadremains:langrite_ingot"
+}

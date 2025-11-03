@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:rabbit_foot"
+    },
+    "S": {
+      "item": "undeadremains:rare_fossil"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SAS",
+    "SSS"
+  ],
+  "result": {
+    "item": "undeadremains:fossil_lucky_block"
+  },
+  "show_notification": true
+}

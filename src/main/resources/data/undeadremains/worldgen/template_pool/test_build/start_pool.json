@@ -1,0 +1,22 @@
+{
+    "name": "undeadremains:test_build/start_pool",
+  
+    "fallback": "minecraft:empty",
+  
+    "elements": [
+      {
+  
+        "weight": 1,
+        "element": {
+  
+          "location": "undeadremains:test_build",
+  
+          "processors": "minecraft:empty",
+  
+          "projection": "rigid",
+  
+          "element_type": "minecraft:single_pool_element"
+        }
+      }
+    ]
+  }

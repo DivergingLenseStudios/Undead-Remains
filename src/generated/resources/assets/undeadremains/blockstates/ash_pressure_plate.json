@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "undeadremains:block/ash_pressure_plate"
+    },
+    "powered=true": {
+      "model": "undeadremains:block/ash_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.diverginglensestudios.undeadremains.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "refmap": "mixins.undeadremains.refmap.json",
+    "mixins": [
+      "GasMaskChecker"
+    ],
+    "client": [
+      "ExampleMixin"
+    ],
+    "injectors": {
+      "defaultRequire": 1
+    }
+  }

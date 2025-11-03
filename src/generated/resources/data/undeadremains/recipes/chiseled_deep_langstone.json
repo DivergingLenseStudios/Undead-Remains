@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "undeadremains:deep_langstone"
+  },
+  "result": "undeadremains:chiseled_deep_langstone"
+}

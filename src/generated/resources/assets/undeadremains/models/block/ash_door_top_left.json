@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "undeadremains:block/ash_door_bottom",
+    "top": "undeadremains:block/ash_door_top"
+  }
+}

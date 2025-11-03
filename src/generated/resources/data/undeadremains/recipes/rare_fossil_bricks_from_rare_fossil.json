@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    },
+    {
+      "item": "undeadremains:rare_fossil"
+    }
+  ],
+  "result": {
+    "item": "undeadremains:supreme_bricks"
+  }
+}

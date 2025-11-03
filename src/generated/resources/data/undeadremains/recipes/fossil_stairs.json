@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "undeadremains:fossil_block"
+  },
+  "result": "undeadremains:fossil_stairs"
+}

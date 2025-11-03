@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 2000,
+  "experience": 2.5,
+  "group": "fossil",
+  "ingredient": {
+    "item": "undeadremains:raw_fossil_block"
+  },
+  "result": "undeadremains:fossil"
+}

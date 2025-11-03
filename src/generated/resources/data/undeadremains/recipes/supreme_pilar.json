@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "undeadremains:supreme_bricks"
+  },
+  "result": "undeadremains:supreme_pilar"
+}

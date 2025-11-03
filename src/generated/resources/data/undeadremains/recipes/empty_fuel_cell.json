@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:glass_bottle"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "III",
+    " B ",
+    "III"
+  ],
+  "result": {
+    "item": "undeadremains:empty_fuel_cell"
+  },
+  "show_notification": true
+}

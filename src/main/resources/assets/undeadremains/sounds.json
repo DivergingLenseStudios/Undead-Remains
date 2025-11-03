@@ -1,0 +1,46 @@
+{
+  "metal_detector_found_ore": {
+    "subtitles": "sounds.undeadremains.metal_detector_found_ore",
+    "sounds": [
+      "undeadremains:metal_detector_found_ore"
+    ]
+  },
+  "sound_block_break": {
+    "subtitle": "sounds.undeadremains.sound_block_break",
+    "sounds": [
+      "undeadremains:sound_block_break"
+    ]
+  },
+  "sound_block_step": {
+    "subtitle": "sounds.undeadremains.sound_block_step",
+    "sounds": [
+      "undeadremains:sound_block_step"
+    ]
+  },
+  "sound_block_place": {
+    "subtitle": "sounds.undeadremains.sound_block_place",
+    "sounds": [
+      "undeadremains:sound_block_place"
+    ]
+  },
+  "sound_block_hit": {
+    "subtitle": "sounds.undeadremains.sound_block_hit",
+    "sounds": [
+      "undeadremains:sound_block_hit"
+    ]
+  },
+  "sound_block_fall": {
+    "subtitle": "sounds.undeadremains.sound_block_fall",
+    "sounds": [
+      "undeadremains:sound_block_fall"
+    ]
+  },
+  "undying_whispers": {
+    "sounds": [
+      {
+        "name": "undeadremains:undying_whispers",
+        "stream": true
+      }
+    ]
+  }
+}

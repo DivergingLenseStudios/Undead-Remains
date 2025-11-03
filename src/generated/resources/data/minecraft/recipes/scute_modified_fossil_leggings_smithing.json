@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:scute"
+  },
+  "base": {
+    "item": "undeadremains:fossil_leggings"
+  },
+  "result": {
+    "item": "undeadremains:scute_modified_fossil_leggings"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

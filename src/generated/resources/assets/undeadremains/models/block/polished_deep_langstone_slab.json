@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "undeadremains:block/polished_deep_langstone",
+    "side": "undeadremains:block/polished_deep_langstone",
+    "top": "undeadremains:block/polished_deep_langstone"
+  }
+}

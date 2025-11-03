@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "undeadremains:block/langstone_bricks",
+    "side": "undeadremains:block/langstone_bricks",
+    "top": "undeadremains:block/langstone_bricks"
+  }
+}

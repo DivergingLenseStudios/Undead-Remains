@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "undeadremains:block/calipo_planks",
+    "side": "undeadremains:block/calipo_planks",
+    "top": "undeadremains:block/calipo_planks"
+  }
+}

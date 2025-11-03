@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "undeadremains:block/langstone",
+    "side": "undeadremains:block/langstone",
+    "top": "undeadremains:block/langstone"
+  }
+}

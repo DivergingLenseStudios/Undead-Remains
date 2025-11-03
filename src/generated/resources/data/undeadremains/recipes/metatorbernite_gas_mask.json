@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:coals"
+    },
+    "D": {
+      "item": "undeadremains:metatorbernite_helmet"
+    },
+    "Y": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "pattern": [
+    "   ",
+    "ADA",
+    "YYY"
+  ],
+  "result": {
+    "item": "undeadremains:metatorbernite_gas_mask"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "undeadremains:calipo_wood"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "undeadremains:calipo_planks"
+  }
+}

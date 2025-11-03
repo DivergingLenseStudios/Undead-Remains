@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 1000,
+  "experience": 2.5,
+  "group": "fossil",
+  "ingredient": {
+    "item": "undeadremains:raw_fossil_block"
+  },
+  "result": "undeadremains:fossil"
+}

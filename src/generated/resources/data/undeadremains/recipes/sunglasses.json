@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    "A A",
+    "SAS",
+    "   "
+  ],
+  "result": {
+    "item": "undeadremains:sunglasses"
+  },
+  "show_notification": true
+}

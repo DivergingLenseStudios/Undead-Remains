@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "undeadremains:block/polished_deep_langstone_slab"
+    },
+    "type=double": {
+      "model": "undeadremains:block/polished_deep_langstone"
+    },
+    "type=top": {
+      "model": "undeadremains:block/polished_deep_langstone_slab_top"
+    }
+  }
+}

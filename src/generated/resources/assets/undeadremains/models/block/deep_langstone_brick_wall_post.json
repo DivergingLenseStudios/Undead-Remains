@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "undeadremains:block/deep_langstone_bricks"
+  }
+}

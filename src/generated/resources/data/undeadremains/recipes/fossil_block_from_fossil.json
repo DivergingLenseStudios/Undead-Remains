@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    },
+    {
+      "item": "undeadremains:fossil"
+    }
+  ],
+  "result": {
+    "item": "undeadremains:fossil_block"
+  }
+}
