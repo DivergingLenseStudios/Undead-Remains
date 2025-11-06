@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "undeadremains:item/nautilus_shell_modified_fossil_shovel"
+  }
+}

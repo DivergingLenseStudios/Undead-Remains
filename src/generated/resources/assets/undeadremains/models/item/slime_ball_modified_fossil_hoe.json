@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "undeadremains:item/slime_ball_modified_fossil_hoe"
+  }
+}

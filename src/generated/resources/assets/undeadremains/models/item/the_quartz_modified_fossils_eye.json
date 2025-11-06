@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "undeadremains:item/the_quartz_modified_fossils_eye"
+  }
+}

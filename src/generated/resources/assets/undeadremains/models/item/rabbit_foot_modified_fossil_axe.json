@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "undeadremains:item/rabbit_foot_modified_fossil_axe"
+  }
+}
