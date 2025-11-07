@@ -1,3 +1,10 @@
+/***********************************************************/
+/*       This file is part of the UndeadRemains Mod        */
+/*      which is maintained by DivergingLense Studios      */
+/*          and is published under the MIT License         */
+/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/***********************************************************/
+
 package net.diverginglensestudios.undeadremains.entity.ai;
 
 import java.util.EnumSet;
@@ -13,8 +20,6 @@ import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.phys.AABB;
-
-//Created by DivergingLense Studios
 
 public class BetterHurtByTargetGoal extends TargetGoal {
     private static final TargetingConditions HURT_BY_TARGETING = TargetingConditions.forCombat().ignoreLineOfSight().ignoreInvisibilityTesting();

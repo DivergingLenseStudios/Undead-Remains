@@ -1,12 +1,50 @@
-package net.diverginglensestudios.undeadremains; //This line of code specifies what the code is actaully doing, and how it is called
+/***********************************************************/
+/*       This file is part of the UndeadRemains Mod        */
+/*      which is maintained by DivergingLense Studios      */
+/*          and is published under the MIT License         */
+/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/***********************************************************/
 
-//Import the stuff you need from the core game and from Forge and other Logging tools.
+// Declare package name. This is the main Mod file.
+package net.diverginglensestudios.undeadremains;
+
+// Import Minecraft and Forge Elements
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.FallingBlockRenderer;
+import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.alchemy.Potions;
 
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
+
+import org.slf4j.Logger;
+
+// Import Mod Elements
 import net.diverginglensestudios.undeadremains.block.ModBlocks;
 import net.diverginglensestudios.undeadremains.block.entity.ModBlockEntities;
+
 import net.diverginglensestudios.undeadremains.effects.ModEffects;
 import net.diverginglensestudios.undeadremains.effects.ModPotions;
+
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.entity.client.*;
 import net.diverginglensestudios.undeadremains.entity.client.BigWoodling.BigWoodlingRenderer;
@@ -27,55 +65,37 @@ import net.diverginglensestudios.undeadremains.entity.client.Xanarian.XanarianRe
 import net.diverginglensestudios.undeadremains.entity.client.XanarianCannibal.XanarianCannibalRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.horned_xanarian.HornedXanarianRenderer;
 import net.diverginglensestudios.undeadremains.entity.custom.Other.Cm_Falling_Block_Entity;
+
 import net.diverginglensestudios.undeadremains.item.ModCreativeModTabs;
 import net.diverginglensestudios.undeadremains.item.ModItems;
+
 import net.diverginglensestudios.undeadremains.loot.ModLootModifiers;
+
 import net.diverginglensestudios.undeadremains.particles.MetatorberniteParticles;
 import net.diverginglensestudios.undeadremains.particles.ModParticles;
+
 import net.diverginglensestudios.undeadremains.recipe.ModRecipes;
+
 import net.diverginglensestudios.undeadremains.screen.GemPolishingStationScreen;
 import net.diverginglensestudios.undeadremains.screen.ModMenuTypes;
+
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
+
 import net.diverginglensestudios.undeadremains.util.BetterBrewingRecipe;
 import net.diverginglensestudios.undeadremains.util.ModWoodTypes;
+
 import net.diverginglensestudios.undeadremains.worldgen.biome.ModOverworldRegion;
 import net.diverginglensestudios.undeadremains.worldgen.biome.ModTerrablender;
 import net.diverginglensestudios.undeadremains.worldgen.biome.surface.ModSurfaceRules;
 import net.diverginglensestudios.undeadremains.worldgen.tree.ModFoliagePlacers;
 import net.diverginglensestudios.undeadremains.worldgen.tree.ModTrunkPlacerTypes;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.FallingBlockRenderer;
-import net.minecraft.client.renderer.entity.NoopRenderer;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
-
-import org.slf4j.Logger;
-
-/*
-Das ist ein Kommentar von mehreren Zeilen.
-*/
 
 @Mod(UndeadRemains.MOD_ID) // The value here should match an entry in the META-INF/mods.toml file
-public class UndeadRemains { //Define the Class for the Mod
-    public static final String MOD_ID = "undeadremains"; //Set the name, so forge recognizes and can access the mod.
+
+
+// Initialize the Mod Class
+public class UndeadRemains {
+    public static final String MOD_ID = "undeadremains";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public UndeadRemains() {
@@ -87,6 +107,9 @@ public class UndeadRemains { //Define the Class for the Mod
         ModBlocks.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
+        //ModTerrablender.registerBiomes();        //ModTerrablender.registerBiomes();
+
+        //ModTerrablender.registerBiomes();
         //ModTerrablender.registerBiomes();
 
         ModSounds.register(modEventBus);
@@ -104,29 +127,39 @@ public class UndeadRemains { //Define the Class for the Mod
         ModFoliagePlacers.register(modEventBus);
         ModTrunkPlacerTypes.register(modEventBus);
 
-        modEventBus.addListener(this::commonSetup);
-
+        //modEvencBus.addListonemmonSe::addCreativetup);
+ister(th);
+        //modEvenBus.addListne::addCreative
         MinecraftForge.EVENT_BUS.register(this);
         //modEventBus.addListener(this::addCreative);
     }
 
 private void commonSetup(final FMLCommonSetupEvent event) {
-    event.enqueueWork(() -> {
-        BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
-                    ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
-        Regions.register(new ModOverworldRegion(new ResourceLocation(UndeadRemains.MOD_ID, "overworld"), 2));
-    });
-}
+ 
+
 
 //   private void addCreative(BuildCreativeModeTabContentsEvent event) {
+//       if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+//  //       event.accept(ModItems.FOSSIL);
+//           event.accept(ModItems.RAW_FOSSIL);
+//       }
+//   }
+
+    // You can use SubscribeEvent and let the Event Bus discover methods to call
+     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 //       if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 //           event.accept(ModItems.FOSSIL);
 //           event.accept(ModItems.RAW_FOSSIL);
 //       }
 //   }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
+    // You can use SubscribeEvent and let the Event Bus discover methods to call   event.enqueueWork(() -> {
+        BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
+                    ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+        Regions.register(new ModOverworldRegion(new ResourceLocation(UndeadRemains.MOD_ID, "overworld"), 2));
+    });
+}
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
@@ -151,7 +184,9 @@ public static class ClientModEvents {
         EntityRenderers.register(ModEntities.COW_ZOMBIE.get(), pContext -> new CowZombieRenderer(pContext));
         EntityRenderers.register(ModEntities.SPIKE.get(), pContext -> new SpikeRenderer(pContext));
         EntityRenderers.register(ModEntities.HAMMER_ZOMBIE.get(), pContext -> new HammerZombieRenderer(pContext));
-        EntityRenderers.register(ModEntities.FOUR_EYED_XANARIAN.get(), pContext -> new FourEyedXanarianRenderer(pContext));
+        }
+    }
+EntityRenderers.register(ModEntities.FOUR_EYED_XANARIAN.get(), pContext -> new FourEyedXanarianRenderer(pContext));
         EntityRenderers.register(ModEntities.XANARIAN.get(), pContext -> new XanarianRenderer(pContext));
         EntityRenderers.register(ModEntities.HORNED_XANARIAN.get(), pContext -> new HornedXanarianRenderer(pContext));
         EntityRenderers.register(ModEntities.MOD_BOAT.get(), pContext -> new ModBoatRenderer(pContext, false));

@@ -1,5 +1,13 @@
+/***********************************************************/
+/*       This file is part of the UndeadRemains Mod        */
+/*      which is maintained by DivergingLense Studios      */
+/*          and is published under the MIT License         */
+/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/***********************************************************/
+
 package net.diverginglensestudios.undeadremains.event;
 
+// Import Mod Elements
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.block.entity.ModBlockEntities;
 import net.diverginglensestudios.undeadremains.block.entity.renderer.FossilPolisherBlockEntityRenderer;
@@ -20,6 +28,8 @@ import net.diverginglensestudios.undeadremains.entity.client.UndeadArcheologist.
 import net.diverginglensestudios.undeadremains.entity.client.Xanarian.XanarianModel;
 import net.diverginglensestudios.undeadremains.entity.client.XanarianCannibal.XanarianCannibalModel;
 import net.diverginglensestudios.undeadremains.entity.client.horned_xanarian.HornedXanarianModel;
+
+// Import Minecraft and Forge Elements
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;

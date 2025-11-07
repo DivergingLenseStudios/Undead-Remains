@@ -1,5 +1,13 @@
+/***********************************************************/
+/*       This file is part of the UndeadRemains Mod        */
+/*      which is maintained by DivergingLense Studios      */
+/*          and is published under the MIT License         */
+/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/***********************************************************/
+
 package net.diverginglensestudios.undeadremains.entity;
 
+// Import Mod Elements
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.*;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.*;
@@ -9,6 +17,8 @@ import net.diverginglensestudios.undeadremains.entity.custom.Other.CustomEffectC
 import net.diverginglensestudios.undeadremains.entity.custom.Other.MetatorberniteGrenadeProjectileEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Other.ModBoatEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Other.ModChestBoatEntity;
+
+// Import Minecraft and Forge Elements
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;

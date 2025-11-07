@@ -1,6 +1,13 @@
+/***********************************************************/
+/*       This file is part of the UndeadRemains Mod        */
+/*      which is maintained by DivergingLense Studios      */
+/*          and is published under the MIT License         */
+/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/***********************************************************/
+
 package net.diverginglensestudios.undeadremains.event;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+// Import Mod Elements
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.effects.ModEffects;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
@@ -9,6 +16,8 @@ import net.diverginglensestudios.undeadremains.entity.custom.Zombies.SmallWoodli
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.StrayZombieEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.TreeZombieEntity;
 import net.diverginglensestudios.undeadremains.item.ModItems;
+
+// Import Minecraft and Forge Elements
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,6 +42,7 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import java.util.List;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
 @Mod.EventBusSubscriber(modid = UndeadRemains.MOD_ID)
 public class ModEvents {
