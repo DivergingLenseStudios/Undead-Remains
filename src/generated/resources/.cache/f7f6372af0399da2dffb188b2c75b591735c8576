@@ -1,4 +1,4 @@
-// 1.20.1	2025-10-27T10:21:57.7114451	Tags for minecraft:item mod id undeadremains
+// 1.20.1	2025-11-07T10:42:35.811814926	Tags for minecraft:item mod id undeadremains
 3fae3be636e2bd160f391e3c24a7acdedd18038e data/forge/tags/items/armors.json
 e9abe6c5dd392b77ac2917981c74dd6ae6ff5035 data/forge/tags/items/armors/boots.json
 7caddb7256f43b18a5b956bca19f140cfb8d3e65 data/forge/tags/items/armors/chestplate.json
@@ -12,11 +12,11 @@ c86efc00bb3a4af8b44ada44c1a5b7e191dde471 data/forge/tags/items/fossil.json
 6d9333d8cd2553c56746764bebc252217c5af72e data/forge/tags/items/langrite_ingots.json
 a0888efba87a2a45dbd7a85e090885da38d9fd7b data/forge/tags/items/leather.json
 e4dd2effc8f2a350a337232e18edcf4b3d20114c data/forge/tags/items/metatorbernite.json
+583a071aef984db81fd58ec34795e3dbc52d1b02 data/forge/tags/items/ore_rates/singular.json
 583a071aef984db81fd58ec34795e3dbc52d1b02 data/forge/tags/items/ores.json
 583a071aef984db81fd58ec34795e3dbc52d1b02 data/forge/tags/items/ores/fossil.json
 a28fe4cfad8d7429757ead62b5ce5844e99f24d7 data/forge/tags/items/ores_in_ground/deepslate.json
 8027ee2d0a0e5f82f1be3a0c925cb8a00a8aa766 data/forge/tags/items/ores_in_ground/stone.json
-583a071aef984db81fd58ec34795e3dbc52d1b02 data/forge/tags/items/ore_rates/singular.json
 07f47f03435e0c8995763b7b8b0a50179d4c9587 data/forge/tags/items/raw_fossil.json
 065edea8b40fc23d5fc089ba69c48af7b0900232 data/forge/tags/items/raw_langrite.json
 a954cc1f195e9b1ec0d83e8b946993b0dad3c09c data/forge/tags/items/raw_materials.json
@@ -33,8 +33,8 @@ d1cbfb8ec015eb73fa604d963edae74a951bafaa data/minecraft/tags/items/chest_boats.j
 d70a320783c2d7e19d30ab29b7ce3e90e8c39201 data/minecraft/tags/items/creeper_drop_music_discs.json
 4388b31535dbfb58e458de3e9e25d2429e4dab1a data/minecraft/tags/items/dirt.json
 7e8187d80e869f4072beecebb703c64a87d3eff5 data/minecraft/tags/items/doors.json
-f827780ef68924ed2b59a97161db20ed749e39ba data/minecraft/tags/items/fences.json
 6668145a662b015b66c7511b8b9e13af29316b8c data/minecraft/tags/items/fence_gates.json
+f827780ef68924ed2b59a97161db20ed749e39ba data/minecraft/tags/items/fences.json
 bd9556688c79c57ab14fc14f04b829b2ee12b6bf data/minecraft/tags/items/hanging_signs.json
 0908066f07fab78ab3c9974443eec6b341036780 data/minecraft/tags/items/hoes.json
 06b5e25a1611a8aa755389e21a9de1685cab8b4c data/minecraft/tags/items/leaves.json
