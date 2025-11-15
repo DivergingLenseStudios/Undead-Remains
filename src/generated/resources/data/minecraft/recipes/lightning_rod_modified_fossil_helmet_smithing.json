@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:lightning_rod"
+  },
+  "base": {
+    "item": "undeadremains:fossil_helmet"
+  },
+  "result": {
+    "item": "undeadremains:lightning_rod_modified_fossil_helmet"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

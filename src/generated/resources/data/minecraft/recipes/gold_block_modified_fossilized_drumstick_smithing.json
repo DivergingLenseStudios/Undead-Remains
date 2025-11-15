@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_block"
+  },
+  "base": {
+    "item": "undeadremains:fossilized_drumstick"
+  },
+  "result": {
+    "item": "undeadremains:gold_block_modified_fossilized_drumstick"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

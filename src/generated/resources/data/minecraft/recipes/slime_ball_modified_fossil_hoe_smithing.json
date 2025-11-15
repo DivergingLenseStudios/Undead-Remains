@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:slime_ball"
+  },
+  "base": {
+    "item": "undeadremains:fossil_hoe"
+  },
+  "result": {
+    "item": "undeadremains:slime_ball_modified_fossil_hoe"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

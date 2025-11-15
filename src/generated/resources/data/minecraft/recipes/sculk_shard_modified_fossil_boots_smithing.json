@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:echo_shard"
+  },
+  "base": {
+    "item": "undeadremains:fossil_boots"
+  },
+  "result": {
+    "item": "undeadremains:sculk_shard_modified_fossil_boots"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

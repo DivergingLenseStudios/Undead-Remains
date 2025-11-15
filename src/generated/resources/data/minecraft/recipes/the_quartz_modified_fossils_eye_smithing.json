@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:quartz"
+  },
+  "base": {
+    "item": "undeadremains:the_fossils_eye"
+  },
+  "result": {
+    "item": "undeadremains:the_quartz_modified_fossils_eye"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

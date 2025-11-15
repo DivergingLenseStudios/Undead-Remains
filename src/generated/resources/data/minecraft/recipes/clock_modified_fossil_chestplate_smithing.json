@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:clock"
+  },
+  "base": {
+    "item": "undeadremains:fossil_chestplate"
+  },
+  "result": {
+    "item": "undeadremains:clock_modified_fossil_chestplate"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

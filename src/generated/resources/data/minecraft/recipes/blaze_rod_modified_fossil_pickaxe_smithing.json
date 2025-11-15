@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:blaze_rod"
+  },
+  "base": {
+    "item": "undeadremains:fossil_pickaxe"
+  },
+  "result": {
+    "item": "undeadremains:blaze_rod_modified_fossil_pickaxe"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}

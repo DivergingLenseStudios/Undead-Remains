@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:rabbit_foot"
+  },
+  "base": {
+    "item": "undeadremains:fossil_axe"
+  },
+  "result": {
+    "item": "undeadremains:rabbit_foot_modified_fossil_axe"
+  },
+  "template": {
+    "item": "undeadremains:fossil"
+  }
+}
