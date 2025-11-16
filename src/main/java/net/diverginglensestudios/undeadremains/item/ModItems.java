@@ -69,6 +69,8 @@ public class ModItems {
                         () -> new ModFoodItem(
                                         new Item.Properties().food(ModFoods.GOLD_BLOCK_MODIFIED_FOSSILIZED_DRUMSTICK),
                                         200));
+        public static final RegistryObject<Item> RAW_XANARIAN_MEAT = ITEMS.register("raw_xanarian_meat",
+                        () -> new Item(new Item.Properties().food(ModFoods.THE_FOSSILS_EYE)));
 
         // Fuel Items
         public static final RegistryObject<Item> METATURBONITE = ITEMS.register("metaturbonite",
