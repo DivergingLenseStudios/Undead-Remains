@@ -886,6 +886,38 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                                 has(ModItems.LANGRITE_INGOT.get()))
                                 .save(pWriter, UndeadRemains.MOD_ID + ":langrite_block_from_langrite");
                 // SHAPELESS BLOCK//
+                // SHAPELESS FOOD//
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARIAN_KEBAB.get(), 1)// resulting
+                                                                                                       // items
+                                .requires(ModItems.XANARIAN_MEAT.get())// required items
+                                .requires(Items.BREAD)// required items
+                                .unlockedBy(getHasName(ModItems.XANARIAN_MEAT.get()),
+                                                has(ModItems.XANARIAN_MEAT.get()))
+                                .save(pWriter);
+
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARIAN_SHISH_KEBAB.get(), 1)// resulting
+                                                                                                             // items
+                                .requires(ModItems.XANARIAN_MEAT.get())// required items
+                                .requires(Items.STICK)// required items
+                                .unlockedBy(getHasName(ModItems.XANARIAN_MEAT.get()),
+                                                has(ModItems.XANARIAN_MEAT.get()))
+                                .save(pWriter);
+
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARIAN_KEBAB_WRAP.get(), 1)// resulting
+                                                                                                            // items
+                                .requires(ModItems.XANARIAN_MEAT.get())// required items
+                                .requires(ModItems.WRAP.get())// required items
+                                .unlockedBy(getHasName(ModItems.XANARIAN_MEAT.get()),
+                                                has(ModItems.XANARIAN_MEAT.get()))
+                                .save(pWriter);
+
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.WRAP.get(), 1)// resulting
+                                                                                             // items
+                                .requires(Items.STICK)// required items
+                                .requires(Items.BREAD)// required items
+                                .unlockedBy(getHasName(Items.BREAD),
+                                                has(Items.BREAD))
+                                .save(pWriter);
                 //////////////////// SHAPELESS////////////////////
         }
 

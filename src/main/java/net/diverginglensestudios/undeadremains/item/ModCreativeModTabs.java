@@ -178,6 +178,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.XANARIAN_HORN.get());
                         pOutput.accept(ModItems.XANARIAN_LEATHER.get());
                         pOutput.accept(ModItems.XANARIAN_SPINE_CHESTPLATE.get());
+                        pOutput.accept(ModItems.RAW_XANARIAN_MEAT.get());
+                        pOutput.accept(ModItems.XANARIAN_MEAT.get());
+                        pOutput.accept(ModItems.XANARIAN_SHISH_KEBAB.get());
+                        pOutput.accept(ModItems.XANARIAN_KEBAB_WRAP.get());
+                        pOutput.accept(ModItems.XANARIAN_KEBAB.get());
+                        pOutput.accept(ModItems.WRAP.get());
 
                         pOutput.accept(ModItems.UNDYING_WHISPERS_MUSIC_DISC.get());
 

@@ -18,6 +18,7 @@ import net.diverginglensestudios.undeadremains.item.custom.*;
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -70,7 +71,22 @@ public class ModItems {
                                         new Item.Properties().food(ModFoods.GOLD_BLOCK_MODIFIED_FOSSILIZED_DRUMSTICK),
                                         200));
         public static final RegistryObject<Item> RAW_XANARIAN_MEAT = ITEMS.register("raw_xanarian_meat",
-                        () -> new Item(new Item.Properties().food(ModFoods.THE_FOSSILS_EYE)));
+                        () -> new Item(new Item.Properties().food(ModFoods.RAW_XANARIAN_MEAT)));
+
+        public static final RegistryObject<Item> XANARIAN_MEAT = ITEMS.register("xanarian_meat",
+                        () -> new Item(new Item.Properties().food(ModFoods.XANARIAN_MEAT)));
+
+        public static final RegistryObject<Item> XANARIAN_SHISH_KEBAB = ITEMS.register("xanarian_shish_kebab",
+                        () -> new Item(new Item.Properties().food(ModFoods.XANARIAN_SHISH_KEBAB)));
+
+        public static final RegistryObject<Item> XANARIAN_KEBAB_WRAP = ITEMS.register("xanarian_kebab_wrap",
+                        () -> new Item(new Item.Properties().food(ModFoods.XANARIAN_KEBAB_WRAP)));
+
+        public static final RegistryObject<Item> XANARIAN_KEBAB = ITEMS.register("xanarian_kebab",
+                        () -> new Item(new Item.Properties().food(ModFoods.XANARIAN_KEBAB)));
+
+        public static final RegistryObject<Item> WRAP = ITEMS.register("wrap",
+                        () -> new Item(new Item.Properties().food(ModFoods.WRAP)));
 
         // Fuel Items
         public static final RegistryObject<Item> METATURBONITE = ITEMS.register("metaturbonite",

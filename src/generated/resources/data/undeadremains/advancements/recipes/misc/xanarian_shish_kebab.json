@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "undeadremains:xanarian_shish_kebab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_xanarian_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:xanarian_meat"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_xanarian_meat",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "undeadremains:xanarian_shish_kebab"
+    ]
+  },
+  "sends_telemetry_event": false
+}
