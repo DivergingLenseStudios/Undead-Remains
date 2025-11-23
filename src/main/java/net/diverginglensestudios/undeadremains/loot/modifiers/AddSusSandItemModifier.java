@@ -5,7 +5,7 @@
 /* https://github.com/DivergingLenseStudios/Undead-Remains */
 /***********************************************************/
 
-package net.diverginglensestudios.undeadremains.loot;
+package net.diverginglensestudios.undeadremains.loot.modifiers;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;

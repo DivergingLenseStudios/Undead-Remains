@@ -9,8 +9,9 @@ package net.diverginglensestudios.undeadremains.datagen;
 
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.item.ModItems;
-import net.diverginglensestudios.undeadremains.loot.AddItemModifier;
-import net.diverginglensestudios.undeadremains.loot.AddSusSandItemModifier;
+import net.diverginglensestudios.undeadremains.loot.modifiers.AddItemModifier;
+import net.diverginglensestudios.undeadremains.loot.modifiers.AddSusSandItemModifier;
+import net.diverginglensestudios.undeadremains.loot.modifiers.SmeltModifier;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -25,13 +26,11 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        add("metal_detector_from_jungle_temples", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build() },
-                ModItems.FOSSIL.get()));
-
         add("metal_detector_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build() },
                 ModItems.FOSSIL.get()));
+
+        this.add("smelt", new SmeltModifier(new LootItemCondition[0]));
 
     }
 }

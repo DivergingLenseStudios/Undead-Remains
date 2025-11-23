@@ -28,7 +28,7 @@ import net.diverginglensestudios.undeadremains.entity.client.XanarianCannibal.Xa
 import net.diverginglensestudios.undeadremains.entity.client.horned_xanarian.HornedXanarianRenderer;
 import net.diverginglensestudios.undeadremains.item.ModCreativeModTabs;
 import net.diverginglensestudios.undeadremains.item.ModItems;
-import net.diverginglensestudios.undeadremains.loot.ModLootModifiers;
+import net.diverginglensestudios.undeadremains.loot.ModLootTableModifiers;
 import net.diverginglensestudios.undeadremains.particles.MetatorberniteParticles;
 import net.diverginglensestudios.undeadremains.particles.ModParticles;
 import net.diverginglensestudios.undeadremains.recipe.ModRecipes;
@@ -82,7 +82,7 @@ public class UndeadRemains { // Define the Class for the Mod
                 ModItems.register(modEventBus);
                 ModBlocks.register(modEventBus);
 
-                ModLootModifiers.register(modEventBus);
+                ModLootTableModifiers.register(modEventBus);
                 // ModTerrablender.registerBiomes();
 
                 ModSounds.register(modEventBus);
