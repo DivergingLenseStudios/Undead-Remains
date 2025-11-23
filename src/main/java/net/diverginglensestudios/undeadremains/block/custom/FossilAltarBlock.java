@@ -46,7 +46,8 @@ public class FossilAltarBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level level, BlockPos clickedPos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public InteractionResult use(BlockState pState, Level level, BlockPos clickedPos, Player player,
+            InteractionHand hand, BlockHitResult hit) {
         if (player.canChangeDimensions()) {
             if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
                 BlockPos playerPos = serverPlayer.blockPosition();
@@ -59,17 +60,20 @@ public class FossilAltarBlock extends Block {
 
                 // Determine target dimension
                 MinecraftServer server = serverPlayer.getServer();
-                if (server == null) return InteractionResult.PASS;
+                if (server == null)
+                    return InteractionResult.PASS;
 
                 ResourceKey<Level> targetDim = level.dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY
                         ? Level.OVERWORLD
                         : ModDimensions.FOSSILDIM_LEVEL_KEY;
 
                 ServerLevel targetWorld = server.getLevel(targetDim);
-                if (targetWorld == null) return InteractionResult.PASS;
+                if (targetWorld == null)
+                    return InteractionResult.PASS;
 
                 // Teleport using your custom teleporter
-                serverPlayer.changeDimension(targetWorld, new ModFossilTeleporter(playerPos.below(), ModBlocks.FOSSIL_ALTAR.get()));
+                serverPlayer.changeDimension(targetWorld,
+                        new ModFossilTeleporter(playerPos.below(), ModBlocks.FOSSIL_ALTAR.get()));
             }
             return InteractionResult.SUCCESS;
         }
@@ -77,45 +81,48 @@ public class FossilAltarBlock extends Block {
     }
 }
 
-//public class FossilAltarBlock extends Block {
-//public FossilAltarBlock(Properties pProperties) {
-//    super(pProperties);
-//}
-//public static final VoxelShape SHAPE = Block.box(1, 0, 3, 15, 16, 13);
+// public class FossilAltarBlock extends Block {
+// public FossilAltarBlock(Properties pProperties) {
+// super(pProperties);
+// }
+// public static final VoxelShape SHAPE = Block.box(1, 0, 3, 15, 16, 13);
 //
-//@Override
-//public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-//    return SHAPE;
-//}
+// @Override
+// public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos
+// pPos, CollisionContext pContext) {
+// return SHAPE;
+// }
 //
-//@Override
-//public RenderShape getRenderShape(BlockState pState) {
-//    return RenderShape.MODEL;
-//}
+// @Override
+// public RenderShape getRenderShape(BlockState pState) {
+// return RenderShape.MODEL;
+// }
 //
-//@Override
-//public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-//    if (pPlayer.canChangeDimensions()) {
-//        handleTestPortal(pPlayer, pPos);
-//        return InteractionResult.SUCCESS;
-//    } else {
-//        return InteractionResult.CONSUME;
-//    }
-//}
+// @Override
+// public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos,
+// Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+// if (pPlayer.canChangeDimensions()) {
+// handleTestPortal(pPlayer, pPos);
+// return InteractionResult.SUCCESS;
+// } else {
+// return InteractionResult.CONSUME;
+// }
+// }
 //
-//private void handleTestPortal(Entity player, BlockPos pPos) {
-//    if (player.level() instanceof ServerLevel serverlevel) {
-//        MinecraftServer minecraftserver = serverlevel.getServer();
-//        ResourceKey<Level> resourcekey = player.level().dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY ?
-//                Level.OVERWORLD : ModDimensions.FOSSILDIM_LEVEL_KEY;
-//        ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
-//        if (portalDimension != null && !player.isPassenger()) {
-//            if(resourcekey == ModDimensions.FOSSILDIM_LEVEL_KEY) {
-//                player.changeDimension(portalDimension, new ModFossilTeleporter(pPos));
-//            } else {
-//                player.changeDimension(portalDimension, new ModFossilTeleporter(pPos));
-//            }
-//        }
-//    }
-//}
-//}
+// private void handleTestPortal(Entity player, BlockPos pPos) {
+// if (player.level() instanceof ServerLevel serverlevel) {
+// MinecraftServer minecraftserver = serverlevel.getServer();
+// ResourceKey<Level> resourcekey = player.level().dimension() ==
+// ModDimensions.FOSSILDIM_LEVEL_KEY ?
+// Level.OVERWORLD : ModDimensions.FOSSILDIM_LEVEL_KEY;
+// ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
+// if (portalDimension != null && !player.isPassenger()) {
+// if(resourcekey == ModDimensions.FOSSILDIM_LEVEL_KEY) {
+// player.changeDimension(portalDimension, new ModFossilTeleporter(pPos));
+// } else {
+// player.changeDimension(portalDimension, new ModFossilTeleporter(pPos));
+// }
+// }
+// }
+// }
+// }

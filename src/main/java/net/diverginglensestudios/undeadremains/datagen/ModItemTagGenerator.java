@@ -16,7 +16,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -94,6 +93,11 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                                 .add(ModItems.FOSSIL_AXE.get())
                                 .add(ModItems.FOSSIL_HOE.get())
                                 .add(ModItems.FOSSIL_SWORD.get())
+                                .add(ModItems.NAUTILUS_SHELL_MODIFIED_FOSSIL_SHOVEL.get())
+                                .add(ModItems.BLAZE_ROD_MODIFIED_FOSSIL_PICKAXE.get())
+                                .add(ModItems.RABBIT_FOOT_MODIFIED_FOSSIL_AXE.get())
+                                .add(ModItems.SLIME_BALL_MODIFIED_FOSSIL_HOE.get())
+                                .add(ModItems.AMETHYST_MODIFIED_FOSSIL_SWORD.get())
                                 .add(ModItems.LANGRITE_SHOVEL.get())
                                 .add(ModItems.LANGRITE_PICKAXE.get())
                                 .add(ModItems.LANGRITE_AXE.get())

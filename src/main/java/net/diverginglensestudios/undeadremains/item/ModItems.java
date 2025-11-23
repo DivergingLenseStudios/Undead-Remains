@@ -160,7 +160,7 @@ public class ModItems {
                                         new Item.Properties()));
         public static final RegistryObject<Item> NAUTILUS_SHELL_MODIFIED_FOSSIL_SHOVEL = ITEMS.register(
                         "nautilus_shell_modified_fossil_shovel",
-                        () -> new ShovelItem(ModToolTiers.NAUTILUS_SHELL_MODIFIED_FOSSIL, 4 - 1, 1 - 4,
+                        () -> new ModifiedFossilShovel(ModToolTiers.NAUTILUS_SHELL_MODIFIED_FOSSIL, 4 - 1, 1 - 4,
                                         new Item.Properties()));
         public static final RegistryObject<Item> SLIME_BALL_MODIFIED_FOSSIL_HOE = ITEMS.register(
                         "slime_ball_modified_fossil_hoe",
