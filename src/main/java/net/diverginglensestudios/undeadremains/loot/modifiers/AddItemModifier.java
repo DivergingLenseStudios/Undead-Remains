@@ -11,7 +11,6 @@ import com.mojang.datafixers.Products;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.diverginglensestudios.undeadremains.loot.ModLootModifier;
 import net.diverginglensestudios.undeadremains.helpers.LootTableHelper;
 import net.diverginglensestudios.undeadremains.helpers.RNGHelper;
 import net.diverginglensestudios.undeadremains.loot.IConditional;

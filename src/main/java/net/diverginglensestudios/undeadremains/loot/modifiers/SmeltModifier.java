@@ -11,7 +11,6 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.diverginglensestudios.undeadremains.helpers.LootTableHelper;
 import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.loot.IConditional;
-import net.diverginglensestudios.undeadremains.loot.ModLootModifier;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

@@ -3,8 +3,9 @@
 /*          https://github.com/Kapitencraft                */
 /***********************************************************/
 
-package net.diverginglensestudios.undeadremains.loot;
+package net.diverginglensestudios.undeadremains.loot.modifiers;
 
+import net.diverginglensestudios.undeadremains.loot.IConditional;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.LootModifier;
 
