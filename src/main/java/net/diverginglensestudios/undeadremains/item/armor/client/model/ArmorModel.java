@@ -1,8 +1,6 @@
 /***********************************************************/
-/*       This file is part of the UndeadRemains Mod        */
-/*      which is maintained by DivergingLense Studios      */
-/*          and is published under the MIT License         */
-/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/*       This file was copied from Kapitencraft            */
+/*          https://github.com/Kapitencraft                */
 /***********************************************************/
 
 package net.diverginglensestudios.undeadremains.item.armor.client.model;
@@ -19,7 +17,8 @@ import java.util.NoSuchElementException;
 
 /**
  * pre-made model for armors.
- * <br> extend to make custom armors models
+ * <br>
+ * extend to make custom armors models
  */
 public class ArmorModel extends EntityModel<LivingEntity> {
     protected static final CubeDeformation NULL_DEFORM = new CubeDeformation(0);
@@ -31,8 +30,6 @@ public class ArmorModel extends EntityModel<LivingEntity> {
     public final ModelPart armorLeftLeg;
     public final ModelPart armorRightBoot;
     public final ModelPart armorLeftBoot;
-
-
 
     public ArmorModel(ModelPart root) {
         armorHead = getSave("armorHead", root);
@@ -54,12 +51,14 @@ public class ArmorModel extends EntityModel<LivingEntity> {
     }
 
     @Override
-    public void setupAnim(@NotNull LivingEntity p_102618_, float p_102619_, float p_102620_, float p_102621_, float p_102622_, float p_102623_) {
+    public void setupAnim(@NotNull LivingEntity p_102618_, float p_102619_, float p_102620_, float p_102621_,
+            float p_102622_, float p_102623_) {
 
     }
 
     @Override
-    public void renderToBuffer(@NotNull PoseStack stack, @NotNull VertexConsumer consumer, int packedLight, int packedOverlay, float r, float g, float b, float a) {
+    public void renderToBuffer(@NotNull PoseStack stack, @NotNull VertexConsumer consumer, int packedLight,
+            int packedOverlay, float r, float g, float b, float a) {
         armorHead.render(stack, consumer, packedLight, packedOverlay, r, g, b, a);
         armorChest.render(stack, consumer, packedLight, packedOverlay, r, g, b, a);
         armorRightArm.render(stack, consumer, packedLight, packedOverlay, r, g, b, a);

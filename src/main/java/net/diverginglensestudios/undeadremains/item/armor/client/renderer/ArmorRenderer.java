@@ -1,8 +1,6 @@
 /***********************************************************/
-/*       This file is part of the UndeadRemains Mod        */
-/*      which is maintained by DivergingLense Studios      */
-/*          and is published under the MIT License         */
-/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/*       This file was copied from Kapitencraft            */
+/*          https://github.com/Kapitencraft                */
 /***********************************************************/
 
 package net.diverginglensestudios.undeadremains.item.armor.client.renderer;
@@ -24,6 +22,7 @@ import java.util.function.Supplier;
  */
 public class ArmorRenderer<T extends ArmorModel> {
     private final T model;
+
     public ArmorRenderer(Supplier<LayerDefinition> supplier, Function<ModelPart, T> modelConstructor) {
         this.model = modelConstructor.apply(supplier.get().bakeRoot());
     }
@@ -43,13 +42,13 @@ public class ArmorRenderer<T extends ArmorModel> {
                         "body", slot == EquipmentSlot.CHEST ? checkNonNull(model.armorChest) : EMPTY_PART,
                         "right_arm", slot == EquipmentSlot.CHEST ? checkNonNull(model.armorRightArm) : EMPTY_PART,
                         "left_arm", slot == EquipmentSlot.CHEST ? checkNonNull(model.armorLeftArm) : EMPTY_PART,
-                        "right_leg", slot == EquipmentSlot.FEET ? checkNonNull(model.armorRightBoot) :
-                                slot == EquipmentSlot.LEGS ? checkNonNull(model.armorRightLeg) : EMPTY_PART,
-                        "left_leg", slot == EquipmentSlot.FEET ? checkNonNull(model.armorLeftBoot) :
-                                slot == EquipmentSlot.LEGS ? checkNonNull(model.armorLeftLeg) : EMPTY_PART
-                )
-        );
+                        "right_leg",
+                        slot == EquipmentSlot.FEET ? checkNonNull(model.armorRightBoot)
+                                : slot == EquipmentSlot.LEGS ? checkNonNull(model.armorRightLeg) : EMPTY_PART,
+                        "left_leg", slot == EquipmentSlot.FEET ? checkNonNull(model.armorLeftBoot)
+                                : slot == EquipmentSlot.LEGS ? checkNonNull(model.armorLeftLeg) : EMPTY_PART));
     }
+
     private static @NotNull ModelPart checkNonNull(@Nullable ModelPart part) {
         return part == null ? EMPTY_PART : part;
     }

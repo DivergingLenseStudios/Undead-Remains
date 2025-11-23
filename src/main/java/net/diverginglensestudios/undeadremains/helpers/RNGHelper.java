@@ -3,7 +3,7 @@
 /*          https://github.com/Kapitencraft                */
 /***********************************************************/
 
-package net.diverginglensestudios.undeadremains.loot;
+package net.diverginglensestudios.undeadremains.helpers;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

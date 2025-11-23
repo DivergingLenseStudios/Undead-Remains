@@ -3,12 +3,13 @@
 /*          https://github.com/Kapitencraft                */
 /***********************************************************/
 
-package net.diverginglensestudios.undeadremains.loot;
+package net.diverginglensestudios.undeadremains.helpers;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.diverginglensestudios.undeadremains.loot.IConditional;
 import net.diverginglensestudios.undeadremains.loot.LootContextReader;
+import net.diverginglensestudios.undeadremains.loot.ModLootModifier;
 import net.diverginglensestudios.undeadremains.loot.ModLootTableModifiers;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;

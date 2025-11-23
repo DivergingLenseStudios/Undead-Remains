@@ -1,8 +1,6 @@
 /***********************************************************/
-/*       This file is part of the UndeadRemains Mod        */
-/*      which is maintained by DivergingLense Studios      */
-/*          and is published under the MIT License         */
-/* https://github.com/DivergingLenseStudios/Undead-Remains */
+/*       This file was copied from Kapitencraft            */
+/*          https://github.com/Kapitencraft                */
 /***********************************************************/
 
 package net.diverginglensestudios.undeadremains.item.armor;
@@ -28,7 +26,6 @@ import java.util.function.Consumer;
 
 public abstract class ModArmorItem extends ArmorItem {
 
-    
     private static final String FULL_SET_ID = "hadFullSet";
     protected int fullSetTick = 0;
 
@@ -36,19 +33,20 @@ public abstract class ModArmorItem extends ArmorItem {
         super(pMaterial, pType, pProperties);
     }
 
-
     public boolean equals(ArmorItem item) {
         return this == item || item.getMaterial() == this.getMaterial();
     }
 
     @Override
-    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level level, @NotNull Entity entity, int slotID, boolean isSelected) {
+    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level level, @NotNull Entity entity, int slotID,
+            boolean isSelected) {
         if (entity instanceof LivingEntity living) {
             CompoundTag tag = living.getPersistentData();
             if (this.isFullSetActive(living)) {
                 if (this.getEquipmentSlot() == EquipmentSlot.CHEST) {
                     if (this.fullSetTick == 0) {
-                        if (!level.isClientSide) this.initFullSetTick(stack, level, living);
+                        if (!level.isClientSide)
+                            this.initFullSetTick(stack, level, living);
                         tag.putBoolean(FULL_SET_ID, true);
                         tag.putString("lastFullSet", this.getMaterial().getName());
                     }
@@ -61,13 +59,15 @@ public abstract class ModArmorItem extends ArmorItem {
                 }
             } else {
                 if (living.getPersistentData().getBoolean(FULL_SET_ID)) {
-                    if (!level.isClientSide) postFullSetTick(stack, level, living);
+                    if (!level.isClientSide)
+                        postFullSetTick(stack, level, living);
                     tag.putBoolean(FULL_SET_ID, false);
                 }
                 fullSetTick = 0;
             }
         }
     }
+
     public boolean isFullSetActive(LivingEntity living) {
         return isFullSetActive(living, this.getMaterial());
     }
@@ -76,7 +76,8 @@ public abstract class ModArmorItem extends ArmorItem {
         if (living == null) {
             return false;
         }
-        ArmorItem head = living.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ArmorItem armorItem ? armorItem : null;
+        ArmorItem head = living.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ArmorItem armorItem ? armorItem
+                : null;
         Item chestPlate = living.getItemBySlot(EquipmentSlot.CHEST).getItem();
         ArmorItem chest;
         if (chestPlate instanceof ElytraItem || chestPlate instanceof AirItem) {
@@ -84,17 +85,30 @@ public abstract class ModArmorItem extends ArmorItem {
         } else {
             chest = (ArmorItem) living.getItemBySlot(EquipmentSlot.CHEST).getItem();
         }
-        ArmorItem legs = living.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ArmorItem armorItem ? armorItem : null;
-        ArmorItem feet = living.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ArmorItem armorItem ? armorItem : null;
-        return (head != null && legs != null && feet != null) && (head.getMaterial() == materials && chest.getMaterial() == materials && legs.getMaterial() == materials && feet.getMaterial() == materials);
+        ArmorItem legs = living.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ArmorItem armorItem ? armorItem
+                : null;
+        ArmorItem feet = living.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ArmorItem armorItem ? armorItem
+                : null;
+        return (head != null && legs != null && feet != null)
+                && (head.getMaterial() == materials && chest.getMaterial() == materials
+                        && legs.getMaterial() == materials && feet.getMaterial() == materials);
     }
 
-    protected void fullSetTick(ItemStack stack, Level level, LivingEntity living) {}
-    protected void initFullSetTick(ItemStack stack, Level level, LivingEntity living) {}
-    protected void postFullSetTick(ItemStack stack, Level level, LivingEntity living) {}
-    protected void clientFullSetTick(ItemStack stack, Level level, LivingEntity living) {}
+    protected void fullSetTick(ItemStack stack, Level level, LivingEntity living) {
+    }
 
-    public Multimap<Attribute, AttributeModifier> getAttributeMods(EquipmentSlot slot) {return null;}
+    protected void initFullSetTick(ItemStack stack, Level level, LivingEntity living) {
+    }
+
+    protected void postFullSetTick(ItemStack stack, Level level, LivingEntity living) {
+    }
+
+    protected void clientFullSetTick(ItemStack stack, Level level, LivingEntity living) {
+    }
+
+    public Multimap<Attribute, AttributeModifier> getAttributeMods(EquipmentSlot slot) {
+        return null;
+    }
 
     @Override
     public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
@@ -109,15 +123,21 @@ public abstract class ModArmorItem extends ArmorItem {
     // display / model START
 
     protected abstract boolean withCustomModel();
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) { return null;}
+
+    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+        return null;
+    }
 
     @Override
     public void initializeClient(@NotNull Consumer<IClientItemExtensions> consumer) {
-        if (!withCustomModel()) return;
+        if (!withCustomModel())
+            return;
         consumer.accept(new IClientItemExtensions() {
             @Override
-            public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
-                HumanoidModel<?> armorModel = new HumanoidModel<>(getRenderer(living, stack, slot).makeArmorParts(slot));
+            public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity living, ItemStack stack,
+                    EquipmentSlot slot, HumanoidModel<?> original) {
+                HumanoidModel<?> armorModel = new HumanoidModel<>(
+                        getRenderer(living, stack, slot).makeArmorParts(slot));
                 armorModel.crouching = living.isShiftKeyDown();
                 armorModel.riding = original.riding;
                 armorModel.young = living.isBaby();
