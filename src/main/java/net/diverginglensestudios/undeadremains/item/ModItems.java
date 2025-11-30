@@ -18,6 +18,7 @@ import net.diverginglensestudios.undeadremains.item.custom.*;
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -89,7 +90,7 @@ public class ModItems {
                         () -> new Item(new Item.Properties().food(ModFoods.WRAP)));
 
         public static final RegistryObject<Item> CALIPO_BERRIES = ITEMS.register("calipo_berries",
-                        () -> new Item(new Item.Properties().food(ModFoods.CALIPO_BERRIES)));
+                        () -> new ItemNameBlockItem(ModBlocks.CALIPO_BERRY_VINE.get(), (new Item.Properties()).food(ModFoods.CALIPO_BERRIES)));
 
         // Fuel Items
         public static final RegistryObject<Item> METATURBONITE = ITEMS.register("metaturbonite",

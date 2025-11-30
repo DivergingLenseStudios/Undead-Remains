@@ -7,12 +7,26 @@
 
 package net.diverginglensestudios.undeadremains.datagen;
 
+import java.util.function.Function;
+
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.block.ModBlocks;
+import net.diverginglensestudios.undeadremains.block.custom.CalipoBerryVineBlock;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.PropertyDispatch;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelTemplate;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -60,6 +74,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         saplingBlock(ModBlocks.ASH_SAPLING);
         saplingBlock(ModBlocks.CALIPO_SAPLING);
         saplingBlock(ModBlocks.CREEPER_SAPLING);
+
+        glowVineBlock(ModBlocks.CALIPO_BERRY_VINE);
 
 
        simpleBlockWithItem(ModBlocks.FOSSIL_POLISHER.get(),
@@ -229,4 +245,26 @@ private void blockItem(RegistryObject<Block> blockRegistryObject) {
 private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 }
+private void glowVineBlock(RegistryObject<Block> blockRegistryObject) {
+    Block block = blockRegistryObject.get();
+    String baseName = ForgeRegistries.BLOCKS.getKey(block).getPath();
+    String noBerriesModel = baseName;
+    String berriesModel = baseName + "_berries";
+    ModelFile noBerries = models()
+            .cross(noBerriesModel,
+                    new ResourceLocation(UndeadRemains.MOD_ID, "block/" + baseName))
+            .renderType("cutout");
+    ModelFile withBerries = models()
+            .cross(berriesModel,
+                    new ResourceLocation(UndeadRemains.MOD_ID, "block/" + berriesModel))
+            .renderType("cutout");
+    getVariantBuilder(block).forAllStates(state -> {
+        boolean hasBerries = state.getValue(CalipoBerryVineBlock.BERRIES);
+        return ConfiguredModel.builder()
+                .modelFile(hasBerries ? withBerries : noBerries)
+                .build();
+    });
+}
+
+
 }

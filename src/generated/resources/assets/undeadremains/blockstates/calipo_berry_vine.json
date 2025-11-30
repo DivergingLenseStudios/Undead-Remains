@@ -1,0 +1,160 @@
+{
+  "variants": {
+    "age=0,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=0,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=1,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=1,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=10,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=10,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=11,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=11,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=12,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=12,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=13,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=13,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=14,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=14,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=15,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=15,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=16,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=16,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=17,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=17,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=18,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=18,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=19,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=19,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=2,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=2,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=20,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=20,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=21,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=21,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=22,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=22,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=23,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=23,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=24,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=24,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=25,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=25,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=3,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=3,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=4,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=4,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=5,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=5,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=6,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=6,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=7,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=7,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=8,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=8,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    },
+    "age=9,berries=false": {
+      "model": "undeadremains:block/calipo_berry_vine"
+    },
+    "age=9,berries=true": {
+      "model": "undeadremains:block/calipo_berry_vine_berries"
+    }
+  }
+}
