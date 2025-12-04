@@ -14,6 +14,7 @@ import net.diverginglensestudios.undeadremains.util.ModWoodTypes;
 import net.diverginglensestudios.undeadremains.worldgen.tree.*;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -30,6 +31,7 @@ public class ModBlocks {
         public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
                         UndeadRemains.MOD_ID);
 
+        ////////////////////BLOCKS////////////////////
         // Normal Blocks
         public static final RegistryObject<Block> FOSSIL_BLOCK = registerBlock("fossil_block",
                         () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK)));
@@ -219,20 +221,6 @@ public class ModBlocks {
                         () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
         public static final RegistryObject<Block> LANGSTONE_BRICK_WALL = registerBlock("langstone_brick_wall",
                         () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
-        // Saplings
-        public static final RegistryObject<Block> ASH_SAPLING = BLOCKS.register("ash_sapling",
-                        () -> new SaplingBlock(new AshTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)
-                                        .noOcclusion().noCollission()));
-
-        public static final RegistryObject<Block> CALIPO_SAPLING = BLOCKS.register("calipo_sapling",
-                        () -> new ModSaplingBlock(new CalipoTreeGrower(),
-                                        BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).noOcclusion().noCollission(),
-                                        ModBlocks.LIVING_LANGSTONE, false));
-
-        public static final RegistryObject<Block> CREEPER_SAPLING = BLOCKS.register("creeper_sapling",
-                        () -> new ModSaplingBlock(new CreeperTreeGrower(),
-                                        BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).noOcclusion().noCollission(),
-                                        ModBlocks.LANGSTONE, true));
 
         // Wood
         public static final RegistryObject<Block> ASH_LOG = registerBlock("ash_log",
@@ -389,6 +377,27 @@ public class ModBlocks {
         // Crops
         public static final RegistryObject<Block> CALIPO_BERRY_VINE = registerBlock("calipo_berry_vine",
                         () -> new CalipoBerryVineBlock(BlockBehaviour.Properties.copy(Blocks.CAVE_VINES)));
+
+        // Plants
+        public static final RegistryObject<Block> XANAS_FLOWER = registerBlock("xanas_flower",
+                        () -> new FlowerBlock(MobEffects.SLOW_FALLING, 200, BlockBehaviour.Properties.copy(Blocks.POPPY)));
+
+        // Saplings
+        public static final RegistryObject<Block> ASH_SAPLING = BLOCKS.register("ash_sapling",
+                        () -> new SaplingBlock(new AshTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)
+                                        .noOcclusion().noCollission()));
+
+        public static final RegistryObject<Block> CALIPO_SAPLING = BLOCKS.register("calipo_sapling",
+                        () -> new ModSaplingBlock(new CalipoTreeGrower(),
+                                        BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).noOcclusion().noCollission(),
+                                        ModBlocks.LIVING_LANGSTONE, false));
+
+        public static final RegistryObject<Block> CREEPER_SAPLING = BLOCKS.register("creeper_sapling",
+                        () -> new ModSaplingBlock(new CreeperTreeGrower(),
+                                        BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).noOcclusion().noCollission(),
+                                        ModBlocks.LANGSTONE, true));
+
+        ////////////////////BLOCKS////////////////////
 
         private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
                 RegistryObject<T> toReturn = BLOCKS.register(name, block);
