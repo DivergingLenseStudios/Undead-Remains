@@ -48,6 +48,8 @@ import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -108,6 +110,9 @@ public class UndeadRemains { // Define the Class for the Mod
 
         private void commonSetup(final FMLCommonSetupEvent event) {
                 event.enqueueWork(() -> {
+                        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ROXA_FLOWER.getId(), ModBlocks.POTTED_ROXA_FLOWER);
+                        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XANAS_FLOWER.getId(), ModBlocks.POTTED_XANAS_FLOWER);
+                        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XELKS_FLOWER.getId(), ModBlocks.POTTED_XELKS_FLOWER);
                         BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
                                         ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
                         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID,
