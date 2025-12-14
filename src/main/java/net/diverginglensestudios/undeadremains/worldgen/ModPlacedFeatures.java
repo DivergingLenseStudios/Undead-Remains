@@ -24,6 +24,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountOnEveryLayerPlacement;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -40,10 +41,22 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DEAD_ASH_PLACED_KEY = registerKey("dead_ash_placed");
     public static final ResourceKey<PlacedFeature> BURNING_ASH_PLACED_KEY = registerKey("burning_ash_placed");
     public static final ResourceKey<PlacedFeature> CALIPO_PLACED_KEY = registerKey("calipo_placed");
+    public static final ResourceKey<PlacedFeature> XANAS_FLOWER_PLACED_KEY =registerKey("xanas_flower_placed");
 
 public static void bootstrap(BootstapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+//FLOWERS
+register(context,XANAS_FLOWER_PLACED_KEY,
+    configuredFeatures.getOrThrow(ModConfiguredFeatures.XANAS_FLOWER_KEY),
+    List.of(
+        CountOnEveryLayerPlacement.of(10),
+        InSquarePlacement.spread(),
+        PlacementUtils.FULL_RANGE,
+        BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(ModBlocks.XANAS_FLOWER.get().defaultBlockState(), BlockPos.ZERO)),
+        BiomeFilter.biome()
+    ));
 
+//ORES
 register(context, FOSSIL_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_FOSSIL_ORE_KEY),
     ModOrePlacement.commonOrePlacement(12,
             HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
@@ -56,6 +69,7 @@ register(context, METATORBERNITE_ORE_PLACED_KEY, configuredFeatures.getOrThrow(M
     ModOrePlacement.commonOrePlacement(6,
             HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-10))));
 
+//TREES
 register(context, BONETREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BONETREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2)));
 

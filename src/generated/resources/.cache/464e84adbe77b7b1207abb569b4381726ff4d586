@@ -1,4 +1,4 @@
-// 1.20.1	2025-12-06T11:17:55.6123263	Block States: undeadremains
+// 1.20.1	2025-12-14T08:06:15.9846889	Block States: undeadremains
 aaa74034fa25753f3422a2bc0ee00cc890421117 assets/undeadremains/blockstates/ash_button.json
 8899645691211fd919a8edfb1fef8aac75656ce4 assets/undeadremains/blockstates/ash_door.json
 984c4efabeed11b892b4e20ec4bad601a6a9208d assets/undeadremains/blockstates/ash_fence.json
@@ -21,6 +21,7 @@ aef6dad3851582665b2fe5e6b22c75ec829cc996 assets/undeadremains/blockstates/ash_wo
 289ebacce911de6c56dbcc994a031290563ffed7 assets/undeadremains/blockstates/calipo_door.json
 6eb4c1f9a471db6277b0017d7bda5530c2151846 assets/undeadremains/blockstates/calipo_fence.json
 95f48e55c77e5b787d8d8c398803b4c922e7d16e assets/undeadremains/blockstates/calipo_fence_gate.json
+8da12d4697aa62eb2cb09e34e97565fdbdad4363 assets/undeadremains/blockstates/calipo_grass.json
 823b8766171679ea9b5844458217e8f285912b90 assets/undeadremains/blockstates/calipo_hanging_sign.json
 2066be613ca6df7c8eeedf61e827d4daf2a9433d assets/undeadremains/blockstates/calipo_leaves.json
 efb0fb85130e401452044a0b0049e17ad576a308 assets/undeadremains/blockstates/calipo_log.json
@@ -155,6 +156,7 @@ ba79afaf35d21018ee3937ab2a6b964e6ad6b5c7 assets/undeadremains/models/block/calip
 330616617934d7d33dde9a44e4044d9fdb3a07fe assets/undeadremains/models/block/calipo_fence_gate_wall_open.json
 7ea2d4c03d889d9ea804714263ee4022f239639f assets/undeadremains/models/block/calipo_fence_post.json
 1e8cae13e33a63abfa6a5aba0b999028c8df4176 assets/undeadremains/models/block/calipo_fence_side.json
+8d8d013b5b595dd4e87f8f0116143b0ce102bb70 assets/undeadremains/models/block/calipo_grass.json
 b108c8dcea1db30937380f1a44d1e3770e12b2b5 assets/undeadremains/models/block/calipo_hanging_sign.json
 265b00591527e47247ddd9fec72c49d5e7726809 assets/undeadremains/models/block/calipo_leaves.json
 5ed991e40657663bf401d2363301fc5e1e154d12 assets/undeadremains/models/block/calipo_log.json
@@ -300,6 +302,7 @@ ec785e69973426454057a7cc6dad32db42be598c assets/undeadremains/models/item/ash_le
 65c478b726a7dbab2e2edce4b558aaa9883c9027 assets/undeadremains/models/item/ash_log.json
 e134f7568aac3be3089cbea3d6dcadc477469ce5 assets/undeadremains/models/item/ash_planks.json
 9896b216a632203f49bb52f62d9795e273eaa53b assets/undeadremains/models/item/ash_wood.json
+e7670caba0bd11d3fccb63bdd679c41149fc2320 assets/undeadremains/models/item/calipo_grass.json
 c19b231f1ae0e44a5783618633c1bf4d6ebd8112 assets/undeadremains/models/item/calipo_leaves.json
 0ce830c95b21cfd55b2e3842f24b57016d56fa3b assets/undeadremains/models/item/calipo_log.json
 ae904d590765cbd0e87be9d9f57c3e1a2274d39f assets/undeadremains/models/item/calipo_planks.json

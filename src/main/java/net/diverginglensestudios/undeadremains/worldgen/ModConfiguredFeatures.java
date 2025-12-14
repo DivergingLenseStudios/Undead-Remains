@@ -13,19 +13,25 @@ import net.diverginglensestudios.undeadremains.util.ModTags;
 import net.diverginglensestudios.undeadremains.worldgen.tree.custom.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
@@ -42,11 +48,24 @@ public static final ResourceKey<ConfiguredFeature<?,?>> ASH_KEY = registerKey("a
 public static final ResourceKey<ConfiguredFeature<?,?>> BONETREE_KEY = registerKey("bonetree_key");
 public static final ResourceKey<ConfiguredFeature<?,?>> CALIPO_KEY = registerKey("calipo");
 public static final ResourceKey<ConfiguredFeature<?,?>> CREEPER_KEY = registerKey("creeper_key");
+public static final ResourceKey<ConfiguredFeature<?, ?>> XANAS_FLOWER_KEY =registerKey("xanas_flower_key");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceable = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest langstoneReplaceables = new TagMatchTest(ModTags.Blocks.LANGSTONE_REPLACEABLES);
+
+//Flowers
+register(context, XANAS_FLOWER_KEY, Feature.FLOWER, 
+    new RandomPatchConfiguration(32,6,2, PlacementUtils.onlyWhenEmpty(
+            Feature.SIMPLE_BLOCK,new SimpleBlockConfiguration(new WeightedStateProvider(
+                    new SimpleWeightedRandomList.Builder<BlockState>()
+                        .add(ModBlocks.XANAS_FLOWER.get().defaultBlockState(), 1)
+                        .add(ModBlocks.XELKS_FLOWER.get().defaultBlockState(), 1)
+                        .add(ModBlocks.LYXOR_FLOWER.get().defaultBlockState(), 1)
+                        .add(ModBlocks.ROXA_FLOWER.get().defaultBlockState(), 1)
+                        .add(ModBlocks.CALIPO_GRASS.get().defaultBlockState(), 1)
+                        .build())))));
 
 //ORES
 List<OreConfiguration.TargetBlockState> overworldFossilOres = List.of(OreConfiguration.target(stoneReplaceable,
@@ -85,6 +104,7 @@ register(context, CREEPER_KEY, Feature.TREE, new TreeConfiguration.TreeConfigura
     new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0),
     new TwoLayersFeatureSize(1, 0, 1)
 ).build());
+
 
 register(context, CALIPO_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
     BlockStateProvider.simple(ModBlocks.CALIPO_LOG.get()),
