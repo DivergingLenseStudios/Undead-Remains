@@ -34,11 +34,11 @@ public class ModFoods {
                         .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 6000, 0), 1.0F)
                         .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 2400, 3), 1.0F).alwaysEat().build();
 
-        public static final FoodProperties RAW_XANARIAN_MEAT = new FoodProperties.Builder().nutrition(1).fast()
+        public static final FoodProperties RAW_XANARIAN_MEAT = new FoodProperties.Builder().nutrition(1)
                         .saturationMod(0.1f)
                         .build();
 
-        public static final FoodProperties XANARIAN_MEAT = new FoodProperties.Builder().nutrition(2).fast()
+        public static final FoodProperties XANARIAN_MEAT = new FoodProperties.Builder().nutrition(2)
                         .saturationMod(0.2f)
                         .build();
 
@@ -47,15 +47,15 @@ public class ModFoods {
                         .saturationMod(0.2f)
                         .build();
 
-        public static final FoodProperties XANARIAN_KEBAB_WRAP = new FoodProperties.Builder().nutrition(4).fast()
+        public static final FoodProperties XANARIAN_KEBAB_WRAP = new FoodProperties.Builder().nutrition(4)
                         .saturationMod(0.2f)
                         .build();
 
-        public static final FoodProperties XANARIAN_KEBAB = new FoodProperties.Builder().nutrition(4).fast()
+        public static final FoodProperties XANARIAN_KEBAB = new FoodProperties.Builder().nutrition(4)
                         .saturationMod(0.2f)
                         .build();
 
-        public static final FoodProperties WRAP = new FoodProperties.Builder().nutrition(1).fast()
+        public static final FoodProperties WRAP = new FoodProperties.Builder().nutrition(1)
                         .saturationMod(0.1f)
                         .build();
 
