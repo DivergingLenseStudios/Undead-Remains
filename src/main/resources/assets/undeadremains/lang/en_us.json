@@ -6,6 +6,17 @@
 
   "item.undeadremains.fossilized_drumstick": "Fossilized Drummstick",
   "item.undeadremains.the_fossils_eye": "The Fossils Eye",
+  "item.undeadremains.xanarian_meat": "Xanarian Meat",
+  "item.undeadremains.xanarian_kebab": "Xanarian Kebab",
+  "item.undeadremains.xanarian_shish_kebab": "Xanarian Shish Kebab",
+  "item.undeadremains.xanarian_kebab_wrap": "Xanarian Kebab Wrap",
+  "item.undeadremains.raw_xanarian_meat": "Raw Xanarian Meat",
+  "item.undeadremains.wrap": "Wrap",
+  "item.undeadremains.xans_leaf": "Xans Leaf",
+  "item.undeadremains.calipo_berries": "Calipo Berries",
+
+  "item.undeadremains.xans_leaf_seeds": "Xans Leaf Seeds",
+
   "item.undeadremains.raw_langrite": "Raw Langrite",
   "item.undeadremains.langrite_ingot": "Langrite Ingot",
 
@@ -61,6 +72,7 @@
   "item.undeadremains.clock_modified_fossil_chestplate": "Clock Modified Fossil Chestplate",
   "item.undeadremains.scute_modified_fossil_leggings": "Scute Modified Fossil Leggings",
   "item.undeadremains.sculk_shard_modified_fossil_boots": "Sculk Shard Modified Fossil Boots",
+  "item.undeadremains.xanarian_spine_chestplate": "Xanarian Spine Chestplate",
   "item.undeadremains.cow_helmet": "Cow Helmet",
   "item.undeadremains.cow_chestplate": "Cow Chestplate",
   "item.undeadremains.cow_leggings": "Cow Leggings",
@@ -97,6 +109,7 @@
   "item.undeadremains.xanarian_spawn_egg": "Xanarian Spawn Egg",
   "item.undeadremains.four_eyed_xanarian_spawn_egg": "Four Eyed Xanarian Spawn Egg",
   "item.undeadremains.horned_xanarian_spawn_egg": "Horned Xanarian Spawn Egg",
+  "item.undeadremains.xanarian_cannibal_spawn_egg": "Xanarian Cannibal Spawn Egg",
   "item.undeadremains.supreme_knight_spawn_egg": "Sahn Uzal Spawn Egg",
 
   "item.undeadremains.ash_boat": "Ash Boat",
@@ -144,10 +157,14 @@
   "block.undeadremains.supreme_tiles": "Supreme Tiles",
   "block.undeadremains.supreme_pilar": "Supreme Pilar",
 
+  "block.undeadremains.lyxor_flower": "Lyxor Flower",
+  "block.undeadremains.calipo_grass": "Calipo Grass",
   "block.undeadremains.roxa_flower": "Roxa Flower",
   "block.undeadremains.potted_roxa_flower": "Potted Roxa Flower",
   "block.undeadremains.xanas_flower": "Xanas Flower",
   "block.undeadremains.potted_xanas_flower": "Potted Xanas Flower",
+  "block.undeadremains.xelks_flower": "Xelks Flower",
+  "block.undeadremains.potted_xelks_flower": "Potted Xelks Flower",
 
   "block.undeadremains.calipo_stairs": "Calipo Stairs",
   "block.undeadremains.calipo_slab": "Calipo Slab",
@@ -239,10 +256,13 @@
 
   "effect.undeadremains.fossilized_heart.desc": "Fossilized Heart",
   "effect.undeadremains.fossilized_heart": "Fossilized Heart",
+  "effect.undeadremains.fossil_vision.desc": "Counteracts Darkness",
+  "effect.undeadremains.fossil_vision": "Fossil Vision",
 
   "item.minecraft.tipped_arrow.effect.fossilized_heart_potion": "Arrow of Fossilized Heart",
   "item.minecraft.potion.effect.fossilized_heart_potion": "Potion of Fossilized Heart",
   "item.minecraft.splash_potion.effect.fossilized_heart_potion": "Splash Potion of Fossilized Heart",
+  "item.minecraft.lingering.effect.fossilized_heart_potion": "Lingering Potion of Fossilized Heart",
   "effect.undeadremains.fossilzed_hearth": "Lingering Potion of Fossilized Heart",
 
   "creativetab.tutorial_tab": "Undead Remains"
