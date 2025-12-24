@@ -167,6 +167,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.RARE_FOSSIL_HOE);
         // Armor
         trimmedArmorItem(ModItems.GAS_MASK);
+        trimmedArmorItem(ModItems.XANARIAN_SPINE_CHESTPLATE);
         trimmedArmorItem(ModItems.METATORBERNITE_GAS_MASK);
         trimmedArmorItem(ModItems.FOSSIL_HELMET);
         trimmedArmorItem(ModItems.FOSSIL_CHESTPLATE);

@@ -227,8 +227,7 @@ public class ModItems {
 
         // Xanarian_Spine_Chestplate
         public static final RegistryObject<Item> XANARIAN_SPINE_CHESTPLATE = ITEMS.register("xanarian_spine_chestplate",
-                        () -> new ArmorItem(ModArmorMaterials.XANARIAN, ArmorItem.Type.CHESTPLATE,
-                                        new Item.Properties()));
+                        () -> new XanarianSpineChestplateItem(ArmorItem.Type.CHESTPLATE));
 
         // Cow_Zombie_Armor
         public static final RegistryObject<Item> COW_HELMET = ITEMS.register("cow_helmet",
