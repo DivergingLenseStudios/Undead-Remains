@@ -14,6 +14,7 @@ import javax.annotation.Nullable;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.entity.ai.BetterHurtByTargetGoal;
 import net.diverginglensestudios.undeadremains.entity.ai.ModMoveThroughVillageGoal;
+import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -22,7 +23,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
@@ -95,7 +99,7 @@ public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSou
 @Nullable
 @Override
 protected SoundEvent getAmbientSound() {
-    return SoundEvents.ZOMBIE_AMBIENT;
+    return ModSounds.XANARIAN_IDLE.get();
 }
 
 @Nullable

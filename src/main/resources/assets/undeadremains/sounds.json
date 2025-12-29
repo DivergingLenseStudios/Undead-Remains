@@ -5,6 +5,12 @@
       "undeadremains:metal_detector_found_ore"
     ]
   },
+  "xanarian_idle": {
+    "subtitles": "sounds.undeadremains.xanarian_idle",
+    "sounds": [
+      "undeadremains:xanarian_idle"
+    ]
+  },
   "sound_block_break": {
     "subtitle": "sounds.undeadremains.sound_block_break",
     "sounds": [
