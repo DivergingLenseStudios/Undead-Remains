@@ -18,6 +18,7 @@ import net.diverginglensestudios.undeadremains.item.custom.*;
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -33,7 +34,7 @@ public class ModItems {
         public static final RegistryObject<Item> FOSSIL = ITEMS.register("fossil",
                         () -> new Item(new Item.Properties()));
         public static final RegistryObject<Item> RARE_FOSSIL = ITEMS.register("rare_fossil",
-                        () -> new Item(new Item.Properties()));
+                        () -> new ModTooltipItem(new Item.Properties(),"tooltip.undeadremains.rare_fossil"));
         public static final RegistryObject<Item> RAW_FOSSIL = ITEMS.register("raw_fossil",
                         () -> new Item(new Item.Properties()));
         public static final RegistryObject<Item> RAW_DEEPSLATE_FOSSIL = ITEMS.register("raw_deepslate_fossil",
@@ -53,7 +54,7 @@ public class ModItems {
         public static final RegistryObject<Item> LANGRITE_INGOT = ITEMS.register("langrite_ingot",
                         () -> new Item(new Item.Properties()));
         public static final RegistryObject<Item> EMPTY_FUEL_CELL = ITEMS.register("empty_fuel_cell",
-                        () -> new Item(new Item.Properties()));
+                        () -> new ModTooltipItem(new Item.Properties(),"tooltip.undeadremains.empty_fuel_cell"));
         // Advanced Items
         public static final RegistryObject<Item> METATORBERNITE_GRENADE = ITEMS.register("metatorbernite_grenade",
                         () -> new MetatorberniteGrenadeItem(new Item.Properties()));
@@ -265,8 +266,8 @@ public class ModItems {
         public static final RegistryObject<Item> CALIPO_SAPLING_ITEM = ITEMS.register("calipo_sapling",
                         () -> new BlockItem(ModBlocks.CALIPO_SAPLING.get(), new Item.Properties()));
 
-         public static final RegistryObject<Item> XANS_LEAF_SEEDS = ITEMS.register("xans_leaf_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.XANS_LEAVES.get(), new Item.Properties()));
+        public static final RegistryObject<Item> XANS_LEAF_SEEDS = ITEMS.register("xans_leaf_seeds",
+                        () -> new ItemNameBlockItem(ModBlocks.XANS_LEAVES.get(), new Item.Properties()));
 
         // Music
         public static final RegistryObject<Item> UNDYING_WHISPERS_MUSIC_DISC = ITEMS.register(
@@ -353,6 +354,18 @@ public class ModItems {
                         () -> new ModBoatItem(false, ModBoatEntity.Type.ASH, new Item.Properties()));
         public static final RegistryObject<Item> ASH_CHEST_BOAT = ITEMS.register("ash_chest_boat",
                         () -> new ModBoatItem(true, ModBoatEntity.Type.ASH, new Item.Properties()));
+
+                public static final RegistryObject<Item> METATORBERNITE_ENRICHER_CONTROLLER_ITEM = ITEMS.register(
+            "metatorbernite_enricher_controller",
+            () -> new BlockItem(ModBlocks.METATORBERNITE_ENRICHER_CONTROLLER.get(), 
+                new Item.Properties())
+        );
+
+        public static final RegistryObject<Item> METATORBERNITE_ENRICHER_PART_ITEM = ITEMS.register(
+            "metatorbernite_enricher_part",
+            () -> new BlockItem(ModBlocks.METATORBERNITE_ENRICHER_PART.get(), 
+                new Item.Properties())
+        );
 
         public static void register(IEventBus eventBus) {
                 ITEMS.register(eventBus);

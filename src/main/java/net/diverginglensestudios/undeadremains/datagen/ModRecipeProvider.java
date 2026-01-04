@@ -461,8 +461,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                 .define('A', Ingredient.of(ItemTags.create(new ResourceLocation("minecraft", "coals"))))
                                 .define('D', ModItems.METATORBERNITE_HELMET.get())
                                 .define('Y', Items.GLASS_BOTTLE)
-                                .unlockedBy(getHasName(Blocks.DEEPSLATE), has(Blocks.DEEPSLATE))
-                                .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
+                                .unlockedBy(getHasName(Items.COAL), has(Items.COAL))
+                                .save(pWriter);
+               ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.XANARIAN_SPINE_CHESTPLATE.get())
+                                .pattern("S S")
+                                .pattern("SDS")
+                                .pattern("SSS")
+                                .define('S', Ingredient.of(ItemTags.create(new ResourceLocation("forge", "xanarian_leather"))))
+                                .define('D', ModItems.XANARIAN_SPINE.get())
+                                .unlockedBy(getHasName(ModItems.XANARIAN_SPINE.get()),has(ItemTags.create(new ResourceLocation("forge", "xanarian_spine"))))
                                 .save(pWriter);
                 // ARMOR//
                 // TOOLS//

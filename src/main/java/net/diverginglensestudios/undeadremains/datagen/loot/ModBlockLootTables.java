@@ -112,6 +112,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 this.dropSelf(ModBlocks.ROXA_FLOWER.get());
                 this.dropSelf(ModBlocks.LYXOR_FLOWER.get());
                 this.dropSelf(ModBlocks.XELKS_FLOWER.get());
+                this.dropSelf(ModBlocks.METATORBERNITE_ENRICHER_CONTROLLER.get());
+                this.dropSelf(ModBlocks.METATORBERNITE_ENRICHER_PART.get());
 
                 this.dropOther(ModBlocks.CALIPO_BERRY_VINE.get(), Items.AIR);
 

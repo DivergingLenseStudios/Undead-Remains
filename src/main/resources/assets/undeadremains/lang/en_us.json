@@ -266,7 +266,9 @@
   "effect.undeadremains.fossilzed_hearth": "Lingering Potion of Fossilized Heart",
 
   "tooltip.undeadremains.the_fossils_eye":"Gives Night Vision",
+  "tooltip.undeadremains.rare_fossil":"Drops from Fossil Ore",
   "tooltip.undeadremains.the_quartz_modified_fossils_eye":"Counteracts Darkness Effect",
+  "tooltip.undeadremains.empty_fuel_cell":"Work in progress",
 
   "creativetab.tutorial_tab": "Undead Remains"
 

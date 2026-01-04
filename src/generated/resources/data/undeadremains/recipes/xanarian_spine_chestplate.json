@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "undeadremains:xanarian_spine"
+    },
+    "S": {
+      "tag": "forge:xanarian_leather"
+    }
+  },
+  "pattern": [
+    "S S",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "item": "undeadremains:xanarian_spine_chestplate"
+  },
+  "show_notification": true
+}
