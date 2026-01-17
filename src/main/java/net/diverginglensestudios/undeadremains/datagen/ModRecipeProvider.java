@@ -289,6 +289,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                 .save(pWriter);
                 // ITEMS//
                 // BLOCKS//
+                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.METATORBERNITE_ENRICHER_CONTROLLER.get())
+                                .pattern("IRI")
+                                .pattern("RCR")
+                                .pattern("IRI")
+                                .define('I', Blocks.IRON_BLOCK)
+                                .define('R', Items.REDSTONE)
+                                .define('C', ModBlocks.FOSSIL_ALTAR.get())
+                                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
+                                .save(pWriter);
+                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.METATORBERNITE_ENRICHER_PART.get())
+                                .pattern("INI")
+                                .pattern("IRI")
+                                .pattern("INI")
+                                .define('I', Blocks.IRON_BLOCK)
+                                .define('R', Items.REDSTONE)
+                                .define('N', Items.IRON_NUGGET)
+                                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
+                                .save(pWriter);
                 ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ASH_SIGN.get())
                                 .pattern("WWW")
                                 .pattern("WWW")
@@ -463,7 +481,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                 .define('Y', Items.GLASS_BOTTLE)
                                 .unlockedBy(getHasName(Items.COAL), has(Items.COAL))
                                 .save(pWriter);
-               ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.XANARIAN_SPINE_CHESTPLATE.get())
+                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.XANARIAN_SPINE_CHESTPLATE.get())
                                 .pattern("S S")
                                 .pattern("SDS")
                                 .pattern("SSS")

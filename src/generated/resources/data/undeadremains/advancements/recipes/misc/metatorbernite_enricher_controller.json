@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "undeadremains:ash_sign"
+        "recipe": "undeadremains:metatorbernite_enricher_controller"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "undeadremains:ash_sign"
+      "undeadremains:metatorbernite_enricher_controller"
     ]
   },
   "sends_telemetry_event": false

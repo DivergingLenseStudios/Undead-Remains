@@ -2,23 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
+    "C": {
+      "item": "undeadremains:fossil_altar"
+    },
     "I": {
       "item": "minecraft:iron_block"
-    },
-    "N": {
-      "item": "minecraft:iron_nugget"
     },
     "R": {
       "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "INI",
     "IRI",
-    "INI"
+    "RCR",
+    "IRI"
   ],
   "result": {
-    "item": "undeadremains:ash_sign"
+    "item": "undeadremains:metatorbernite_enricher_controller"
   },
   "show_notification": true
 }
