@@ -6,9 +6,8 @@
 /***********************************************************/
 package net.diverginglensestudios.undeadremains.block.entity;
 
+import net.diverginglensestudios.undeadremains.block.custom.FossilAltarBlock;
 import net.diverginglensestudios.undeadremains.item.ModItems;
-import net.diverginglensestudios.undeadremains.recipe.GemPolishingRecipe;
-import net.diverginglensestudios.undeadremains.screen.FossilPolishingStationMenu;
 import net.diverginglensestudios.undeadremains.screen.XanarianGatewayMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,6 +16,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -35,30 +37,30 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-import java.util.Optional;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(2) {
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-            if(!level.isClientSide()) {
-                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-            }
-        }
-    };
+	private final ItemStackHandler itemHandler = new ItemStackHandler(2) {
+		@Override
+		protected void onContentsChanged(int slot) {
+			setChanged();
+			if(!level.isClientSide()) {
+				level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+			}
+		}
+	};
 
-    private static final int INPUT_SLOT = 0;
-    private static final int OUTPUT_SLOT = 1;
 
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+	private static final int INPUT_SLOT = 0;
+	private static final int OUTPUT_SLOT = 1;
 
-    protected final ContainerData data;
-    private int progress = 0;
-    private int maxProgress = 78;
+	private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+
+	protected final ContainerData data;
+	private int progress = 0;
+	private int maxProgress = 78;
+	public int charge = 0;
 
     public XanarianGatewayBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.XANARIAN_GATEWAY_BE.get(), pPos, pBlockState);
@@ -71,6 +73,8 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
                     default -> 0;
                 };
             }
+
+
 
             @Override
             public void set(int pIndex, int pValue) {
@@ -139,7 +143,7 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
         pTag.putInt("xanarian_gateway.progress", progress);
-
+        pTag.putInt("xanarian_gateway.charge", charge);
         super.saveAdditional(pTag);
     }
 
@@ -148,6 +152,7 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         progress = pTag.getInt("xanarian_gateway.progress");
+        charge = pTag.getInt("xanarian_gateway.charge");
     }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
@@ -174,13 +179,15 @@ private void craftItem() {
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
                 this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
+		this.charge++;
+        System.out.println("current charge is "+ charge);
     }
 
     private boolean hasRecipe() {
         boolean hasCraftingItem = this.itemHandler.getStackInSlot(INPUT_SLOT).getItem() == ModItems.METATURBONITE.get();
         ItemStack result = new ItemStack(ModItems.EMPTY_FUEL_CELL.get());
 
-        return hasCraftingItem && canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
+        return hasCraftingItem && canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem())&&charge<4;
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
@@ -208,5 +215,17 @@ private void craftItem() {
     @Override
     public CompoundTag getUpdateTag() {
         return saveWithoutMetadata();
+    }
+
+
+    public boolean canTeleport() {
+        return charge > 0;
+    }
+
+    public void consumeCharge() {
+        if (charge > 0) {
+            charge--;
+            setChanged();
+        }
     }
 }
