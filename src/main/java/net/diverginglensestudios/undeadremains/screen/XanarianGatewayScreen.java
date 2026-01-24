@@ -18,8 +18,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class XanarianGatewayScreen extends AbstractContainerScreen<XanarianGatewayMenu> {
-    private static final ResourceLocation TEXTURE =
-            new ResourceLocation(UndeadRemains.MOD_ID, "textures/gui/xanarian_gateway_screen.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(UndeadRemains.MOD_ID,
+            "textures/gui/xanarian_gateway_screen.png");
 
     public XanarianGatewayScreen(XanarianGatewayMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -46,8 +46,8 @@ public class XanarianGatewayScreen extends AbstractContainerScreen<XanarianGatew
     }
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
-        if(menu.isCrafting()) {
-            guiGraphics.blit(TEXTURE, x + 85, y + 30, 176, 0, 8, menu.getScaledProgress());
+        if (menu.isCrafting()) {
+            guiGraphics.blit(TEXTURE, x + 58, y + 36, 176, 0, 8, menu.getScaledProgress());
         }
     }
 
