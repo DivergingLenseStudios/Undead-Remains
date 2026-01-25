@@ -45,10 +45,15 @@ public class PlayerXanarianReputation {
     }
     private void onReputationChanged(ServerPlayer player, int oldValue, int newValue) {
         int delta = newValue - oldValue;
+        if (newValue <= -20){
+            player.displayClientMessage(Component.literal("Xanarian Reputation is now " + this.getXanarianReputation() + ". (Bad)"),true);
+        }
+        else if (newValue > -20 && newValue < 50){
+            player.displayClientMessage(Component.literal("Xanarian Reputation is now " + this.getXanarianReputation() + ". (Neutral)"),true);
+        }
+        else if (newValue >= 50) {
+            player.displayClientMessage(Component.literal("Xanarian Reputation is now " + this.getXanarianReputation() + ". (Good)"),true);
+        }
 
-        Component msg = Component.literal(
-                "Xanarian Reputation is now " + this.getXanarianReputation());
-
-        player.displayClientMessage(msg,true);
     }
 }
