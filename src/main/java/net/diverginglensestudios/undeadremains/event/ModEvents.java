@@ -12,6 +12,7 @@ import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.effects.ModEffects;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.AbstractXanarian;
+import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.XanarianCannibalEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.BigWoodlingEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.SmallWoodlingEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.StrayZombieEntity;
@@ -107,6 +108,17 @@ public class ModEvents {
             player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
                     .ifPresent(rep -> {
                         rep.subXanarianReputation(player, 10);
+                    });
+        }
+        //If a Xanarian Cannibal is killed, reputation goes up
+        else if (entity instanceof XanarianCannibalEntity){
+            DamageSource source = event.getSource();
+            if (!(source.getEntity()instanceof ServerPlayer player)){
+                return;
+            }
+            player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
+                    .ifPresent(rep -> {
+                        rep.addXanarianReputation(player, 10);
                     });
         }
     }
