@@ -11,6 +11,7 @@ package net.diverginglensestudios.undeadremains.event;
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.effects.ModEffects;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
+import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.AbstractXanarian;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.BigWoodlingEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.SmallWoodlingEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.StrayZombieEntity;
@@ -23,6 +24,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -67,7 +69,7 @@ public class ModEvents {
     public static void onMobDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
 
-        // Check if it's our TreeZombie
+        //If a tree zombie dies, two woodlings are spawned
         if (entity instanceof TreeZombieEntity treeZombie) {
             Level level = treeZombie.level();
             if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
@@ -85,7 +87,7 @@ public class ModEvents {
             }
         }
         // If a normal zombie dies in powder snow, replace it with our StrayZombie
-        if (entity instanceof Zombie && !(entity instanceof StrayZombieEntity)) {
+        else if (entity instanceof Zombie && !(entity instanceof StrayZombieEntity)) {
             Level level = entity.level();
             if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
                 BlockState under = level.getBlockState(entity.blockPosition());
@@ -95,6 +97,17 @@ public class ModEvents {
                     serverLevel.addFreshEntity(stray);
                 }
             }
+        }
+        //If a Xanarian is killed, reputation goes down
+        else if (entity instanceof AbstractXanarian){
+            DamageSource source = event.getSource();
+            if (!(source.getEntity()instanceof ServerPlayer player)){
+                return;
+            }
+            player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
+                    .ifPresent(rep -> {
+                        rep.subXanarianReputation(player, 10);
+                    });
         }
     }
 
