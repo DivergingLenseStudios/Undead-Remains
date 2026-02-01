@@ -29,7 +29,7 @@ public class PlayerXanarianReputation {
         xanarianreputation = Mth.clamp(value, MIN_XANARIAN_REPUTATION, MAX_XANARIAN_REPUTATION);
 
         if (old != xanarianreputation) {
-            onReputationChanged(player, old, xanarianreputation);
+            onReputationChanged(player, xanarianreputation);
         }
     }
     public int getXanarianReputation() {
@@ -44,26 +44,18 @@ public class PlayerXanarianReputation {
     public void loadNBTdata(CompoundTag nbt){
         xanarianreputation = nbt.getInt("xanarianreputation");
     }
-    private void onReputationChanged(ServerPlayer player, int oldValue, int newValue) {
-        int delta = newValue - oldValue;
+    private void onReputationChanged(ServerPlayer player, int newValue) {
         if (newValue <= -20) {
-            player.displayClientMessage(
-                    Component.literal("Xanarian Reputation is now " + newValue + ". ")
-                            .append(Component.literal("(Bad)").withStyle(ChatFormatting.RED)),
-                    true
-            );
-        } else if (newValue < 50) {
-            player.displayClientMessage(
-                    Component.literal("Xanarian Reputation is now " + newValue + ". ")
-                            .append(Component.literal("(Neutral)").withStyle(ChatFormatting.YELLOW)),
-                    true
-            );
-        } else {
-            player.displayClientMessage(
-                    Component.literal("Xanarian Reputation is now " + newValue + ". ")
-                            .append(Component.literal("(Good)").withStyle(ChatFormatting.GREEN)),
-                    true
-            );
+            player.displayClientMessage(Component.literal("Xanarian Reputation is now " + newValue + ". ")
+                            .append(Component.literal("(Bad)").withStyle(ChatFormatting.RED)),true);
+        }
+        else if (newValue < 50) {
+            player.displayClientMessage(Component.literal("Xanarian Reputation is now " + newValue + ". ")
+                            .append(Component.literal("(Neutral)").withStyle(ChatFormatting.YELLOW)),true);
+        }
+        else {
+            player.displayClientMessage(Component.literal("Xanarian Reputation is now " + newValue + ". ")
+                            .append(Component.literal("(Good)").withStyle(ChatFormatting.GREEN)),true);
         }
     }
 }
