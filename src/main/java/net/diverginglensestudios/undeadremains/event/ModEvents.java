@@ -18,6 +18,7 @@ import net.diverginglensestudios.undeadremains.entity.custom.Zombies.SmallWoodli
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.StrayZombieEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.TreeZombieEntity;
 import net.diverginglensestudios.undeadremains.item.ModItems;
+import net.diverginglensestudios.undeadremains.worldgen.dimension.ModDimensions;
 import net.diverginglensestudios.undeadremains.xanarianreputation.PlayerXanarianReputation;
 import net.diverginglensestudios.undeadremains.xanarianreputation.PlayerXanarianReputationProvider;
 import net.minecraft.core.BlockPos;
@@ -32,6 +33,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -119,6 +121,17 @@ public class ModEvents {
             player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
                     .ifPresent(rep -> {
                         rep.addXanarianReputation(player, 10);
+                    });
+        }
+        //If a Creeper is killed in Xanas, reputation goes up
+        else if (entity instanceof Creeper creeper && creeper.level().dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY){
+            DamageSource source = event.getSource();
+            if (!(source.getEntity()instanceof ServerPlayer player)){
+                return;
+            }
+            player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
+                    .ifPresent(rep -> {
+                        rep.addXanarianReputation(player, 5);
                     });
         }
     }
