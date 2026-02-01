@@ -12,8 +12,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
-import net.diverginglensestudios.undeadremains.entity.ai.BetterHurtByTargetGoal;
-import net.diverginglensestudios.undeadremains.entity.ai.ModMoveThroughVillageGoal;
+import net.diverginglensestudios.undeadremains.entity.ai.*;
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -72,13 +71,15 @@ protected void updateWalkAnimation(float pPartialTick) {
 
 @Override
 protected void registerGoals() {
-    this.goalSelector.addGoal(1, new BetterHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(), ModEntities.XANARIAN.get(),ModEntities.HORNED_XANARIAN.get())));
+    this.goalSelector.addGoal(1, new XanarianHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(), ModEntities.XANARIAN.get(),ModEntities.HORNED_XANARIAN.get())));
     this.goalSelector.addGoal(1, new FloatGoal(this));
-    this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
-    this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+    this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
+    this.goalSelector.addGoal(3, new XanarianReputationTargetGoal(this));
+    this.goalSelector.addGoal(3, new XanarianProtectPlayerGoal(this));
     this.goalSelector.addGoal(6, new ModMoveThroughVillageGoal(this, 1.0D, true, 4, true));
     this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-    this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
+    this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+    this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 }
 
 public static AttributeSupplier.Builder createAttributes() {
