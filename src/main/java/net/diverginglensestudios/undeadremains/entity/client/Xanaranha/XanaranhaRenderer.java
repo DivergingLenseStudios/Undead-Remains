@@ -10,24 +10,25 @@ package net.diverginglensestudios.undeadremains.entity.client.Xanaranha;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.entity.client.ModModelLayers;
+import net.diverginglensestudios.undeadremains.entity.custom.Fish.XanaranhaEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.XanarianEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public class XanaranhaRenderer extends MobRenderer<XanarianEntity, XanaranhaModel<XanarianEntity>> {
+public class XanaranhaRenderer extends MobRenderer<XanaranhaEntity, XanaranhaModel<XanaranhaEntity>> {
     public XanaranhaRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new XanaranhaModel<>(pContext.bakeLayer(ModModelLayers.XANARIAN_LAYER)), 0.5f);
+        super(pContext, new XanaranhaModel<>(pContext.bakeLayer(ModModelLayers.XANARANHA_LAYER)), 0.5f);
     }
 
     @Override
-    public ResourceLocation getTextureLocation(XanarianEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/xanarian.png");
+    public ResourceLocation getTextureLocation(XanaranhaEntity pEntity) {
+        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/xanaranha.png");
     }
 
     @Override
-    public void render(XanarianEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+    public void render(XanaranhaEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
 
 
