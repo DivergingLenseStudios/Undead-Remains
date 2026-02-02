@@ -18,20 +18,19 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class XanaranhaRenderer extends MobRenderer<XanaranhaEntity, XanaranhaModel<XanaranhaEntity>> {
-    public XanaranhaRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new XanaranhaModel<>(pContext.bakeLayer(ModModelLayers.XANARANHA_LAYER)), 0.5f);
-    }
+	public XanaranhaRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new XanaranhaModel<>(pContext.bakeLayer(ModModelLayers.XANARANHA_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(XanaranhaEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/xanaranha.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(XanaranhaEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/xanaranha.png");
+	}
 
-    @Override
-    public void render(XanaranhaEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(XanaranhaEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
-
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }
