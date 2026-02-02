@@ -18,24 +18,24 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModMenuTypes {
-    public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(ForgeRegistries.MENU_TYPES, UndeadRemains.MOD_ID);
+	public static final DeferredRegister<MenuType<?>> MENUS =
+			DeferredRegister.create(ForgeRegistries.MENU_TYPES, UndeadRemains.MOD_ID);
 
-    public static final RegistryObject<MenuType<FossilPolishingStationMenu>> GEM_POLISHING_MENU =
-            registerMenuType("gem_polishing_menu", FossilPolishingStationMenu::new);
+	public static final RegistryObject<MenuType<FossilPolishingStationMenu>> GEM_POLISHING_MENU =
+			registerMenuType("gem_polishing_menu", FossilPolishingStationMenu::new);
 
-    public static final RegistryObject<MenuType<XanarianGatewayMenu>> XANARIAN_GATEWAY_MENU =
-            registerMenuType("xanarian_gateway_menu", XanarianGatewayMenu::new);
+	public static final RegistryObject<MenuType<XanarianGatewayMenu>> XANARIAN_GATEWAY_MENU =
+			registerMenuType("xanarian_gateway_menu", XanarianGatewayMenu::new);
 
-    public static final RegistryObject<MenuType<MetatorberniteEnricherMenu>> METATORBERNITE_ENRICHER_MENU =
-            registerMenuType("metatorbernite_enricher_menu", MetatorberniteEnricherMenu::new);
+	public static final RegistryObject<MenuType<MetatorberniteEnricherMenu>> METATORBERNITE_ENRICHER_MENU =
+			registerMenuType("metatorbernite_enricher_menu", MetatorberniteEnricherMenu::new);
 
 
-    private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
-        return MENUS.register(name, () -> IForgeMenuType.create(factory));
-    }
+	private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
+		return MENUS.register(name, () -> IForgeMenuType.create(factory));
+	}
 
-    public static void register(IEventBus eventBus) {
-        MENUS.register(eventBus);
-    }
+	public static void register(IEventBus eventBus) {
+		MENUS.register(eventBus);
+	}
 }

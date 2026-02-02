@@ -24,46 +24,46 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.entity.player.Player;
 
 public class MetatorberniteOreBlock extends Block{
-    
-    public MetatorberniteOreBlock(Properties pProperties) {
-        super(pProperties);
-    }
 
-   @Override
-   public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest,
-           FluidState fluid) {
+	public MetatorberniteOreBlock(Properties pProperties) {
+		super(pProperties);
+	}
 
-        this.spawnLingeringCloud(level, pos, state);
-        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+	@Override
+	public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest,
+									   FluidState fluid) {
 
-    }
+		this.spawnLingeringCloud(level, pos, state);
+		return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 
-    private void spawnLingeringCloud(LevelAccessor level, BlockPos pos, BlockState state) {
-        if (!(level instanceof ServerLevel serverLevel)) return; // Ensure it's running on the server
-       
+	}
 
-        CustomEffectCloudEntity areaEffectCloud = new CustomEffectCloudEntity(serverLevel,
-        pos.getX() + 0.5, // Center the cloud in the block
-        pos.getY() + 0.5,
-        pos.getZ() + 0.5);
+	private void spawnLingeringCloud(LevelAccessor level, BlockPos pos, BlockState state) {
+		if (!(level instanceof ServerLevel serverLevel)) return; // Ensure it's running on the server
 
-        areaEffectCloud.setRadius(3.0F);
-        areaEffectCloud.setRadiusOnUse(-0.5F);
-        areaEffectCloud.setWaitTime(10);
-        areaEffectCloud.setDuration(200); // Duration in ticks (10 seconds)
-        areaEffectCloud.setRadiusPerTick(-areaEffectCloud.getRadius() / areaEffectCloud.getDuration());
-        areaEffectCloud.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));
-        areaEffectCloud.setParticle(ModParticles.METATORBERNITE_PARTICLES.get());
-        areaEffectCloud.setDimensions(3F, 2F);
-        serverLevel.addFreshEntity(areaEffectCloud);
-    
+
+		CustomEffectCloudEntity areaEffectCloud = new CustomEffectCloudEntity(serverLevel,
+				pos.getX() + 0.5, // Center the cloud in the block
+				pos.getY() + 0.5,
+				pos.getZ() + 0.5);
+
+		areaEffectCloud.setRadius(3.0F);
+		areaEffectCloud.setRadiusOnUse(-0.5F);
+		areaEffectCloud.setWaitTime(10);
+		areaEffectCloud.setDuration(200); // Duration in ticks (10 seconds)
+		areaEffectCloud.setRadiusPerTick(-areaEffectCloud.getRadius() / areaEffectCloud.getDuration());
+		areaEffectCloud.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));
+		areaEffectCloud.setParticle(ModParticles.METATORBERNITE_PARTICLES.get());
+		areaEffectCloud.setDimensions(3F, 2F);
+		serverLevel.addFreshEntity(areaEffectCloud);
+
+	}
+	private boolean isBrokenWithSilkTouch(Player player) {
+		if (player != null) {
+			ItemStack heldItem = player.getMainHandItem();
+			return heldItem.isEnchanted() && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, heldItem) > 0;
+		}
+		return false;
+	}
 }
-    private boolean isBrokenWithSilkTouch(Player player) {
-        if (player != null) {
-            ItemStack heldItem = player.getMainHandItem();
-            return heldItem.isEnchanted() && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, heldItem) > 0;
-        }
-        return false;
-    }
-    }
 

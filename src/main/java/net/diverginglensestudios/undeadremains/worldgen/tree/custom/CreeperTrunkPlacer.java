@@ -28,46 +28,46 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
 public class CreeperTrunkPlacer extends TrunkPlacer {
-    public static final Codec<CreeperTrunkPlacer> CODEC = RecordCodecBuilder.create(creeperTrunkPlacerInstance ->
-            trunkPlacerParts(creeperTrunkPlacerInstance).apply(creeperTrunkPlacerInstance, CreeperTrunkPlacer::new));
+	public static final Codec<CreeperTrunkPlacer> CODEC = RecordCodecBuilder.create(creeperTrunkPlacerInstance ->
+			trunkPlacerParts(creeperTrunkPlacerInstance).apply(creeperTrunkPlacerInstance, CreeperTrunkPlacer::new));
 
-    public CreeperTrunkPlacer(int pBaseHeight, int pHeightRandA, int pHeightRandB) {
-        super(pBaseHeight, pHeightRandA, pHeightRandB);
-    }
+	public CreeperTrunkPlacer(int pBaseHeight, int pHeightRandA, int pHeightRandB) {
+		super(pBaseHeight, pHeightRandA, pHeightRandB);
+	}
 
-@Override
-protected boolean validTreePos(LevelSimulatedReader level, BlockPos pos) {
-    return IntStream.range(3, 4).allMatch(offset ->
-        level.isStateAtPosition(pos.below(offset), state ->
-            state.isAir() || state.is(BlockTags.REPLACEABLE_BY_TREES)
-        )
-    );
-}
+	@Override
+	protected boolean validTreePos(LevelSimulatedReader level, BlockPos pos) {
+		return IntStream.range(3, 4).allMatch(offset ->
+				level.isStateAtPosition(pos.below(offset), state ->
+						state.isAir() || state.is(BlockTags.REPLACEABLE_BY_TREES)
+				)
+		);
+	}
 
-@Override
-protected TrunkPlacerType<?> type() {
-    return ModTrunkPlacerTypes.CREEPER_TRUNK_PLACER.get();
-}
+	@Override
+	protected TrunkPlacerType<?> type() {
+		return ModTrunkPlacerTypes.CREEPER_TRUNK_PLACER.get();
+	}
 
-    @Override
-    public List<FoliagePlacer.FoliageAttachment> placeTrunk(
-        LevelSimulatedReader level,
-        BiConsumer<BlockPos, BlockState> replacer,
-        RandomSource random,
-        int height,
-        BlockPos pos,
-        TreeConfiguration config
-    ) {
-        List<FoliagePlacer.FoliageAttachment> attachments = new ArrayList<>();
-        BlockPos.MutableBlockPos current = pos.mutable();
+	@Override
+	public List<FoliagePlacer.FoliageAttachment> placeTrunk(
+			LevelSimulatedReader level,
+			BiConsumer<BlockPos, BlockState> replacer,
+			RandomSource random,
+			int height,
+			BlockPos pos,
+			TreeConfiguration config
+	) {
+		List<FoliagePlacer.FoliageAttachment> attachments = new ArrayList<>();
+		BlockPos.MutableBlockPos current = pos.mutable();
 
-        for (int i = 0; i < height; ++i) {
-            replacer.accept(current, config.trunkProvider.getState(random, current));
-            current.move(Direction.DOWN);
-        }
+		for (int i = 0; i < height; ++i) {
+			replacer.accept(current, config.trunkProvider.getState(random, current));
+			current.move(Direction.DOWN);
+		}
 
-        // Add foliage at the bottom
-        attachments.add(new FoliagePlacer.FoliageAttachment(current.above(), 0, false));
-        return attachments;
-    }
+		// Add foliage at the bottom
+		attachments.add(new FoliagePlacer.FoliageAttachment(current.above(), 0, false));
+		return attachments;
+	}
 }

@@ -17,30 +17,30 @@ import net.minecraftforge.common.util.ITeleporter;
 import java.util.function.Function;
 
 public class ModFossilTeleporter implements ITeleporter {
-    private final BlockPos portalBase;
-    private Block portalBlock;
+	private final BlockPos portalBase;
+	private Block portalBlock;
 
-    public ModFossilTeleporter(BlockPos portalBase, Block portalBlock) {
-        this.portalBase = portalBase;
-        this.portalBlock =portalBlock;
-    }
+	public ModFossilTeleporter(BlockPos portalBase, Block portalBlock) {
+		this.portalBase = portalBase;
+		this.portalBlock =portalBlock;
+	}
 
-    @Override
-    public Entity placeEntity(Entity entity, ServerLevel currentWorld, ServerLevel destinationWorld,
-                              float yaw, Function<Boolean, Entity> repositionEntity) {
-        entity = repositionEntity.apply(true);
+	@Override
+	public Entity placeEntity(Entity entity, ServerLevel currentWorld, ServerLevel destinationWorld,
+							  float yaw, Function<Boolean, Entity> repositionEntity) {
+		entity = repositionEntity.apply(true);
 
-        BlockPos targetPos = new BlockPos(portalBase.getX(), portalBase.getY() + 1, portalBase.getZ());
+		BlockPos targetPos = new BlockPos(portalBase.getX(), portalBase.getY() + 1, portalBase.getZ());
 
-        // Clear space for the player
-        destinationWorld.setBlock(targetPos, Blocks.AIR.defaultBlockState(), 3);
-        destinationWorld.setBlock(targetPos.above(), Blocks.AIR.defaultBlockState(), 3);
-        destinationWorld.setBlock(targetPos.below(), this.portalBlock.defaultBlockState(), 3);
+		// Clear space for the player
+		destinationWorld.setBlock(targetPos, Blocks.AIR.defaultBlockState(), 3);
+		destinationWorld.setBlock(targetPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		destinationWorld.setBlock(targetPos.below(), this.portalBlock.defaultBlockState(), 3);
 
-        entity.setPos(targetPos.getX() + 0.5, targetPos.getY(), targetPos.getZ() + 0.5);
+		entity.setPos(targetPos.getX() + 0.5, targetPos.getY(), targetPos.getZ() + 0.5);
 
-        return entity;
-    }
+		return entity;
+	}
 }
 
 //public class ModFossilTeleporter implements ITeleporter {

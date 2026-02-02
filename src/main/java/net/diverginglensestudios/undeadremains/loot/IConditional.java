@@ -9,5 +9,5 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 public interface IConditional {
 
-    LootItemCondition[] getConditions();
+	LootItemCondition[] getConditions();
 }

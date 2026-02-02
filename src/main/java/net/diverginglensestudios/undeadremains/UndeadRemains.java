@@ -75,126 +75,126 @@ This is a multi line comment
 
 @Mod(UndeadRemains.MOD_ID) // The value here should match an entry in the META-INF/mods.toml file
 public class UndeadRemains { // Define the Class for the Mod
-        public static final String MOD_ID = "undeadremains"; // Set the name, so forge recognizes and can access the
-                                                             // mod.
-        public static final Logger LOGGER = LogUtils.getLogger();
+	public static final String MOD_ID = "undeadremains"; // Set the name, so forge recognizes and can access the
+	// mod.
+	public static final Logger LOGGER = LogUtils.getLogger();
 
-        public UndeadRemains() {
-                IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	public UndeadRemains() {
+		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-                ModCreativeModTabs.register(modEventBus);
+		ModCreativeModTabs.register(modEventBus);
 
-                ModItems.register(modEventBus);
-                ModBlocks.register(modEventBus);
+		ModItems.register(modEventBus);
+		ModBlocks.register(modEventBus);
 
-                ModLootTableModifiers.register(modEventBus);
-                // ModTerrablender.registerBiomes();
+		ModLootTableModifiers.register(modEventBus);
+		// ModTerrablender.registerBiomes();
 
-                ModSounds.register(modEventBus);
-                ModEntities.register(modEventBus);
+		ModSounds.register(modEventBus);
+		ModEntities.register(modEventBus);
 
-                ModBlockEntities.register(modEventBus);
-                ModMenuTypes.register(modEventBus);
+		ModBlockEntities.register(modEventBus);
+		ModMenuTypes.register(modEventBus);
 
-                ModRecipes.register(modEventBus);
-                ModParticles.register(modEventBus);
+		ModRecipes.register(modEventBus);
+		ModParticles.register(modEventBus);
 
-                ModEffects.register(modEventBus);
-                ModPotions.register(modEventBus);
+		ModEffects.register(modEventBus);
+		ModPotions.register(modEventBus);
 
-                ModFoliagePlacers.register(modEventBus);
-                ModTrunkPlacerTypes.register(modEventBus);
+		ModFoliagePlacers.register(modEventBus);
+		ModTrunkPlacerTypes.register(modEventBus);
 
-                modEventBus.addListener(this::commonSetup);
+		modEventBus.addListener(this::commonSetup);
 
-                MinecraftForge.EVENT_BUS.register(this);
-                // modEventBus.addListener(this::addCreative);
-        }
+		MinecraftForge.EVENT_BUS.register(this);
+		// modEventBus.addListener(this::addCreative);
+	}
 
-        private void commonSetup(final FMLCommonSetupEvent event) {
-                event.enqueueWork(() -> {
-                        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ROXA_FLOWER.getId(), ModBlocks.POTTED_ROXA_FLOWER);
-                        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XANAS_FLOWER.getId(), ModBlocks.POTTED_XANAS_FLOWER);
-                        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XELKS_FLOWER.getId(), ModBlocks.POTTED_XELKS_FLOWER);
-                        BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
-                                        ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
-                        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID,
-                                        ModSurfaceRules.makeRules());
-                        Regions.register(new ModOverworldRegion(new ResourceLocation(UndeadRemains.MOD_ID, "overworld"),
-                                        2));
-                });
-        }
+	private void commonSetup(final FMLCommonSetupEvent event) {
+		event.enqueueWork(() -> {
+			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ROXA_FLOWER.getId(), ModBlocks.POTTED_ROXA_FLOWER);
+			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XANAS_FLOWER.getId(), ModBlocks.POTTED_XANAS_FLOWER);
+			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XELKS_FLOWER.getId(), ModBlocks.POTTED_XELKS_FLOWER);
+			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
+					ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
+			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID,
+					ModSurfaceRules.makeRules());
+			Regions.register(new ModOverworldRegion(new ResourceLocation(UndeadRemains.MOD_ID, "overworld"),
+					2));
+		});
+	}
 
-        // private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-        // event.accept(ModItems.FOSSIL);
-        // event.accept(ModItems.RAW_FOSSIL);
-        // }
-        // }
+	// private void addCreative(BuildCreativeModeTabContentsEvent event) {
+	// if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+	// event.accept(ModItems.FOSSIL);
+	// event.accept(ModItems.RAW_FOSSIL);
+	// }
+	// }
 
-        // You can use SubscribeEvent and let the Event Bus discover methods to call
-        @SubscribeEvent
-        public void onServerStarting(ServerStartingEvent event) {
+	// You can use SubscribeEvent and let the Event Bus discover methods to call
+	@SubscribeEvent
+	public void onServerStarting(ServerStartingEvent event) {
 
-        }
+	}
 
-        // You can use EventBusSubscriber to automatically register all static methods
-        // in the class annotated with @SubscribeEvent
-        @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-        public static class ClientModEvents {
-                @SubscribeEvent
-                public static void onClientSetup(FMLClientSetupEvent event) {
-                        Sheets.addWoodType(ModWoodTypes.ASH);
-                        EntityRenderers.register(ModEntities.XANARIAN_CANNIBAL.get(),
-                                        pContext -> new XanarianCannibalRenderer(pContext));
-                        EntityRenderers.register(ModEntities.UNDEAD_ARCHEOLOGIST.get(),
-                                        pContext -> new UndeadArcheologistRenderer(pContext));
-                        EntityRenderers.register(ModEntities.BIG_WOODLING.get(),
-                                        pContext -> new BigWoodlingRenderer(pContext));
-                        EntityRenderers.register(ModEntities.SMALL_WOODLING.get(),
-                                        pContext -> new SmallWoodlingRenderer(pContext));
-                        EntityRenderers.register(ModEntities.STRAY_ZOMBIE.get(),
-                                        pContext -> new StrayZombieRenderer(pContext));
-                        EntityRenderers.register(ModEntities.TREE_ZOMBIE.get(),
-                                        pContext -> new TreeZombieRenderer(pContext));
-                        EntityRenderers.register(ModEntities.SUPREME_KNIGHT.get(),
-                                        pContext -> new SupremeKnightRenderer(pContext));
-                        EntityRenderers.register(ModEntities.SAHN_UZAL.get(),
-                                        pContext -> new SahnUzalRenderer(pContext));
-                        EntityRenderers.register(ModEntities.FOSSILIZED_ZOMBIE.get(),
-                                        pContext -> new FossilizedZombieRenderer(pContext));
-                        EntityRenderers.register(ModEntities.SUPREME_ZOMBIE.get(),
-                                        pContext -> new SupremeZombieRenderer(pContext));
-                        EntityRenderers.register(ModEntities.COW_ZOMBIE.get(),
-                                        pContext -> new CowZombieRenderer(pContext));
-                        EntityRenderers.register(ModEntities.SPIKE.get(), pContext -> new SpikeRenderer(pContext));
-                        EntityRenderers.register(ModEntities.HAMMER_ZOMBIE.get(),
-                                        pContext -> new HammerZombieRenderer(pContext));
-                        EntityRenderers.register(ModEntities.FOUR_EYED_XANARIAN.get(),
-                                        pContext -> new FourEyedXanarianRenderer(pContext));
-                        EntityRenderers.register(ModEntities.XANARIAN.get(),
-                                        pContext -> new XanarianRenderer(pContext));
-                        EntityRenderers.register(ModEntities.HORNED_XANARIAN.get(),
-                                        pContext -> new HornedXanarianRenderer(pContext));
-                        EntityRenderers.register(ModEntities.MOD_BOAT.get(),
-                                        pContext -> new ModBoatRenderer(pContext, false));
-                        EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(),
-                                        pContext -> new ModBoatRenderer(pContext, true));
-                        EntityRenderers.register(ModEntities.CM_FALLING_BLOCK.get(),
-                                        pContext -> new Cm_Falling_Block_Renderer(pContext));
-                        EntityRenderers.register(ModEntities.CUSTOMEFFECTCLOUD.get(),
-                                        pContext -> new NoopRenderer(pContext));
-                        EntityRenderers.register(ModEntities.METATORBERNITE_GRENADE_PROJECTILE.get(),
-                                        ThrownItemRenderer::new);
-                        MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
-                        MenuScreens.register(ModMenuTypes.XANARIAN_GATEWAY_MENU.get(), XanarianGatewayScreen::new);
-                        MenuScreens.register(ModMenuTypes.METATORBERNITE_ENRICHER_MENU.get(), MetatorberniteEnricherScreen::new);
-                }
+	// You can use EventBusSubscriber to automatically register all static methods
+	// in the class annotated with @SubscribeEvent
+	@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+	public static class ClientModEvents {
+		@SubscribeEvent
+		public static void onClientSetup(FMLClientSetupEvent event) {
+			Sheets.addWoodType(ModWoodTypes.ASH);
+			EntityRenderers.register(ModEntities.XANARIAN_CANNIBAL.get(),
+					pContext -> new XanarianCannibalRenderer(pContext));
+			EntityRenderers.register(ModEntities.UNDEAD_ARCHEOLOGIST.get(),
+					pContext -> new UndeadArcheologistRenderer(pContext));
+			EntityRenderers.register(ModEntities.BIG_WOODLING.get(),
+					pContext -> new BigWoodlingRenderer(pContext));
+			EntityRenderers.register(ModEntities.SMALL_WOODLING.get(),
+					pContext -> new SmallWoodlingRenderer(pContext));
+			EntityRenderers.register(ModEntities.STRAY_ZOMBIE.get(),
+					pContext -> new StrayZombieRenderer(pContext));
+			EntityRenderers.register(ModEntities.TREE_ZOMBIE.get(),
+					pContext -> new TreeZombieRenderer(pContext));
+			EntityRenderers.register(ModEntities.SUPREME_KNIGHT.get(),
+					pContext -> new SupremeKnightRenderer(pContext));
+			EntityRenderers.register(ModEntities.SAHN_UZAL.get(),
+					pContext -> new SahnUzalRenderer(pContext));
+			EntityRenderers.register(ModEntities.FOSSILIZED_ZOMBIE.get(),
+					pContext -> new FossilizedZombieRenderer(pContext));
+			EntityRenderers.register(ModEntities.SUPREME_ZOMBIE.get(),
+					pContext -> new SupremeZombieRenderer(pContext));
+			EntityRenderers.register(ModEntities.COW_ZOMBIE.get(),
+					pContext -> new CowZombieRenderer(pContext));
+			EntityRenderers.register(ModEntities.SPIKE.get(), pContext -> new SpikeRenderer(pContext));
+			EntityRenderers.register(ModEntities.HAMMER_ZOMBIE.get(),
+					pContext -> new HammerZombieRenderer(pContext));
+			EntityRenderers.register(ModEntities.FOUR_EYED_XANARIAN.get(),
+					pContext -> new FourEyedXanarianRenderer(pContext));
+			EntityRenderers.register(ModEntities.XANARIAN.get(),
+					pContext -> new XanarianRenderer(pContext));
+			EntityRenderers.register(ModEntities.HORNED_XANARIAN.get(),
+					pContext -> new HornedXanarianRenderer(pContext));
+			EntityRenderers.register(ModEntities.MOD_BOAT.get(),
+					pContext -> new ModBoatRenderer(pContext, false));
+			EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(),
+					pContext -> new ModBoatRenderer(pContext, true));
+			EntityRenderers.register(ModEntities.CM_FALLING_BLOCK.get(),
+					pContext -> new Cm_Falling_Block_Renderer(pContext));
+			EntityRenderers.register(ModEntities.CUSTOMEFFECTCLOUD.get(),
+					pContext -> new NoopRenderer(pContext));
+			EntityRenderers.register(ModEntities.METATORBERNITE_GRENADE_PROJECTILE.get(),
+					ThrownItemRenderer::new);
+			MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
+			MenuScreens.register(ModMenuTypes.XANARIAN_GATEWAY_MENU.get(), XanarianGatewayScreen::new);
+			MenuScreens.register(ModMenuTypes.METATORBERNITE_ENRICHER_MENU.get(), MetatorberniteEnricherScreen::new);
+		}
 
-                @SubscribeEvent
-                public static void registerParticleProvider(RegisterParticleProvidersEvent event) {
-                        event.registerSpriteSet(ModParticles.METATORBERNITE_PARTICLES.get(),
-                                        MetatorberniteParticles.Provider::new);
-                }
-        }
+		@SubscribeEvent
+		public static void registerParticleProvider(RegisterParticleProvidersEvent event) {
+			event.registerSpriteSet(ModParticles.METATORBERNITE_PARTICLES.get(),
+					MetatorberniteParticles.Provider::new);
+		}
+	}
 }

@@ -20,13 +20,13 @@ import net.minecraft.world.item.ItemStack;
 @Mixin(LivingEntity.class)
 public abstract class GasMaskChecker {
 
-    @Inject(method = "isAffectedByPotions", at = @At(value = "HEAD"), cancellable = true)
-    private void undeadremains$injectedIsAffectedByPotions(CallbackInfoReturnable<Boolean> cir) {
-        LivingEntity entity = (LivingEntity)(Object)this;
-        ItemStack helmet = entity.getItemBySlot(EquipmentSlot.HEAD);
+	@Inject(method = "isAffectedByPotions", at = @At(value = "HEAD"), cancellable = true)
+	private void undeadremains$injectedIsAffectedByPotions(CallbackInfoReturnable<Boolean> cir) {
+		LivingEntity entity = (LivingEntity)(Object)this;
+		ItemStack helmet = entity.getItemBySlot(EquipmentSlot.HEAD);
 
-        if (helmet.getItem() == ModItems.GAS_MASK.get()|helmet.getItem() == ModItems.METATORBERNITE_GAS_MASK.get()) {
-            cir.setReturnValue(false); 
-        }
-    }
+		if (helmet.getItem() == ModItems.GAS_MASK.get()|helmet.getItem() == ModItems.METATORBERNITE_GAS_MASK.get()) {
+			cir.setReturnValue(false);
+		}
+	}
 }

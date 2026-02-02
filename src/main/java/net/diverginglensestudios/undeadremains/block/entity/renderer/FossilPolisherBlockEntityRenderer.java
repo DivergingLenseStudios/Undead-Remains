@@ -25,29 +25,29 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 
 public class FossilPolisherBlockEntityRenderer implements BlockEntityRenderer<FossilPolishingStationBlockEntity> {
-    public FossilPolisherBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+	public FossilPolisherBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 
-    }
+	}
 
-    @Override
-    public void render(FossilPolishingStationBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
-                       MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-        ItemStack itemStack = pBlockEntity.getRenderStack();
+	@Override
+	public void render(FossilPolishingStationBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
+					   MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
+		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+		ItemStack itemStack = pBlockEntity.getRenderStack();
 
-        pPoseStack.pushPose();
-        pPoseStack.translate(0.5f, 0.14f, 0.5f);
-        pPoseStack.scale(0.5f, 0.5f, 0.5f);
-        pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
+		pPoseStack.pushPose();
+		pPoseStack.translate(0.5f, 0.14f, 0.5f);
+		pPoseStack.scale(0.5f, 0.5f, 0.5f);
+		pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
 
-        itemRenderer.renderStatic(itemStack, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
-                OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
-        pPoseStack.popPose();
-    }
+		itemRenderer.renderStatic(itemStack, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
+				OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
+		pPoseStack.popPose();
+	}
 
-    private int getLightLevel(Level level, BlockPos pos) {
-        int bLight = level.getBrightness(LightLayer.BLOCK, pos);
-        int sLight = level.getBrightness(LightLayer.SKY, pos);
-        return LightTexture.pack(bLight, sLight);
-    }
+	private int getLightLevel(Level level, BlockPos pos) {
+		int bLight = level.getBrightness(LightLayer.BLOCK, pos);
+		int sLight = level.getBrightness(LightLayer.SKY, pos);
+		return LightTexture.pack(bLight, sLight);
+	}
 }

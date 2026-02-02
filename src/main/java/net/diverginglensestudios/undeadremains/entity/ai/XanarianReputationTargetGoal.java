@@ -17,67 +17,67 @@ import net.minecraft.world.entity.player.Player;
 import java.util.List;
 
 public class XanarianReputationTargetGoal extends TargetGoal {
-    private final Mob mob;
-    private ServerPlayer target;
+	private final Mob mob;
+	private ServerPlayer target;
 
-    public XanarianReputationTargetGoal(Mob mob) {
-        super(mob, true);
-        this.mob = mob;
-    }
+	public XanarianReputationTargetGoal(Mob mob) {
+		super(mob, true);
+		this.mob = mob;
+	}
 
-    @Override
-    public boolean canUse() {
-        if (mob.level().isClientSide) return false;
+	@Override
+	public boolean canUse() {
+		if (mob.level().isClientSide) return false;
 
-        double range = this.getFollowDistance();
+		double range = this.getFollowDistance();
 
-        List<Player> players = mob.level().getEntitiesOfClass(
-                Player.class,
-                mob.getBoundingBox().inflate(range)
-        );
+		List<Player> players = mob.level().getEntitiesOfClass(
+				Player.class,
+				mob.getBoundingBox().inflate(range)
+		);
 
-        for (Player p : players) {
-            if (!(p instanceof ServerPlayer player)) continue;
+		for (Player p : players) {
+			if (!(p instanceof ServerPlayer player)) continue;
 
-            int rep = getReputation(player);
+			int rep = getReputation(player);
 
-            if (rep <= -20 && mob.canAttack(player)) {
-                target = player;
-                return true;
-            }
-        }
+			if (rep <= -20 && mob.canAttack(player)) {
+				target = player;
+				return true;
+			}
+		}
 
-        return false;
-    }
+		return false;
+	}
 
-    @Override
-    public boolean canContinueToUse() {
-        if (target == null || !target.isAlive()) return false;
+	@Override
+	public boolean canContinueToUse() {
+		if (target == null || !target.isAlive()) return false;
 
-        int rep = getReputation(target);
+		int rep = getReputation(target);
 
-        // Immediately stop attacking if rep improves
-        return rep <= -20;
-    }
+		// Immediately stop attacking if rep improves
+		return rep <= -20;
+	}
 
-    @Override
-    public void start() {
-        mob.setTarget(target);
-        super.start();
-    }
+	@Override
+	public void start() {
+		mob.setTarget(target);
+		super.start();
+	}
 
-    @Override
-    public void stop() {
-        target = null;
-        mob.setTarget(null);
-        super.stop();
-    }
+	@Override
+	public void stop() {
+		target = null;
+		mob.setTarget(null);
+		super.stop();
+	}
 
 
 
-    private int getReputation(ServerPlayer player) {
-        return player.getCapability(
-                PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION
-        ).map(PlayerXanarianReputation::getXanarianReputation).orElse(0);
-    }
+	private int getReputation(ServerPlayer player) {
+		return player.getCapability(
+				PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION
+		).map(PlayerXanarianReputation::getXanarianReputation).orElse(0);
+	}
 }

@@ -22,23 +22,23 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class RareFossilArmorItem extends ModArmorItem{
- public RareFossilArmorItem(Type pType) {
-        super(ModArmorMaterials.RARE_FOSSIL, pType, new Properties());
-    }
+	public RareFossilArmorItem(Type pType) {
+		super(ModArmorMaterials.RARE_FOSSIL, pType, new Properties());
+	}
 
-    @Override
-    protected boolean withCustomModel() {
-        return true;
-    }
+	@Override
+	protected boolean withCustomModel() {
+		return true;
+	}
 
-    @Override
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
-        return new ArmorRenderer<>(RareFossilArmorModel::createBodyLayer, RareFossilArmorModel::new);
-    }
+	@Override
+	protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+		return new ArmorRenderer<>(RareFossilArmorModel::createBodyLayer, RareFossilArmorModel::new);
+	}
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return makeCustomTextureLocation(UndeadRemains.MOD_ID, "rare_fossil_armor");
-    }
+	@Override
+	public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+		return makeCustomTextureLocation(UndeadRemains.MOD_ID, "rare_fossil_armor");
+	}
 
 }

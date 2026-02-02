@@ -15,9 +15,9 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 public class CreeperTreeGrower extends AbstractTreeGrower{
 
-    @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
-        return ModConfiguredFeatures.CREEPER_KEY;
-    }
+	@Override
+	protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
+		return ModConfiguredFeatures.CREEPER_KEY;
+	}
 
 }

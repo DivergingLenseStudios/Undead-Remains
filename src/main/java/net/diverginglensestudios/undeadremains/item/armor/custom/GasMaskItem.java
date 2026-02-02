@@ -22,23 +22,23 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class GasMaskItem extends ModArmorItem{
- public GasMaskItem(Type pType) {
-        super(ArmorMaterials.LEATHER, pType, new Properties());
-    }
+	public GasMaskItem(Type pType) {
+		super(ArmorMaterials.LEATHER, pType, new Properties());
+	}
 
-    @Override
-    protected boolean withCustomModel() {
-        return true;
-    }
+	@Override
+	protected boolean withCustomModel() {
+		return true;
+	}
 
-    @Override
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
-        return new ArmorRenderer<>(GasMaskModel::createBodyLayer, GasMaskModel::new);
-    }
+	@Override
+	protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+		return new ArmorRenderer<>(GasMaskModel::createBodyLayer, GasMaskModel::new);
+	}
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return makeCustomTextureLocation(UndeadRemains.MOD_ID, "gas_mask");
-    }
+	@Override
+	public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+		return makeCustomTextureLocation(UndeadRemains.MOD_ID, "gas_mask");
+	}
 
 }

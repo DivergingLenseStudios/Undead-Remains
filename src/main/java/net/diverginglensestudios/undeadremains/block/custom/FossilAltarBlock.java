@@ -39,91 +39,91 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 
 public class FossilAltarBlock extends BaseEntityBlock{
-    public FossilAltarBlock(Properties pProperties) {
-        super(pProperties);
-    }
+	public FossilAltarBlock(Properties pProperties) {
+		super(pProperties);
+	}
 
 
-    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
+	public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
 
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
-    }
+	@Override
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE;
+	}
 
-    @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
-    }
+	@Override
+	public RenderShape getRenderShape(BlockState pState) {
+		return RenderShape.MODEL;
+	}
 
-    @Override
-    public InteractionResult use(BlockState pState, Level level, BlockPos clickedPos, Player player,
-                                 InteractionHand hand, BlockHitResult hit) {
+	@Override
+	public InteractionResult use(BlockState pState, Level level, BlockPos clickedPos, Player player,
+								 InteractionHand hand, BlockHitResult hit) {
 
-        if (!player.canChangeDimensions()) {
-            return InteractionResult.CONSUME;
-        }
+		if (!player.canChangeDimensions()) {
+			return InteractionResult.CONSUME;
+		}
 
-        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+		if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
 
-            BlockEntity be = level.getBlockEntity(clickedPos);
-            if (!(be instanceof XanarianGatewayBlockEntity gateway)) {
-                return InteractionResult.PASS;
-            }
+			BlockEntity be = level.getBlockEntity(clickedPos);
+			if (!(be instanceof XanarianGatewayBlockEntity gateway)) {
+				return InteractionResult.PASS;
+			}
 
-            BlockPos playerPos = serverPlayer.blockPosition();
+			BlockPos playerPos = serverPlayer.blockPosition();
 
-            if (!playerPos.below().equals(clickedPos)) {
+			if (!playerPos.below().equals(clickedPos)) {
 
-                NetworkHooks.openScreen(serverPlayer, gateway, clickedPos);
-                serverPlayer.displayClientMessage(
-                        Component.literal("Stand on the teleporter to teleport"), true);
+				NetworkHooks.openScreen(serverPlayer, gateway, clickedPos);
+				serverPlayer.displayClientMessage(
+						Component.literal("Stand on the teleporter to teleport"), true);
 
-                return InteractionResult.SUCCESS;
-            }
+				return InteractionResult.SUCCESS;
+			}
 
-            if (!gateway.canTeleport()) {
-                serverPlayer.displayClientMessage(
-                        Component.literal("The gateway has no remaining charge"), true);
-                return InteractionResult.SUCCESS;
-            }
+			if (!gateway.canTeleport()) {
+				serverPlayer.displayClientMessage(
+						Component.literal("The gateway has no remaining charge"), true);
+				return InteractionResult.SUCCESS;
+			}
 
-            MinecraftServer server = serverPlayer.getServer();
-            if (server == null) return InteractionResult.PASS;
+			MinecraftServer server = serverPlayer.getServer();
+			if (server == null) return InteractionResult.PASS;
 
-            ResourceKey<Level> targetDim =
-                    level.dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY
-                            ? Level.OVERWORLD
-                            : ModDimensions.FOSSILDIM_LEVEL_KEY;
+			ResourceKey<Level> targetDim =
+					level.dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY
+							? Level.OVERWORLD
+							: ModDimensions.FOSSILDIM_LEVEL_KEY;
 
-            ServerLevel targetWorld = server.getLevel(targetDim);
-            if (targetWorld == null) return InteractionResult.PASS;
+			ServerLevel targetWorld = server.getLevel(targetDim);
+			if (targetWorld == null) return InteractionResult.PASS;
 
-            gateway.consumeCharge();
+			gateway.consumeCharge();
 
-            serverPlayer.changeDimension(
-                    targetWorld,
-                    new ModFossilTeleporter(playerPos.below(), ModBlocks.FOSSIL_ALTAR.get())
-            );
-        }
+			serverPlayer.changeDimension(
+					targetWorld,
+					new ModFossilTeleporter(playerPos.below(), ModBlocks.FOSSIL_ALTAR.get())
+			);
+		}
 
-        return InteractionResult.SUCCESS;
-    }
+		return InteractionResult.SUCCESS;
+	}
 
-    @Override
-    @Nullable
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new XanarianGatewayBlockEntity(pPos, pState);
-    }
-@Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        if(pLevel.isClientSide()) {
-            return null;
-        }
+	@Override
+	@Nullable
+	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+		return new XanarianGatewayBlockEntity(pPos, pState);
+	}
+	@Nullable
+	@Override
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+		if(pLevel.isClientSide()) {
+			return null;
+		}
 
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.XANARIAN_GATEWAY_BE.get(),
-                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
-                
-    }
+		return createTickerHelper(pBlockEntityType, ModBlockEntities.XANARIAN_GATEWAY_BE.get(),
+				(pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
+
+	}
 }

@@ -21,23 +21,23 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = UndeadRemains.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ForgeEvents {
 
-    @SubscribeEvent
-    public static void onVanillaGameEvent(VanillaGameEvent event) {
-        Entity cause = event.getCause();
-        if (!(cause instanceof Player))
-            return;
-        Player player = (Player) cause;
+	@SubscribeEvent
+	public static void onVanillaGameEvent(VanillaGameEvent event) {
+		Entity cause = event.getCause();
+		if (!(cause instanceof Player))
+			return;
+		Player player = (Player) cause;
 
-        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
-        if (boots == null || boots.isEmpty())
-            return;
+		ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+		if (boots == null || boots.isEmpty())
+			return;
 
-        if (!boots.is(ModItems.SCULK_SHARD_MODIFIED_FOSSIL_BOOTS.get()))
-            return;
+		if (!boots.is(ModItems.SCULK_SHARD_MODIFIED_FOSSIL_BOOTS.get()))
+			return;
 
-        GameEvent vanillaType = event.getVanillaEvent();
-        if (vanillaType == GameEvent.STEP || vanillaType == GameEvent.HIT_GROUND) {
-            event.setCanceled(true);
-        }
-    }
+		GameEvent vanillaType = event.getVanillaEvent();
+		if (vanillaType == GameEvent.STEP || vanillaType == GameEvent.HIT_GROUND) {
+			event.setCanceled(true);
+		}
+	}
 }

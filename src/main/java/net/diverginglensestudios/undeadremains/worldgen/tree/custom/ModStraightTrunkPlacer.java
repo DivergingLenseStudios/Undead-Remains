@@ -28,28 +28,28 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
 public class ModStraightTrunkPlacer extends TrunkPlacer{
-    private final BlockStateProvider pFloorBlock;
-public static final Codec<ModStraightTrunkPlacer> CODEC = RecordCodecBuilder.create(ModStraightTrunkPlacerInstance ->
-        trunkPlacerParts(ModStraightTrunkPlacerInstance).and(BlockStateProvider.CODEC.fieldOf("extra_block").forGetter(p -> p.pFloorBlock)).apply(ModStraightTrunkPlacerInstance, ModStraightTrunkPlacer::new));
+	private final BlockStateProvider pFloorBlock;
+	public static final Codec<ModStraightTrunkPlacer> CODEC = RecordCodecBuilder.create(ModStraightTrunkPlacerInstance ->
+			trunkPlacerParts(ModStraightTrunkPlacerInstance).and(BlockStateProvider.CODEC.fieldOf("extra_block").forGetter(p -> p.pFloorBlock)).apply(ModStraightTrunkPlacerInstance, ModStraightTrunkPlacer::new));
 
-public ModStraightTrunkPlacer(int pBaseHeight, int pRandHeightA, int pRandHeightB, BlockStateProvider pFloorBlock) {
-    super(pBaseHeight, pRandHeightA, pRandHeightB );
-    this.pFloorBlock = pFloorBlock;
-}
+	public ModStraightTrunkPlacer(int pBaseHeight, int pRandHeightA, int pRandHeightB, BlockStateProvider pFloorBlock) {
+		super(pBaseHeight, pRandHeightA, pRandHeightB );
+		this.pFloorBlock = pFloorBlock;
+	}
 
-@Override
-protected TrunkPlacerType<?> type() {
-    return ModTrunkPlacerTypes.MOD_STRAIGHT_TRUNK_PLACER.get();
-}
+	@Override
+	protected TrunkPlacerType<?> type() {
+		return ModTrunkPlacerTypes.MOD_STRAIGHT_TRUNK_PLACER.get();
+	}
 
-@Override
-public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel, BiConsumer<BlockPos, BlockState> pBlockSetter, RandomSource pRandom, int pHeight, BlockPos pPos, TreeConfiguration p_226152_) {
-    setDirtAt(pLevel, pBlockSetter, pRandom, pPos.below(), p_226152_);
-    for(int i = 0; i < pHeight; ++i) {
-    this.placeLog(pLevel, pBlockSetter, pRandom, pPos.above(i), p_226152_);
-    }
-    /*pBlockSetter.accept(pPos.below(), this.pFloorBlock.getState(pRandom, pPos));*/
-return ImmutableList.of(new FoliagePlacer.FoliageAttachment(pPos.above(pHeight), 0, false));
-}
+	@Override
+	public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel, BiConsumer<BlockPos, BlockState> pBlockSetter, RandomSource pRandom, int pHeight, BlockPos pPos, TreeConfiguration p_226152_) {
+		setDirtAt(pLevel, pBlockSetter, pRandom, pPos.below(), p_226152_);
+		for(int i = 0; i < pHeight; ++i) {
+			this.placeLog(pLevel, pBlockSetter, pRandom, pPos.above(i), p_226152_);
+		}
+		/*pBlockSetter.accept(pPos.below(), this.pFloorBlock.getState(pRandom, pPos));*/
+		return ImmutableList.of(new FoliagePlacer.FoliageAttachment(pPos.above(pHeight), 0, false));
+	}
 
 }

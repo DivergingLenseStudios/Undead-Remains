@@ -68,203 +68,203 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 @Mod.EventBusSubscriber(modid = UndeadRemains.MOD_ID)
 public class ModEvents {
 
-    @SubscribeEvent
-    public static void onMobDeath(LivingDeathEvent event) {
-        LivingEntity entity = event.getEntity();
+	@SubscribeEvent
+	public static void onMobDeath(LivingDeathEvent event) {
+		LivingEntity entity = event.getEntity();
 
-        //If a tree zombie dies, two woodlings are spawned
-        if (entity instanceof TreeZombieEntity treeZombie) {
-            Level level = treeZombie.level();
-            if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
-                // Spawn Big Woodling
-                BigWoodlingEntity bigWoodling = new BigWoodlingEntity(ModEntities.BIG_WOODLING.get(), serverLevel);
-                bigWoodling.moveTo(treeZombie.getX(), treeZombie.getY(), treeZombie.getZ(), treeZombie.getYRot(), 0);
-                serverLevel.addFreshEntity(bigWoodling);
+		//If a tree zombie dies, two woodlings are spawned
+		if (entity instanceof TreeZombieEntity treeZombie) {
+			Level level = treeZombie.level();
+			if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
+				// Spawn Big Woodling
+				BigWoodlingEntity bigWoodling = new BigWoodlingEntity(ModEntities.BIG_WOODLING.get(), serverLevel);
+				bigWoodling.moveTo(treeZombie.getX(), treeZombie.getY(), treeZombie.getZ(), treeZombie.getYRot(), 0);
+				serverLevel.addFreshEntity(bigWoodling);
 
-                // Spawn Small Woodling
-                SmallWoodlingEntity smallWoodling = new SmallWoodlingEntity(ModEntities.SMALL_WOODLING.get(),
-                        serverLevel);
-                smallWoodling.moveTo(treeZombie.getX() + 0.5, treeZombie.getY(), treeZombie.getZ() + 0.5,
-                        treeZombie.getYRot(), 0);
-                serverLevel.addFreshEntity(smallWoodling);
-            }
-        }
-        // If a normal zombie dies in powder snow, replace it with our StrayZombie
-        else if (entity instanceof Zombie && !(entity instanceof StrayZombieEntity)) {
-            Level level = entity.level();
-            if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
-                BlockState under = level.getBlockState(entity.blockPosition());
-                if (under.is(Blocks.POWDER_SNOW)) {
-                    StrayZombieEntity stray = new StrayZombieEntity(ModEntities.STRAY_ZOMBIE.get(), serverLevel);
-                    stray.moveTo(entity.getX(), entity.getY(), entity.getZ(), entity.getYRot(), 0);
-                    serverLevel.addFreshEntity(stray);
-                }
-            }
-        }
-        //If a Xanarian is killed, reputation goes down
-        else if (entity instanceof AbstractXanarian){
-            DamageSource source = event.getSource();
-            if (!(source.getEntity()instanceof ServerPlayer player)){
-                return;
-            }
-            player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
-                    .ifPresent(rep -> {
-                        rep.subXanarianReputation(player, 10);
-                    });
-        }
-        //If a Xanarian Cannibal is killed, reputation goes up
-        else if (entity instanceof XanarianCannibalEntity){
-            DamageSource source = event.getSource();
-            if (!(source.getEntity()instanceof ServerPlayer player)){
-                return;
-            }
-            player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
-                    .ifPresent(rep -> {
-                        rep.addXanarianReputation(player, 10);
-                    });
-        }
-        //If a Creeper is killed in Xanas, reputation goes up
-        else if (entity instanceof Creeper creeper && creeper.level().dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY){
-            DamageSource source = event.getSource();
-            if (!(source.getEntity()instanceof ServerPlayer player)){
-                return;
-            }
-            player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
-                    .ifPresent(rep -> {
-                        rep.addXanarianReputation(player, 5);
-                    });
-        }
-    }
+				// Spawn Small Woodling
+				SmallWoodlingEntity smallWoodling = new SmallWoodlingEntity(ModEntities.SMALL_WOODLING.get(),
+						serverLevel);
+				smallWoodling.moveTo(treeZombie.getX() + 0.5, treeZombie.getY(), treeZombie.getZ() + 0.5,
+						treeZombie.getYRot(), 0);
+				serverLevel.addFreshEntity(smallWoodling);
+			}
+		}
+		// If a normal zombie dies in powder snow, replace it with our StrayZombie
+		else if (entity instanceof Zombie && !(entity instanceof StrayZombieEntity)) {
+			Level level = entity.level();
+			if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
+				BlockState under = level.getBlockState(entity.blockPosition());
+				if (under.is(Blocks.POWDER_SNOW)) {
+					StrayZombieEntity stray = new StrayZombieEntity(ModEntities.STRAY_ZOMBIE.get(), serverLevel);
+					stray.moveTo(entity.getX(), entity.getY(), entity.getZ(), entity.getYRot(), 0);
+					serverLevel.addFreshEntity(stray);
+				}
+			}
+		}
+		//If a Xanarian is killed, reputation goes down
+		else if (entity instanceof AbstractXanarian){
+			DamageSource source = event.getSource();
+			if (!(source.getEntity()instanceof ServerPlayer player)){
+				return;
+			}
+			player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
+					.ifPresent(rep -> {
+						rep.subXanarianReputation(player, 10);
+					});
+		}
+		//If a Xanarian Cannibal is killed, reputation goes up
+		else if (entity instanceof XanarianCannibalEntity){
+			DamageSource source = event.getSource();
+			if (!(source.getEntity()instanceof ServerPlayer player)){
+				return;
+			}
+			player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
+					.ifPresent(rep -> {
+						rep.addXanarianReputation(player, 10);
+					});
+		}
+		//If a Creeper is killed in Xanas, reputation goes up
+		else if (entity instanceof Creeper creeper && creeper.level().dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY){
+			DamageSource source = event.getSource();
+			if (!(source.getEntity()instanceof ServerPlayer player)){
+				return;
+			}
+			player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
+					.ifPresent(rep -> {
+						rep.addXanarianReputation(player, 5);
+					});
+		}
+	}
 
-    @SubscribeEvent
-    public static void onLivingHurt(LivingHurtEvent event) {
-        if (!event.getSource().is(DamageTypes.FALL)) {
-            return;
-        }
-        LivingEntity living =  event.getEntity();
-        ItemStack chestplate = living.getItemBySlot(EquipmentSlot.CHEST);
-        if (chestplate.is(ModItems.XANARIAN_SPINE_CHESTPLATE.get())) {
-            event.setAmount(event.getAmount() * 0.5F);
-        }
-    }
+	@SubscribeEvent
+	public static void onLivingHurt(LivingHurtEvent event) {
+		if (!event.getSource().is(DamageTypes.FALL)) {
+			return;
+		}
+		LivingEntity living =  event.getEntity();
+		ItemStack chestplate = living.getItemBySlot(EquipmentSlot.CHEST);
+		if (chestplate.is(ModItems.XANARIAN_SPINE_CHESTPLATE.get())) {
+			event.setAmount(event.getAmount() * 0.5F);
+		}
+	}
 
-    @SubscribeEvent
-    public static void onTridentImpact(ProjectileImpactEvent event) {
+	@SubscribeEvent
+	public static void onTridentImpact(ProjectileImpactEvent event) {
 
-        if (!(event.getProjectile() instanceof ThrownTrident trident))
-            return;
-        if (!trident.isChanneling())
-            return; // Only channeling tridents
+		if (!(event.getProjectile() instanceof ThrownTrident trident))
+			return;
+		if (!trident.isChanneling())
+			return; // Only channeling tridents
 
-        Entity owner = trident.getOwner();
-        if (!(owner instanceof ServerPlayer living))
-            return;
+		Entity owner = trident.getOwner();
+		if (!(owner instanceof ServerPlayer living))
+			return;
 
-        // Check helmet
-        ItemStack helmet = living.getItemBySlot(EquipmentSlot.HEAD);
-        if (helmet.getItem() != ModItems.LIGHTNING_ROD_MODIFIED_FOSSIL_HELMET.get())
-            return;
+		// Check helmet
+		ItemStack helmet = living.getItemBySlot(EquipmentSlot.HEAD);
+		if (helmet.getItem() != ModItems.LIGHTNING_ROD_MODIFIED_FOSSIL_HELMET.get())
+			return;
 
-        HitResult hit = event.getRayTraceResult();
-        if (hit.getType() != HitResult.Type.BLOCK)
-            return;
+		HitResult hit = event.getRayTraceResult();
+		if (hit.getType() != HitResult.Type.BLOCK)
+			return;
 
-        BlockPos strikePos = BlockPos.containing(hit.getLocation());
-        Level level = trident.level();
+		BlockPos strikePos = BlockPos.containing(hit.getLocation());
+		Level level = trident.level();
 
-        // Create lightning
-        LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
-        if (bolt == null)
-            return;
+		// Create lightning
+		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
+		if (bolt == null)
+			return;
 
-        bolt.moveTo(Vec3.atBottomCenterOf(strikePos));
-        bolt.setCause(living);
+		bolt.moveTo(Vec3.atBottomCenterOf(strikePos));
+		bolt.setCause(living);
 
-        level.addFreshEntity(bolt);
-    }
+		level.addFreshEntity(bolt);
+	}
 
-    @SubscribeEvent
-    public static void addCustomTrades(VillagerTradesEvent event) {
-        if (event.getType() == VillagerProfession.FARMER) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+	@SubscribeEvent
+	public static void addCustomTrades(VillagerTradesEvent event) {
+		if (event.getType() == VillagerProfession.FARMER) {
+			Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
-            // Level 1
-            trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 2),
-                    new ItemStack(ModItems.THE_FOSSILS_EYE.get(), 12),
-                    10, 8, 0.02f));
+			// Level 1
+			trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+					new ItemStack(Items.EMERALD, 2),
+					new ItemStack(ModItems.THE_FOSSILS_EYE.get(), 12),
+					10, 8, 0.02f));
 
-            // Level 2
-            trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 5),
-                    new ItemStack(ModItems.FOSSILIZED_DRUMSTICK.get(), 6),
-                    5, 9, 0.035f));
+			// Level 2
+			trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+					new ItemStack(Items.EMERALD, 5),
+					new ItemStack(ModItems.FOSSILIZED_DRUMSTICK.get(), 6),
+					5, 9, 0.035f));
 
-            // Level 3
-            trades.get(3).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(Items.GOLD_INGOT, 8),
-                    new ItemStack(ModItems.FOSSIL.get(), 2),
-                    2, 12, 0.075f));
-        }
+			// Level 3
+			trades.get(3).add((pTrader, pRandom) -> new MerchantOffer(
+					new ItemStack(Items.GOLD_INGOT, 8),
+					new ItemStack(ModItems.FOSSIL.get(), 2),
+					2, 12, 0.075f));
+		}
 
-        if (event.getType() == VillagerProfession.LIBRARIAN) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            ItemStack enchantedBook = EnchantedBookItem
-                    .createForEnchantment(new EnchantmentInstance(Enchantments.THORNS, 2));
+		if (event.getType() == VillagerProfession.LIBRARIAN) {
+			Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+			ItemStack enchantedBook = EnchantedBookItem
+					.createForEnchantment(new EnchantmentInstance(Enchantments.THORNS, 2));
 
-            // Level 1
-            trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 32),
-                    enchantedBook,
-                    2, 8, 0.02f));
-        }
+			// Level 1
+			trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+					new ItemStack(Items.EMERALD, 32),
+					enchantedBook,
+					2, 8, 0.02f));
+		}
 
-    }
+	}
 
-    @SubscribeEvent
-    public static void addCustomWanderingTrades(WandererTradesEvent event) {
-        List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
-        List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
+	@SubscribeEvent
+	public static void addCustomWanderingTrades(WandererTradesEvent event) {
+		List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
+		List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
 
-        genericTrades.add((pTrader, pRandom) -> new MerchantOffer(
-                new ItemStack(Items.EMERALD, 12),
-                new ItemStack(ModItems.FOSSIL_BOOTS.get(), 1),
-                3, 2, 0.2f));
+		genericTrades.add((pTrader, pRandom) -> new MerchantOffer(
+				new ItemStack(Items.EMERALD, 12),
+				new ItemStack(ModItems.FOSSIL_BOOTS.get(), 1),
+				3, 2, 0.2f));
 
-        rareTrades.add((pTrader, pRandom) -> new MerchantOffer(
-                new ItemStack(Items.EMERALD, 24),
-                new ItemStack(ModItems.FOSSILIZED_DRUMSTICK.get(), 1),
-                2, 12, 0.15f));
-    }
+		rareTrades.add((pTrader, pRandom) -> new MerchantOffer(
+				new ItemStack(Items.EMERALD, 24),
+				new ItemStack(ModItems.FOSSILIZED_DRUMSTICK.get(), 1),
+				2, 12, 0.15f));
+	}
 
-    @SubscribeEvent
-    public static void onLivingHeal(LivingHealEvent event) {
-        LivingEntity entity = event.getEntity();
-        if (entity.hasEffect(ModEffects.FOSSILIZED_HEART.get())) {
-            event.setCanceled(true);
-        }
-    }
-    @SubscribeEvent
-    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
-        if(event.getObject() instanceof Player) {
-            if(!event.getObject().getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).isPresent()) {
-                event.addCapability(new ResourceLocation(UndeadRemains.MOD_ID, "properties"), new PlayerXanarianReputationProvider());
-            }
-        }
-    }
-    @SubscribeEvent
-    public static void onPlayerCloned(PlayerEvent.Clone event) {
-        if(event.isWasDeath()) {
-            event.getOriginal().getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).ifPresent(oldStore -> {
-                event.getOriginal().getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
-                });
-            });
-        }
-    }
-    @SubscribeEvent
-    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-        event.register(PlayerXanarianReputation.class);
-    }
+	@SubscribeEvent
+	public static void onLivingHeal(LivingHealEvent event) {
+		LivingEntity entity = event.getEntity();
+		if (entity.hasEffect(ModEffects.FOSSILIZED_HEART.get())) {
+			event.setCanceled(true);
+		}
+	}
+	@SubscribeEvent
+	public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
+		if(event.getObject() instanceof Player) {
+			if(!event.getObject().getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).isPresent()) {
+				event.addCapability(new ResourceLocation(UndeadRemains.MOD_ID, "properties"), new PlayerXanarianReputationProvider());
+			}
+		}
+	}
+	@SubscribeEvent
+	public static void onPlayerCloned(PlayerEvent.Clone event) {
+		if(event.isWasDeath()) {
+			event.getOriginal().getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).ifPresent(oldStore -> {
+				event.getOriginal().getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).ifPresent(newStore -> {
+					newStore.copyFrom(oldStore);
+				});
+			});
+		}
+	}
+	@SubscribeEvent
+	public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+		event.register(PlayerXanarianReputation.class);
+	}
 
 }

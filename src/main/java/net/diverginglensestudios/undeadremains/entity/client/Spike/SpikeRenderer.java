@@ -18,20 +18,20 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class SpikeRenderer extends MobRenderer<SpikeEntity, SpikeModel<SpikeEntity>> {
-    public SpikeRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SpikeModel<>(pContext.bakeLayer(ModModelLayers.SPIKE_LAYER)), 0.5f);
-    }
+	public SpikeRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new SpikeModel<>(pContext.bakeLayer(ModModelLayers.SPIKE_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(SpikeEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/spike.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(SpikeEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/spike.png");
+	}
 
-    @Override
-    public void render(SpikeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(SpikeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }

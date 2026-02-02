@@ -61,174 +61,174 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
 	private int progress = 0;
 	private int maxProgress = 78;
 	private int charge = 0;
-    private int maxCharge = 4;
+	private int maxCharge = 4;
 
-    public XanarianGatewayBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.XANARIAN_GATEWAY_BE.get(), pPos, pBlockState);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int pIndex) {
-                return switch (pIndex) {
-                    case 0 -> XanarianGatewayBlockEntity.this.progress;
-                    case 1 -> XanarianGatewayBlockEntity.this.maxProgress;
-                    case 2 -> XanarianGatewayBlockEntity.this.charge;
-                    case 3 -> XanarianGatewayBlockEntity.this.maxCharge;
-                    default -> 0;
-                };
-            }
+	public XanarianGatewayBlockEntity(BlockPos pPos, BlockState pBlockState) {
+		super(ModBlockEntities.XANARIAN_GATEWAY_BE.get(), pPos, pBlockState);
+		this.data = new ContainerData() {
+			@Override
+			public int get(int pIndex) {
+				return switch (pIndex) {
+					case 0 -> XanarianGatewayBlockEntity.this.progress;
+					case 1 -> XanarianGatewayBlockEntity.this.maxProgress;
+					case 2 -> XanarianGatewayBlockEntity.this.charge;
+					case 3 -> XanarianGatewayBlockEntity.this.maxCharge;
+					default -> 0;
+				};
+			}
 
-            @Override
-            public void set(int pIndex, int pValue) {
-                switch (pIndex) {
-                    case 0 -> XanarianGatewayBlockEntity.this.progress = pValue;
-                    case 1 -> XanarianGatewayBlockEntity.this.maxProgress = pValue;
-                    case 2 -> XanarianGatewayBlockEntity.this.charge = pValue;
-                    case 3 -> XanarianGatewayBlockEntity.this.maxCharge = pValue;
-                }
-            }
+			@Override
+			public void set(int pIndex, int pValue) {
+				switch (pIndex) {
+					case 0 -> XanarianGatewayBlockEntity.this.progress = pValue;
+					case 1 -> XanarianGatewayBlockEntity.this.maxProgress = pValue;
+					case 2 -> XanarianGatewayBlockEntity.this.charge = pValue;
+					case 3 -> XanarianGatewayBlockEntity.this.maxCharge = pValue;
+				}
+			}
 
-            @Override
-            public int getCount() {
-                return 4;
-            }
-        };
-    }
+			@Override
+			public int getCount() {
+				return 4;
+			}
+		};
+	}
 
-    public ItemStack getRenderStack() {
-        if(itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()) {
-            return itemHandler.getStackInSlot(INPUT_SLOT);
-        } else {
-            return itemHandler.getStackInSlot(OUTPUT_SLOT);
-        }
-    }
+	public ItemStack getRenderStack() {
+		if(itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()) {
+			return itemHandler.getStackInSlot(INPUT_SLOT);
+		} else {
+			return itemHandler.getStackInSlot(OUTPUT_SLOT);
+		}
+	}
 
-    @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
-        }
+	@Override
+	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+		if(cap == ForgeCapabilities.ITEM_HANDLER) {
+			return lazyItemHandler.cast();
+		}
 
-        return super.getCapability(cap, side);
-    }
+		return super.getCapability(cap, side);
+	}
 
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
+	@Override
+	public void onLoad() {
+		super.onLoad();
+		lazyItemHandler = LazyOptional.of(() -> itemHandler);
+	}
 
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
+	@Override
+	public void invalidateCaps() {
+		super.invalidateCaps();
+		lazyItemHandler.invalidate();
+	}
 
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-        Containers.dropContents(this.level, this.worldPosition, inventory);
-    }
+	public void drops() {
+		SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+		for(int i = 0; i < itemHandler.getSlots(); i++) {
+			inventory.setItem(i, itemHandler.getStackInSlot(i));
+		}
+		Containers.dropContents(this.level, this.worldPosition, inventory);
+	}
 
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable("block.undeadremains.xanarian_gateway");
-    }
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("block.undeadremains.xanarian_gateway");
+	}
 
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new XanarianGatewayMenu(pContainerId, pPlayerInventory, this, this.data);
-    }
+	@Nullable
+	@Override
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+		return new XanarianGatewayMenu(pContainerId, pPlayerInventory, this, this.data);
+	}
 
-    @Override
-    protected void saveAdditional(CompoundTag pTag) {
-        pTag.put("inventory", itemHandler.serializeNBT());
-        pTag.putInt("xanarian_gateway.progress", progress);
-        pTag.putInt("xanarian_gateway.charge", charge);
-        super.saveAdditional(pTag);
-    }
+	@Override
+	protected void saveAdditional(CompoundTag pTag) {
+		pTag.put("inventory", itemHandler.serializeNBT());
+		pTag.putInt("xanarian_gateway.progress", progress);
+		pTag.putInt("xanarian_gateway.charge", charge);
+		super.saveAdditional(pTag);
+	}
 
-    @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-        progress = pTag.getInt("xanarian_gateway.progress");
-        charge = pTag.getInt("xanarian_gateway.charge");
-    }
+	@Override
+	public void load(CompoundTag pTag) {
+		super.load(pTag);
+		itemHandler.deserializeNBT(pTag.getCompound("inventory"));
+		progress = pTag.getInt("xanarian_gateway.progress");
+		charge = pTag.getInt("xanarian_gateway.charge");
+	}
 
-    public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
-        if(hasRecipe()) {
-            increaseCraftingProgress();
-            setChanged(pLevel, pPos, pState);
+	public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
+		if(hasRecipe()) {
+			increaseCraftingProgress();
+			setChanged(pLevel, pPos, pState);
 
-            if(hasProgressFinished()) {
-                craftItem();
-                resetProgress();
-            }
-        } else {
-            resetProgress();
-        }
-    }
+			if(hasProgressFinished()) {
+				craftItem();
+				resetProgress();
+			}
+		} else {
+			resetProgress();
+		}
+	}
 
-    private void resetProgress() {
-        progress = 0;
-    }
+	private void resetProgress() {
+		progress = 0;
+	}
 
-private void craftItem() {
-        ItemStack result = new ItemStack(ModItems.EMPTY_FUEL_CELL.get(), 1);
-        this.itemHandler.extractItem(INPUT_SLOT, 1, false);
+	private void craftItem() {
+		ItemStack result = new ItemStack(ModItems.EMPTY_FUEL_CELL.get(), 1);
+		this.itemHandler.extractItem(INPUT_SLOT, 1, false);
 
-        this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
-                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
+		this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
+				this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
 		this.charge++;
-        System.out.println("current charge is "+ charge);
-    }
+		System.out.println("current charge is "+ charge);
+	}
 
-    private boolean hasRecipe() {
-        boolean hasCraftingItem = this.itemHandler.getStackInSlot(INPUT_SLOT).getItem() == ModItems.METATURBONITE.get();
-        ItemStack result = new ItemStack(ModItems.EMPTY_FUEL_CELL.get());
+	private boolean hasRecipe() {
+		boolean hasCraftingItem = this.itemHandler.getStackInSlot(INPUT_SLOT).getItem() == ModItems.METATURBONITE.get();
+		ItemStack result = new ItemStack(ModItems.EMPTY_FUEL_CELL.get());
 
-        return hasCraftingItem && canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem())&&charge<4;
-    }
+		return hasCraftingItem && canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem())&&charge<4;
+	}
 
-    private boolean canInsertItemIntoOutputSlot(Item item) {
-        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);
-    }
+	private boolean canInsertItemIntoOutputSlot(Item item) {
+		return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);
+	}
 
-    private boolean canInsertAmountIntoOutputSlot(int count) {
-        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
-    }
+	private boolean canInsertAmountIntoOutputSlot(int count) {
+		return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
+	}
 
-    private boolean hasProgressFinished() {
-        return progress >= maxProgress;
-    }
+	private boolean hasProgressFinished() {
+		return progress >= maxProgress;
+	}
 
-    private void increaseCraftingProgress() {
-        progress++;
-    }
+	private void increaseCraftingProgress() {
+		progress++;
+	}
 
-    @Nullable
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
+	@Nullable
+	@Override
+	public Packet<ClientGamePacketListener> getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
 
-    @Override
-    public CompoundTag getUpdateTag() {
-        return saveWithoutMetadata();
-    }
+	@Override
+	public CompoundTag getUpdateTag() {
+		return saveWithoutMetadata();
+	}
 
 
-    public boolean canTeleport() {
-        return charge > 0;
-    }
+	public boolean canTeleport() {
+		return charge > 0;
+	}
 
-    public void consumeCharge() {
-        if (charge > 0) {
-            charge--;
-            setChanged();
-        }
-    }
+	public void consumeCharge() {
+		if (charge > 0) {
+			charge--;
+			setChanged();
+		}
+	}
 }

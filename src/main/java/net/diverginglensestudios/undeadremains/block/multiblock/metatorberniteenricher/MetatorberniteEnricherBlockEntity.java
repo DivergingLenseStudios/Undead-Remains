@@ -36,154 +36,154 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class MetatorberniteEnricherBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(3);
+	private final ItemStackHandler itemHandler = new ItemStackHandler(3);
 
-    private static final int SOULITE_RING_SLOT = 0;
-    private static final int ESSENCE_SLOT = 1;
-    private static final int OUTPUT_SLOT = 2;
+	private static final int SOULITE_RING_SLOT = 0;
+	private static final int ESSENCE_SLOT = 1;
+	private static final int OUTPUT_SLOT = 2;
 
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+	private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
-    protected final ContainerData data;
-    private int progress = 0;
-    private int maxProgress = 78;
+	protected final ContainerData data;
+	private int progress = 0;
+	private int maxProgress = 78;
 
-    public MetatorberniteEnricherBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.METATORBERNITE_ENRICHER.get(), pPos, pBlockState);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int pIndex) {
-                return switch (pIndex) {
-                    case 0 -> MetatorberniteEnricherBlockEntity.this.progress;
-                    case 1 -> MetatorberniteEnricherBlockEntity.this.maxProgress;
-                    default -> 0;
-                };
-            }
+	public MetatorberniteEnricherBlockEntity(BlockPos pPos, BlockState pBlockState) {
+		super(ModBlockEntities.METATORBERNITE_ENRICHER.get(), pPos, pBlockState);
+		this.data = new ContainerData() {
+			@Override
+			public int get(int pIndex) {
+				return switch (pIndex) {
+					case 0 -> MetatorberniteEnricherBlockEntity.this.progress;
+					case 1 -> MetatorberniteEnricherBlockEntity.this.maxProgress;
+					default -> 0;
+				};
+			}
 
-            @Override
-            public void set(int pIndex, int pValue) {
-                switch (pIndex) {
-                    case 0 -> MetatorberniteEnricherBlockEntity.this.progress = pValue;
-                    case 1 -> MetatorberniteEnricherBlockEntity.this.maxProgress = pValue;
-                }
-            }
+			@Override
+			public void set(int pIndex, int pValue) {
+				switch (pIndex) {
+					case 0 -> MetatorberniteEnricherBlockEntity.this.progress = pValue;
+					case 1 -> MetatorberniteEnricherBlockEntity.this.maxProgress = pValue;
+				}
+			}
 
-            @Override
-            public int getCount() {
-                return 2;
-            }
-        };
-    }
-    public ItemStack getRenderStack() {
-        if(itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()) {
-            return itemHandler.getStackInSlot(SOULITE_RING_SLOT);
-        } else {
-            return itemHandler.getStackInSlot(OUTPUT_SLOT);
-        }
-    }
-    
-    @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
-        }
+			@Override
+			public int getCount() {
+				return 2;
+			}
+		};
+	}
+	public ItemStack getRenderStack() {
+		if(itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()) {
+			return itemHandler.getStackInSlot(SOULITE_RING_SLOT);
+		} else {
+			return itemHandler.getStackInSlot(OUTPUT_SLOT);
+		}
+	}
 
-        return super.getCapability(cap, side);
-    }
+	@Override
+	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+		if(cap == ForgeCapabilities.ITEM_HANDLER) {
+			return lazyItemHandler.cast();
+		}
 
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
+		return super.getCapability(cap, side);
+	}
 
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
+	@Override
+	public void onLoad() {
+		super.onLoad();
+		lazyItemHandler = LazyOptional.of(() -> itemHandler);
+	}
 
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-        Containers.dropContents(this.level, this.worldPosition, inventory);
-    }
+	@Override
+	public void invalidateCaps() {
+		super.invalidateCaps();
+		lazyItemHandler.invalidate();
+	}
 
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable("block.dragonscatalysts.catalyst");
-    }
+	public void drops() {
+		SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+		for(int i = 0; i < itemHandler.getSlots(); i++) {
+			inventory.setItem(i, itemHandler.getStackInSlot(i));
+		}
+		Containers.dropContents(this.level, this.worldPosition, inventory);
+	}
 
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new MetatorberniteEnricherMenu(pContainerId, pPlayerInventory, this, this.data);
-    }
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("block.dragonscatalysts.catalyst");
+	}
 
-    @Override
-    protected void saveAdditional(CompoundTag pTag) {
-        pTag.put("inventory", itemHandler.serializeNBT());
-        pTag.putInt("catalyst.progress", progress);
+	@Nullable
+	@Override
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+		return new MetatorberniteEnricherMenu(pContainerId, pPlayerInventory, this, this.data);
+	}
 
-        super.saveAdditional(pTag);
-    }
+	@Override
+	protected void saveAdditional(CompoundTag pTag) {
+		pTag.put("inventory", itemHandler.serializeNBT());
+		pTag.putInt("catalyst.progress", progress);
 
-    @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-        progress = pTag.getInt("catalyst.progress");
-    }
+		super.saveAdditional(pTag);
+	}
 
-    public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
-        if(hasRecipe()) {
-            increaseCraftingProgress();
-            setChanged(pLevel, pPos, pState);
+	@Override
+	public void load(CompoundTag pTag) {
+		super.load(pTag);
+		itemHandler.deserializeNBT(pTag.getCompound("inventory"));
+		progress = pTag.getInt("catalyst.progress");
+	}
 
-            if(hasProgressFinished()) {
-                craftItem();
-                resetProgress();
-            }
-        } else {
-            resetProgress();
-        }
-    }
+	public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
+		if(hasRecipe()) {
+			increaseCraftingProgress();
+			setChanged(pLevel, pPos, pState);
 
-    private void resetProgress() {
-        progress = 0;
-    }
+			if(hasProgressFinished()) {
+				craftItem();
+				resetProgress();
+			}
+		} else {
+			resetProgress();
+		}
+	}
 
-    private void craftItem() {
-        ItemStack result = new ItemStack(ModItems.METATURBONITE.get(), 1);
-        this.itemHandler.extractItem(SOULITE_RING_SLOT, 1, false);
-        this.itemHandler.extractItem(ESSENCE_SLOT, 1, false);
+	private void resetProgress() {
+		progress = 0;
+	}
 
-        this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
-                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
-    }
+	private void craftItem() {
+		ItemStack result = new ItemStack(ModItems.METATURBONITE.get(), 1);
+		this.itemHandler.extractItem(SOULITE_RING_SLOT, 1, false);
+		this.itemHandler.extractItem(ESSENCE_SLOT, 1, false);
 
-    private boolean hasRecipe() {
-        boolean hasCraftingItem = this.itemHandler.getStackInSlot(SOULITE_RING_SLOT).getItem() == ModItems.EMPTY_FUEL_CELL.get() && this.itemHandler.getStackInSlot(ESSENCE_SLOT).getItem() == ModItems.METATORBERNITE.get() ;
-        ItemStack result = new ItemStack(ModItems.METATURBONITE.get());
+		this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
+				this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
+	}
 
-        return hasCraftingItem && canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
-    }
+	private boolean hasRecipe() {
+		boolean hasCraftingItem = this.itemHandler.getStackInSlot(SOULITE_RING_SLOT).getItem() == ModItems.EMPTY_FUEL_CELL.get() && this.itemHandler.getStackInSlot(ESSENCE_SLOT).getItem() == ModItems.METATORBERNITE.get() ;
+		ItemStack result = new ItemStack(ModItems.METATURBONITE.get());
 
-    private boolean canInsertItemIntoOutputSlot(Item item) {
-        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);
-    }
+		return hasCraftingItem && canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
+	}
 
-    private boolean canInsertAmountIntoOutputSlot(int count) {
-        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
-    }
+	private boolean canInsertItemIntoOutputSlot(Item item) {
+		return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);
+	}
 
-    private boolean hasProgressFinished() {
-        return progress >= maxProgress;
-    }
+	private boolean canInsertAmountIntoOutputSlot(int count) {
+		return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
+	}
 
-    private void increaseCraftingProgress() {
-        progress++;
-    }
+	private boolean hasProgressFinished() {
+		return progress >= maxProgress;
+	}
+
+	private void increaseCraftingProgress() {
+		progress++;
+	}
 }

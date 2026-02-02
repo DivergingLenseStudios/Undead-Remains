@@ -21,94 +21,94 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class FossilizedZombieEntity extends ModAbstractZombie {
-    public FossilizedZombieEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-        
-    }
-    private static final EntityDataAccessor<Boolean> ATTACKING =
-            SynchedEntityData.defineId(FossilizedZombieEntity.class, EntityDataSerializers.BOOLEAN);
-            
-    public FossilizedZombieEntity(Level pLevel) {
-        this(ModEntities.FOSSILIZED_ZOMBIE.get(), pLevel);
-    }
+	public FossilizedZombieEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
+	}
+	private static final EntityDataAccessor<Boolean> ATTACKING =
+			SynchedEntityData.defineId(FossilizedZombieEntity.class, EntityDataSerializers.BOOLEAN);
 
-    public final AnimationState attackAnimationState = new AnimationState();
-    public int attackAnimationTimeout = 0;
+	public FossilizedZombieEntity(Level pLevel) {
+		this(ModEntities.FOSSILIZED_ZOMBIE.get(), pLevel);
+	}
 
-    @Override
-    public void tick() {
-        super.tick();
+	public final AnimationState idleAnimationState = new AnimationState();
+	private int idleAnimationTimeout = 0;
 
-        if(this.level().isClientSide()) {
-            setupAnimationStates();
-        }
-    }
+	public final AnimationState attackAnimationState = new AnimationState();
+	public int attackAnimationTimeout = 0;
 
-    private void setupAnimationStates() {
-        if(this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.tickCount);
-        } else {
-            --this.idleAnimationTimeout;
-        }
+	@Override
+	public void tick() {
+		super.tick();
 
-        if(this.isAttacking() && attackAnimationTimeout <= 0) {
-             attackAnimationTimeout = 15; // Length in ticks of your animation
-            attackAnimationState.start(this.tickCount);
-        }else {
-            --this.attackAnimationTimeout;
-        }
-        if(!this.isAttacking()) {
-            attackAnimationState.stop();
-        }
-    }
+		if(this.level().isClientSide()) {
+			setupAnimationStates();
+		}
+	}
 
-    @Override
-    protected void updateWalkAnimation(float pPartialTick) {
-        float f;
-        if(this.getPose() == Pose.STANDING) {
-             f = Math.min(pPartialTick * 6F, 1f);
-        } else {
-            f = 0f;
-        }
+	private void setupAnimationStates() {
+		if(this.idleAnimationTimeout <= 0) {
+			this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+			this.idleAnimationState.start(this.tickCount);
+		} else {
+			--this.idleAnimationTimeout;
+		}
 
-        this.walkAnimation.update(f, 0.2f);
-    }
+		if(this.isAttacking() && attackAnimationTimeout <= 0) {
+			attackAnimationTimeout = 15; // Length in ticks of your animation
+			attackAnimationState.start(this.tickCount);
+		}else {
+			--this.attackAnimationTimeout;
+		}
+		if(!this.isAttacking()) {
+			attackAnimationState.stop();
+		}
+	}
 
-    public void setAttacking(boolean attacking) {
-        this.entityData.set(ATTACKING, attacking);
-    }
+	@Override
+	protected void updateWalkAnimation(float pPartialTick) {
+		float f;
+		if(this.getPose() == Pose.STANDING) {
+			f = Math.min(pPartialTick * 6F, 1f);
+		} else {
+			f = 0f;
+		}
 
-    public boolean isAttacking() {
-        return this.entityData.get(ATTACKING);
-    }
+		this.walkAnimation.update(f, 0.2f);
+	}
 
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ATTACKING, false);
-    }
+	public void setAttacking(boolean attacking) {
+		this.entityData.set(ATTACKING, attacking);
+	}
 
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(2, new FossilizedZombieAttackGoal(this, 1D, true));
-    }
+	public boolean isAttacking() {
+		return this.entityData.get(ATTACKING);
+	}
 
-    @Override
-    public boolean isSunSensitive() {
-        return false;
-    }
+	@Override
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(ATTACKING, false);
+	}
 
-    public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes()
-        .add(Attributes.FOLLOW_RANGE, 35.0D)
-        .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
-        .add(Attributes.ATTACK_DAMAGE, 3.0D)
-        .add(Attributes.ARMOR, 3.0D)
-        .add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
-    }
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+		this.goalSelector.addGoal(2, new FossilizedZombieAttackGoal(this, 1D, true));
+	}
+
+	@Override
+	public boolean isSunSensitive() {
+		return false;
+	}
+
+	public static AttributeSupplier.Builder createAttributes() {
+		return Monster.createMonsterAttributes()
+				.add(Attributes.FOLLOW_RANGE, 35.0D)
+				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
+				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(Attributes.ARMOR, 3.0D)
+				.add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
+	}
 }

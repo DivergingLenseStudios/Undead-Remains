@@ -14,82 +14,82 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 public class CowZombieAttackGoal extends MeleeAttackGoal {
-    private final CowZombieEntity entity;
-    private int attackDelay = 10;
-    private int ticksUntilNextAttack = 4;
-    private boolean shouldCountTillNextAttack = false;
+	private final CowZombieEntity entity;
+	private int attackDelay = 10;
+	private int ticksUntilNextAttack = 4;
+	private boolean shouldCountTillNextAttack = false;
 
-    public CowZombieAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
-        super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
-        entity = ((CowZombieEntity) pMob);
-    }
+	public CowZombieAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
+		super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
+		entity = ((CowZombieEntity) pMob);
+	}
 
-    @Override
-    public void start() {
-        super.start();
-        attackDelay = 10;
-        ticksUntilNextAttack = 8;
-    }
+	@Override
+	public void start() {
+		super.start();
+		attackDelay = 10;
+		ticksUntilNextAttack = 8;
+	}
 
-    @Override
-    protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-        if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
-            shouldCountTillNextAttack = true;
+	@Override
+	protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
+		if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
+			shouldCountTillNextAttack = true;
 
-            if(isTimeToStartAttackAnimation()) {
-                entity.setAttacking(true);
-            }
+			if(isTimeToStartAttackAnimation()) {
+				entity.setAttacking(true);
+			}
 
-            if(isTimeToAttack()) {
-                this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
-                performAttack(pEnemy);
-            }
-        } else {
-            resetAttackCooldown();
-            shouldCountTillNextAttack = false;
-            entity.setAttacking(false);
-            entity.attackAnimationTimeout = 0;
-        }
-    }
+			if(isTimeToAttack()) {
+				this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
+				performAttack(pEnemy);
+			}
+		} else {
+			resetAttackCooldown();
+			shouldCountTillNextAttack = false;
+			entity.setAttacking(false);
+			entity.attackAnimationTimeout = 0;
+		}
+	}
 
-    private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-        return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
-    }
+	private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
+		return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
+	}
 
-    protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = this.adjustedTickDelay(15);
-    }
+	protected void resetAttackCooldown() {
+		this.ticksUntilNextAttack = this.adjustedTickDelay(15);
+	}
 
-    protected boolean isTimeToAttack() {
-        return this.ticksUntilNextAttack <= 0;
-    }
+	protected boolean isTimeToAttack() {
+		return this.ticksUntilNextAttack <= 0;
+	}
 
-    protected boolean isTimeToStartAttackAnimation() {
-        return this.ticksUntilNextAttack <= attackDelay;
-    }
+	protected boolean isTimeToStartAttackAnimation() {
+		return this.ticksUntilNextAttack <= attackDelay;
+	}
 
-    protected int getTicksUntilNextAttack() {
-        return this.ticksUntilNextAttack;
-    }
+	protected int getTicksUntilNextAttack() {
+		return this.ticksUntilNextAttack;
+	}
 
 
-    protected void performAttack(LivingEntity pEnemy) {
-        this.resetAttackCooldown();
-        this.mob.swing(InteractionHand.MAIN_HAND);
-        this.mob.doHurtTarget(pEnemy);
-    }
+	protected void performAttack(LivingEntity pEnemy) {
+		this.resetAttackCooldown();
+		this.mob.swing(InteractionHand.MAIN_HAND);
+		this.mob.doHurtTarget(pEnemy);
+	}
 
-    @Override
-    public void tick() {
-        super.tick();
-        if(shouldCountTillNextAttack) {
-            this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
-        }
-    }
+	@Override
+	public void tick() {
+		super.tick();
+		if(shouldCountTillNextAttack) {
+			this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
+		}
+	}
 
-    @Override
-    public void stop() {
-        entity.setAttacking(false);
-        super.stop();
-    }
+	@Override
+	public void stop() {
+		entity.setAttacking(false);
+		super.stop();
+	}
 }

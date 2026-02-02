@@ -15,9 +15,9 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 public class CalipoTreeGrower extends AbstractTreeGrower{
 
-    @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
-        return ModConfiguredFeatures.CALIPO_KEY;
-    }
+	@Override
+	protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
+		return ModConfiguredFeatures.CALIPO_KEY;
+	}
 
 }

@@ -22,23 +22,23 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class CowArmorItem extends ModArmorItem{
- public CowArmorItem(Type pType) {
-        super(ModArmorMaterials.COW, pType, new Properties());
-    }
+	public CowArmorItem(Type pType) {
+		super(ModArmorMaterials.COW, pType, new Properties());
+	}
 
-    @Override
-    protected boolean withCustomModel() {
-        return true;
-    }
+	@Override
+	protected boolean withCustomModel() {
+		return true;
+	}
 
-    @Override
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
-        return new ArmorRenderer<>(CowArmorModel::createBodyLayer, CowArmorModel::new);
-    }
+	@Override
+	protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+		return new ArmorRenderer<>(CowArmorModel::createBodyLayer, CowArmorModel::new);
+	}
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return makeCustomTextureLocation(UndeadRemains.MOD_ID, "cow_armor");
-    }
+	@Override
+	public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+		return makeCustomTextureLocation(UndeadRemains.MOD_ID, "cow_armor");
+	}
 
 }

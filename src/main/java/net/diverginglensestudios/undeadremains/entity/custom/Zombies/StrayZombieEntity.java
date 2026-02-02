@@ -26,102 +26,102 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class StrayZombieEntity extends ModAbstractZombie {
-    public StrayZombieEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-        
-    }
-   private static final EntityDataAccessor<Boolean> ATTACKING =
-            SynchedEntityData.defineId(StrayZombieEntity.class, EntityDataSerializers.BOOLEAN);
-            
-    public StrayZombieEntity(Level pLevel) {
-        this(ModEntities.STRAY_ZOMBIE.get(), pLevel);
-     }
+	public StrayZombieEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+
+	}
+	private static final EntityDataAccessor<Boolean> ATTACKING =
+			SynchedEntityData.defineId(StrayZombieEntity.class, EntityDataSerializers.BOOLEAN);
+
+	public StrayZombieEntity(Level pLevel) {
+		this(ModEntities.STRAY_ZOMBIE.get(), pLevel);
+	}
 
 
-     public final AnimationState idleAnimationState = new AnimationState();
-     private int idleAnimationTimeout = 0;
- 
-     public final AnimationState attackAnimationState = new AnimationState();
-     public int attackAnimationTimeout = 0;
+	public final AnimationState idleAnimationState = new AnimationState();
+	private int idleAnimationTimeout = 0;
 
-     @Override
-     public void tick() {
-         super.tick();
- 
-         if(this.level().isClientSide()) {
-             setupAnimationStates();
-         }
-     }
- 
-     private void setupAnimationStates() {
-         if(this.idleAnimationTimeout <= 0) {
-             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-             this.idleAnimationState.start(this.tickCount);
-         } else {
-             --this.idleAnimationTimeout;
-         }
- 
-         if(this.isAttacking() && attackAnimationTimeout <= 0) {
-             attackAnimationTimeout = 21; // Length in ticks of your animation
-             attackAnimationState.start(this.tickCount);
-         } else {
-             --this.attackAnimationTimeout;
-         }
- 
-         if(!this.isAttacking()) {
-             attackAnimationState.stop();
-         }
-     }
- 
-     @Override
-     protected void updateWalkAnimation(float pPartialTick) {
-         float f;
-         if(this.getPose() == Pose.STANDING) {
-             f = Math.min(pPartialTick * 6F, 1f);
-         } else {
-             f = 0f;
-         }
- 
-         this.walkAnimation.update(f, 0.2f);
-     }
- 
-     public void setAttacking(boolean attacking) {
-         this.entityData.set(ATTACKING, attacking);
-     }
- 
-     public boolean isAttacking() {
-         return this.entityData.get(ATTACKING);
-     }
- 
-     @Override
-     protected void defineSynchedData() {
-         super.defineSynchedData();
-         this.entityData.define(ATTACKING, false);
-     }
+	public final AnimationState attackAnimationState = new AnimationState();
+	public int attackAnimationTimeout = 0;
 
-        @Override
-    public boolean doHurtTarget(Entity target) {
-        boolean hit = super.doHurtTarget(target);
-        if (hit && !this.level().isClientSide && target instanceof LivingEntity living) {
-            // Slowness II for 3 seconds (60 ticks). Adjust duration/amplifier as needed.
-            living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1, false, true));
-        }
-        return hit;
-    }
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(2, new StrayZombieAttackGoal(this, 1D, true));
+	@Override
+	public void tick() {
+		super.tick();
 
-    }
+		if(this.level().isClientSide()) {
+			setupAnimationStates();
+		}
+	}
 
-    public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes()
-        .add(Attributes.FOLLOW_RANGE, 35.0D)
-        .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
-        .add(Attributes.ATTACK_DAMAGE, 3.0D)
-        .add(Attributes.ARMOR, 3.0D)
-        .add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
-    }
+	private void setupAnimationStates() {
+		if(this.idleAnimationTimeout <= 0) {
+			this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+			this.idleAnimationState.start(this.tickCount);
+		} else {
+			--this.idleAnimationTimeout;
+		}
+
+		if(this.isAttacking() && attackAnimationTimeout <= 0) {
+			attackAnimationTimeout = 21; // Length in ticks of your animation
+			attackAnimationState.start(this.tickCount);
+		} else {
+			--this.attackAnimationTimeout;
+		}
+
+		if(!this.isAttacking()) {
+			attackAnimationState.stop();
+		}
+	}
+
+	@Override
+	protected void updateWalkAnimation(float pPartialTick) {
+		float f;
+		if(this.getPose() == Pose.STANDING) {
+			f = Math.min(pPartialTick * 6F, 1f);
+		} else {
+			f = 0f;
+		}
+
+		this.walkAnimation.update(f, 0.2f);
+	}
+
+	public void setAttacking(boolean attacking) {
+		this.entityData.set(ATTACKING, attacking);
+	}
+
+	public boolean isAttacking() {
+		return this.entityData.get(ATTACKING);
+	}
+
+	@Override
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(ATTACKING, false);
+	}
+
+	@Override
+	public boolean doHurtTarget(Entity target) {
+		boolean hit = super.doHurtTarget(target);
+		if (hit && !this.level().isClientSide && target instanceof LivingEntity living) {
+			// Slowness II for 3 seconds (60 ticks). Adjust duration/amplifier as needed.
+			living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1, false, true));
+		}
+		return hit;
+	}
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+		this.goalSelector.addGoal(2, new StrayZombieAttackGoal(this, 1D, true));
+
+	}
+
+	public static AttributeSupplier.Builder createAttributes() {
+		return Monster.createMonsterAttributes()
+				.add(Attributes.FOLLOW_RANGE, 35.0D)
+				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
+				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(Attributes.ARMOR, 3.0D)
+				.add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
+	}
 
 }

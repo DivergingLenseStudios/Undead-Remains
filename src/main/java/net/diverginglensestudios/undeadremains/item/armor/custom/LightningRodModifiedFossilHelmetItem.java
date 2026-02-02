@@ -23,23 +23,23 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class LightningRodModifiedFossilHelmetItem extends ModArmorItem{
- public LightningRodModifiedFossilHelmetItem(Type pType) {
-        super(ModArmorMaterials.LIGHTNING_ROD_MODIFIED_FOSSIL, pType, new Properties());
-    }
+	public LightningRodModifiedFossilHelmetItem(Type pType) {
+		super(ModArmorMaterials.LIGHTNING_ROD_MODIFIED_FOSSIL, pType, new Properties());
+	}
 
-    @Override
-    protected boolean withCustomModel() {
-        return true;
-    }
+	@Override
+	protected boolean withCustomModel() {
+		return true;
+	}
 
-    @Override
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
-        return new ArmorRenderer<>(LightningRodModifiedFossilHelmetModel::createBodyLayer, LightningRodModifiedFossilHelmetModel::new);
-    }
+	@Override
+	protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+		return new ArmorRenderer<>(LightningRodModifiedFossilHelmetModel::createBodyLayer, LightningRodModifiedFossilHelmetModel::new);
+	}
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return makeCustomTextureLocation(UndeadRemains.MOD_ID, "lightning_rod_modified_fossil_helmet");
-    }
+	@Override
+	public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+		return makeCustomTextureLocation(UndeadRemains.MOD_ID, "lightning_rod_modified_fossil_helmet");
+	}
 
 }

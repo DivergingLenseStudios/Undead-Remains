@@ -18,21 +18,21 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class UndeadArcheologistRenderer extends MobRenderer<UndeadArcheologistEntity, UndeadArcheologistModel<UndeadArcheologistEntity>> {
-    public UndeadArcheologistRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new UndeadArcheologistModel<>(pContext.bakeLayer(ModModelLayers.UNDEAD_ARCHEOLOGIST_LAYER)), 0.5f);
-    }
+	public UndeadArcheologistRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new UndeadArcheologistModel<>(pContext.bakeLayer(ModModelLayers.UNDEAD_ARCHEOLOGIST_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(UndeadArcheologistEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/undead_archeologist.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(UndeadArcheologistEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/undead_archeologist.png");
+	}
 
-    @Override
-    public void render(UndeadArcheologistEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(UndeadArcheologistEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }
 

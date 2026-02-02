@@ -24,88 +24,88 @@ import net.minecraft.world.level.block.Block;
 import java.util.function.IntFunction;
 
 public class ModBoatEntity extends Boat {
-    private static final EntityDataAccessor<Integer> DATA_ID_TYPE = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Integer> DATA_ID_TYPE = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.INT);
 
-    public ModBoatEntity(EntityType<? extends Boat> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-    }
+	public ModBoatEntity(EntityType<? extends Boat> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+	}
 
-    public ModBoatEntity(Level level, double pX, double pY, double pZ) {
-        this(ModEntities.MOD_BOAT.get(), level);
-        this.setPos(pX, pY, pZ);
-        this.xo = pX;
-        this.yo = pY;
-        this.zo = pZ;
-    }
+	public ModBoatEntity(Level level, double pX, double pY, double pZ) {
+		this(ModEntities.MOD_BOAT.get(), level);
+		this.setPos(pX, pY, pZ);
+		this.xo = pX;
+		this.yo = pY;
+		this.zo = pZ;
+	}
 
-    @Override
-    public Item getDropItem() {
-        return switch (getModVariant()) {
-            case ASH -> ModItems.ASH_BOAT.get();
-        };
-    }
+	@Override
+	public Item getDropItem() {
+		return switch (getModVariant()) {
+			case ASH -> ModItems.ASH_BOAT.get();
+		};
+	}
 
-    public void setVariant(Type pVariant) {
-        this.entityData.set(DATA_ID_TYPE, pVariant.ordinal());
-    }
+	public void setVariant(Type pVariant) {
+		this.entityData.set(DATA_ID_TYPE, pVariant.ordinal());
+	}
 
-    public Type getModVariant() {
-        return Type.byId(this.entityData.get(DATA_ID_TYPE));
-    }
+	public Type getModVariant() {
+		return Type.byId(this.entityData.get(DATA_ID_TYPE));
+	}
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE, Type.ASH.ordinal());
-    }
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(DATA_ID_TYPE, Type.ASH.ordinal());
+	}
 
-    protected void addAdditionalSaveData(CompoundTag pCompound) {
-        pCompound.putString("Type", this.getModVariant().getSerializedName());
-    }
+	protected void addAdditionalSaveData(CompoundTag pCompound) {
+		pCompound.putString("Type", this.getModVariant().getSerializedName());
+	}
 
-    protected void readAdditionalSaveData(CompoundTag pCompound) {
-        if (pCompound.contains("Type", 8)) {
-            this.setVariant(Type.byName(pCompound.getString("Type")));
-        }
-    }
+	protected void readAdditionalSaveData(CompoundTag pCompound) {
+		if (pCompound.contains("Type", 8)) {
+			this.setVariant(Type.byName(pCompound.getString("Type")));
+		}
+	}
 
-    public static enum Type implements StringRepresentable {
-        ASH(ModBlocks.ASH_PLANKS.get(), "ash");
+	public static enum Type implements StringRepresentable {
+		ASH(ModBlocks.ASH_PLANKS.get(), "ash");
 
-        private final String name;
-        private final Block planks;
-        public static final StringRepresentable.EnumCodec<ModBoatEntity.Type> CODEC = StringRepresentable.fromEnum(ModBoatEntity.Type::values);
-        private static final IntFunction<ModBoatEntity.Type> BY_ID = ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
+		private final String name;
+		private final Block planks;
+		public static final StringRepresentable.EnumCodec<ModBoatEntity.Type> CODEC = StringRepresentable.fromEnum(ModBoatEntity.Type::values);
+		private static final IntFunction<ModBoatEntity.Type> BY_ID = ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
 
-        private Type(Block pPlanks, String pName) {
-            this.name = pName;
-            this.planks = pPlanks;
-        }
+		private Type(Block pPlanks, String pName) {
+			this.name = pName;
+			this.planks = pPlanks;
+		}
 
-        public String getSerializedName() {
-            return this.name;
-        }
+		public String getSerializedName() {
+			return this.name;
+		}
 
-        public String getName() {
-            return this.name;
-        }
+		public String getName() {
+			return this.name;
+		}
 
-        public Block getPlanks() {
-            return this.planks;
-        }
+		public Block getPlanks() {
+			return this.planks;
+		}
 
-        public String toString() {
-            return this.name;
-        }
+		public String toString() {
+			return this.name;
+		}
 
-        /**
-         * Get a boat type by its enum ordinal
-         */
-        public static ModBoatEntity.Type byId(int pId) {
-            return BY_ID.apply(pId);
-        }
+		/**
+		 * Get a boat type by its enum ordinal
+		 */
+		public static ModBoatEntity.Type byId(int pId) {
+			return BY_ID.apply(pId);
+		}
 
-        public static ModBoatEntity.Type byName(String pName) {
-            return CODEC.byName(pName, ASH);
-        }
-    }
+		public static ModBoatEntity.Type byName(String pName) {
+			return CODEC.byName(pName, ASH);
+		}
+	}
 }

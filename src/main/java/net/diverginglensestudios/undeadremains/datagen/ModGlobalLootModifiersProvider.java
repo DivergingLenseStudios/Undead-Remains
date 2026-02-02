@@ -19,18 +19,18 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 
 public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
-    public ModGlobalLootModifiersProvider(PackOutput output) {
-        super(output, UndeadRemains.MOD_ID);
-    }
+	public ModGlobalLootModifiersProvider(PackOutput output) {
+		super(output, UndeadRemains.MOD_ID);
+	}
 
-    @Override
-    protected void start() {
+	@Override
+	protected void start() {
 
-        add("metal_detector_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build() },
-                ModItems.FOSSIL.get()));
+		add("metal_detector_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[] {
+				new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build() },
+				ModItems.FOSSIL.get()));
 
-        this.add("smelt", new SmeltModifier(new LootItemCondition[0]));
+		this.add("smelt", new SmeltModifier(new LootItemCondition[0]));
 
-    }
+	}
 }

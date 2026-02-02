@@ -23,23 +23,23 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class XanarianSpineChestplateItem extends ModArmorItem{
- public XanarianSpineChestplateItem(Type pType) {
-        super(ModArmorMaterials.XANARIAN, pType, new Properties());
-    }
+	public XanarianSpineChestplateItem(Type pType) {
+		super(ModArmorMaterials.XANARIAN, pType, new Properties());
+	}
 
-    @Override
-    protected boolean withCustomModel() {
-        return true;
-    }
+	@Override
+	protected boolean withCustomModel() {
+		return true;
+	}
 
-    @Override
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
-        return new ArmorRenderer<>(XanarianSpineChestplateModel::createBodyLayer, XanarianSpineChestplateModel::new);
-    }
+	@Override
+	protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+		return new ArmorRenderer<>(XanarianSpineChestplateModel::createBodyLayer, XanarianSpineChestplateModel::new);
+	}
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return makeCustomTextureLocation(UndeadRemains.MOD_ID, "xanarian_spine_chestplate");
-    }
+	@Override
+	public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+		return makeCustomTextureLocation(UndeadRemains.MOD_ID, "xanarian_spine_chestplate");
+	}
 
 }

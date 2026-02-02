@@ -11,12 +11,12 @@ import net.minecraftforge.common.loot.LootModifier;
 
 public abstract class ModLootModifier extends LootModifier implements IConditional {
 
-    protected ModLootModifier(LootItemCondition[] conditionsIn) {
-        super(conditionsIn);
-    }
+	protected ModLootModifier(LootItemCondition[] conditionsIn) {
+		super(conditionsIn);
+	}
 
-    @Override
-    public LootItemCondition[] getConditions() {
-        return conditions;
-    }
+	@Override
+	public LootItemCondition[] getConditions() {
+		return conditions;
+	}
 }

@@ -18,21 +18,21 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class TreeZombieRenderer extends MobRenderer<TreeZombieEntity, TreeZombieModel<TreeZombieEntity>> {
-    public TreeZombieRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new TreeZombieModel<>(pContext.bakeLayer(ModModelLayers.TREE_ZOMBIE_LAYER)), 0.5f);
-    }
+	public TreeZombieRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new TreeZombieModel<>(pContext.bakeLayer(ModModelLayers.TREE_ZOMBIE_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(TreeZombieEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/tree_zombie.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(TreeZombieEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/tree_zombie.png");
+	}
 
-    @Override
-    public void render(TreeZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(TreeZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }
 

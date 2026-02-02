@@ -23,27 +23,27 @@ import java.util.List;
 
 @JeiPlugin
 public class JEITutorialModPlugin implements IModPlugin {
-    @Override
-    public ResourceLocation getPluginUid() {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "jei_plugin");
-    }
+	@Override
+	public ResourceLocation getPluginUid() {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "jei_plugin");
+	}
 
-    @Override
-    public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new GemPolishingCategory(registration.getJeiHelpers().getGuiHelper()));
-    }
+	@Override
+	public void registerCategories(IRecipeCategoryRegistration registration) {
+		registration.addRecipeCategories(new GemPolishingCategory(registration.getJeiHelpers().getGuiHelper()));
+	}
 
-    @Override
-    public void registerRecipes(IRecipeRegistration registration) {
-        RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
+	@Override
+	public void registerRecipes(IRecipeRegistration registration) {
+		RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
 
-        List<GemPolishingRecipe> polishingRecipes = recipeManager.getAllRecipesFor(GemPolishingRecipe.Type.INSTANCE);
-        registration.addRecipes(GemPolishingCategory.GEM_POLISHING_TYPE, polishingRecipes);
-    }
+		List<GemPolishingRecipe> polishingRecipes = recipeManager.getAllRecipesFor(GemPolishingRecipe.Type.INSTANCE);
+		registration.addRecipes(GemPolishingCategory.GEM_POLISHING_TYPE, polishingRecipes);
+	}
 
-    @Override
-    public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-        registration.addRecipeClickArea(GemPolishingStationScreen.class, 60, 30, 20, 30,
-                GemPolishingCategory.GEM_POLISHING_TYPE);
-    }
+	@Override
+	public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+		registration.addRecipeClickArea(GemPolishingStationScreen.class, 60, 30, 20, 30,
+				GemPolishingCategory.GEM_POLISHING_TYPE);
+	}
 }

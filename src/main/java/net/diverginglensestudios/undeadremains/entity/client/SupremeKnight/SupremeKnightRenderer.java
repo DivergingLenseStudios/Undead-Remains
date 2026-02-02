@@ -18,21 +18,21 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class SupremeKnightRenderer extends MobRenderer<SupremeKnightEntity, SupremeKnightModel<SupremeKnightEntity>> {
-    public SupremeKnightRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SupremeKnightModel<>(pContext.bakeLayer(ModModelLayers.SUPREME_KNIGHT_LAYER)), 0.5f);
-    }
+	public SupremeKnightRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new SupremeKnightModel<>(pContext.bakeLayer(ModModelLayers.SUPREME_KNIGHT_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(SupremeKnightEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/supreme_knight.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(SupremeKnightEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/supreme_knight.png");
+	}
 
-    @Override
-    public void render(SupremeKnightEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(SupremeKnightEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }
 

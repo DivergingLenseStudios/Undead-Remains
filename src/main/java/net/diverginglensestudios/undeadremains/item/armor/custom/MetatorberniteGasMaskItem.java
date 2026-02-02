@@ -22,23 +22,23 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class MetatorberniteGasMaskItem extends ModArmorItem{
- public MetatorberniteGasMaskItem(Type pType) {
-        super(ModArmorMaterials.METATORBERNITE, pType, new Properties());
-    }
+	public MetatorberniteGasMaskItem(Type pType) {
+		super(ModArmorMaterials.METATORBERNITE, pType, new Properties());
+	}
 
-    @Override
-    protected boolean withCustomModel() {
-        return true;
-    }
+	@Override
+	protected boolean withCustomModel() {
+		return true;
+	}
 
-    @Override
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
-        return new ArmorRenderer<>(MetatorberniteGasMaskModel::createBodyLayer, MetatorberniteGasMaskModel::new);
-    }
+	@Override
+	protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+		return new ArmorRenderer<>(MetatorberniteGasMaskModel::createBodyLayer, MetatorberniteGasMaskModel::new);
+	}
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return makeCustomTextureLocation(UndeadRemains.MOD_ID, "metatorbernite_gas_mask");
-    }
+	@Override
+	public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+		return makeCustomTextureLocation(UndeadRemains.MOD_ID, "metatorbernite_gas_mask");
+	}
 
 }

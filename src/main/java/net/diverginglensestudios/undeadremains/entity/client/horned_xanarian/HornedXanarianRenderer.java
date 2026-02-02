@@ -18,20 +18,20 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class HornedXanarianRenderer extends MobRenderer<HornedXanarianEntity, HornedXanarianModel<HornedXanarianEntity>> {
-    public HornedXanarianRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new HornedXanarianModel<>(pContext.bakeLayer(ModModelLayers.HORNED_XANARIAN_LAYER)), 0.5f);
-    }
+	public HornedXanarianRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new HornedXanarianModel<>(pContext.bakeLayer(ModModelLayers.HORNED_XANARIAN_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(HornedXanarianEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/horned_xanarian.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(HornedXanarianEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/horned_xanarian.png");
+	}
 
-    @Override
-    public void render(HornedXanarianEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(HornedXanarianEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }

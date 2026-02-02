@@ -18,20 +18,20 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class CowZombieRenderer extends MobRenderer<CowZombieEntity, CowZombieModel<CowZombieEntity>> {
-    public CowZombieRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CowZombieModel<>(pContext.bakeLayer(ModModelLayers.COW_ZOMBIE_LAYER)), 1f);
-    }
+	public CowZombieRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new CowZombieModel<>(pContext.bakeLayer(ModModelLayers.COW_ZOMBIE_LAYER)), 1f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(CowZombieEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/cow_zombie.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(CowZombieEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/cow_zombie.png");
+	}
 
-    @Override
-    public void render(CowZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(CowZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }

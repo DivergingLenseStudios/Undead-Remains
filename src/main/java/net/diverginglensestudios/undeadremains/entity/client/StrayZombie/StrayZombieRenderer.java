@@ -18,20 +18,20 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class StrayZombieRenderer extends MobRenderer<StrayZombieEntity, StrayZombieModel<StrayZombieEntity>> {
-    public StrayZombieRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new StrayZombieModel<>(pContext.bakeLayer(ModModelLayers.STRAY_ZOMBIE_LAYER)), 0.5f);
-    }
+	public StrayZombieRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new StrayZombieModel<>(pContext.bakeLayer(ModModelLayers.STRAY_ZOMBIE_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(StrayZombieEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/stray_zombie.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(StrayZombieEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/stray_zombie.png");
+	}
 
-    @Override
-    public void render(StrayZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(StrayZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }

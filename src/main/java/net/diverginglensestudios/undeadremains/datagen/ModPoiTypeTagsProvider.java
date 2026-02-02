@@ -19,13 +19,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class ModPoiTypeTagsProvider extends PoiTypeTagsProvider {
-    public ModPoiTypeTagsProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(pOutput, pProvider, UndeadRemains.MOD_ID, existingFileHelper);
-    }
+	public ModPoiTypeTagsProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, @Nullable ExistingFileHelper existingFileHelper) {
+		super(pOutput, pProvider, UndeadRemains.MOD_ID, existingFileHelper);
+	}
 
-    @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
-        tag(PoiTypeTags.ACQUIRABLE_JOB_SITE)
-                .addOptional(new ResourceLocation(UndeadRemains.MOD_ID, "sound_poi"));
-    }
+	@Override
+	protected void addTags(HolderLookup.Provider pProvider) {
+		tag(PoiTypeTags.ACQUIRABLE_JOB_SITE)
+				.addOptional(new ResourceLocation(UndeadRemains.MOD_ID, "sound_poi"));
+	}
 }

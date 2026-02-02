@@ -18,20 +18,20 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class FourEyedXanarianRenderer extends MobRenderer<FourEyedXanarianEntity, FourEyedXanarianModel<FourEyedXanarianEntity>> {
-    public FourEyedXanarianRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new FourEyedXanarianModel<>(pContext.bakeLayer(ModModelLayers.FOUR_EYED_XANARIAN_LAYER)), 0.5f);
-    }
+	public FourEyedXanarianRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new FourEyedXanarianModel<>(pContext.bakeLayer(ModModelLayers.FOUR_EYED_XANARIAN_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(FourEyedXanarianEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/four_eyed_xanarian.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(FourEyedXanarianEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/four_eyed_xanarian.png");
+	}
 
-    @Override
-    public void render(FourEyedXanarianEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(FourEyedXanarianEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }

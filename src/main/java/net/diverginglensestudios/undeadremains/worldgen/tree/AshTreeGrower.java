@@ -15,9 +15,9 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 public class AshTreeGrower extends AbstractTreeGrower{
 
-    @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
-        return ModConfiguredFeatures.ASH_KEY;
-    }
+	@Override
+	protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
+		return ModConfiguredFeatures.ASH_KEY;
+	}
 
 }

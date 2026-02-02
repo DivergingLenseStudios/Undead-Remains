@@ -18,21 +18,21 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class SupremeZombieRenderer extends MobRenderer<SupremeZombieEntity, SupremeZombieModel<SupremeZombieEntity>> {
-    public SupremeZombieRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SupremeZombieModel<>(pContext.bakeLayer(ModModelLayers.SUPREME_ZOMBIE_LAYER)), 0.5f);
-    }
+	public SupremeZombieRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new SupremeZombieModel<>(pContext.bakeLayer(ModModelLayers.SUPREME_ZOMBIE_LAYER)), 0.5f);
+	}
 
-    @Override
-    public ResourceLocation getTextureLocation(SupremeZombieEntity pEntity) {
-        return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/supreme_zombie.png");
-    }
+	@Override
+	public ResourceLocation getTextureLocation(SupremeZombieEntity pEntity) {
+		return new ResourceLocation(UndeadRemains.MOD_ID, "textures/entity/supreme_zombie.png");
+	}
 
-    @Override
-    public void render(SupremeZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+	@Override
+	public void render(SupremeZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+					   MultiBufferSource pBuffer, int pPackedLight) {
 
 
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
+		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+	}
 }
 

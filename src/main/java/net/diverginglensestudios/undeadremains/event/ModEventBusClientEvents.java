@@ -41,36 +41,36 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = UndeadRemains.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModEventBusClientEvents {
-    @SubscribeEvent
-    public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ModModelLayers.UNDEAD_ARCHEOLOGIST_LAYER, UndeadArcheologistModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.XANARIAN_CANNIBAL_LAYER, XanarianCannibalModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.TREE_ZOMBIE_LAYER, TreeZombieModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.SUPREME_KNIGHT_LAYER, SupremeKnightModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.SAHN_UZAL_LAYER, SahnUzalModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.FOSSILIZED_ZOMBIE_LAYER, FossilizedZombieModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.STRAY_ZOMBIE_LAYER, StrayZombieModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.SUPREME_ZOMBIE_LAYER, SupremeZombieModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.COW_ZOMBIE_LAYER, CowZombieModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.SPIKE_LAYER, SpikeModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.HAMMER_ZOMBIE_LAYER, HammerZombieModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.FOUR_EYED_XANARIAN_LAYER, FourEyedXanarianModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.XANARIAN_LAYER, XanarianModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.HORNED_XANARIAN_LAYER, HornedXanarianModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.BIG_WOODLING_LAYER, BigWoodlingModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.SMALL_WOODLING_LAYER, SmallWoodlingModel::createBodyLayer);
+	@SubscribeEvent
+	public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(ModModelLayers.UNDEAD_ARCHEOLOGIST_LAYER, UndeadArcheologistModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.XANARIAN_CANNIBAL_LAYER, XanarianCannibalModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.TREE_ZOMBIE_LAYER, TreeZombieModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.SUPREME_KNIGHT_LAYER, SupremeKnightModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.SAHN_UZAL_LAYER, SahnUzalModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.FOSSILIZED_ZOMBIE_LAYER, FossilizedZombieModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.STRAY_ZOMBIE_LAYER, StrayZombieModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.SUPREME_ZOMBIE_LAYER, SupremeZombieModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.COW_ZOMBIE_LAYER, CowZombieModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.SPIKE_LAYER, SpikeModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.HAMMER_ZOMBIE_LAYER, HammerZombieModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.FOUR_EYED_XANARIAN_LAYER, FourEyedXanarianModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.XANARIAN_LAYER, XanarianModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.HORNED_XANARIAN_LAYER, HornedXanarianModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.BIG_WOODLING_LAYER, BigWoodlingModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.SMALL_WOODLING_LAYER, SmallWoodlingModel::createBodyLayer);
 
-        event.registerLayerDefinition(ModModelLayers.PINE_BOAT_LAYER, BoatModel::createBodyModel);
-        event.registerLayerDefinition(ModModelLayers.PINE_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
-    }
+		event.registerLayerDefinition(ModModelLayers.PINE_BOAT_LAYER, BoatModel::createBodyModel);
+		event.registerLayerDefinition(ModModelLayers.PINE_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+	}
 
-    @SubscribeEvent
-    public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(ModBlockEntities.FOSSIL_POLISHING_BE.get(), FossilPolisherBlockEntityRenderer::new);
+	@SubscribeEvent
+	public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+		event.registerBlockEntityRenderer(ModBlockEntities.FOSSIL_POLISHING_BE.get(), FossilPolisherBlockEntityRenderer::new);
 
-        event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
-        event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
-    }
+		event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
+		event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
+	}
 
-    
+
 }

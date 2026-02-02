@@ -22,23 +22,23 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class LangriteArmorItem extends ModArmorItem{
- public LangriteArmorItem(Type pType) {
-        super(ModArmorMaterials.LANGRITE, pType, new Properties());
-    }
+	public LangriteArmorItem(Type pType) {
+		super(ModArmorMaterials.LANGRITE, pType, new Properties());
+	}
 
-    @Override
-    protected boolean withCustomModel() {
-        return true;
-    }
+	@Override
+	protected boolean withCustomModel() {
+		return true;
+	}
 
-    @Override
-    protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
-        return new ArmorRenderer<>(LangriteArmorModel::createBodyLayer, LangriteArmorModel::new);
-    }
+	@Override
+	protected ArmorRenderer<?> getRenderer(LivingEntity living, ItemStack stack, EquipmentSlot slot) {
+		return new ArmorRenderer<>(LangriteArmorModel::createBodyLayer, LangriteArmorModel::new);
+	}
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return makeCustomTextureLocation(UndeadRemains.MOD_ID, "langrite_armor");
-    }
+	@Override
+	public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+		return makeCustomTextureLocation(UndeadRemains.MOD_ID, "langrite_armor");
+	}
 
 }

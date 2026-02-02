@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 
 public class ModTerrablender {
-    public static void registerBiomes() {
-        Regions.register(new ModOverworldRegion(new ResourceLocation(UndeadRemains.MOD_ID, "overworld"), 5));
-    }
+	public static void registerBiomes() {
+		Regions.register(new ModOverworldRegion(new ResourceLocation(UndeadRemains.MOD_ID, "overworld"), 5));
+	}
 }

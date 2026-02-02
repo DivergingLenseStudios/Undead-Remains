@@ -20,67 +20,67 @@ import java.util.EnumSet;
 import java.util.List;
 
 public class XanarianHurtByTargetGoal extends TargetGoal {
-    private static final TargetingConditions HURT_BY_TARGETING = TargetingConditions.forCombat().ignoreLineOfSight().ignoreInvisibilityTesting();
-    private static final int ALERT_RANGE_Y = 10; //Range in which mobs will be alerted if alert is used
-    private boolean alertSameType;
-    private int timestamp;
-    @Nullable
-    private List<EntityType<?>> alertEntityTypes;
+	private static final TargetingConditions HURT_BY_TARGETING = TargetingConditions.forCombat().ignoreLineOfSight().ignoreInvisibilityTesting();
+	private static final int ALERT_RANGE_Y = 10; //Range in which mobs will be alerted if alert is used
+	private boolean alertSameType;
+	private int timestamp;
+	@Nullable
+	private List<EntityType<?>> alertEntityTypes;
 
-    public XanarianHurtByTargetGoal(PathfinderMob pMob) {
-        super(pMob, true);
-        this.setFlags(EnumSet.of(Flag.TARGET));
-    }
+	public XanarianHurtByTargetGoal(PathfinderMob pMob) {
+		super(pMob, true);
+		this.setFlags(EnumSet.of(Flag.TARGET));
+	}
 
-    @Override
-    public boolean canUse() {
-        int i = this.mob.getLastHurtByMobTimestamp();
-        LivingEntity livingentity = this.mob.getLastHurtByMob();
-        if (i != this.timestamp && livingentity != null) {
-            if (livingentity.getType() == EntityType.PLAYER && this.mob.level().getGameRules().getBoolean(GameRules.RULE_UNIVERSAL_ANGER)) {
-                return false;
-            }
-            return this.canAttack(livingentity, HURT_BY_TARGETING);
-        }
-        return false;
-    }
+	@Override
+	public boolean canUse() {
+		int i = this.mob.getLastHurtByMobTimestamp();
+		LivingEntity livingentity = this.mob.getLastHurtByMob();
+		if (i != this.timestamp && livingentity != null) {
+			if (livingentity.getType() == EntityType.PLAYER && this.mob.level().getGameRules().getBoolean(GameRules.RULE_UNIVERSAL_ANGER)) {
+				return false;
+			}
+			return this.canAttack(livingentity, HURT_BY_TARGETING);
+		}
+		return false;
+	}
 
-    public XanarianHurtByTargetGoal setAlertOthers(@Nullable List<EntityType<?>> alertEntityTypes) {
-        this.alertSameType = true;
-        this.alertEntityTypes = alertEntityTypes;
-        return this;
-    }
+	public XanarianHurtByTargetGoal setAlertOthers(@Nullable List<EntityType<?>> alertEntityTypes) {
+		this.alertSameType = true;
+		this.alertEntityTypes = alertEntityTypes;
+		return this;
+	}
 
-    @Override
-    public void start() {
-        this.mob.setTarget(this.mob.getLastHurtByMob());
-        this.targetMob = this.mob.getTarget();
-        this.timestamp = this.mob.getLastHurtByMobTimestamp();
-        this.unseenMemoryTicks = 300;
-        if (this.alertSameType) {
-            this.alertOthers();
-        }
-        super.start();
-    }
+	@Override
+	public void start() {
+		this.mob.setTarget(this.mob.getLastHurtByMob());
+		this.targetMob = this.mob.getTarget();
+		this.timestamp = this.mob.getLastHurtByMobTimestamp();
+		this.unseenMemoryTicks = 300;
+		if (this.alertSameType) {
+			this.alertOthers();
+		}
+		super.start();
+	}
 
-    @SuppressWarnings("null")
-    protected void alertOthers() {
-        if (!(this.targetMob instanceof ServerPlayer player && player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).map(rep -> rep.getXanarianReputation() >= 50).orElse(false))) {
-            double d0 = this.getFollowDistance();
-            AABB aabb = AABB.unitCubeFromLowerCorner(this.mob.position()).inflate(d0, ALERT_RANGE_Y, d0);
-            List<Mob> list = this.mob.level().getEntitiesOfClass(Mob.class, aabb, EntitySelector.NO_SPECTATORS);
-            for (Mob mob : list) {
-                if (this.mob != mob && mob.getTarget() == null && !mob.isAlliedTo(this.mob.getLastHurtByMob())) {
-                    if (this.alertEntityTypes != null && !this.alertEntityTypes.contains(mob.getType())) {
-                        continue;
-                    }
-                    this.alertOther(mob, this.mob.getLastHurtByMob());
-                }
-            }
-        }
-    }
+	@SuppressWarnings("null")
+	protected void alertOthers() {
+		if (!(this.targetMob instanceof ServerPlayer player && player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION).map(rep -> rep.getXanarianReputation() >= 50).orElse(false))) {
+			double d0 = this.getFollowDistance();
+			AABB aabb = AABB.unitCubeFromLowerCorner(this.mob.position()).inflate(d0, ALERT_RANGE_Y, d0);
+			List<Mob> list = this.mob.level().getEntitiesOfClass(Mob.class, aabb, EntitySelector.NO_SPECTATORS);
+			for (Mob mob : list) {
+				if (this.mob != mob && mob.getTarget() == null && !mob.isAlliedTo(this.mob.getLastHurtByMob())) {
+					if (this.alertEntityTypes != null && !this.alertEntityTypes.contains(mob.getType())) {
+						continue;
+					}
+					this.alertOther(mob, this.mob.getLastHurtByMob());
+				}
+			}
+		}
+	}
 
-    protected void alertOther(Mob pMob, LivingEntity pTarget) {
-        pMob.setTarget(pTarget);
-    }
+	protected void alertOther(Mob pMob, LivingEntity pTarget) {
+		pMob.setTarget(pTarget);
+	}
 }

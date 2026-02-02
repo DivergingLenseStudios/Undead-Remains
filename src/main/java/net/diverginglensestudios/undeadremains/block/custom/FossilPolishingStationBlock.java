@@ -30,62 +30,62 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class FossilPolishingStationBlock extends BaseEntityBlock {
-    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 12, 16);
+	public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 12, 16);
 
-    public FossilPolishingStationBlock(Properties pProperties) {
-        super(pProperties);
-    }
+	public FossilPolishingStationBlock(Properties pProperties) {
+		super(pProperties);
+	}
 
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
-    }
+	@Override
+	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+		return SHAPE;
+	}
 
-    @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
-    }
+	@Override
+	public RenderShape getRenderShape(BlockState pState) {
+		return RenderShape.MODEL;
+	}
 
-    @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock()) {
-            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof FossilPolishingStationBlockEntity) {
-                ((FossilPolishingStationBlockEntity) blockEntity).drops();
-            }
-        }
+	@Override
+	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+		if (pState.getBlock() != pNewState.getBlock()) {
+			BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+			if (blockEntity instanceof FossilPolishingStationBlockEntity) {
+				((FossilPolishingStationBlockEntity) blockEntity).drops();
+			}
+		}
 
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-    }
+		super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+	}
 
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide()) {
-            BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if(entity instanceof FossilPolishingStationBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (FossilPolishingStationBlockEntity)entity, pPos);
-            } else {
-                throw new IllegalStateException("Our Container provider is missing!");
-            }
-        }
+	@Override
+	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+		if (!pLevel.isClientSide()) {
+			BlockEntity entity = pLevel.getBlockEntity(pPos);
+			if(entity instanceof FossilPolishingStationBlockEntity) {
+				NetworkHooks.openScreen(((ServerPlayer)pPlayer), (FossilPolishingStationBlockEntity)entity, pPos);
+			} else {
+				throw new IllegalStateException("Our Container provider is missing!");
+			}
+		}
 
-        return InteractionResult.sidedSuccess(pLevel.isClientSide());
-    }
+		return InteractionResult.sidedSuccess(pLevel.isClientSide());
+	}
 
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new FossilPolishingStationBlockEntity(pPos, pState);
-    }
+	@Nullable
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+		return new FossilPolishingStationBlockEntity(pPos, pState);
+	}
 
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        if(pLevel.isClientSide()) {
-            return null;
-        }
+	@Nullable
+	@Override
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+		if(pLevel.isClientSide()) {
+			return null;
+		}
 
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.FOSSIL_POLISHING_BE.get(),
-                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
-    }
+		return createTickerHelper(pBlockEntityType, ModBlockEntities.FOSSIL_POLISHING_BE.get(),
+				(pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
+	}
 }

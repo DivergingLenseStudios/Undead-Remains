@@ -22,90 +22,90 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class SmallWoodlingEntity extends ModAbstractZombie {
-    public SmallWoodlingEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-        
-    }
-   private static final EntityDataAccessor<Boolean> ATTACKING =
-            SynchedEntityData.defineId(SmallWoodlingEntity.class, EntityDataSerializers.BOOLEAN);
-            
-    public SmallWoodlingEntity(Level pLevel) {
-        this(ModEntities.SMALL_WOODLING.get(), pLevel);
-     }
+	public SmallWoodlingEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+
+	}
+	private static final EntityDataAccessor<Boolean> ATTACKING =
+			SynchedEntityData.defineId(SmallWoodlingEntity.class, EntityDataSerializers.BOOLEAN);
+
+	public SmallWoodlingEntity(Level pLevel) {
+		this(ModEntities.SMALL_WOODLING.get(), pLevel);
+	}
 
 
-     public final AnimationState idleAnimationState = new AnimationState();
-     private int idleAnimationTimeout = 0;
- 
-     public final AnimationState attackAnimationState = new AnimationState();
-     public int attackAnimationTimeout = 0;
+	public final AnimationState idleAnimationState = new AnimationState();
+	private int idleAnimationTimeout = 0;
 
-     @Override
-     public void tick() {
-         super.tick();
- 
-         if(this.level().isClientSide()) {
-             setupAnimationStates();
-         }
-     }
- 
-     private void setupAnimationStates() {
-         if(this.idleAnimationTimeout <= 0) {
-             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-             this.idleAnimationState.start(this.tickCount);
-         } else {
-             --this.idleAnimationTimeout;
-         }
- 
-         if(this.isAttacking() && attackAnimationTimeout <= 0) {
-             attackAnimationTimeout = 20; // Length in ticks of your animation
-             attackAnimationState.start(this.tickCount);
-         } else {
-             --this.attackAnimationTimeout;
-         }
- 
-         if(!this.isAttacking()) {
-             attackAnimationState.stop();
-         }
-     }
- 
-     @Override
-     protected void updateWalkAnimation(float pPartialTick) {
-         float f;
-         if(this.getPose() == Pose.STANDING) {
-             f = Math.min(pPartialTick * 6F, 1f);
-        } else {
-            f = 0f;
-        }
+	public final AnimationState attackAnimationState = new AnimationState();
+	public int attackAnimationTimeout = 0;
 
-        this.walkAnimation.update(f, 0.2f);
-    } 
-    public void setAttacking(boolean attacking) {
-        this.entityData.set(ATTACKING, attacking);
-    } 
-    public boolean isAttacking() {
-        return this.entityData.get(ATTACKING);
-    }
+	@Override
+	public void tick() {
+		super.tick();
 
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ATTACKING, false);
-    }
+		if(this.level().isClientSide()) {
+			setupAnimationStates();
+		}
+	}
 
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.5D, true));
-    }
+	private void setupAnimationStates() {
+		if(this.idleAnimationTimeout <= 0) {
+			this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+			this.idleAnimationState.start(this.tickCount);
+		} else {
+			--this.idleAnimationTimeout;
+		}
 
-    public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes()
-        .add(Attributes.FOLLOW_RANGE, 35.0D)
-        .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
-        .add(Attributes.ATTACK_DAMAGE, 3.0D)
-        .add(Attributes.ARMOR, 3.0D)
-        .add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
-    }
+		if(this.isAttacking() && attackAnimationTimeout <= 0) {
+			attackAnimationTimeout = 20; // Length in ticks of your animation
+			attackAnimationState.start(this.tickCount);
+		} else {
+			--this.attackAnimationTimeout;
+		}
+
+		if(!this.isAttacking()) {
+			attackAnimationState.stop();
+		}
+	}
+
+	@Override
+	protected void updateWalkAnimation(float pPartialTick) {
+		float f;
+		if(this.getPose() == Pose.STANDING) {
+			f = Math.min(pPartialTick * 6F, 1f);
+		} else {
+			f = 0f;
+		}
+
+		this.walkAnimation.update(f, 0.2f);
+	}
+	public void setAttacking(boolean attacking) {
+		this.entityData.set(ATTACKING, attacking);
+	}
+	public boolean isAttacking() {
+		return this.entityData.get(ATTACKING);
+	}
+
+	@Override
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(ATTACKING, false);
+	}
+
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.5D, true));
+	}
+
+	public static AttributeSupplier.Builder createAttributes() {
+		return Monster.createMonsterAttributes()
+				.add(Attributes.FOLLOW_RANGE, 35.0D)
+				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
+				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(Attributes.ARMOR, 3.0D)
+				.add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
+	}
 
 }
