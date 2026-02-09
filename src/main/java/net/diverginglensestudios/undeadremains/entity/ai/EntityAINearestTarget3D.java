@@ -1,3 +1,8 @@
+/***********************************************************/
+/*      This file was copied from the Alex's Mobs mod      */
+/*         https://github.com/AlexModGuy/AlexsMobs         */
+/***********************************************************/
+
 package net.diverginglensestudios.undeadremains.entity.ai;
 
 import net.minecraft.world.entity.LivingEntity;
