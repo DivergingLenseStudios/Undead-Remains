@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "cracked_deep_langstone_bricks",
+  "ingredient": {
+    "item": "undeadremains:deep_langstone_bricks"
+  },
+  "result": "undeadremains:cracked_deep_langstone_bricks"
+}

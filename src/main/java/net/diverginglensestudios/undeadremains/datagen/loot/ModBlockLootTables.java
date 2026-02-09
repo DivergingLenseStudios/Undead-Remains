@@ -117,7 +117,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
 		this.dropOther(ModBlocks.CALIPO_BERRY_VINE.get(), Items.AIR);
 
-		this.add(ModBlocks.CALIPO_GRASS.get(),createGrassTable(ModBlocks.CALIPO_GRASS.get(), ModItems.XANS_LEAF_SEEDS.get()));
+		this.add(ModBlocks.CALIPO_GRASS.get(),
+				createGrassTable(ModBlocks.CALIPO_GRASS.get(), ModItems.XANS_LEAF_SEEDS.get()));
 
 		this.add(ModBlocks.POTTED_XANAS_FLOWER.get(), createPotFlowerItemTable(ModBlocks.XANAS_FLOWER.get()));
 		this.add(ModBlocks.POTTED_ROXA_FLOWER.get(), createPotFlowerItemTable(ModBlocks.ROXA_FLOWER.get()));
@@ -251,21 +252,20 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 						.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
 	}
 
-
 	protected LootTable.Builder createFossilLikeOreDrops(Block pBlock, Item item, Item seconditem) {
 		return LootTable.lootTable()
 				.withPool(LootPool.lootPool() // Regular fossil drop
 						.setRolls(UniformGenerator.between(1.0F, 1.0F))
 						.add(LootItem.lootTableItem(item)
 								.apply(SetItemCountFunction.setCount(
-										UniformGenerator.between(2.0F, 5.0F)))
+										UniformGenerator.between(1.0F, 3.0F)))
 								.apply(ApplyBonusCount.addOreBonusCount(
 										Enchantments.BLOCK_FORTUNE))))
 				.withPool(LootPool.lootPool() // Rare fossil drop (1 in 5 chance)
 						.setRolls(UniformGenerator.between(1.0F, 1.0F))
 						.add(LootItem.lootTableItem(seconditem)
-										.when(LootItemRandomChanceCondition.randomChance(0.2F)) // 20%
-								// chance
+								.when(LootItemRandomChanceCondition.randomChance(0.05F)) // 20%
+						// chance
 						));
 		/* //////////Loottable creators////////// */}
 

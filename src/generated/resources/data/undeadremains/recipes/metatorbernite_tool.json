@@ -10,12 +10,12 @@
     }
   },
   "pattern": [
-    "SS ",
-    " A ",
+    "SSS",
+    "SA ",
     " A "
   ],
   "result": {
-    "item": "undeadremains:metatorbernite_hoe"
+    "item": "undeadremains:metatorbernite_tool"
   },
   "show_notification": true
 }

@@ -34,7 +34,7 @@ public class ModItems {
 	public static final RegistryObject<Item> FOSSIL = ITEMS.register("fossil",
 			() -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> RARE_FOSSIL = ITEMS.register("rare_fossil",
-			() -> new ModTooltipItem(new Item.Properties(),"tooltip.undeadremains.rare_fossil"));
+			() -> new ModTooltipItem(new Item.Properties(), "tooltip.undeadremains.rare_fossil"));
 	public static final RegistryObject<Item> RAW_FOSSIL = ITEMS.register("raw_fossil",
 			() -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> RAW_DEEPSLATE_FOSSIL = ITEMS.register("raw_deepslate_fossil",
@@ -54,25 +54,27 @@ public class ModItems {
 	public static final RegistryObject<Item> LANGRITE_INGOT = ITEMS.register("langrite_ingot",
 			() -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> EMPTY_FUEL_CELL = ITEMS.register("empty_fuel_cell",
-			() -> new ModTooltipItem(new Item.Properties(),"tooltip.undeadremains.empty_fuel_cell"));
+			() -> new Item(new Item.Properties()));
 	// Advanced Items
 	public static final RegistryObject<Item> METATORBERNITE_GRENADE = ITEMS.register("metatorbernite_grenade",
 			() -> new MetatorberniteGrenadeItem(new Item.Properties()));
 
 	// Food Items
 	public static final RegistryObject<Item> THE_FOSSILS_EYE = ITEMS.register("the_fossils_eye",
-			() -> new ModTooltipItem(new Item.Properties().food(ModFoods.THE_FOSSILS_EYE), "tooltip.undeadremains.the_fossils_eye"));
+			() -> new ModTooltipItem(new Item.Properties().food(ModFoods.THE_FOSSILS_EYE),
+					"tooltip.undeadremains.the_fossils_eye"));
 
 	public static final RegistryObject<Item> THE_QUARTZ_MODIFIED_FOSSILS_EYE = ITEMS.register(
 			"the_quartz_modified_fossils_eye",
-			() -> new ModTooltipItem(new Item.Properties().food(ModFoods.THE_QUARTZ_MODIFIED_FOSSILS_EYE), "tooltip.undeadremains.the_quartz_modified_fossils_eye"));
+			() -> new ModTooltipItem(new Item.Properties().food(ModFoods.THE_QUARTZ_MODIFIED_FOSSILS_EYE),
+					"tooltip.undeadremains.the_quartz_modified_fossils_eye"));
 
 	public static final RegistryObject<Item> FOSSILIZED_DRUMSTICK = ITEMS.register("fossilized_drumstick",
 			() -> new ModFoodItem(new Item.Properties().food(ModFoods.FOSSILIZED_DRUMSTICK), 200));
 
 	public static final RegistryObject<Item> GOLD_BLOCK_MODIFIED_FOSSILIZED_DRUMSTICK = ITEMS.register(
 			"gold_block_modified_fossilized_drumstick",
-			() -> new ModFoodItem(new Item.Properties().food(ModFoods.GOLD_BLOCK_MODIFIED_FOSSILIZED_DRUMSTICK),200));
+			() -> new ModFoodItem(new Item.Properties().food(ModFoods.GOLD_BLOCK_MODIFIED_FOSSILIZED_DRUMSTICK), 200));
 
 	public static final RegistryObject<Item> RAW_XANARIAN_MEAT = ITEMS.register("raw_xanarian_meat",
 			() -> new Item(new Item.Properties().food(ModFoods.RAW_XANARIAN_MEAT)));
@@ -93,7 +95,8 @@ public class ModItems {
 			() -> new Item(new Item.Properties().food(ModFoods.WRAP)));
 
 	public static final RegistryObject<Item> CALIPO_BERRIES = ITEMS.register("calipo_berries",
-			() -> new ItemNameBlockItem(ModBlocks.CALIPO_BERRY_VINE.get(), (new Item.Properties()).food(ModFoods.CALIPO_BERRIES)));
+			() -> new ItemNameBlockItem(ModBlocks.CALIPO_BERRY_VINE.get(),
+					(new Item.Properties()).food(ModFoods.CALIPO_BERRIES)));
 
 	public static final RegistryObject<Item> XANS_LEAF = ITEMS.register("xans_leaf",
 			() -> new ItemNameBlockItem(ModBlocks.XANS_LEAVES.get(), (new Item.Properties()).food(ModFoods.XANS_LEAF)));
@@ -126,7 +129,7 @@ public class ModItems {
 			() -> new HoeItem(ModToolTiers.RARE_FOSSIL, (int) 1.5f - 1, 4 - 4, new Item.Properties()));
 
 	public static final RegistryObject<Item> METATORBERNITE_SWORDAXE = ITEMS.register("metatorbernite_swordaxe",
-			() -> new SwordAxeItem(ModToolTiers.METATORBERNITE, 4, 2, BlockTags.MINEABLE_WITH_AXE,
+			() -> new SwordAxeItem(ModToolTiers.METATORBERNITE, 8 - 1, 2 - 4, BlockTags.MINEABLE_WITH_AXE,
 					new Item.Properties()));
 	public static final RegistryObject<Item> METATORBERNITE_PICKAXE = ITEMS.register("metatorbernite_pickaxe",
 			() -> new PickaxeItem(ModToolTiers.METATORBERNITE, 1 - 1, 1 - 4, new Item.Properties()));
@@ -135,7 +138,7 @@ public class ModItems {
 	public static final RegistryObject<Item> METATORBERNITE_HOE = ITEMS.register("metatorbernite_hoe",
 			() -> new HoeItem(ModToolTiers.METATORBERNITE, 0 - 1, 0 - 4, new Item.Properties()));
 	public static final RegistryObject<Item> METATORBERNITE_TOOL = ITEMS.register("metatorbernite_tool",
-			() -> new MetatorberniteToolItem(ModToolTiers.METATORBERNITE, 1 - 1, 0 - 4,
+			() -> new MetatorberniteToolItem(ModToolTiers.METATORBERNITE, 2 - 1, 1 - 4,
 					new Item.Properties()));
 
 	public static final RegistryObject<Item> LANGRITE_SWORD = ITEMS.register("langrite_sword",
@@ -358,14 +361,12 @@ public class ModItems {
 	public static final RegistryObject<Item> METATORBERNITE_ENRICHER_CONTROLLER_ITEM = ITEMS.register(
 			"metatorbernite_enricher_controller",
 			() -> new BlockItem(ModBlocks.METATORBERNITE_ENRICHER_CONTROLLER.get(),
-					new Item.Properties())
-	);
+					new Item.Properties()));
 
 	public static final RegistryObject<Item> METATORBERNITE_ENRICHER_PART_ITEM = ITEMS.register(
 			"metatorbernite_enricher_part",
 			() -> new BlockItem(ModBlocks.METATORBERNITE_ENRICHER_PART.get(),
-					new Item.Properties())
-	);
+					new Item.Properties()));
 
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);

@@ -25,8 +25,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagGenerator extends ItemTagsProvider {
 	public ModItemTagGenerator(PackOutput p_275343_, CompletableFuture<HolderLookup.Provider> p_275729_,
-							   CompletableFuture<TagLookup<Block>> p_275322_,
-							   @Nullable ExistingFileHelper existingFileHelper) {
+			CompletableFuture<TagLookup<Block>> p_275322_,
+			@Nullable ExistingFileHelper existingFileHelper) {
 		super(p_275343_, p_275729_, p_275322_, UndeadRemains.MOD_ID, existingFileHelper);
 	}
 
@@ -38,7 +38,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 						ModItems.FOSSIL_CHESTPLATE.get(),
 						ModItems.FOSSIL_LEGGINGS.get(),
 						ModItems.FOSSIL_BOOTS.get())
-				.add(ModItems.SCUTE_MODIFIED_FOSSIL_LEGGINGS.get())
+				.add(ModItems.SCUTE_MODIFIED_FOSSIL_LEGGINGS.get(),
+						ModItems.SCULK_SHARD_MODIFIED_FOSSIL_BOOTS.get(),
+						ModItems.CLOCK_MODIFIED_FOSSIL_CHESTPLATE.get())
 				.add(ModItems.RARE_FOSSIL_HELMET.get(),
 						ModItems.RARE_FOSSIL_CHESTPLATE.get(),
 						ModItems.RARE_FOSSIL_LEGGINGS.get(),

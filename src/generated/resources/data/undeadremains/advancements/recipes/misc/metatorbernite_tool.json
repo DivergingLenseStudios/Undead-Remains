@@ -25,7 +25,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "undeadremains:metatorbernite_pickaxe"
+        "recipe": "undeadremains:metatorbernite_tool"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -39,7 +39,7 @@
   ],
   "rewards": {
     "recipes": [
-      "undeadremains:metatorbernite_pickaxe"
+      "undeadremains:metatorbernite_tool"
     ]
   },
   "sends_telemetry_event": false

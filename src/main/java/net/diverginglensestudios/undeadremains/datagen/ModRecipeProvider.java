@@ -43,7 +43,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	private static final List<ItemLike> XANARIAN_MEAT_SMELTABLES = List.of(
 			ModItems.RAW_XANARIAN_MEAT.get());
 
-
 	public ModRecipeProvider(PackOutput pOutput) {
 		super(pOutput);
 	}
@@ -60,6 +59,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				"fossil");
 		oreSmelting(pWriter, XANARIAN_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.XANARIAN_MEAT.get(), 0.25f, 100,
 				"xanarian_meat");
+		oreSmelting(pWriter, List.of(ModBlocks.LANGSTONE_BRICKS.get()), RecipeCategory.MISC,
+				ModBlocks.CRACKED_LANGSTONE_BRICKS.get(), 0.25f, 100,
+				"cracked_langstone_bricks");
+		oreSmelting(pWriter, List.of(ModBlocks.DEEP_LANGSTONE_BRICKS.get()), RecipeCategory.MISC,
+				ModBlocks.CRACKED_DEEP_LANGSTONE_BRICKS.get(), 0.25f, 100,
+				"cracked_deep_langstone_bricks");
 		// ORE SMELTING//
 
 		// Item SMOKING //
@@ -214,7 +219,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				ModBlocks.CHISELED_LANGSTONE.get(), 1)
 				.unlockedBy(getHasName(ModBlocks.LANGSTONE.get()), has(ModBlocks.LANGSTONE.get()))
 				.save(pWriter);
+		stonecutting(Ingredient.of(ModBlocks.LANGSTONE.get()), RecipeCategory.BUILDING_BLOCKS,
+				ModBlocks.POLISHED_LANGSTONE.get(), 1)
+				.unlockedBy(getHasName(ModBlocks.LANGSTONE.get()), has(ModBlocks.LANGSTONE.get()))
+				.save(pWriter);
 		// DEEP LANGSTONE
+		stonecutting(Ingredient.of(ModBlocks.DEEP_LANGSTONE.get()), RecipeCategory.BUILDING_BLOCKS,
+				ModBlocks.POLISHED_DEEP_LANGSTONE.get(), 1)
+				.unlockedBy(getHasName(ModBlocks.DEEP_LANGSTONE.get()),
+						has(ModBlocks.DEEP_LANGSTONE.get()))
+				.save(pWriter);
 		stonecutting(Ingredient.of(ModBlocks.DEEP_LANGSTONE.get()), RecipeCategory.BUILDING_BLOCKS,
 				ModBlocks.DEEP_LANGSTONE_STAIRS.get(), 1)
 				.unlockedBy(getHasName(ModBlocks.DEEP_LANGSTONE.get()),
@@ -485,9 +499,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.pattern("S S")
 				.pattern("SDS")
 				.pattern("SSS")
-				.define('S', Ingredient.of(ItemTags.create(new ResourceLocation("forge", "xanarian_leather"))))
+				.define('S', ModItems.XANARIAN_LEATHER.get())
 				.define('D', ModItems.XANARIAN_SPINE.get())
-				.unlockedBy(getHasName(ModItems.XANARIAN_SPINE.get()),has(ItemTags.create(new ResourceLocation("forge", "xanarian_spine"))))
+				.unlockedBy(getHasName(ModItems.XANARIAN_SPINE.get()),
+						has(ItemTags.create(new ResourceLocation("forge", "xanarian_spine"))))
 				.save(pWriter);
 		// ARMOR//
 		// TOOLS//
@@ -592,31 +607,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						has(ItemTags.create(new ResourceLocation("forge", "metatorbernite"))))
 				.unlockedBy(getHasName(Items.STICK), has(Items.STICK))
 				.save(pWriter);
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.METATORBERNITE_PICKAXE.get())
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.METATORBERNITE_TOOL.get())
 				.pattern("SSS")
-				.pattern(" A ")
-				.pattern(" A ")
-				.define('S', Ingredient
-						.of(ItemTags.create(new ResourceLocation("forge", "metatorbernite"))))
-				.define('A', Items.STICK)
-				.unlockedBy(getHasName(ModItems.METATORBERNITE.get()),
-						has(ItemTags.create(new ResourceLocation("forge", "metatorbernite"))))
-				.unlockedBy(getHasName(Items.STICK), has(Items.STICK))
-				.save(pWriter);
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.METATORBERNITE_SHOVEL.get())
-				.pattern(" S ")
-				.pattern(" A ")
-				.pattern(" A ")
-				.define('S', Ingredient
-						.of(ItemTags.create(new ResourceLocation("forge", "metatorbernite"))))
-				.define('A', Items.STICK)
-				.unlockedBy(getHasName(ModItems.METATORBERNITE.get()),
-						has(ItemTags.create(new ResourceLocation("forge", "metatorbernite"))))
-				.unlockedBy(getHasName(Items.STICK), has(Items.STICK))
-				.save(pWriter);
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.METATORBERNITE_HOE.get())
-				.pattern("SS ")
-				.pattern(" A ")
+				.pattern("SA ")
 				.pattern(" A ")
 				.define('S', Ingredient
 						.of(ItemTags.create(new ResourceLocation("forge", "metatorbernite"))))
@@ -664,6 +657,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.pattern("SAS")
 				.pattern("SSS")
 				.define('S', ModItems.RARE_FOSSIL.get())
+				.unlockedBy(getHasName(ModItems.FOSSIL.get()), has(ModItems.FOSSIL.get()))
+				.define('A', Items.RABBIT_FOOT)
+				.unlockedBy(getHasName(Items.RABBIT_FOOT), has(ModItems.RARE_FOSSIL.get()))
+				.save(pWriter);
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.METATORBERNITE_LUCKY_BLOCK.get())
+				.pattern("SSS")
+				.pattern("SAS")
+				.pattern("SSS")
+				.define('S', ModItems.METATURBONITE.get())
 				.unlockedBy(getHasName(ModItems.FOSSIL.get()), has(ModItems.FOSSIL.get()))
 				.define('A', Items.RABBIT_FOOT)
 				.unlockedBy(getHasName(Items.RABBIT_FOOT), has(ModItems.RARE_FOSSIL.get()))
@@ -762,7 +764,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.save(pWriter);
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ASH_BOAT.get())
 				.pattern("   ")
-				.pattern("SS ")
+				.pattern("S S")
 				.pattern("SSS")
 				.define('S', ModBlocks.ASH_PLANKS.get())
 				.unlockedBy(getHasName(ModBlocks.ASH_PLANKS.get()), has(ModBlocks.ASH_PLANKS.get()))
@@ -963,51 +965,51 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	}
 
 	public static SingleItemRecipeBuilder stonecutting(Ingredient pIngredient, RecipeCategory pCategory,
-													   ItemLike pResult, int count) {
+			ItemLike pResult, int count) {
 		return new SingleItemRecipeBuilder(pCategory, RecipeSerializer.STONECUTTER, pIngredient, pResult,
 				count);
 	}
 
 	protected static void customSmithing(Consumer<FinishedRecipe> finishedRecipeConsumer, Item template, Item base,
-										 Item addition, RecipeCategory category, Item result, Item unlockItem) {
+			Item addition, RecipeCategory category, Item result, Item unlockItem) {
 		SmithingTransformRecipeBuilder.smithing(
-						Ingredient.of(template),
-						Ingredient.of(base),
-						Ingredient.of(addition),
-						category,
-						result)
+				Ingredient.of(template),
+				Ingredient.of(base),
+				Ingredient.of(addition),
+				category,
+				result)
 				.unlocks("has_correct_item", has(unlockItem))
 				.save(finishedRecipeConsumer, getItemName(result) + "_smithing");
 	}
 
 	protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients,
-									  RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme,
-									  String pGroup) {
+			RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme,
+			String pGroup) {
 		oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult,
 				pExperience, pCookingTIme, pGroup, "_from_smelting");
 	}
 
 	protected static void itemSmoking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients,
-									  RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme,
-									  String pGroup) {
+			RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme,
+			String pGroup) {
 		oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE, pIngredients, pCategory, pResult,
 				pExperience, pCookingTIme, pGroup, "_from_smoking");
 	}
 
 	protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients,
-									  RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime,
-									  String pGroup) {
+			RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime,
+			String pGroup) {
 		oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult,
 				pExperience, pCookingTime, pGroup, "_from_blasting");
 	}
 
 	protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer,
-									 RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer,
-									 List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience,
-									 int pCookingTime, String pGroup, String pRecipeName) {
+			RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer,
+			List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience,
+			int pCookingTime, String pGroup, String pRecipeName) {
 		for (ItemLike itemlike : pIngredients) {
 			SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult,
-							pExperience, pCookingTime, pCookingSerializer)
+					pExperience, pCookingTime, pCookingSerializer)
 					.group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
 					.save(pFinishedRecipeConsumer, UndeadRemains.MOD_ID + ":" + getItemName(pResult)
 							+ pRecipeName + "_" + getItemName(itemlike));

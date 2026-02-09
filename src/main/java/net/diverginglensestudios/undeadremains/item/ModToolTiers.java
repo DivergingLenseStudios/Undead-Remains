@@ -26,12 +26,12 @@ public class ModToolTiers {
 					ModTags.Blocks.NEEDS_FOSSIL_TOOL, () -> Ingredient.of(ModItems.FOSSIL.get())),
 			new ResourceLocation(UndeadRemains.MOD_ID, "fossil"), List.of(Tiers.STONE), List.of());
 	public static final Tier RARE_FOSSIL = TierSortingRegistry.registerTier(
-			new ForgeTier(5, 2000, 12f, 4f, 25,
+			new ForgeTier(5, 2000, 12f, 0f, 25,
 					ModTags.Blocks.NEEDS_FOSSIL_TOOL,
 					() -> Ingredient.of(ModItems.RARE_FOSSIL.get())),
 			new ResourceLocation(UndeadRemains.MOD_ID, "rare_fossil"), List.of(Tiers.NETHERITE), List.of());
 	public static final Tier METATORBERNITE = TierSortingRegistry.registerTier(
-			new ForgeTier(3, 1200, 7f, 3f, 25,
+			new ForgeTier(3, 1200, 7f, 0f, 25,
 					ModTags.Blocks.NEEDS_METATORBERNITE_TOOL,
 					() -> Ingredient.of(ModItems.METATORBERNITE.get())),
 			new ResourceLocation(UndeadRemains.MOD_ID, "metatorbernite"), List.of(Tiers.IRON), List.of());
@@ -41,7 +41,7 @@ public class ModToolTiers {
 					() -> Ingredient.of(ModItems.LANGRITE_INGOT.get())),
 			new ResourceLocation(UndeadRemains.MOD_ID, "langrite"), List.of(Tiers.DIAMOND), List.of());
 	public static final Tier SPIKE = TierSortingRegistry.registerTier(
-			new ForgeTier(2, 500, 4f, 1, 10,
+			new ForgeTier(2, 500, 4f, 0, 10,
 					ModTags.Blocks.NEEDS_SPIKE_TOOL, () -> Ingredient.of(ModItems.SPIKE.get())),
 			new ResourceLocation(UndeadRemains.MOD_ID, "spike"), List.of(Tiers.STONE), List.of());
 	public static final Tier RABBIT_FOOT_MODIFIED_FOSSIL = TierSortingRegistry.registerTier(

@@ -34,7 +34,7 @@ public class ModBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
 			UndeadRemains.MOD_ID);
 
-	////////////////////BLOCKS////////////////////
+	//////////////////// BLOCKS////////////////////
 	// Normal Blocks
 	public static final RegistryObject<Block> FOSSIL_BLOCK = registerBlock("fossil_block",
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK)));
@@ -148,24 +148,24 @@ public class ModBlocks {
 					BlockSetType.IRON, 10, true));
 	public static final RegistryObject<Block> FOSSIL_PRESSURE_PLATE = registerBlock("fossil_pressure_plate",
 			() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
-					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST),
+					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK),
 					BlockSetType.IRON));
 	public static final RegistryObject<Block> FOSSIL_FENCE = registerBlock("fossil_fence",
 			() -> new FenceBlock(
-					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
+					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK)));
 	public static final RegistryObject<Block> FOSSIL_FENCE_GATE = registerBlock("fossil_fence_gate",
 			() -> new FenceGateBlock(
-					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST),
+					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK),
 					SoundEvents.CHAIN_PLACE, SoundEvents.ANVIL_BREAK));
 	public static final RegistryObject<Block> FOSSIL_WALL = registerBlock("fossil_wall",
 			() -> new WallBlock(
-					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
+					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK)));
 	public static final RegistryObject<Block> FOSSIL_DOOR = registerBlock("fossil_door",
-			() -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)
+			() -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK)
 					.noOcclusion(), BlockSetType.IRON));
 	public static final RegistryObject<Block> FOSSIL_TRAPDOOR = registerBlock("fossil_trapdoor",
 			() -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
-					.sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
+					.sound(SoundType.BONE_BLOCK).noOcclusion(), BlockSetType.IRON));
 
 	// langstone
 	public static final RegistryObject<Block> LANGSTONE_STAIRS = registerBlock("langstone_stairs",
@@ -385,35 +385,38 @@ public class ModBlocks {
 			() -> new XansLeavesBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)
 					.sound(SoundType.CROP).noOcclusion().noCollission()));
 
-
-
 	// Plants
 	public static final RegistryObject<Block> XANAS_FLOWER = registerBlock("xanas_flower",
-			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200,"supports_xanarian_foliage", BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
+			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200, "supports_xanarian_foliage",
+					BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
 
 	public static final RegistryObject<Block> POTTED_XANAS_FLOWER = BLOCKS.register("potted_xanas_flower",
 			() -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.XANAS_FLOWER,
 					BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
 
 	public static final RegistryObject<Block> ROXA_FLOWER = registerBlock("roxa_flower",
-			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200,"supports_xanarian_foliage", BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
+			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200, "supports_xanarian_foliage",
+					BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
 
 	public static final RegistryObject<Block> POTTED_ROXA_FLOWER = BLOCKS.register("potted_roxa_flower",
 			() -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.ROXA_FLOWER,
 					BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
 
 	public static final RegistryObject<Block> XELKS_FLOWER = registerBlock("xelks_flower",
-			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200,"supports_xanarian_foliage", BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
+			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200, "supports_xanarian_foliage",
+					BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
 
 	public static final RegistryObject<Block> POTTED_XELKS_FLOWER = BLOCKS.register("potted_xelks_flower",
 			() -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.XELKS_FLOWER,
 					BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
 
 	public static final RegistryObject<Block> LYXOR_FLOWER = registerBlock("lyxor_flower",
-			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200,"supports_xanarian_foliage", BlockBehaviour.Properties.copy(Blocks.ALLIUM).lightLevel((state) -> 2)));
+			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200, "supports_xanarian_foliage",
+					BlockBehaviour.Properties.copy(Blocks.ALLIUM).lightLevel((state) -> 2)));
 
 	public static final RegistryObject<Block> CALIPO_GRASS = registerBlock("calipo_grass",
-			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200,"supports_xanarian_foliage", BlockBehaviour.Properties.copy(Blocks.GRASS)));
+			() -> new ModFlowerBlock(MobEffects.SLOW_FALLING, 200, "supports_xanarian_foliage",
+					BlockBehaviour.Properties.copy(Blocks.GRASS)));
 	// Saplings
 	public static final RegistryObject<Block> ASH_SAPLING = BLOCKS.register("ash_sapling",
 			() -> new SaplingBlock(new AshTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)
@@ -426,14 +429,12 @@ public class ModBlocks {
 
 	public static final RegistryObject<Block> METATORBERNITE_ENRICHER_CONTROLLER = BLOCKS.register(
 			"metatorbernite_enricher_controller",
-			() -> new MetatorberniteEnricherController(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK))
-	);
+			() -> new MetatorberniteEnricherController(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
 	public static final RegistryObject<Block> METATORBERNITE_ENRICHER_PART = BLOCKS.register(
 			"metatorbernite_enricher_part",
-			() -> new MetatorberniteEnricherPart(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion())
-	);
-	////////////////////BLOCKS////////////////////
+			() -> new MetatorberniteEnricherPart(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+	//////////////////// BLOCKS////////////////////
 
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);

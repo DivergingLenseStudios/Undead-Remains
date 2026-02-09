@@ -3,19 +3,19 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "minecraft:stick"
+      "item": "minecraft:rabbit_foot"
     },
     "S": {
-      "tag": "forge:metatorbernite"
+      "item": "undeadremains:metaturbonite"
     }
   },
   "pattern": [
-    " S ",
-    " A ",
-    " A "
+    "SSS",
+    "SAS",
+    "SSS"
   ],
   "result": {
-    "item": "undeadremains:metatorbernite_shovel"
+    "item": "undeadremains:metatorbernite_lucky_block"
   },
   "show_notification": true
 }

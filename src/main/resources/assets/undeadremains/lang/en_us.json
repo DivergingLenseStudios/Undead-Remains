@@ -63,9 +63,8 @@
   "item.undeadremains.rare_fossil_hoe": "Rare Fossil Hoe",
 
   "item.undeadremains.metatorbernite_swordaxe": "Metatorbernite Swordaxe",
-  "item.undeadremains.metatorbernite_pickaxe": "Metatorbernite Pickaxe",
-  "item.undeadremains.metatorbernite_shovel": "Metatorbernite Shovel",
-  "item.undeadremains.metatorbernite_hoe": "Metatorbernite Hoe",
+  "item.undeadremains.metatorbernite_tool": "Metatorbernite Tool",
+
   
 
   "item.undeadremains.lightning_rod_modified_fossil_helmet": "Lightning Rod Modified Fossil Helmet",
@@ -120,6 +119,8 @@
   "block.undeadremains.metatorbernite_lucky_block": "Metatorbernite Lucky Block",
 
   "block.undeadremains.fossil_altar": "Xanarian Gateway",
+  "block.undeadremains.metatorbernite_enricher_controller": "Metatorbernite Enricher Controller",
+  "block.undeadremains.metatorbernite_enricher_part": "Metatorbernite Enricher Part",
 
   "block.undeadremains.fossil_block": "Block of Fossil",
   "block.undeadremains.raw_fossil_block": "Block of Raw Fossil",
@@ -222,7 +223,7 @@
 
   "block.undeadremains.chiseled_langstone": "Chiseled Langstone",
   "block.undeadremains.langstone_stairs": "Langstone Stairs",
-  "block.undeadremains.langstone_slabs": "Langstone Slab",
+  "block.undeadremains.langstone_slab": "Langstone Slab",
   "block.undeadremains.langstone_wall": "Langstone Wall",
   "block.undeadremains.langstone_brick_wall": "Langstone Brick Wall",
   "block.undeadremains.langstone_brick_slab": "Langstone Brick Slab",
@@ -238,7 +239,7 @@
   "block.undeadremains.deep_langstone": "Deep Langstone",
   "block.undeadremains.chiseled_deep_langstone": "Chiseled Deep Langstone",
   "block.undeadremains.deep_langstone_stairs": "Deep Langstone Stairs",
-  "block.undeadremains.deep_langstone_slabs": "Deep Langstone Slab",
+  "block.undeadremains.deep_langstone_slab": "Deep Langstone Slab",
   "block.undeadremains.deep_langstone_wall": "Deep Langstone Wall",
   "block.undeadremains.deep_langstone_brick_wall": "Deep Langstone Brick Wall",
   "block.undeadremains.deep_langstone_brick_slab": "Deep Langstone Brick Slab",
@@ -266,9 +267,8 @@
   "effect.undeadremains.fossilzed_hearth": "Lingering Potion of Fossilized Heart",
 
   "tooltip.undeadremains.the_fossils_eye":"Gives Night Vision",
-  "tooltip.undeadremains.rare_fossil":"Drops from Fossil Ore",
+  "tooltip.undeadremains.rare_fossil":"Drops rarely from Fossil Ore",
   "tooltip.undeadremains.the_quartz_modified_fossils_eye":"Counteracts Darkness Effect",
-  "tooltip.undeadremains.empty_fuel_cell":"Work in progress",
 
   "creativetab.tutorial_tab": "Undead Remains"
 

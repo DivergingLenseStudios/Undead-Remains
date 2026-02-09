@@ -1,4 +1,4 @@
-// 1.20.1	2026-01-24T11:18:25.2671846	Loot Tables
+// 1.20.1	2026-02-07T13:05:49.706327	Loot Tables
 76a75524e5dcd7d1c9d5de5047a92ee68b60e2f2 data/undeadremains/loot_tables/blocks/ash_button.json
 8806032776c8bea89f252419be9030ea76e9d5fc data/undeadremains/loot_tables/blocks/ash_door.json
 230184633e7e39e87f97d44c09c0838cf3798f4d data/undeadremains/loot_tables/blocks/ash_fence.json
@@ -55,7 +55,7 @@ e4d9d3bddb583735c004b187856ba2c817d9e038 data/undeadremains/loot_tables/blocks/f
 635b94a27a40c7e06a9c8c1c1d8d0796d3b14a45 data/undeadremains/loot_tables/blocks/fossil_fence.json
 3618b472f67c0b31c3c51ff4aad8220d9268faa2 data/undeadremains/loot_tables/blocks/fossil_fence_gate.json
 8671a25ac4aa909abbf7ddf68b5365427dad94da data/undeadremains/loot_tables/blocks/fossil_lucky_block.json
-7a7daa99221e351798768a5a2df585f5c330d655 data/undeadremains/loot_tables/blocks/fossil_ore.json
+591a9e9671865cd8d7cbd23e066973b43a753de5 data/undeadremains/loot_tables/blocks/fossil_ore.json
 5bcf4448c70cb5254d5ccdebdcc0dadd92550315 data/undeadremains/loot_tables/blocks/fossil_polisher.json
 3bd9563c193ea8c7b360219a859b1d18badbc241 data/undeadremains/loot_tables/blocks/fossil_pressure_plate.json
 d77e22e47a6e9b8cabac58c3f1415cc0f1377404 data/undeadremains/loot_tables/blocks/fossil_slab.json

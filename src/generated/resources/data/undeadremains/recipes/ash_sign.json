@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "I": {
-      "item": "minecraft:iron_block"
+    "S": {
+      "tag": "forge:rods/wooden"
     },
-    "N": {
-      "item": "minecraft:iron_nugget"
-    },
-    "R": {
-      "item": "minecraft:redstone"
+    "W": {
+      "item": "undeadremains:ash_planks"
     }
   },
   "pattern": [
-    "INI",
-    "IRI",
-    "INI"
+    "WWW",
+    "WWW",
+    " S "
   ],
   "result": {
     "item": "undeadremains:ash_sign"
