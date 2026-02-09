@@ -1,22 +1,22 @@
 {
-    "name": "undeadremains:travelers_tent/start_pool",
-  
-    "fallback": "minecraft:empty",
-  
-    "elements": [
-      {
-  
-        "weight": 1,
-        "element": {
-  
-          "location": "undeadremains:travelers_tent",
-  
-          "processors": "minecraft:empty",
-  
-          "projection": "rigid",
-  
-          "element_type": "minecraft:single_pool_element"
-        }
-      }
-    ]
-  }
+	"name": "undeadremains:travelers_tent/start_pool",
+
+	"fallback": "minecraft:empty",
+
+	"elements": [
+		{
+
+			"weight": 1,
+			"element": {
+
+				"location": "undeadremains:travelers_tent",
+
+				"processors": "minecraft:empty",
+
+				"projection": "rigid",
+
+				"element_type": "minecraft:single_pool_element"
+			}
+		}
+	]
+}

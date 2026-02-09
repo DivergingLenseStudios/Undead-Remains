@@ -1,12 +1,12 @@
 {
-  "type": "undeadremains:gem_polishing",
-  "ingredients": [
-    {
-      "item": "undeadremains:raw_deepslate_fossil"
-    }
-  ],
-  "output": {
-    "count": 3,
-    "item": "undeadremains:fossil"
-  }
+	"type": "undeadremains:gem_polishing",
+	"ingredients": [
+		{
+			"item": "undeadremains:raw_deepslate_fossil"
+		}
+	],
+	"output": {
+		"count": 3,
+		"item": "undeadremains:fossil"
+	}
 }

@@ -1,17 +1,17 @@
 {
-    "structures": [
-      {
-        "structure": "undeadremains:metatorbernite_trap_desert",
-        "weight": 1
-      }
-    ],
-    "placement": {
-      "salt": 7636554,
-  
-      "spacing": 20,
-  
-      "separation": 6,
-  
-      "type": "minecraft:random_spread"
-    }
-  }
+	"structures": [
+		{
+			"structure": "undeadremains:metatorbernite_trap_desert",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 7636554,
+
+		"spacing": 20,
+
+		"separation": 6,
+
+		"type": "minecraft:random_spread"
+	}
+}

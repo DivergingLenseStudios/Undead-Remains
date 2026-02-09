@@ -1,17 +1,17 @@
 {
-    "structures": [
-      {
-        "structure": "undeadremains:travelers_hut",
-        "weight": 1
-      }
-    ],
-    "placement": {
-      "salt": 93862176,
-  
-      "spacing": 50,
-  
-      "separation": 6,
-  
-      "type": "minecraft:random_spread"
-    }
-  }
+	"structures": [
+		{
+			"structure": "undeadremains:travelers_hut",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 93862176,
+
+		"spacing": 50,
+
+		"separation": 6,
+
+		"type": "minecraft:random_spread"
+	}
+}

@@ -1,12 +1,12 @@
 {
-  "type": "undeadremains:gem_polishing",
-  "ingredients": [
-    {
-      "item": "undeadremains:fossil_block"
-    }
-  ],
-  "output": {
-    "count": 1,
-    "item": "undeadremains:rare_fossil"
-  }
+	"type": "undeadremains:gem_polishing",
+	"ingredients": [
+		{
+			"item": "undeadremains:fossil_block"
+		}
+	],
+	"output": {
+		"count": 1,
+		"item": "undeadremains:rare_fossil"
+	}
 }

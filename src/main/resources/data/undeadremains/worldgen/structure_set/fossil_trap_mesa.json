@@ -1,17 +1,17 @@
 {
-    "structures": [
-      {
-        "structure": "undeadremains:fossil_trap_mesa",
-        "weight": 1
-      }
-    ],
-    "placement": {
-      "salt": 748302947,
-  
-      "spacing": 20,
-  
-      "separation": 6,
-  
-      "type": "minecraft:random_spread"
-    }
-  }
+	"structures": [
+		{
+			"structure": "undeadremains:fossil_trap_mesa",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 748302947,
+
+		"spacing": 20,
+
+		"separation": 6,
+
+		"type": "minecraft:random_spread"
+	}
+}

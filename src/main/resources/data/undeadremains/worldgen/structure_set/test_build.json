@@ -1,17 +1,17 @@
 {
-    "structures": [
-      {
-        "structure": "undeadremains:test_build",
-        "weight": 1
-      }
-    ],
-    "placement": {
-      "salt": 8937203454,
-  
-      "spacing": 20,
-  
-      "separation": 6,
-  
-      "type": "minecraft:random_spread"
-    }
-  }
+	"structures": [
+		{
+			"structure": "undeadremains:test_build",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 8937203454,
+
+		"spacing": 20,
+
+		"separation": 6,
+
+		"type": "minecraft:random_spread"
+	}
+}
