@@ -9,6 +9,8 @@ package net.diverginglensestudios.undeadremains.entity.custom.Fish;
 
 import javax.annotation.Nullable;
 
+import net.diverginglensestudios.undeadremains.entity.ai.EntityAINearestTarget3D;
+import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.AbstractXanarian;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -17,16 +19,21 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.event.level.NoteBlockEvent;
 
 public class XanaranhaEntity extends AbstractFish {
 	public XanaranhaEntity(EntityType<? extends AbstractFish> pEntityType, Level pLevel) {
@@ -70,8 +77,15 @@ public class XanaranhaEntity extends AbstractFish {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false,  false));
-		this.goalSelector.addGoal(4, new XanaranhaEntity.FishSwimGoal(this));
+		this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
+		this.targetSelector.addGoal(2, new EntityAINearestTarget3D<>(this, Player.class, true));
+		this.targetSelector.addGoal(2, new EntityAINearestTarget3D<>(this, AbstractXanarian.class, true));
+		this.targetSelector.addGoal(2, new EntityAINearestTarget3D<>(this, Creeper.class, true));
+		this.targetSelector.addGoal(2, new HurtByTargetGoal(this, XanaranhaEntity.class));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 3D, true));
+		this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1D, 10));
+		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
 	}
 
 
@@ -96,15 +110,11 @@ public class XanaranhaEntity extends AbstractFish {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
-				.add(Attributes.FOLLOW_RANGE, 35.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
+				.add(Attributes.FOLLOW_RANGE, 60.0D)
+				.add(Attributes.MOVEMENT_SPEED, 2.0D)
 				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(ForgeMod.SWIM_SPEED.get(),2.0D)
 				.add(Attributes.ARMOR, 2.0D);
-	}
-
-	@Override
-	public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
-		return super.causeFallDamage(pFallDistance, pMultiplier*0.2f, pSource);
 	}
 
 	@Nullable
@@ -130,25 +140,7 @@ public class XanaranhaEntity extends AbstractFish {
 	protected SoundEvent getFlopSound() {
 		return SoundEvents.COD_FLOP;
 	}
-	static class FishSwimGoal extends RandomSwimmingGoal {
-		private final AbstractFish fish;
 
-		public FishSwimGoal(AbstractFish pFish) {
-			super(pFish, 1.0D, 40);
-			this.fish = pFish;
-		}
-
-		/**
-		 * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-		 * method as well.
-		 */
-		public boolean canUse() {
-			return this.canRandomSwim() && super.canUse();
-		}
-		private boolean canRandomSwim() {
-			return true;
-		}
-	}
 	@Override
 	public ItemStack getBucketItemStack() {
 		return ItemStack.EMPTY;

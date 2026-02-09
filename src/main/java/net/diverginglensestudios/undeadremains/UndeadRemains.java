@@ -23,6 +23,7 @@ import net.diverginglensestudios.undeadremains.entity.client.SupremeKnight.Supre
 import net.diverginglensestudios.undeadremains.entity.client.SupremeZombie.SupremeZombieRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.TreeZombie.TreeZombieRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.UndeadArcheologist.UndeadArcheologistRenderer;
+import net.diverginglensestudios.undeadremains.entity.client.Xanaranha.XanaranhaRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.Xanarian.XanarianRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.XanarianCannibal.XanarianCannibalRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.horned_xanarian.HornedXanarianRenderer;
@@ -125,12 +126,14 @@ public class UndeadRemains { // Define the Class for the Mod
 		});
 	}
 
-	// private void addCreative(BuildCreativeModeTabContentsEvent event) {
-	// if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-	// event.accept(ModItems.FOSSIL);
-	// event.accept(ModItems.RAW_FOSSIL);
-	// }
-	// }
+	/*
+	private void addCreative(BuildCreativeModeTabContentsEvent event) {
+		if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+			event.accept(ModItems.FOSSIL);
+			event.accept(ModItems.RAW_FOSSIL);
+		}
+	   }
+	 */
 
 	// You can use SubscribeEvent and let the Event Bus discover methods to call
 	@SubscribeEvent
@@ -167,13 +170,16 @@ public class UndeadRemains { // Define the Class for the Mod
 					pContext -> new SupremeZombieRenderer(pContext));
 			EntityRenderers.register(ModEntities.COW_ZOMBIE.get(),
 					pContext -> new CowZombieRenderer(pContext));
-			EntityRenderers.register(ModEntities.SPIKE.get(), pContext -> new SpikeRenderer(pContext));
+			EntityRenderers.register(ModEntities.SPIKE.get(),
+					pContext -> new SpikeRenderer(pContext));
 			EntityRenderers.register(ModEntities.HAMMER_ZOMBIE.get(),
 					pContext -> new HammerZombieRenderer(pContext));
 			EntityRenderers.register(ModEntities.FOUR_EYED_XANARIAN.get(),
 					pContext -> new FourEyedXanarianRenderer(pContext));
 			EntityRenderers.register(ModEntities.XANARIAN.get(),
 					pContext -> new XanarianRenderer(pContext));
+			EntityRenderers.register(ModEntities.XANARANHA.get(),
+					pContext -> new XanaranhaRenderer(pContext));
 			EntityRenderers.register(ModEntities.HORNED_XANARIAN.get(),
 					pContext -> new HornedXanarianRenderer(pContext));
 			EntityRenderers.register(ModEntities.MOD_BOAT.get(),
