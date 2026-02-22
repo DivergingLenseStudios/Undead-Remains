@@ -343,7 +343,7 @@ public class ModItems {
 					new Item.Properties()));
 
 	public static final RegistryObject<Item> XANARANHA_SPAWN_EGG = ITEMS.register(
-			"xanaramha_spawn_egg",
+			"xanaranha_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.XANARANHA, 0x303e39, 0x4f0937,
 					new Item.Properties()));
 

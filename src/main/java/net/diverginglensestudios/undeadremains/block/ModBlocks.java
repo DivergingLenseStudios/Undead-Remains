@@ -134,6 +134,9 @@ public class ModBlocks {
 			() -> new MetatorberniteLuckyBlock(
 					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
 
+	public static final RegistryObject<Block> STRUCTURE_EXTENDER_BLOCK = registerBlock("structure_extender_block",
+			()->new StructureExtenderBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK)));
+
 	// Differenty shaped blocks
 	// Fossil
 	public static final RegistryObject<Block> FOSSIL_STAIRS = registerBlock("fossil_stairs",
