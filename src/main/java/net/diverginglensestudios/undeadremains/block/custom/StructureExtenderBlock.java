@@ -33,4 +33,9 @@ public class StructureExtenderBlock extends BaseEntityBlock {
 		return createTickerHelper(pBlockEntityType, ModBlockEntities.STRUCTURE_EXTENDER_BE.get(),
 				(pLevel1, pPos, pState1, pBlockEntity) -> StructureExtenderBlockEntity.tick((net.minecraft.server.level.ServerLevel) pLevel1, pPos, pState1, pBlockEntity));
 	}
+	
+	@Override
+	public RenderShape getRenderShape(BlockState pState) {
+    return RenderShape.MODEL;
+}
 }
