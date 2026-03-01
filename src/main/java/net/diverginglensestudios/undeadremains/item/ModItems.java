@@ -104,6 +104,12 @@ public class ModItems {
 	public static final RegistryObject<Item> RAW_XANARANHA = ITEMS.register("raw_xanaranha",
 			() -> new Item(new Item.Properties().food(ModFoods.RAW_XANARANHA)));
 
+	public static final RegistryObject<Item> COOKED_XANARANHA = ITEMS.register("cooked_xanaranha",
+			() -> new Item(new Item.Properties().food(ModFoods.COOKED_XANARANHA)));
+
+	public static final RegistryObject<Item> XANARANHA_ON_A_STICK = ITEMS.register("xanaranha_on_a_stick",
+			() -> new Item(new Item.Properties().food(ModFoods.XANARANHA_ON_A_STICK)));
+
 
 	// Fuel Items
 	public static final RegistryObject<Item> METATURBONITE = ITEMS.register("metaturbonite",

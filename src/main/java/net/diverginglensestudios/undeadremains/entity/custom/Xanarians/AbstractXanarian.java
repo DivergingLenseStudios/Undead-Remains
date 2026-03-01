@@ -13,12 +13,14 @@ import javax.annotation.Nullable;
 
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.entity.ai.*;
+import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -70,9 +72,10 @@ public class AbstractXanarian extends Monster {
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(1, new XanarianHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(), ModEntities.XANARIAN.get(),ModEntities.HORNED_XANARIAN.get())));
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, AbstractFish.class, 6.0F, 1.0D, 1.2D));
+		this.goalSelector.addGoal(1, new XanarianHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(), ModEntities.XANARIAN.get(),ModEntities.HORNED_XANARIAN.get())));
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, AbstractFish.class, 10.0F, 1.5D, 1.2D));
+		this.goalSelector.addGoal(1, new AvoidEntityHoldingItemGoal<>(this, LivingEntity.class, ModItems.XANARANHA_ON_A_STICK.get(), 10.0F, 1.5D,1.2D));
 		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
 		this.goalSelector.addGoal(3, new XanarianReputationTargetGoal(this));
 		this.goalSelector.addGoal(3, new XanarianProtectPlayerGoal(this));

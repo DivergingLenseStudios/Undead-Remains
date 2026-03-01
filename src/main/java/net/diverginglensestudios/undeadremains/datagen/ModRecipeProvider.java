@@ -38,10 +38,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	// FOSSIL_BLOCK_SMELTABLES
 	private static final List<ItemLike> FOSSIL_BLOCK_SMELTABLES = List.of(
 			ModBlocks.RAW_FOSSIL_BLOCK.get());
-
-	// XANARIAN_MEAT_SMELTABLES
+	// MEAT
 	private static final List<ItemLike> XANARIAN_MEAT_SMELTABLES = List.of(
 			ModItems.RAW_XANARIAN_MEAT.get());
+	private static final List<ItemLike> XANARANHA_MEAT_SMELTABLES = List.of(
+			ModItems.RAW_XANARANHA.get());
 
 	public ModRecipeProvider(PackOutput pOutput) {
 		super(pOutput);
@@ -57,19 +58,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				200, "langrite");
 		oreSmelting(pWriter, FOSSIL_BLOCK_SMELTABLES, RecipeCategory.MISC, ModItems.FOSSIL.get(), 2.5f, 2000,
 				"fossil");
-		oreSmelting(pWriter, XANARIAN_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.XANARIAN_MEAT.get(), 0.25f, 100,
-				"xanarian_meat");
 		oreSmelting(pWriter, List.of(ModBlocks.LANGSTONE_BRICKS.get()), RecipeCategory.MISC,
 				ModBlocks.CRACKED_LANGSTONE_BRICKS.get(), 0.25f, 100,
 				"cracked_langstone_bricks");
 		oreSmelting(pWriter, List.of(ModBlocks.DEEP_LANGSTONE_BRICKS.get()), RecipeCategory.MISC,
 				ModBlocks.CRACKED_DEEP_LANGSTONE_BRICKS.get(), 0.25f, 100,
 				"cracked_deep_langstone_bricks");
+		oreSmelting(pWriter, XANARIAN_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.XANARIAN_MEAT.get(), 0.25f, 100,
+				"xanarian_meat");
+		oreSmelting(pWriter, XANARANHA_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_XANARANHA.get(), 0.25f, 100,
+				"cooked_xanaranha");
 		// ORE SMELTING//
 
 		// Item SMOKING //
 		itemSmoking(pWriter, XANARIAN_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.XANARIAN_MEAT.get(), 0.25f, 100,
 				"xanarian_meat");
+		itemSmoking(pWriter, XANARANHA_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_XANARANHA.get(), 0.25f, 100,
+				"cooked_xanaranha");
 		// Item SMOKING //
 
 		// ORE BLASTING//
@@ -872,6 +877,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy(getHasName(ModBlocks.METATORBERNITE_BLOCK.get()),
 						has(ModBlocks.METATORBERNITE_BLOCK.get()))
 				.save(pWriter, UndeadRemains.MOD_ID + ":metatorbernite_from_metatorbernite_block");
+		
 		// SHAPELESS ITEM//
 		// SHAPELESS ARMOR//
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.METATORBERNITE_GAS_MASK.get(), 1)
@@ -961,6 +967,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy(getHasName(Items.BREAD),
 						has(Items.BREAD))
 				.save(pWriter);
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARANHA_ON_A_STICK.get(), 1)
+				.requires(ModItems.XANARANHA_ON_A_STICK.get()).requires(Items.STICK)
+				.unlockedBy(getHasName(Items.STICK), has(Items.STICK));
 		//////////////////// SHAPELESS////////////////////
 	}
 

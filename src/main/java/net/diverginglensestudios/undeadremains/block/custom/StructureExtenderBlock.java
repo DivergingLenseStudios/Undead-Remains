@@ -37,5 +37,5 @@ public class StructureExtenderBlock extends BaseEntityBlock {
 	@Override
 	public RenderShape getRenderShape(BlockState pState) {
     return RenderShape.MODEL;
-}
+	}
 }

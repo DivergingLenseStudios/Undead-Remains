@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_xanaranha": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:raw_xanaranha"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "undeadremains:cooked_xanaranha_from_smelting_raw_xanaranha"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_xanaranha",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "undeadremains:cooked_xanaranha_from_smelting_raw_xanaranha"
+    ]
+  },
+  "sends_telemetry_event": false
+}

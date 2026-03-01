@@ -68,7 +68,11 @@ public class ModFoods {
 			.build();
 
 	public static final FoodProperties RAW_XANARANHA = new FoodProperties.Builder().nutrition(3)
-			.saturationMod(0.1f)
-			.build();
+			.saturationMod(0.1f).build();
 
+	public static final FoodProperties COOKED_XANARANHA = new FoodProperties.Builder().nutrition(6)
+			.saturationMod(0.2f).build();
+
+	public static final FoodProperties XANARANHA_ON_A_STICK = new FoodProperties.Builder().nutrition(6)
+			.saturationMod(0.2f).fast().build();
 }

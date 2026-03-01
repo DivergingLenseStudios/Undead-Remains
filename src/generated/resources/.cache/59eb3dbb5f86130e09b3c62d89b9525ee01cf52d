@@ -1,4 +1,4 @@
-// 1.20.1	2026-02-21T18:25:34.7060402	Loot Tables
+// 1.20.1	2026-03-01T09:55:30.4620721	Loot Tables
 76a75524e5dcd7d1c9d5de5047a92ee68b60e2f2 data/undeadremains/loot_tables/blocks/ash_button.json
 8806032776c8bea89f252419be9030ea76e9d5fc data/undeadremains/loot_tables/blocks/ash_door.json
 230184633e7e39e87f97d44c09c0838cf3798f4d data/undeadremains/loot_tables/blocks/ash_fence.json
@@ -98,6 +98,7 @@ ba72fbb05ea93cb64692ed218cccede613dd13fe data/undeadremains/loot_tables/blocks/p
 87bba88d80e30cd7f3e831f80c2f09b93aa3da0f data/undeadremains/loot_tables/blocks/stripped_ash_wood.json
 08767eb76bc0cc12b6d4d07df25932253833d688 data/undeadremains/loot_tables/blocks/stripped_calipo_log.json
 95d84aac64320551e9997d71d71cc0e2e9dce8ac data/undeadremains/loot_tables/blocks/stripped_calipo_wood.json
+9c74682b3c7ccb16d4de9783ec627dda99bcba6e data/undeadremains/loot_tables/blocks/structure_extender_block.json
 1c459acb7993418490a94331a0c8dfaa0c6887e5 data/undeadremains/loot_tables/blocks/supreme_bricks.json
 55699d66ef0324b2250631a65753c8b4f8a93fdb data/undeadremains/loot_tables/blocks/supreme_pilar.json
 edb3c85a5a9e591e309780531e891a3b0eeddfeb data/undeadremains/loot_tables/blocks/supreme_tiles.json

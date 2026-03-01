@@ -186,6 +186,8 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModItems.XANARIAN_KEBAB.get());
 						pOutput.accept(ModItems.WRAP.get());
 						pOutput.accept(ModItems.RAW_XANARANHA.get());
+						pOutput.accept(ModItems.COOKED_XANARANHA.get());
+						pOutput.accept(ModItems.XANARANHA_ON_A_STICK.get());
 
 						pOutput.accept(ModItems.UNDYING_WHISPERS_MUSIC_DISC.get());
 
