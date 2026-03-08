@@ -206,6 +206,7 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModItems.FOUR_EYED_XANARIAN_SPAWN_EGG.get());
 						pOutput.accept(ModItems.XANARIAN_SPAWN_EGG.get());
 						pOutput.accept(ModItems.XANARANHA_SPAWN_EGG.get());
+						pOutput.accept(ModItems.SUCKER_SPAWN_EGG.get());
 						pOutput.accept(ModItems.XANARIAN_CANNIBAL_SPAWN_EGG.get());
 						pOutput.accept(ModItems.HORNED_XANARIAN_SPAWN_EGG.get());
 						pOutput.accept(ModItems.SUPREME_KNIGHT_SPAWN_EGG.get());

@@ -19,6 +19,7 @@ import net.diverginglensestudios.undeadremains.entity.client.SahnUzal.SahnUzalRe
 import net.diverginglensestudios.undeadremains.entity.client.SmallWoodling.SmallWoodlingRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.Spike.SpikeRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.StrayZombie.StrayZombieRenderer;
+import net.diverginglensestudios.undeadremains.entity.client.Sucker.SuckerRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.SupremeKnight.SupremeKnightRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.SupremeZombie.SupremeZombieRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.TreeZombie.TreeZombieRenderer;
@@ -180,6 +181,8 @@ public class UndeadRemains { // Define the Class for the Mod
 					pContext -> new XanarianRenderer(pContext));
 			EntityRenderers.register(ModEntities.XANARANHA.get(),
 					pContext -> new XanaranhaRenderer(pContext));
+			EntityRenderers.register(ModEntities.SUCKER.get(),
+					pContext -> new SuckerRenderer(pContext));
 			EntityRenderers.register(ModEntities.HORNED_XANARIAN.get(),
 					pContext -> new HornedXanarianRenderer(pContext));
 			EntityRenderers.register(ModEntities.MOD_BOAT.get(),

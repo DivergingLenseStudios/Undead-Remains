@@ -21,6 +21,7 @@ import net.diverginglensestudios.undeadremains.entity.client.SahnUzal.SahnUzalMo
 import net.diverginglensestudios.undeadremains.entity.client.SmallWoodling.SmallWoodlingModel;
 import net.diverginglensestudios.undeadremains.entity.client.Spike.SpikeModel;
 import net.diverginglensestudios.undeadremains.entity.client.StrayZombie.StrayZombieModel;
+import net.diverginglensestudios.undeadremains.entity.client.Sucker.SuckerModel;
 import net.diverginglensestudios.undeadremains.entity.client.SupremeKnight.SupremeKnightModel;
 import net.diverginglensestudios.undeadremains.entity.client.SupremeZombie.SupremeZombieModel;
 import net.diverginglensestudios.undeadremains.entity.client.TreeZombie.TreeZombieModel;
@@ -59,6 +60,7 @@ public class ModEventBusClientEvents {
 		event.registerLayerDefinition(ModModelLayers.XANARIAN_LAYER, XanarianModel::createBodyLayer);
 		event.registerLayerDefinition(ModModelLayers.HORNED_XANARIAN_LAYER, HornedXanarianModel::createBodyLayer);
 		event.registerLayerDefinition(ModModelLayers.XANARANHA_LAYER, XanaranhaModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.SUCKER_LAYER, SuckerModel::createBodyLayer);
 		event.registerLayerDefinition(ModModelLayers.BIG_WOODLING_LAYER, BigWoodlingModel::createBodyLayer);
 		event.registerLayerDefinition(ModModelLayers.SMALL_WOODLING_LAYER, SmallWoodlingModel::createBodyLayer);
 

@@ -9,6 +9,7 @@ package net.diverginglensestudios.undeadremains.event;
 
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
+import net.diverginglensestudios.undeadremains.entity.custom.Fish.SuckerEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Fish.XanaranhaEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.*;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.*;
@@ -42,6 +43,7 @@ public class ModEventBusEvents {
 		event.put(ModEntities.XANARIAN.get(), XanarianEntity.createAttributes().build());
 		event.put(ModEntities.HORNED_XANARIAN.get(), HornedXanarianEntity.createAttributes().build());
 		event.put(ModEntities.XANARANHA.get(), XanaranhaEntity.createAttributes().build());
+		event.put(ModEntities.SUCKER.get(), SuckerEntity.createAttributes().build());
 		event.put(ModEntities.BIG_WOODLING.get(), BigWoodlingEntity.createAttributes().build());
 		event.put(ModEntities.SMALL_WOODLING.get(), SmallWoodlingEntity.createAttributes().build());
 	}

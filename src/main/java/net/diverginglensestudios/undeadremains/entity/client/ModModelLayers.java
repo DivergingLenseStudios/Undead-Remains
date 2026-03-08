@@ -36,6 +36,8 @@ public class ModModelLayers {
 			new ResourceLocation(UndeadRemains.MOD_ID, "xanarian_cannibal"), "main");
 	public static final ModelLayerLocation XANARANHA_LAYER = new ModelLayerLocation(
 			new ResourceLocation(UndeadRemains.MOD_ID, "xanaranha"), "main");
+	public static final ModelLayerLocation SUCKER_LAYER = new ModelLayerLocation(
+			new ResourceLocation(UndeadRemains.MOD_ID, "sucker"), "main");
 	public static final ModelLayerLocation TREE_ZOMBIE_LAYER = new ModelLayerLocation(
 			new ResourceLocation(UndeadRemains.MOD_ID, "tree_zombie_layer"), "main");
 	public static final ModelLayerLocation STRAY_ZOMBIE_LAYER = new ModelLayerLocation(
