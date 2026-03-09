@@ -360,7 +360,7 @@ public class ModItems {
 
 	public static final RegistryObject<Item> SUCKER_SPAWN_EGG = ITEMS.register(
 			"sucker_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.SUCKER, 0x303e39, 0x4f0937,
+			() -> new ForgeSpawnEggItem(ModEntities.SUCKER, 0x90aeb5, 0x4f334d,
 					new Item.Properties()));
 
 	// Signs
