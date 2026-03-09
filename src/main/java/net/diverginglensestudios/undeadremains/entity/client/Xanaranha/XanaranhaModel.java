@@ -75,23 +75,20 @@ public static LayerDefinition createBodyLayer() {
 
 	@Override
 	public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		float f = 1.0F;
-		float f1 = 1.0F;
-		if (!pEntity.isInWater()) {
-			f = 1.3F;
-			f1 = 1.7F;
-		}
-		this.tail.yRot = -f * 0.25F * Mth.sin(f1 * 0.6F * pAgeInTicks);
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.applyTailRotation(pEntity, pAgeInTicks);
 		this.animate(((XanaranhaEntity) pEntity).attackAnimationState, ModFishAnimations.XANARANHA_ATTACK, pAgeInTicks, 1f);
 
 	}
 
-private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
-		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
-		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
-
-		this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
-		this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+private void applyTailRotation(T pEntity, float pAgeInTicks) {
+	float f = 1.0F;
+	float f1 = 1.0F;
+	if (!pEntity.isInWater()) {
+		f = 1.3F;
+		f1 = 1.7F;
+	}
+	this.tail.yRot = -f * 0.25F * Mth.sin(f1 * 0.6F * pAgeInTicks);
 	}
 
 	@Override
