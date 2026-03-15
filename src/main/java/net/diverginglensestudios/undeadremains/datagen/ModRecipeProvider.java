@@ -43,6 +43,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 			ModItems.RAW_XANARIAN_MEAT.get());
 	private static final List<ItemLike> XANARANHA_MEAT_SMELTABLES = List.of(
 			ModItems.RAW_XANARANHA.get());
+	private static final List<ItemLike> SUCKER_MEAT_SMELTABLES = List.of(
+			ModItems.SUCKER_TRUNK.get());
 
 	public ModRecipeProvider(PackOutput pOutput) {
 		super(pOutput);
@@ -66,15 +68,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				"cracked_deep_langstone_bricks");
 		oreSmelting(pWriter, XANARIAN_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.XANARIAN_MEAT.get(), 0.25f, 100,
 				"xanarian_meat");
-		oreSmelting(pWriter, XANARANHA_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_XANARANHA.get(), 0.25f, 100,
+		oreSmelting(pWriter, XANARANHA_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_XANARANHA.get(), 0.25f,
+				100,
 				"cooked_xanaranha");
+		oreSmelting(pWriter, SUCKER_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_SUCKER_TRUNK.get(), 0.30f,
+				120,
+				"cooked_sucker_trunk");
+
 		// ORE SMELTING//
 
 		// Item SMOKING //
 		itemSmoking(pWriter, XANARIAN_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.XANARIAN_MEAT.get(), 0.25f, 100,
 				"xanarian_meat");
-		itemSmoking(pWriter, XANARANHA_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_XANARANHA.get(), 0.25f, 100,
+		itemSmoking(pWriter, XANARANHA_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_XANARANHA.get(), 0.25f,
+				100,
 				"cooked_xanaranha");
+		itemSmoking(pWriter, SUCKER_MEAT_SMELTABLES, RecipeCategory.MISC, ModItems.COOKED_SUCKER_TRUNK.get(), 0.30f,
+				120,
+				"cooked_sucker_trunk");
 		// Item SMOKING //
 
 		// ORE BLASTING//
@@ -880,7 +891,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy(getHasName(ModBlocks.METATORBERNITE_BLOCK.get()),
 						has(ModBlocks.METATORBERNITE_BLOCK.get()))
 				.save(pWriter, UndeadRemains.MOD_ID + ":metatorbernite_from_metatorbernite_block");
-		
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARANHA_HORN_ON_A_STICK.get(), 1)
+				.requires(ModItems.METATORBERNITE.get())
+				.requires(Items.FISHING_ROD)//
+				.unlockedBy(getHasName(ModItems.XANARANHA_HORN.get()), has(ModItems.XANARANHA_HORN.get()))
+				.save(pWriter);
+
 		// SHAPELESS ITEM//
 		// SHAPELESS ARMOR//
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.METATORBERNITE_GAS_MASK.get(), 1)
@@ -971,8 +987,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						has(Items.BREAD))
 				.save(pWriter);
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARANHA_ON_A_STICK.get(), 1)
-				.requires(ModItems.XANARANHA_ON_A_STICK.get()).requires(Items.STICK)
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARANHA_HORN_ON_A_STICK.get(), 1)
+				.requires(ModItems.XANARANHA_HORN_ON_A_STICK.get()).requires(Items.STICK)
 				.unlockedBy(getHasName(Items.STICK), has(Items.STICK));
 		//////////////////// SHAPELESS////////////////////
 	}

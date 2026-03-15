@@ -56,8 +56,9 @@ public class ModItems {
 			() -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> EMPTY_FUEL_CELL = ITEMS.register("empty_fuel_cell",
 			() -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> SUCKER_TRUNK = ITEMS.register("sucker_trunk",
+	public static final RegistryObject<Item> XANARANHA_HORN = ITEMS.register("xanaranha_horn",
 			() -> new Item(new Item.Properties()));
+
 	// Advanced Items
 	public static final RegistryObject<Item> METATORBERNITE_GRENADE = ITEMS.register("metatorbernite_grenade",
 			() -> new MetatorberniteGrenadeItem(new Item.Properties()));
@@ -113,8 +114,14 @@ public class ModItems {
 	public static final RegistryObject<Item> COOKED_XANARANHA = ITEMS.register("cooked_xanaranha",
 			() -> new Item(new Item.Properties().food(ModFoods.COOKED_XANARANHA)));
 
-	public static final RegistryObject<Item> XANARANHA_ON_A_STICK = ITEMS.register("xanaranha_on_a_stick",
-			() -> new Item(new Item.Properties().food(ModFoods.XANARANHA_ON_A_STICK)));
+	public static final RegistryObject<Item> XANARANHA_HORN_ON_A_STICK = ITEMS.register("xanaranha_on_a_stick",
+			() -> new Item(new Item.Properties().food(ModFoods.XANARANHA_HORN_ON_A_STICK)));
+
+	public static final RegistryObject<Item> SUCKER_TRUNK = ITEMS.register("sucker_trunk",
+			() -> new Item(new Item.Properties().food(ModFoods.SUCKER_TRUNK)));
+
+	public static final RegistryObject<Item> COOKED_SUCKER_TRUNK = ITEMS.register("cooked_sucker_trunk",
+			() -> new Item(new Item.Properties().food(ModFoods.COOKED_SUCKER_TRUNK)));
 
 	// Fuel Items
 	public static final RegistryObject<Item> METATURBONITE = ITEMS.register("metaturbonite",

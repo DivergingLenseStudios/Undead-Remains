@@ -87,7 +87,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		simpleItem(ModItems.XANS_LEAF_SEEDS);
 		simpleItem(ModItems.RAW_XANARANHA);
 		simpleItem(ModItems.COOKED_XANARANHA);
-		simpleItem(ModItems.XANARANHA_ON_A_STICK);
+		simpleItem(ModItems.XANARANHA_HORN_ON_A_STICK);
 		// Saplings
 		saplingItem(ModBlocks.ASH_SAPLING);
 		saplingItem(ModBlocks.CALIPO_SAPLING);
@@ -256,7 +256,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 				// Non-trimmed armorItem file (normal variant)
 				this.withExistingParent(itemRegistryObject.getId().getPath(),
-								mcLoc("item/generated"))
+						mcLoc("item/generated"))
 						.override()
 						.model(new ModelFile.UncheckedModelFile(trimNameResLoc))
 						.predicate(mcLoc("trim_type"), trimValue).end()
@@ -270,13 +270,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 	private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
 		return withExistingParent(item.getId().getPath(),
 				new ResourceLocation("item/generated")).texture("layer0",
-				new ResourceLocation(UndeadRemains.MOD_ID, "block/" + item.getId().getPath()));
+						new ResourceLocation(UndeadRemains.MOD_ID, "block/" + item.getId().getPath()));
 	}
 
 	private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
 		return withExistingParent(item.getId().getPath(),
 				new ResourceLocation("item/generated")).texture("layer0",
-				new ResourceLocation(UndeadRemains.MOD_ID, "item/" + item.getId().getPath()));
+						new ResourceLocation(UndeadRemains.MOD_ID, "item/" + item.getId().getPath()));
 	}
 
 	public void evenSimplerBlockItem(RegistryObject<Block> block) {
@@ -310,18 +310,18 @@ public class ModItemModelProvider extends ItemModelProvider {
 	private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
 		return withExistingParent(item.getId().getPath(),
 				new ResourceLocation("item/handheld")).texture("layer0",
-				new ResourceLocation(UndeadRemains.MOD_ID, "item/" + item.getId().getPath()));
+						new ResourceLocation(UndeadRemains.MOD_ID, "item/" + item.getId().getPath()));
 	}
 
 	private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
 		return withExistingParent(item.getId().getPath(),
 				new ResourceLocation("item/generated")).texture("layer0",
-				new ResourceLocation(UndeadRemains.MOD_ID, "item/" + item.getId().getPath()));
+						new ResourceLocation(UndeadRemains.MOD_ID, "item/" + item.getId().getPath()));
 	}
 
 	private ItemModelBuilder simpleBlockItemBlockTexture(RegistryObject<Block> item) {
 		return withExistingParent(item.getId().getPath(),
 				new ResourceLocation("item/generated")).texture("layer0",
-				new ResourceLocation(UndeadRemains.MOD_ID, "block/" + item.getId().getPath()));
+						new ResourceLocation(UndeadRemains.MOD_ID, "block/" + item.getId().getPath()));
 	}
 }

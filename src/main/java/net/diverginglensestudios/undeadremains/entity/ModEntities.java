@@ -90,11 +90,11 @@ public class ModEntities {
 
 	public static final RegistryObject<EntityType<XanaranhaEntity>> XANARANHA =
 			ENTITY_TYPES.register("xanaranha", () -> EntityType.Builder.<XanaranhaEntity>of(XanaranhaEntity::new, MobCategory.WATER_CREATURE)
-					.sized(1.4f, 2.5f).build("xanaranha"));
+					.sized(1.4f, 2f).build("xanaranha"));
 
 	public static final RegistryObject<EntityType<SuckerEntity>> SUCKER =
 			ENTITY_TYPES.register("sucker", () -> EntityType.Builder.<SuckerEntity>of(SuckerEntity::new, MobCategory.WATER_CREATURE)
-					.sized(1.4f, 2.5f).build("sucker"));
+					.sized(1f, 1f).build("sucker"));
 
 	public static final RegistryObject<EntityType<SupremeZombieEntity>> SUPREME_ZOMBIE =
 			ENTITY_TYPES.register("supreme_zombie",  () -> EntityType.Builder.of(SupremeZombieEntity::new, MobCategory.MONSTER)

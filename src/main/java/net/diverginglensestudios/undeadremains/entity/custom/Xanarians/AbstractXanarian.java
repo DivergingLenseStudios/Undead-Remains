@@ -41,17 +41,16 @@ public class AbstractXanarian extends Monster {
 	public final AnimationState idleAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
-
 	@Override
 	public void tick() {
 		super.tick();
-		if(this.level().isClientSide()) {
+		if (this.level().isClientSide()) {
 			setupAnimationStates();
 		}
 	}
 
 	private void setupAnimationStates() {
-		if(this.idleAnimationTimeout <= 0) {
+		if (this.idleAnimationTimeout <= 0) {
 			this.idleAnimationTimeout = this.random.nextInt(40) + 80;
 			this.idleAnimationState.start(this.tickCount);
 		} else {
@@ -62,7 +61,7 @@ public class AbstractXanarian extends Monster {
 	@Override
 	protected void updateWalkAnimation(float pPartialTick) {
 		float f;
-		if(this.getPose() == Pose.STANDING) {
+		if (this.getPose() == Pose.STANDING) {
 			f = Math.min(pPartialTick * 6F, 1f);
 		} else {
 			f = 0f;
@@ -73,9 +72,12 @@ public class AbstractXanarian extends Monster {
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new XanarianHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(), ModEntities.XANARIAN.get(),ModEntities.HORNED_XANARIAN.get())));
+		this.goalSelector.addGoal(1,
+				new XanarianHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(),
+						ModEntities.XANARIAN.get(), ModEntities.HORNED_XANARIAN.get())));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, AbstractFish.class, 10.0F, 1.5D, 1.2D));
-		this.goalSelector.addGoal(1, new AvoidEntityHoldingItemGoal<>(this, LivingEntity.class, ModItems.XANARANHA_ON_A_STICK.get(), 10.0F, 1.5D,1.2D));
+		this.goalSelector.addGoal(1, new AvoidEntityHoldingItemGoal<>(this, LivingEntity.class,
+				ModItems.XANARANHA_HORN_ON_A_STICK.get(), 10.0F, 1.5D, 1.2D));
 		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
 		this.goalSelector.addGoal(3, new XanarianReputationTargetGoal(this));
 		this.goalSelector.addGoal(3, new XanarianProtectPlayerGoal(this));
@@ -88,7 +90,7 @@ public class AbstractXanarian extends Monster {
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
 				.add(Attributes.FOLLOW_RANGE, 35.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
+				.add(Attributes.MOVEMENT_SPEED, (double) 0.23F)
 				.add(Attributes.ATTACK_DAMAGE, 3.0D)
 				.add(Attributes.ATTACK_KNOCKBACK, 200D)
 				.add(Attributes.ARMOR, 2.0D)
@@ -97,7 +99,7 @@ public class AbstractXanarian extends Monster {
 
 	@Override
 	public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
-		return super.causeFallDamage(pFallDistance, pMultiplier*0.2f, pSource);
+		return super.causeFallDamage(pFallDistance, pMultiplier * 0.2f, pSource);
 	}
 
 	@Nullable
