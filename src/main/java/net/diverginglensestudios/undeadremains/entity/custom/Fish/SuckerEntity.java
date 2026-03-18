@@ -19,10 +19,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -56,6 +53,17 @@ public class SuckerEntity extends AbstractFish {
 	@Override
 	public void tick() {
 		super.tick();
+
+		if (!this.level().isClientSide()) {
+			if (this.isAttached()) {
+				Entity target = this.getTarget();
+				if (target instanceof Player player && !player.isPassenger()) {
+					player.startRiding(this, true);
+				}
+			}
+
+		}
+
 		if(this.level().isClientSide()) {
 			setupAnimationStates();
 		}
