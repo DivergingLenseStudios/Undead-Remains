@@ -47,6 +47,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 				ModEntities.FOUR_EYED_XANARIAN.get(),
 				ModEntities.XANARIAN.get(),
 				ModEntities.HORNED_XANARIAN.get(),
+				ModEntities.SUCKER.get(),
 				ModEntities.XANARANHA.get());
 	}
 
@@ -354,13 +355,28 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 										.when(LootItemRandomChanceCondition
 												.randomChance(0.9f)))));
 
-			this.add(ModEntities.XANARANHA.get(),
+		this.add(ModEntities.XANARANHA.get(),
 				LootTable.lootTable()
 						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
 								.add(LootItem.lootTableItem(ModItems.RAW_XANARANHA.get())
 										.apply(SetItemCountFunction.setCount(
 												ConstantValue.exactly(1.0f)))
 										.when(LootItemRandomChanceCondition
+												.randomChance(1f)))
+								.add(LootItem.lootTableItem(ModItems.XANARANHA_HORN.get())
+										.apply(SetItemCountFunction.setCount(
+												ConstantValue.exactly(1.0f)))
+										.when(LootItemRandomChanceCondition
+												.randomChance(0.1f)))));
+
+		this.add(ModEntities.SUCKER.get(),
+				LootTable.lootTable()
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.SUCKER_TRUNK.get())
+										.apply(SetItemCountFunction.setCount(
+												ConstantValue.exactly(1.0f)))
+										.when(LootItemRandomChanceCondition
 												.randomChance(1f)))));
+
 	}
 }

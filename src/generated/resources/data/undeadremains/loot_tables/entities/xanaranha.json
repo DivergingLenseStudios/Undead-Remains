@@ -20,6 +20,23 @@
             }
           ],
           "name": "undeadremains:raw_xanaranha"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.1,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "undeadremains:xanaranha_horn"
         }
       ],
       "rolls": 1.0
