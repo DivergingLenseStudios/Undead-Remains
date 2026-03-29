@@ -50,7 +50,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 				ModEntities.SUCKER.get(),
 				ModEntities.XANARANHA.get());
 	}
-	//TODO: Add loottable for drowned skeleton
+
 
 	@Override
 	public void generate() {
