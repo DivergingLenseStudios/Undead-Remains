@@ -42,6 +42,7 @@ public class ModBiomeModifiers {
 	public static final ResourceKey<BiomeModifier> ADD_HAMMER_ZOMBIE = registerKey("add_hammer_zombie");
 	public static final ResourceKey<BiomeModifier> ADD_STRAY_ZOMBIE = registerKey("add_stray_zombie");
 
+	//TODO: Make drowned skeleton spawn (rarely just in the ocean and a little more common in the underwater ruins)
 	public static void bootstrap(BootstapContext<BiomeModifier> context) {
 		var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 		var biomes = context.lookup(Registries.BIOME);

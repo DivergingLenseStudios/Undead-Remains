@@ -324,50 +324,42 @@ public class ModItems {
 			() -> new ForgeSpawnEggItem(ModEntities.SPIKE, 0x5e5847, 0xc9b198, new Item.Properties()));
 
 	public static final RegistryObject<Item> HAMMER_ZOMBIE_SPAWN_EGG = ITEMS.register("hammer_zombie_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.HAMMER_ZOMBIE, 0x382e33, 0x417536,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.HAMMER_ZOMBIE, 0x382e33, 0x417536, new Item.Properties()));
 
-	public static final RegistryObject<Item> FOUR_EYED_XANARIAN_SPAWN_EGG = ITEMS.register(
-			"four_eyed_xanarian_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.FOUR_EYED_XANARIAN, 0xce141e, 0x717212,
-					new Item.Properties()));
+	public static final RegistryObject<Item> FOUR_EYED_XANARIAN_SPAWN_EGG = ITEMS.register("four_eyed_xanarian_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.FOUR_EYED_XANARIAN, 0xce141e, 0x717212, new Item.Properties()));
 
 	public static final RegistryObject<Item> XANARIAN_SPAWN_EGG = ITEMS.register("xanarian_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.XANARIAN, 0xce141e, 0x717212, new Item.Properties()));
 
 	public static final RegistryObject<Item> HORNED_XANARIAN_SPAWN_EGG = ITEMS.register("horned_xanarian_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.HORNED_XANARIAN, 0xce141e, 0x717212,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.HORNED_XANARIAN, 0xce141e, 0x717212, new Item.Properties()));
 
 	public static final RegistryObject<Item> SUPREME_KNIGHT_SPAWN_EGG = ITEMS.register("supreme_knight_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.SAHN_UZAL, 0x47488B, 0x7961AB, new Item.Properties()));
 
 	public static final RegistryObject<Item> BIG_WOODLING_SPAWN_EGG = ITEMS.register("big_woodling_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.BIG_WOODLING, 0x090F1B, 0x517138,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.BIG_WOODLING, 0x090F1B, 0x517138, new Item.Properties()));
 
 	public static final RegistryObject<Item> SMALL_WOODLING_SPAWN_EGG = ITEMS.register("small_woodling_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.SMALL_WOODLING, 0x090F1B, 0x517138,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.SMALL_WOODLING, 0x090F1B, 0x517138, new Item.Properties()));
 
 	public static final RegistryObject<Item> STRAY_ZOMBIE_SPAWN_EGG = ITEMS.register("stray_zombie_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.STRAY_ZOMBIE, 0x394061, 0x394061,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.STRAY_ZOMBIE, 0x394061, 0x394061, new Item.Properties()));
 
 	public static final RegistryObject<Item> XANARIAN_CANNIBAL_SPAWN_EGG = ITEMS.register(
 			"xanarian_cannibal_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.XANARIAN_CANNIBAL, 0x394061, 0x394061,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.XANARIAN_CANNIBAL, 0x394061, 0x394061, new Item.Properties()));
 
 	public static final RegistryObject<Item> XANARANHA_SPAWN_EGG = ITEMS.register(
 			"xanaranha_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.XANARANHA, 0x303e39, 0x4f0937,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.XANARANHA, 0x303e39, 0x4f0937, new Item.Properties()));
 
 	public static final RegistryObject<Item> SUCKER_SPAWN_EGG = ITEMS.register(
 			"sucker_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.SUCKER, 0x90aeb5, 0x4f334d,
-					new Item.Properties()));
+			() -> new ForgeSpawnEggItem(ModEntities.SUCKER, 0x90aeb5, 0x4f334d, new Item.Properties()));
+
+	//TODO: Add spawnegg for drowned Skeleton
 
 	// Signs
 	public static final RegistryObject<Item> ASH_SIGN = ITEMS.register("ash_sign",

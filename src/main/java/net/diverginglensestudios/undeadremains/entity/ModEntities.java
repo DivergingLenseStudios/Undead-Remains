@@ -134,7 +134,7 @@ public class ModEntities {
 					.sized(0.5f, 0.5f).build("metaturbonite_grenade_projectile"));
 
 
-
+//TODO: Correct hitbox size for all mobs
 
 	public static void register(IEventBus eventBus) {
 		ENTITY_TYPES.register(eventBus);
