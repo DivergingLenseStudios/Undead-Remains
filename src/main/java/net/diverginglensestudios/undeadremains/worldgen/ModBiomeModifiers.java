@@ -41,6 +41,7 @@ public class ModBiomeModifiers {
 	public static final ResourceKey<BiomeModifier> ADD_TREE_ZOMBIE = registerKey("add_tree_zombie");
 	public static final ResourceKey<BiomeModifier> ADD_HAMMER_ZOMBIE = registerKey("add_hammer_zombie");
 	public static final ResourceKey<BiomeModifier> ADD_STRAY_ZOMBIE = registerKey("add_stray_zombie");
+	public static final ResourceKey<BiomeModifier> ADD_DROWNED_SKELETON = registerKey("add_drowned_skeleton");
 
 	public static void bootstrap(BootstapContext<BiomeModifier> context) {
 		var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -80,6 +81,10 @@ public class ModBiomeModifiers {
 		context.register(ADD_HAMMER_ZOMBIE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
 				biomes.getOrThrow(BiomeTags.HAS_SWAMP_HUT),
 				List.of(new MobSpawnSettings.SpawnerData(ModEntities.HAMMER_ZOMBIE.get(), 100, 2, 4))));
+
+		context.register(ADD_DROWNED_SKELETON, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+				biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+				List.of(new MobSpawnSettings.SpawnerData(ModEntities.DROWNED_SKELETON.get(), 20, 1, 1))));
 
 		context.register(ADD_STRAY_ZOMBIE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
 				biomes.getOrThrow(Biomes.IS_COLD),

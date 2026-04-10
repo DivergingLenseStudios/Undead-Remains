@@ -3,13 +3,17 @@ package net.diverginglensestudios.undeadremains.entity.custom.Skeletons;
 import net.diverginglensestudios.undeadremains.entity.ai.ModMoveThroughVillageGoal;
 import net.diverginglensestudios.undeadremains.entity.client.DrownedSkeleton.DrownedSkeletonModel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -33,6 +37,9 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.level.pathfinder.Path;
@@ -219,7 +226,21 @@ public class DrownedSkeletonEntity extends Monster {
 			return false;
 		}
 	}
-
+	public static boolean checkDrownedLikeSpawnRules(EntityType<DrownedSkeletonEntity> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+		if (!level.getFluidState(pos.below()).is(FluidTags.WATER)) {
+			return false;
+		}
+		Holder<Biome> biome = level.getBiome(pos);
+		boolean flag =level.getDifficulty() != Difficulty.PEACEFUL &&
+				(level.getBrightness(LightLayer.BLOCK, pos) == 0 &&level.getBrightness(LightLayer.SKY, pos) <= random.nextInt(32))
+				&&(spawnType == MobSpawnType.SPAWNER || level.getFluidState(pos).is(FluidTags.WATER));
+		if (biome.is(BiomeTags.MORE_FREQUENT_DROWNED_SPAWNS)) {
+			return random.nextInt(15) == 0 && flag;
+		} else {
+			return random.nextInt(40) == 0 &&
+					pos.getY() < level.getSeaLevel() - 5 && flag;
+		}
+	}
 
 	@Nullable
 	@Override

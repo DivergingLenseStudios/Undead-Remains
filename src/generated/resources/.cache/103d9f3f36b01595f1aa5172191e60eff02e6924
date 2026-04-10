@@ -1,7 +1,8 @@
-// 1.20.1	2026-03-22T14:38:11.7580646	Registries
+// 1.20.1	2026-04-06T11:17:40.290594	Registries
 6651ee0dde6125861be617304c26d0295a06fabe data/undeadremains/dimension/fossildim.json
 58144749eb3dc6f2a408ebd319ec04fcd25f7982 data/undeadremains/dimension_type/fossildim_type.json
 cf571a010ef494bd02f637f4ecea813eecf5b707 data/undeadremains/forge/biome_modifier/add_cow_zombie.json
+dc2686cdb9ce08498072a530b2a33479059e47a7 data/undeadremains/forge/biome_modifier/add_drowned_skeleton.json
 380eecbdf2d9632e5e17e2033869e7ee90c721ee data/undeadremains/forge/biome_modifier/add_fossilized_zombie.json
 030923e2941117be82e0872a30a0f73cfc4d1649 data/undeadremains/forge/biome_modifier/add_fossil_ore.json
 dd9f5a7c0950e983d3fa02bdb4b3a03a3551077b data/undeadremains/forge/biome_modifier/add_hammer_zombie.json
