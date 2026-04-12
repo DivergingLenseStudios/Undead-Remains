@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-10T20:59:16.8707909	Tags for minecraft:block mod id undeadremains
+// 1.20.1	2026-04-11T12:38:38.4039764	Tags for minecraft:block mod id undeadremains
 fda8872f7a47579a36f4625a5250592c1961ff35 data/forge/tags/blocks/ores.json
 1bd3aadce88a31a063e95dfb4b5c5e3f5029e023 data/forge/tags/blocks/storage_blocks.json
 e5be615c16c61da7f6d2337ed04402ae0ec1053f data/forge/tags/blocks/storage_blocks/fossil.json
@@ -7,6 +7,7 @@ a25fe28f0fff0d7996dee93b193817817094fcc9 data/forge/tags/blocks/storage_blocks/r
 bd9556688c79c57ab14fc14f04b829b2ee12b6bf data/minecraft/tags/blocks/all_hanging_signs.json
 ed6bd95dc3a314722bd5acca291e0a3e04018833 data/minecraft/tags/blocks/ash_logs.json
 4c1504c8684deb9a4747bd87c21c6142ecaddc61 data/minecraft/tags/blocks/buttons.json
+3db9199d49a105efbd425b234545a956bb98e742 data/minecraft/tags/blocks/coral_blocks.json
 4388b31535dbfb58e458de3e9e25d2429e4dab1a data/minecraft/tags/blocks/dirt.json
 46b6b3ba1e2ab93defb34f48f485055f10386fa1 data/minecraft/tags/blocks/doors.json
 e22cf3b8ec811e4fce4d60d86f699894b3188e5d data/minecraft/tags/blocks/fences.json
@@ -14,7 +15,7 @@ e22cf3b8ec811e4fce4d60d86f699894b3188e5d data/minecraft/tags/blocks/fences.json
 a32c54be897cbf3d379ef029cc788df7ba90c82d data/minecraft/tags/blocks/leaves.json
 e79bb8bb5046b7c05cb8364407b784958ff5fab2 data/minecraft/tags/blocks/logs.json
 e79bb8bb5046b7c05cb8364407b784958ff5fab2 data/minecraft/tags/blocks/logs_that_burn.json
-529c13a4d854045659bfe2f8ff1a7f0df4e546c2 data/minecraft/tags/blocks/mineable/pickaxe.json
+f690e667c4adeff7d4cd062069b629c0a2b2bdf7 data/minecraft/tags/blocks/mineable/pickaxe.json
 197c5f989f15f9e7d1a0121891ea0ac5f71a97a1 data/minecraft/tags/blocks/needs_iron_tool.json
 37848c2d4d3cb36874a26d5e8b27fe05eef4ed4a data/minecraft/tags/blocks/needs_stone_tool.json
 7ba7c80da26a8e41c40bb751814e402494fbd7af data/minecraft/tags/blocks/planks.json
@@ -24,4 +25,5 @@ fa615e8dc45162057a202b59cb306b71d94bdb4a data/minecraft/tags/blocks/slabs.json
 9d00fa7883c8882aa47c2726d9ba5483d587c171 data/minecraft/tags/blocks/stairs.json
 919392ebf56ae4dc0700a3f969564a5322794a76 data/minecraft/tags/blocks/trapdoors.json
 e75fb72091d794e52121a2d7640d0a6a72633746 data/minecraft/tags/blocks/walls.json
+13e86c6bc247cf7ef90b227b1a7828edcfea34f7 data/undeadremains/tags/blocks/deep_langstone_replaceables.json
 76b250a8dbe8e1668cf7ee057e7a2970a984dfa1 data/undeadremains/tags/blocks/langstone_replaceables.json

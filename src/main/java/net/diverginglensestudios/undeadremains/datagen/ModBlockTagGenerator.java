@@ -34,9 +34,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 		this.tag(ModTags.Blocks.LANGSTONE_REPLACEABLES)
 				.add(ModBlocks.LANGSTONE.get());
 
+		// LANGSTONE_REPLACEABLES
+		this.tag(ModTags.Blocks.DEEP_LANGSTONE_REPLACEABLES)
+				.add(ModBlocks.DEEP_LANGSTONE.get());
+
 		// MINEABLE_WITH_PICKAXE
 		this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
 				.add(ModBlocks.LANGSTONE.get())
+				.add(ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get())
 				.add(ModBlocks.DEEP_LANGSTONE.get())
 				.add(ModBlocks.LIVING_LANGSTONE.get())
 				.add(ModBlocks.FOSSIL_BLOCK.get())

@@ -164,7 +164,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						has(ModBlocks.SUPREME_BRICKS.get()))
 				.save(pWriter);
 		stonecutting(Ingredient.of(ModBlocks.SUPREME_BRICKS.get()), RecipeCategory.BUILDING_BLOCKS,
-				ModBlocks.SUPREME_PILAR.get(), 1)
+				ModBlocks.SUPREME_PILLAR.get(), 1)
 				.unlockedBy(getHasName(ModBlocks.SUPREME_BRICKS.get()),
 						has(ModBlocks.SUPREME_BRICKS.get()))
 				.save(pWriter);
@@ -228,7 +228,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 						has(ModBlocks.LANGSTONE.get()))
 				.save(pWriter);
 		stonecutting(Ingredient.of(ModBlocks.LANGSTONE.get()), RecipeCategory.BUILDING_BLOCKS,
-				ModBlocks.LANGSTONE_PILAR.get(), 1)
+				ModBlocks.LANGSTONE_PILLAR.get(), 1)
 				.unlockedBy(getHasName(ModBlocks.LANGSTONE.get()), has(ModBlocks.LANGSTONE.get()))
 				.save(pWriter);
 		stonecutting(Ingredient.of(ModBlocks.LANGSTONE.get()), RecipeCategory.BUILDING_BLOCKS,

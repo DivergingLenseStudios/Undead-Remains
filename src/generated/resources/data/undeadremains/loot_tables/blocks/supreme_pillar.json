@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "undeadremains:langstone_pilar"
+          "name": "undeadremains:supreme_pillar"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "undeadremains:blocks/langstone_pilar"
+  "random_sequence": "undeadremains:blocks/supreme_pillar"
 }

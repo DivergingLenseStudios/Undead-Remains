@@ -71,11 +71,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		blockWithItem(ModBlocks.CHISELED_SUPREME_BRICKS);
 		blockWithItem(ModBlocks.XAND);
 		blockWithItem(ModBlocks.LANGRITE_NUGGET_BLOCK);
-		blockWithItem(ModBlocks.BUBBLE_BLOCK);
 		blockWithItem(ModBlocks.ANCIENT_BRICKS);
-		
-		// BlockItem
-		blockItem(ModBlocks.LIVING_LANGSTONE);
 
 		// Saplings
 		saplingBlock(ModBlocks.ASH_SAPLING);
@@ -94,11 +90,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
 				modLoc("block/living_langstone_side"),
 				modLoc("block/langstone"),
 				modLoc("block/living_langstone_top")));
+		
+		simpleBlock(ModBlocks.BUBBLE_BLOCK.get(), models().cubeBottomTop(
+				"bubble_block",
+				modLoc("block/bubble_block"),
+				modLoc("block/bubble_block"),
+				modLoc("block/bubble_block_top")));
 
 		logBlock(((RotatedPillarBlock) ModBlocks.ASH_LOG.get()));
-		logBlock(((RotatedPillarBlock) ModBlocks.LANGSTONE_PILAR.get()));
-		logBlock(((RotatedPillarBlock) ModBlocks.SUPREME_PILAR.get()));
+		logBlock(((RotatedPillarBlock) ModBlocks.LANGSTONE_PILLAR.get()));
+		logBlock(((RotatedPillarBlock) ModBlocks.SUPREME_PILLAR.get()));
 		logBlock(((RotatedPillarBlock) ModBlocks.CALIPO_LOG.get()));
+		logBlock(((RotatedPillarBlock) ModBlocks.ANCIENT_PILLAR.get()));
 
 		axisBlock(((RotatedPillarBlock) ModBlocks.ASH_WOOD.get()), blockTexture(ModBlocks.ASH_LOG.get()),
 				blockTexture(ModBlocks.ASH_LOG.get()));
@@ -122,9 +125,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		leavesBlock(ModBlocks.ASH_LEAVES);
 		leavesBlock(ModBlocks.CALIPO_LEAVES);
 		// BlockItem
-
-		blockItem(ModBlocks.LANGSTONE_PILAR);
-		blockItem(ModBlocks.SUPREME_PILAR);
+		blockItem(ModBlocks.LIVING_LANGSTONE);
+		blockItem(ModBlocks.LANGSTONE_PILLAR);
+		blockItem(ModBlocks.SUPREME_PILLAR);
 		blockItem(ModBlocks.ASH_LOG);
 		blockItem(ModBlocks.ASH_WOOD);
 		blockItem(ModBlocks.STRIPPED_ASH_LOG);
@@ -133,6 +136,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		blockItem(ModBlocks.CALIPO_WOOD);
 		blockItem(ModBlocks.STRIPPED_CALIPO_LOG);
 		blockItem(ModBlocks.STRIPPED_CALIPO_WOOD);
+		blockItem(ModBlocks.ANCIENT_PILLAR);
+		blockItem(ModBlocks.BUBBLE_BLOCK);
+
 
 		// Flowers
 		simpleBlockWithItem(ModBlocks.XANAS_FLOWER.get(),

@@ -81,12 +81,7 @@ public class ModBlocks {
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.REINFORCED_DEEPSLATE)
 					.sound(SoundType.STONE)));
 
-	public static final RegistryObject<Block> LANGSTONE_PILAR = registerBlock("langstone_pilar",
-			() -> new RotatedPillarBlock(
-					BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).sound(SoundType.STONE)));
-	public static final RegistryObject<Block> SUPREME_PILAR = registerBlock("supreme_pilar",
-			() -> new RotatedPillarBlock(
-					BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).sound(SoundType.STONE)));
+
 
 	public static final RegistryObject<Block> DEEP_LANGSTONE = registerBlock("deep_langstone",
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLED_DEEPSLATE)
@@ -124,9 +119,7 @@ public class ModBlocks {
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)
 					.sound(SoundType.SAND)));
 
-	public static final RegistryObject<Block> ANCIENT_PILLAR = registerBlock("ancient_pillar",
-			() -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
-					.sound(SoundType.STONE)));
+
 
 	public static final RegistryObject<Block> LANGRITE_NUGGET_BLOCK = registerBlock("langrite_nugget_block",
 			() -> new ModTooltipBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)
@@ -138,8 +131,22 @@ public class ModBlocks {
 
 	public static final RegistryObject<Block> ANCIENT_BRICKS = registerBlock("ancient_bricks",
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLED_DEEPSLATE)
-					.sound(SoundType.STONE)));
-					
+			.sound(SoundType.STONE)));
+
+
+		//Rotated Pillar Blocks
+	public static final RegistryObject<Block> LANGSTONE_PILLAR = registerBlock("langstone_pillar",
+			() -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+			.sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SUPREME_PILLAR = registerBlock("supreme_pillar",
+			() -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+			.sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> ANCIENT_PILLAR = registerBlock("ancient_pillar",
+			() -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+			.sound(SoundType.STONE)));
+
 	// Advanced Blocks
 
 	public static final RegistryObject<Block> FOSSIL_POLISHER = registerBlock("fossil_polisher",

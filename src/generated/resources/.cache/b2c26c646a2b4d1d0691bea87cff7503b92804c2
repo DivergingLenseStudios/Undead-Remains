@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-10T21:52:23.585522	Item Models: undeadremains
+// 1.20.1	2026-04-11T12:03:45.8531528	Item Models: undeadremains
 2ab9beff061ae44e53920d54046f6ff3a3d6904a assets/undeadremains/models/item/amethyst_modified_fossil_sword.json
 dbef713152a3abb4439f879d96f5829998a2d16a assets/undeadremains/models/item/ash_boat.json
 966ddf2d5590b696a89ba29b85f4a8ab5382db6d assets/undeadremains/models/item/ash_button.json
@@ -227,6 +227,7 @@ c30ffbb6aa7572f3481150016302a125189206d2 assets/undeadremains/models/item/langri
 1fc742e3a116f6b661aafa61b7a427ea68ab6219 assets/undeadremains/models/item/langrite_leggings_netherite_trim.json
 c867d99853a47ca9f5465625bb91de89081efade assets/undeadremains/models/item/langrite_leggings_quartz_trim.json
 51b768b5d336e792a8e5ff8ef0d299b5e5d51291 assets/undeadremains/models/item/langrite_leggings_redstone_trim.json
+459675ea13b7fcf239ce009348cff9774eb3e63c assets/undeadremains/models/item/langrite_nugget.json
 15c7bfa7f7025277ad9ce2009fe5a16feb5ce22d assets/undeadremains/models/item/langrite_pickaxe.json
 54ee2f404bc58ccd6e1b68bae11077648579a5bb assets/undeadremains/models/item/langrite_shovel.json
 0ae12d0cb26264027163a4391223e7e93af789ed assets/undeadremains/models/item/langrite_sword.json
@@ -401,7 +402,6 @@ b40d333388bd4ecc10b1abd05ea16ee99bf6717c assets/undeadremains/models/item/the_qu
 59359789b2be71de64ee959b3487387aa578a163 assets/undeadremains/models/item/undying_whispers_music_disc.json
 e60e411672b73b7931b3d2d862377442356aa3da assets/undeadremains/models/item/wrap.json
 af7ddd6ff36d0f2c2bb0ea5742a6ca69220a868e assets/undeadremains/models/item/xanaranha_horn.json
-a1304388b1802817ad2206233501a1676b730c0f assets/undeadremains/models/item/xanaranha_horn_on_a_stick.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/undeadremains/models/item/xanaranha_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/undeadremains/models/item/xanarian_cannibal_spawn_egg.json
 7e485e04f1b54998c9deadc4080b07f6354ced6b assets/undeadremains/models/item/xanarian_horn.json

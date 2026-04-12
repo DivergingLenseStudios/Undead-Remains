@@ -89,7 +89,7 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModBlocks.SUPREME_BRICKS.get());
 						pOutput.accept(ModBlocks.SUPREME_TILES.get());
 						pOutput.accept(ModBlocks.CHISELED_SUPREME_BRICKS.get());
-						pOutput.accept(ModBlocks.SUPREME_PILAR.get());
+						pOutput.accept(ModBlocks.SUPREME_PILLAR.get());
 
 						pOutput.accept(ModItems.METATORBERNITE.get());
 						pOutput.accept(ModItems.METATURBONITE.get());
@@ -113,14 +113,15 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModItems.METATORBERNITE_GRENADE.get());
 						pOutput.accept(ModItems.METATURBONITE_GRENADE.get());
 
-						pOutput.accept(ModItems.RAW_LANGRITE.get());
-						pOutput.accept(ModItems.LANGRITE_INGOT.get());
-						pOutput.accept(ModBlocks.LANGRITE_BLOCK.get());
-						pOutput.accept(ModBlocks.RAW_LANGRITE_BLOCK.get());
 						pOutput.accept(ModBlocks.LANGRITE_ORE.get());
 						pOutput.accept(ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get());
+						pOutput.accept(ModItems.RAW_LANGRITE.get());
+						pOutput.accept(ModItems.LANGRITE_INGOT.get());
 						pOutput.accept(ModItems.LANGRITE_NUGGET.get());
+						pOutput.accept(ModBlocks.RAW_LANGRITE_BLOCK.get());
+						pOutput.accept(ModBlocks.LANGRITE_BLOCK.get());
 						pOutput.accept(ModBlocks.LANGRITE_NUGGET_BLOCK.get());
+
 
 						pOutput.accept(ModItems.LANGRITE_SWORD.get());
 						pOutput.accept(ModItems.LANGRITE_PICKAXE.get());
@@ -149,7 +150,7 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModBlocks.LANGSTONE_BRICK_WALL.get());
 						pOutput.accept(ModBlocks.CHISELED_LANGSTONE.get());
 						pOutput.accept(ModBlocks.CRACKED_LANGSTONE_BRICKS.get());
-						pOutput.accept(ModBlocks.LANGSTONE_PILAR.get());
+						pOutput.accept(ModBlocks.LANGSTONE_PILLAR.get());
 
 						pOutput.accept(ModBlocks.DEEP_LANGSTONE.get());
 						pOutput.accept(ModBlocks.DEEP_LANGSTONE_STAIRS.get());
@@ -167,6 +168,7 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModBlocks.POLISHED_DEEP_LANGSTONE_WALL.get());
 
 						pOutput.accept(ModBlocks.XAND.get());
+						pOutput.accept(ModBlocks.BUBBLE_BLOCK.get());
 						pOutput.accept(ModBlocks.ANCIENT_PILLAR.get());
 						pOutput.accept(ModBlocks.ANCIENT_BRICKS.get());
 

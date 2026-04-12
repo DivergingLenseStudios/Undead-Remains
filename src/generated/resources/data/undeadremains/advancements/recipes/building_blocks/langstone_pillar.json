@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "undeadremains:langstone_pilar"
+        "recipe": "undeadremains:langstone_pillar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "undeadremains:langstone_pilar"
+      "undeadremains:langstone_pillar"
     ]
   },
   "sends_telemetry_event": false

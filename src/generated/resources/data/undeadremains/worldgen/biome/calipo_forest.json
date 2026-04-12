@@ -68,7 +68,8 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "undeadremains:langrite_ore_placed"
+      "undeadremains:langrite_ore_placed",
+      "undeadremains:underwater_langrite_ore_placed"
     ],
     [],
     [

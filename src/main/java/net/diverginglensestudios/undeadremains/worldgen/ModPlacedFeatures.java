@@ -35,8 +35,8 @@ import java.util.List;
 public class ModPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> FOSSIL_ORE_PLACED_KEY = registerKey("fossil_ore_placed");
 	public static final ResourceKey<PlacedFeature> LANGRITE_ORE_PLACED_KEY = registerKey("langrite_ore_placed");
-	public static final ResourceKey<PlacedFeature> METATORBERNITE_ORE_PLACED_KEY = registerKey(
-			"metatorbernite_ore_placed");
+	public static final ResourceKey<PlacedFeature> UNDERWATER_LANGRITE_ORE_PLACED_KEY = registerKey("underwater_langrite_ore_placed");
+	public static final ResourceKey<PlacedFeature> METATORBERNITE_ORE_PLACED_KEY = registerKey("metatorbernite_ore_placed");
 	public static final ResourceKey<PlacedFeature> ASH_PLACED_KEY = registerKey("ash_placed");
 	public static final ResourceKey<PlacedFeature> BONETREE_PLACED_KEY = registerKey("bonetree_placed");
 	public static final ResourceKey<PlacedFeature> DEAD_ASH_PLACED_KEY = registerKey("dead_ash_placed");
@@ -65,8 +65,13 @@ public class ModPlacedFeatures {
 
 		register(context, LANGRITE_ORE_PLACED_KEY,
 				configuredFeatures.getOrThrow(ModConfiguredFeatures.XANAS_LANGRITE_ORE_KEY),
-				ModOrePlacement.commonOrePlacement(10,
-						HeightRangePlacement.uniform(VerticalAnchor.absolute(10), VerticalAnchor.absolute(190))));
+				ModOrePlacement.commonOrePlacement(12,
+						HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(190))));
+
+		register(context, UNDERWATER_LANGRITE_ORE_PLACED_KEY,
+				configuredFeatures.getOrThrow(ModConfiguredFeatures.XANAS_UNDERWATER_LANGRITE_ORE_KEY),
+				ModOrePlacement.commonOrePlacement(12,
+						HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0))));
 
 		register(context, METATORBERNITE_ORE_PLACED_KEY,
 				configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_METATORBERNITE_ORE_KEY),

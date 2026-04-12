@@ -44,11 +44,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 		// Dropself
 		this.dropSelf(ModBlocks.SUPREME_BRICKS.get());
 		this.dropSelf(ModBlocks.SUPREME_TILES.get());
-		this.dropSelf(ModBlocks.SUPREME_PILAR.get());
+		this.dropSelf(ModBlocks.SUPREME_PILLAR.get());
 		this.dropSelf(ModBlocks.CHISELED_SUPREME_BRICKS.get());
 		this.dropSelf(ModBlocks.FOSSIL_BLOCK.get());
 		this.dropSelf(ModBlocks.LANGSTONE_BRICKS.get());
-		this.dropSelf(ModBlocks.LANGSTONE_PILAR.get());
+		this.dropSelf(ModBlocks.LANGSTONE_PILLAR.get());
 		this.dropSelf(ModBlocks.LANGSTONE_STAIRS.get());
 		this.dropSelf(ModBlocks.LANGSTONE_WALL.get());
 		this.dropSelf(ModBlocks.CRACKED_LANGSTONE_BRICKS.get());
@@ -118,7 +118,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(ModBlocks.XAND.get());
 		this.dropSelf(ModBlocks.ANCIENT_PILLAR.get());
 		this.dropSelf(ModBlocks.LANGRITE_NUGGET_BLOCK.get());
-
+		this.dropSelf(ModBlocks.ANCIENT_BRICKS.get());
+		this.dropSelf(ModBlocks.BUBBLE_BLOCK.get());
 		this.dropOther(ModBlocks.CALIPO_BERRY_VINE.get(), Items.AIR);
 
 		this.add(ModBlocks.CALIPO_GRASS.get(),
@@ -196,10 +197,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 				NORMAL_LEAVES_SAPLING_CHANCES));
 
 		this.add(ModBlocks.CALIPO_LEAVES.get(),
-				block -> createLeavesDrops(block, Blocks.AIR, NORMAL_LEAVES_SAPLING_CHANCES)); // TODO:
-		// Change
-		// to
-		// Sapling!
+				block -> createLeavesDrops(block, ModBlocks.CALIPO_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
 		// Signs
 		this.add(ModBlocks.ASH_SIGN.get(), block -> createSingleItemTable(ModItems.ASH_SIGN.get()));

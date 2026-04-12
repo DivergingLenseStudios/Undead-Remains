@@ -161,6 +161,7 @@ public class ModBiomes {
 		globalOverworldGeneration(biomeBuilder);
 		BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
 		biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.LANGRITE_ORE_PLACED_KEY);
+		biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModPlacedFeatures.UNDERWATER_LANGRITE_ORE_PLACED_KEY);
 
 
 		BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);

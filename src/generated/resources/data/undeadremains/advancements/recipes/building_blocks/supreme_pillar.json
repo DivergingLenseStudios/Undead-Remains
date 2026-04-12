@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "undeadremains:supreme_pilar"
+        "recipe": "undeadremains:supreme_pillar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "undeadremains:supreme_pilar"
+      "undeadremains:supreme_pillar"
     ]
   },
   "sends_telemetry_event": false

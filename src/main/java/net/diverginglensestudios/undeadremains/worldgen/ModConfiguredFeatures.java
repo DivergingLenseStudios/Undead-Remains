@@ -43,8 +43,8 @@ public class ModConfiguredFeatures {
 	// Keys
 	public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_FOSSIL_ORE_KEY = registerKey("fossil_ore");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> XANAS_LANGRITE_ORE_KEY = registerKey("langrite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_METATORBERNITE_ORE_KEY = registerKey(
-			"metatorbernie_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> XANAS_UNDERWATER_LANGRITE_ORE_KEY = registerKey("underwater_langrite_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_METATORBERNITE_ORE_KEY = registerKey("metatorbernie_ore");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_KEY = registerKey("ash");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BONETREE_KEY = registerKey("bonetree_key");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CALIPO_KEY = registerKey("calipo");
@@ -55,6 +55,7 @@ public class ModConfiguredFeatures {
 		RuleTest stoneReplaceable = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 		RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 		RuleTest langstoneReplaceables = new TagMatchTest(ModTags.Blocks.LANGSTONE_REPLACEABLES);
+		RuleTest deeplangstoneReplaceables = new TagMatchTest(ModTags.Blocks.DEEP_LANGSTONE_REPLACEABLES);
 
 		// Flowers
 		register(context, XANAS_FLOWER_KEY, Feature.FLOWER,
@@ -84,8 +85,15 @@ public class ModConfiguredFeatures {
 
 		List<OreConfiguration.TargetBlockState> xanasLangriteOres = List.of(
 				OreConfiguration.target(langstoneReplaceables,
-						ModBlocks.LANGRITE_ORE.get().defaultBlockState()));
+					ModBlocks.LANGRITE_ORE.get().defaultBlockState()));
 		register(context, XANAS_LANGRITE_ORE_KEY, Feature.ORE, new OreConfiguration(xanasLangriteOres, 1));
+
+		List<OreConfiguration.TargetBlockState> xanasUnderwaterLangriteOres = List.of(
+				OreConfiguration.target(deeplangstoneReplaceables,
+					ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get().defaultBlockState()));
+		register(context, XANAS_UNDERWATER_LANGRITE_ORE_KEY, Feature.ORE, new OreConfiguration(xanasUnderwaterLangriteOres, 3));
+
+		
 
 		// TREE
 		register(context, ASH_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(

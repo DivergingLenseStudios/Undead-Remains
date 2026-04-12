@@ -71,6 +71,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 		simpleItem(ModItems.ASH_CHEST_BOAT);
 		simpleItem(ModItems.METATORBERNITE_GRENADE);
 		simpleItem(ModItems.METATURBONITE_GRENADE);
+		simpleItem(ModItems.XANARANHA_HORN);
+		simpleItem(ModItems.XANS_LEAF_SEEDS);
+		simpleItem(ModItems.LANGRITE_NUGGET);
 		// Food
 		simpleItem(ModItems.FOSSILIZED_DRUMSTICK);
 		simpleItem(ModItems.GOLD_BLOCK_MODIFIED_FOSSILIZED_DRUMSTICK);
@@ -84,11 +87,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 		simpleItem(ModItems.WRAP);
 		simpleItem(ModItems.CALIPO_BERRIES);
 		simpleItem(ModItems.XANS_LEAF);
-		simpleItem(ModItems.XANS_LEAF_SEEDS);
 		simpleItem(ModItems.RAW_XANARANHA);
 		simpleItem(ModItems.COOKED_XANARANHA);
-		simpleItem(ModItems.XANARANHA_HORN_ON_A_STICK);
-		simpleItem(ModItems.XANARANHA_HORN);
 		simpleItem(ModItems.SUCKER_TRUNK);
 		simpleItem(ModItems.COOKED_SUCKER_TRUNK);
 		// Saplings

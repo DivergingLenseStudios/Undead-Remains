@@ -36,7 +36,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 			SoundEvents.ARMOR_EQUIP_LEATHER, 0.1f, 0f, () -> Ingredient.of(Items.GLASS)),
 
 	LANGRITE("langrite", 5, new int[] { 4, 9, 7, 4 }, 25,
-			SoundEvents.ARMOR_EQUIP_GOLD, 2.5f, 0.5f, () -> Ingredient.of(ModItems.LANGRITE_INGOT.get())),
+			SoundEvents.ARMOR_EQUIP_GOLD, 2.5f, 1.5f, () -> Ingredient.of(ModItems.LANGRITE_INGOT.get())),
 
 	XANARIAN("xanarian", 20, new int[] { 2, 4, 3, 2 }, 25,
 			SoundEvents.ARMOR_EQUIP_GOLD, 2f, 0f, () -> Ingredient.of(ModItems.XANARIAN_SPINE.get())),

@@ -39,8 +39,8 @@
 	"item.undeadremains.cooked_sucker_trunk": "Gekochter Lutscher Rüssel",
 		
 
-	"item.undeadremains.gas_mask": "Gasmaske",
-	"item.undeadremains.metatorbernite_gas_mask": "Metatorbernit Gas Maske",
+	"item.undeadremains.gas_mask": "Atemschutzmaske",
+	"item.undeadremains.metatorbernite_gas_mask": "Metatorbernit Atemschutzmaske",
 
 	"item.undeadremains.spike_bat": "Stachelschläger",
 
@@ -167,7 +167,7 @@
 	"block.undeadremains.supreme_bricks": "Supreme Bricks",
 	"block.undeadremains.chiseled_supreme_bricks": "Chiseled Supreme Bricks",
 	"block.undeadremains.supreme_tiles": "Supreme Tiles",
-	"block.undeadremains.supreme_pilar": "Supreme Pilar",
+	"block.undeadremains.supreme_pillar": "Supreme Pillar",
 
 	"block.undeadremains.lyxor_flower": "Lyxor Flower",
 	"block.undeadremains.calipo_grass": "Calipo Grass",
@@ -245,7 +245,7 @@
 	"block.undeadremains.polished_langstone_stairs": "Polished Langstone Stairs",
 	"block.undeadremains.polished_langstone": "Polished Langstone",
 	"block.undeadremains.cracked_langstone_bricks": "Cracked Langstone Bricks",
-	"block.undeadremains.langstone_pilar": "Langstone Pilar",
+	"block.undeadremains.langstone_pillar": "Langstone Pillar",
 
 	"block.undeadremains.deep_langstone": "Deep Langstone",
 	"block.undeadremains.chiseled_deep_langstone": "Chiseled Deep Langstone",
@@ -261,7 +261,7 @@
 	"block.undeadremains.polished_deep_langstone_stairs": "Polished Deep Langstone Stairs",
 	"block.undeadremains.polished_deep_langstone": "Polished Deep Langstone",
 	"block.undeadremains.cracked_deep_langstone_bricks": "Cracked Deep Langstone Bricks",
-	"block.undeadremains.deep_langstone_pilar": "Deep Langstone Pilar",
+	"block.undeadremains.deep_langstone_pillar": "Deep Langstone Pillar",
 
 	"item.undeadremains.undying_whispers_music_disc": "Undying Whispers Music Disc",
 	"item.undeadremains.undying_whispers_music_disc.desc": "Pordohiq - Undying Whispers",

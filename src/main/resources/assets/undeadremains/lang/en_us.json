@@ -21,6 +21,8 @@
 
 	"item.undeadremains.raw_langrite": "Raw Langrite",
 	"item.undeadremains.langrite_ingot": "Langrite Ingot",
+	"item.undeadremains.langrite_nugget": "Langrite Nugget",
+
 
 	"item.undeadremains.gold_block_modified_fossilized_drumstick": "Gold Block Modified Fossilized Drummstick",
 	"item.undeadremains.the_quartz_modified_fossils_eye": "The Quartz Modified Fossils Eye",
@@ -141,10 +143,12 @@
 	"block.undeadremains.fossil_polisher": "Fossil Polisher",
 
 	"block.undeadremains.langrite_ore": "Langrite Ore",
+	"block.undeadremains.deep_langstone_langrite_ore": "Deep Langstone Langrite Ore",
 	"block.undeadremains.raw_langrite_block": "Raw Langrite Block",
 	"block.undeadremains.langrite_block": "Langrite Block",
+	"block.undeadremains.langrite_nugget_block": "Langrite Nugget Block",
 	"block.undeadremains.fossil_ore": "Fossil Ore",
-	"block.undeadremains.deepslate_fossil_ore": "Deepsalte Fossil Ore",
+	"block.undeadremains.deepslate_fossil_ore": "Deepslate Fossil Ore",
 	"block.undeadremains.nether_fossil_ore": "Nether Fossil Ore",
 
 	"block.undeadremains.metatorbernite_block": "Metatorbernite Block",
@@ -167,7 +171,7 @@
 	"block.undeadremains.supreme_bricks": "Supreme Bricks",
 	"block.undeadremains.chiseled_supreme_bricks": "Chiseled Supreme Bricks",
 	"block.undeadremains.supreme_tiles": "Supreme Tiles",
-	"block.undeadremains.supreme_pilar": "Supreme Pilar",
+	"block.undeadremains.supreme_pillar": "Supreme Pillar",
 
 	"block.undeadremains.lyxor_flower": "Lyxor Flower",
 	"block.undeadremains.calipo_grass": "Calipo Grass",
@@ -245,7 +249,7 @@
 	"block.undeadremains.polished_langstone_stairs": "Polished Langstone Stairs",
 	"block.undeadremains.polished_langstone": "Polished Langstone",
 	"block.undeadremains.cracked_langstone_bricks": "Cracked Langstone Bricks",
-	"block.undeadremains.langstone_pilar": "Langstone Pilar",
+	"block.undeadremains.langstone_pillar": "Langstone Pillar",
 
 	"block.undeadremains.deep_langstone": "Deep Langstone",
 	"block.undeadremains.chiseled_deep_langstone": "Chiseled Deep Langstone",
@@ -261,11 +265,11 @@
 	"block.undeadremains.polished_deep_langstone_stairs": "Polished Deep Langstone Stairs",
 	"block.undeadremains.polished_deep_langstone": "Polished Deep Langstone",
 	"block.undeadremains.cracked_deep_langstone_bricks": "Cracked Deep Langstone Bricks",
-	"block.undeadremains.deep_langstone_pilar": "Deep Langstone Pilar",
+	"block.undeadremains.deep_langstone_pillar": "Deep Langstone Pillar",
 	
 	"block.undeadremains.bubble_block": "Bubble Block",
 	"block.undeadremains.ancient_bricks": "Ancient Bricks",
-	"block.undeadremains.ancient_pilar": "Ancient Pillar",
+	"block.undeadremains.ancient_pillar": "Ancient Pillar",
 	"block.undeadremains.xand": "Xand",
 
 	"item.undeadremains.undying_whispers_music_disc": "Undying Whispers Music Disc",
@@ -279,8 +283,8 @@
 	"item.minecraft.tipped_arrow.effect.fossilized_heart_potion": "Arrow of Fossilized Heart",
 	"item.minecraft.potion.effect.fossilized_heart_potion": "Potion of Fossilized Heart",
 	"item.minecraft.splash_potion.effect.fossilized_heart_potion": "Splash Potion of Fossilized Heart",
-	"item.minecraft.lingering.effect.fossilized_heart_potion": "Lingering Potion of Fossilized Heart",
-	"effect.undeadremains.fossilzed_hearth": "Lingering Potion of Fossilized Heart",
+	"item.minecraft.lingering_potion.effect.fossilized_heart_potion": "Lingering Potion of Fossilized Heart",
+
 
 	"tooltip.undeadremains.the_fossils_eye":"Gives Night Vision",
 	"tooltip.undeadremains.rare_fossil":"Drops rarely from Fossil Ore",
