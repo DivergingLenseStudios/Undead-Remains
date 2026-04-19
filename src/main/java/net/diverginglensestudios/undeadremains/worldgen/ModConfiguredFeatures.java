@@ -10,6 +10,8 @@ package net.diverginglensestudios.undeadremains.worldgen;
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.block.ModBlocks;
 import net.diverginglensestudios.undeadremains.util.ModTags;
+import net.diverginglensestudios.undeadremains.worldgen.features.ModFeatures;
+import net.diverginglensestudios.undeadremains.worldgen.features.UnderwaterBubbleBlockConfiguration;
 import net.diverginglensestudios.undeadremains.worldgen.tree.custom.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -28,6 +30,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.UnderwaterMagmaConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -43,19 +46,30 @@ public class ModConfiguredFeatures {
 	// Keys
 	public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_FOSSIL_ORE_KEY = registerKey("fossil_ore");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> XANAS_LANGRITE_ORE_KEY = registerKey("langrite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> XANAS_UNDERWATER_LANGRITE_ORE_KEY = registerKey("underwater_langrite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_METATORBERNITE_ORE_KEY = registerKey("metatorbernie_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> XANAS_UNDERWATER_LANGRITE_ORE_KEY = registerKey(
+			"underwater_langrite_ore");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_METATORBERNITE_ORE_KEY = registerKey(
+			"metatorbernie_ore");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_KEY = registerKey("ash");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BONETREE_KEY = registerKey("bonetree_key");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CALIPO_KEY = registerKey("calipo");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CREEPER_KEY = registerKey("creeper_key");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> XANAS_FLOWER_KEY = registerKey("xanas_flower_key");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BUBBLE_CONFIG = registerKey("bubble_feature");
+
 	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
 		RuleTest stoneReplaceable = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 		RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 		RuleTest langstoneReplaceables = new TagMatchTest(ModTags.Blocks.LANGSTONE_REPLACEABLES);
 		RuleTest deeplangstoneReplaceables = new TagMatchTest(ModTags.Blocks.DEEP_LANGSTONE_REPLACEABLES);
+
+		register(context, BUBBLE_CONFIG, ModFeatures.UNDERWATER_BUBBLE.get(),
+				new UnderwaterBubbleBlockConfiguration(
+						32, // floor search
+						4, // radius
+						0.2F // probability
+				));
 
 		// Flowers
 		register(context, XANAS_FLOWER_KEY, Feature.FLOWER,
@@ -85,15 +99,14 @@ public class ModConfiguredFeatures {
 
 		List<OreConfiguration.TargetBlockState> xanasLangriteOres = List.of(
 				OreConfiguration.target(langstoneReplaceables,
-					ModBlocks.LANGRITE_ORE.get().defaultBlockState()));
+						ModBlocks.LANGRITE_ORE.get().defaultBlockState()));
 		register(context, XANAS_LANGRITE_ORE_KEY, Feature.ORE, new OreConfiguration(xanasLangriteOres, 1));
 
 		List<OreConfiguration.TargetBlockState> xanasUnderwaterLangriteOres = List.of(
 				OreConfiguration.target(deeplangstoneReplaceables,
-					ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get().defaultBlockState()));
-		register(context, XANAS_UNDERWATER_LANGRITE_ORE_KEY, Feature.ORE, new OreConfiguration(xanasUnderwaterLangriteOres, 3));
-
-		
+						ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get().defaultBlockState()));
+		register(context, XANAS_UNDERWATER_LANGRITE_ORE_KEY, Feature.ORE,
+				new OreConfiguration(xanasUnderwaterLangriteOres, 3));
 
 		// TREE
 		register(context, ASH_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -124,6 +137,7 @@ public class ModConfiguredFeatures {
 				new CalipoFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 8),
 				new TwoLayersFeatureSize(2, 0, 2)).dirt(BlockStateProvider.simple(ModBlocks.LIVING_LANGSTONE.get()))
 				.forceDirt().build());
+
 	}
 
 	public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

@@ -35,8 +35,10 @@ import java.util.List;
 public class ModPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> FOSSIL_ORE_PLACED_KEY = registerKey("fossil_ore_placed");
 	public static final ResourceKey<PlacedFeature> LANGRITE_ORE_PLACED_KEY = registerKey("langrite_ore_placed");
-	public static final ResourceKey<PlacedFeature> UNDERWATER_LANGRITE_ORE_PLACED_KEY = registerKey("underwater_langrite_ore_placed");
-	public static final ResourceKey<PlacedFeature> METATORBERNITE_ORE_PLACED_KEY = registerKey("metatorbernite_ore_placed");
+	public static final ResourceKey<PlacedFeature> UNDERWATER_LANGRITE_ORE_PLACED_KEY = registerKey(
+			"underwater_langrite_ore_placed");
+	public static final ResourceKey<PlacedFeature> METATORBERNITE_ORE_PLACED_KEY = registerKey(
+			"metatorbernite_ore_placed");
 	public static final ResourceKey<PlacedFeature> ASH_PLACED_KEY = registerKey("ash_placed");
 	public static final ResourceKey<PlacedFeature> BONETREE_PLACED_KEY = registerKey("bonetree_placed");
 	public static final ResourceKey<PlacedFeature> DEAD_ASH_PLACED_KEY = registerKey("dead_ash_placed");
@@ -44,8 +46,21 @@ public class ModPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> CALIPO_PLACED_KEY = registerKey("calipo_placed");
 	public static final ResourceKey<PlacedFeature> XANAS_FLOWER_PLACED_KEY = registerKey("xanas_flower_placed");
 
+	public static final ResourceKey<PlacedFeature> BUBBLE_PLACED_KEY = registerKey("bubble_feature");
+
 	public static void bootstrap(BootstapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+
+		register(context, BUBBLE_PLACED_KEY,
+				configuredFeatures.getOrThrow(ModConfiguredFeatures.BUBBLE_CONFIG),
+				List.of(
+						CountPlacement.of(1),
+						InSquarePlacement.spread(),
+						HeightRangePlacement.uniform(
+								VerticalAnchor.absolute(-60),
+								VerticalAnchor.absolute(0)),
+						BiomeFilter.biome()));
+
 		// FLOWERS
 		register(context, XANAS_FLOWER_PLACED_KEY,
 				configuredFeatures.getOrThrow(ModConfiguredFeatures.XANAS_FLOWER_KEY),
