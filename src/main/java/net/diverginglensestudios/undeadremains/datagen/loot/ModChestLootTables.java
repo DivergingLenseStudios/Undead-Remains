@@ -94,5 +94,52 @@ public class ModChestLootTables implements LootTableSubProvider {
 								.add(LootItem.lootTableItem(ModItems.XANS_LEAF_SEEDS.get())
 										.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0f)))
 										.when(LootItemRandomChanceCondition.randomChance(1f)))));
+
+		consumer.accept(new ResourceLocation("undeadremains", "chests/research_bubble_loot"),
+				LootTable.lootTable()
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.XANARIAN_LEATHER.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0f, 2.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.COOKED_XANARANHA.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.RAW_XANARANHA.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.SUCKER_TRUNK.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.COOKED_SUCKER_TRUNK.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.XANARANHA_HORN.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(0.2f)))));
+
+		consumer.accept(new ResourceLocation("undeadremains", "chests/research_bubble_potion"),
+				LootTable.lootTable()
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(Items.GLASS_BOTTLE)
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0f, 5.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(Items.BLAZE_POWDER)
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(Items.REDSTONE)
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(Items.PUFFERFISH)
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(1f)))));
+
 	}
 }

@@ -45,6 +45,7 @@ import net.diverginglensestudios.undeadremains.util.BetterBrewingRecipe;
 import net.diverginglensestudios.undeadremains.util.ModWoodTypes;
 import net.diverginglensestudios.undeadremains.worldgen.biome.ModOverworldRegion;
 import net.diverginglensestudios.undeadremains.worldgen.biome.surface.ModSurfaceRules;
+import net.diverginglensestudios.undeadremains.worldgen.features.ModFeatures;
 import net.diverginglensestudios.undeadremains.worldgen.tree.ModFoliagePlacers;
 import net.diverginglensestudios.undeadremains.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -92,6 +93,7 @@ public class UndeadRemains { // Define the Class for the Mod
 
 		ModLootTableModifiers.register(modEventBus);
 		// ModTerrablender.registerBiomes();
+		ModFeatures.register(modEventBus);
 
 		ModSounds.register(modEventBus);
 		ModEntities.register(modEventBus);
@@ -117,8 +119,10 @@ public class UndeadRemains { // Define the Class for the Mod
 	private void commonSetup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ROXA_FLOWER.getId(), ModBlocks.POTTED_ROXA_FLOWER);
-			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XANAS_FLOWER.getId(), ModBlocks.POTTED_XANAS_FLOWER);
-			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XELKS_FLOWER.getId(), ModBlocks.POTTED_XELKS_FLOWER);
+			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XANAS_FLOWER.getId(),
+					ModBlocks.POTTED_XANAS_FLOWER);
+			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XELKS_FLOWER.getId(),
+					ModBlocks.POTTED_XELKS_FLOWER);
 			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
 					ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
 			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID,
@@ -129,12 +133,12 @@ public class UndeadRemains { // Define the Class for the Mod
 	}
 
 	/*
-	private void addCreative(BuildCreativeModeTabContentsEvent event) {
-		if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-			event.accept(ModItems.FOSSIL);
-			event.accept(ModItems.RAW_FOSSIL);
-		}
-	   }
+	 * private void addCreative(BuildCreativeModeTabContentsEvent event) {
+	 * if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+	 * event.accept(ModItems.FOSSIL);
+	 * event.accept(ModItems.RAW_FOSSIL);
+	 * }
+	 * }
 	 */
 
 	// You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -200,6 +204,7 @@ public class UndeadRemains { // Define the Class for the Mod
 					pContext -> new NoopRenderer(pContext));
 			EntityRenderers.register(ModEntities.METATORBERNITE_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.METATURBONITE_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.BUBBLE_BLOCK_BUBBLE_PROJECTILE.get(), ThrownItemRenderer::new);
 			MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
 			MenuScreens.register(ModMenuTypes.XANARIAN_GATEWAY_MENU.get(), XanarianGatewayScreen::new);
 			MenuScreens.register(ModMenuTypes.METATORBERNITE_ENRICHER_MENU.get(), MetatorberniteEnricherScreen::new);

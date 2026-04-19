@@ -85,17 +85,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		simpleBlockWithItem(ModBlocks.FOSSIL_ALTAR.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/fossil_altar")));
 
+		simpleBlockWithItem(ModBlocks.BUBBLE_BLOCK.get(),
+				new ModelFile.UncheckedModelFile(modLoc("block/bubble_block")));
+
 		simpleBlock(ModBlocks.LIVING_LANGSTONE.get(), models().cubeBottomTop(
 				"living_langstone",
 				modLoc("block/living_langstone_side"),
 				modLoc("block/langstone"),
 				modLoc("block/living_langstone_top")));
-		
-		simpleBlock(ModBlocks.BUBBLE_BLOCK.get(), models().cubeBottomTop(
-				"bubble_block",
-				modLoc("block/bubble_block"),
-				modLoc("block/bubble_block"),
-				modLoc("block/bubble_block_top")));
 
 		logBlock(((RotatedPillarBlock) ModBlocks.ASH_LOG.get()));
 		logBlock(((RotatedPillarBlock) ModBlocks.LANGSTONE_PILLAR.get()));
@@ -137,7 +134,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		blockItem(ModBlocks.STRIPPED_CALIPO_LOG);
 		blockItem(ModBlocks.STRIPPED_CALIPO_WOOD);
 		blockItem(ModBlocks.ANCIENT_PILLAR);
-		blockItem(ModBlocks.BUBBLE_BLOCK);
 
 
 		// Flowers

@@ -150,7 +150,14 @@ public class ModEntities {
 									MobCategory.MISC)
 							.sized(0.5f, 0.5f).build("metaturbonite_grenade_projectile"));
 
-	// TODO: Correct hitbox size for all mobs
+	public static final RegistryObject<EntityType<BubbleBlockBubbleProjectileEntity>> BUBBLE_BLOCK_BUBBLE_PROJECTILE = ENTITY_TYPES
+			.register("bubble_block_bubble_projectile",
+					() -> EntityType.Builder
+							.<BubbleBlockBubbleProjectileEntity>of(BubbleBlockBubbleProjectileEntity::new,
+									MobCategory.MISC)
+							.sized(0.5f, 0.5f).build("bubble_block_bubble_projectile"));
+
+
 
 	public static void register(IEventBus eventBus) {
 		ENTITY_TYPES.register(eventBus);

@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-11T12:26:09.7541734	Registries
+// 1.20.1	2026-04-19T14:33:40.4788624	Registries
 6651ee0dde6125861be617304c26d0295a06fabe data/undeadremains/dimension/fossildim.json
 58144749eb3dc6f2a408ebd319ec04fcd25f7982 data/undeadremains/dimension_type/fossildim_type.json
 cf571a010ef494bd02f637f4ecea813eecf5b707 data/undeadremains/forge/biome_modifier/add_cow_zombie.json
@@ -17,6 +17,7 @@ c39a1224cae14f092b1f4cb580111b7fa3390afe data/undeadremains/worldgen/biome/calip
 0282f44e7de085f63e370063648e225d8912048f data/undeadremains/worldgen/biome/creeper_caverns.json
 f4dbab7e09d3aebde3bd70242c1b49e6a859c9aa data/undeadremains/worldgen/configured_feature/ash.json
 98b021503c0231216d4d3a909a88ec8f15738d1c data/undeadremains/worldgen/configured_feature/bonetree_key.json
+f8fb9122bc7a9ffe4dcedbbe08f5f0fd0c0354e5 data/undeadremains/worldgen/configured_feature/bubble_feature.json
 95550573e2bfab663e23637d70ed7507694e852f data/undeadremains/worldgen/configured_feature/calipo.json
 08b7f51233ac14f8860293fb45109fc40d6f16e2 data/undeadremains/worldgen/configured_feature/creeper_key.json
 7bb60ddf8fe996914630132aa96a40d8f61f6013 data/undeadremains/worldgen/configured_feature/fossil_ore.json
@@ -26,6 +27,7 @@ a6a502ef6ad6e828524c0e32ffcd5bd20eb1f44b data/undeadremains/worldgen/configured_
 5be3e0273b341887b476c78acb0c1ef44211eab5 data/undeadremains/worldgen/configured_feature/xanas_flower_key.json
 ee28006b1e431aae7c89942d21e349be88d8aec9 data/undeadremains/worldgen/placed_feature/ash_placed.json
 a5bbaf5a3a82b03d661985fc4d2bc249238c3788 data/undeadremains/worldgen/placed_feature/bonetree_placed.json
+20fd3a8517ff26ae386cd34f7b833238a9cb4a42 data/undeadremains/worldgen/placed_feature/bubble_feature.json
 8e01157b155e792f39bb09a9fa0476eea47e7594 data/undeadremains/worldgen/placed_feature/calipo_placed.json
 6c95d5c6c7faf15bf751f56a1b09b971d3e69b04 data/undeadremains/worldgen/placed_feature/fossil_ore_placed.json
 a135a973879b2040b7d06f6340545998ed36f256 data/undeadremains/worldgen/placed_feature/langrite_ore_placed.json

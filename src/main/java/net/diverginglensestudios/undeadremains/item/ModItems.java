@@ -57,6 +57,10 @@ public class ModItems {
 	public static final RegistryObject<Item> XANARANHA_HORN = ITEMS.register("xanaranha_horn",
 			() -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> XANARANHA_HORN_ON_A_STICK = ITEMS.register("xanaranha_horn_on_a_stick",
+			() -> new ModTooltipItem(new Item.Properties().stacksTo(1),
+					"tooltip.undeadremains.xanaranha_horn_on_a_stick"));
+
+	public static final RegistryObject<Item> BUBBLE = ITEMS.register("bubble",
 			() -> new Item(new Item.Properties().stacksTo(1)));
 
 	// Advanced Items
@@ -197,7 +201,6 @@ public class ModItems {
 	public static final RegistryObject<Item> SLIME_BALL_MODIFIED_FOSSIL_HOE = ITEMS.register(
 			"slime_ball_modified_fossil_hoe",
 			() -> new FossilHoeItem(ModToolTiers.SLIME_BALL_MODIFIED_FOSSIL, new Item.Properties()));
-	// ArmorFossilHoeItem
 	// Fossil
 	public static final RegistryObject<Item> FOSSIL_HELMET = ITEMS.register("fossil_helmet",
 			() -> new ModSimpleArmorItem(ModArmorMaterials.FOSSIL, ArmorItem.Type.HELMET,

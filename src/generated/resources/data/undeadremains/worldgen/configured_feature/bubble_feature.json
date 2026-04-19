@@ -1,0 +1,8 @@
+{
+  "type": "undeadremains:underwater_bubble",
+  "config": {
+    "floor_search_range": 32,
+    "placement_probability_per_valid_position": 0.2,
+    "placement_radius_around_floor": 4
+  }
+}

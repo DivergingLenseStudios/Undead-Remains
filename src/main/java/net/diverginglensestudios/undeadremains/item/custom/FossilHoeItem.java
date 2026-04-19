@@ -5,7 +5,6 @@
 /* https://github.com/DivergingLenseStudios/Undead-Remains */
 /***********************************************************/
 
-
 package net.diverginglensestudios.undeadremains.item.custom;
 
 import net.minecraft.core.BlockPos;
@@ -17,14 +16,29 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import java.util.List;
+import javax.annotation.Nullable;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 
 public class FossilHoeItem extends HoeItem {
 
     public FossilHoeItem(Tier tier, Properties properties) {
-        super(tier, 1-1, 2.5f-4, properties);
+        super(tier, 1 - 1, 2.5f - 4, properties);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents,
+            TooltipFlag isAdvanced) {
+        tooltipComponents.add(
+                Component.translatable("tooltip.undeadremains.slime_ball_modified_fossil_hoe")
+                        .withStyle(ChatFormatting.GRAY));
+        super.appendHoverText(stack, level, tooltipComponents, isAdvanced);
     }
 
     @Override

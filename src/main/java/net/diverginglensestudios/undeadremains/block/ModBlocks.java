@@ -81,8 +81,6 @@ public class ModBlocks {
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.REINFORCED_DEEPSLATE)
 					.sound(SoundType.STONE)));
 
-
-
 	public static final RegistryObject<Block> DEEP_LANGSTONE = registerBlock("deep_langstone",
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLED_DEEPSLATE)
 					.sound(SoundType.STONE)));
@@ -119,33 +117,26 @@ public class ModBlocks {
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)
 					.sound(SoundType.SAND)));
 
-
-
 	public static final RegistryObject<Block> LANGRITE_NUGGET_BLOCK = registerBlock("langrite_nugget_block",
 			() -> new ModTooltipBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)
 					.sound(SoundType.METAL), "tooltip.undeadremains.langrite_nugget_block"));
 
-	public static final RegistryObject<Block> BUBBLE_BLOCK = registerBlock("bubble_block",
-			() -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
-					.sound(SoundType.CORAL_BLOCK).noOcclusion()));
-
 	public static final RegistryObject<Block> ANCIENT_BRICKS = registerBlock("ancient_bricks",
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLED_DEEPSLATE)
-			.sound(SoundType.STONE)));
+					.sound(SoundType.STONE)));
 
-
-		//Rotated Pillar Blocks
+	// Rotated Pillar Blocks
 	public static final RegistryObject<Block> LANGSTONE_PILLAR = registerBlock("langstone_pillar",
 			() -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
-			.sound(SoundType.STONE)));
+					.sound(SoundType.STONE)));
 
 	public static final RegistryObject<Block> SUPREME_PILLAR = registerBlock("supreme_pillar",
 			() -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
-			.sound(SoundType.STONE)));
+					.sound(SoundType.STONE)));
 
 	public static final RegistryObject<Block> ANCIENT_PILLAR = registerBlock("ancient_pillar",
 			() -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
-			.sound(SoundType.STONE)));
+					.sound(SoundType.STONE)));
 
 	// Advanced Blocks
 
@@ -167,6 +158,10 @@ public class ModBlocks {
 
 	public static final RegistryObject<Block> STRUCTURE_EXTENDER_BLOCK = registerBlock("structure_extender_block",
 			() -> new StructureExtenderBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK)));
+
+	public static final RegistryObject<Block> BUBBLE_BLOCK = registerBlock("bubble_block",
+			() -> new BubbleBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+					.sound(SoundType.CORAL_BLOCK)));
 
 	// Differenty shaped blocks
 	// Fossil

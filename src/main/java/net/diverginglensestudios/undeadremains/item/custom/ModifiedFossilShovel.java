@@ -14,11 +14,25 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.item.TooltipFlag;
+import java.util.List;
+import javax.annotation.Nullable;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 
 public class ModifiedFossilShovel extends ShovelItem {
 
     public ModifiedFossilShovel(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
         super(tier, attackDamage, attackSpeed, properties);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents,
+            TooltipFlag isAdvanced) {
+        tooltipComponents.add(
+                Component.translatable("tooltip.undeadremains.nautilus_shell_modified_fossil_shovel")
+                        .withStyle(ChatFormatting.GRAY));
+        super.appendHoverText(stack, level, tooltipComponents, isAdvanced);
     }
 
     @Override

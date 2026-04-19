@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-11T11:31:25.2054439	Block States: undeadremains
+// 1.20.1	2026-04-19T12:45:12.8366857	Block States: undeadremains
 f0981690fe2a717d312e5862cccd52e929da36a8 assets/undeadremains/blockstates/ancient_bricks.json
 6ce54b6d4a6cf56bb872cbc631f6c3ec27ad7638 assets/undeadremains/blockstates/ancient_pillar.json
 aaa74034fa25753f3422a2bc0ee00cc890421117 assets/undeadremains/blockstates/ash_button.json
@@ -147,7 +147,6 @@ d6af5644321c766cfe664b0292fbe3652e0e833c assets/undeadremains/models/block/ash_s
 8feb907aab9b738e5c96a7eb517411284a18587a assets/undeadremains/models/block/ash_trapdoor_top.json
 7af0a43dc2c99b237b30d33696b1b07efc3dce88 assets/undeadremains/models/block/ash_wood.json
 6641a3b3eff1b42abef736d86e8e0f4f8fcc3e85 assets/undeadremains/models/block/ash_wood_horizontal.json
-91dd01fbd3ca288ca6297d6ee6ab9affc21d734e assets/undeadremains/models/block/bubble_block.json
 1b701093ed82e0a7127b857784b979723b30b765 assets/undeadremains/models/block/calipo_berry_vine.json
 95de7a8ff9238883455f8338086c4ce439ff4711 assets/undeadremains/models/block/calipo_berry_vine_berries.json
 5f76194fcb485f550a51eeef0b5e3ea13f9c604e assets/undeadremains/models/block/calipo_button.json
