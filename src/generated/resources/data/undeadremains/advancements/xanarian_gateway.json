@@ -1,5 +1,5 @@
 {
-  "parent": "undeadremains:metatorbernite_enricher",
+  "parent": "undeadremains:metaturbonite",
   "criteria": {
     "has_xanarian_gateway": {
       "conditions": {
@@ -19,7 +19,7 @@
     "description": {
       "translate": "advancement.undeadremains.xanarian_gateway.desc"
     },
-    "frame": "goal",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "undeadremains:fossil_altar"

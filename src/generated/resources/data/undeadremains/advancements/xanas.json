@@ -1,5 +1,5 @@
 {
-  "parent": "undeadremains:metatorbernite_enricher",
+  "parent": "undeadremains:xanarian_gateway",
   "criteria": {
     "reach_xanas": {
       "conditions": {

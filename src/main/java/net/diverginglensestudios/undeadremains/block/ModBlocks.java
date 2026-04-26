@@ -114,7 +114,7 @@ public class ModBlocks {
 					BlockBehaviour.Properties.copy(Blocks.COAL_ORE).sound(SoundType.STONE)));
 
 	public static final RegistryObject<Block> XAND = registerBlock("xand",
-			() -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)
+			() -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)
 					.sound(SoundType.SAND)));
 
 	public static final RegistryObject<Block> LANGRITE_NUGGET_BLOCK = registerBlock("langrite_nugget_block",
