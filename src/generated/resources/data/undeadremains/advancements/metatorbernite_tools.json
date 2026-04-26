@@ -1,0 +1,54 @@
+{
+  "parent": "undeadremains:metatorbernite",
+  "criteria": {
+    "craft_metatorbernite_swordaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:metatorbernite_swordaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_metatorbernite_tool": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:metatorbernite_tool"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.metatorbernite_tools.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:metatorbernite_swordaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.metatorbernite_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_metatorbernite_swordaxe"
+    ],
+    [
+      "craft_metatorbernite_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

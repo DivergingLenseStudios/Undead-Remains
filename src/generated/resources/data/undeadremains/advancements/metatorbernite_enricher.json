@@ -1,0 +1,53 @@
+{
+  "parent": "undeadremains:metatorbernite",
+  "criteria": {
+    "craft_metatorbernite_enricher_controller": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:metatorbernite_enricher_controller"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_metatorbernite_enricher_part": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:metatorbernite_enricher_part"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.metatorbernite_enricher.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:metatorbernite_enricher_controller"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.metatorbernite_enricher.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_metatorbernite_enricher_controller"
+    ],
+    [
+      "craft_metatorbernite_enricher_part"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

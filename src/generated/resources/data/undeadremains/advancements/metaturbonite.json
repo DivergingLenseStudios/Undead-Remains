@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:metatorbernite_enricher",
+  "criteria": {
+    "has_metaturbonite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:metaturbonite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.metaturbonite.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:metaturbonite"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.metaturbonite.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_metaturbonite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

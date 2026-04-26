@@ -34,7 +34,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 			ModItems.RAW_DEEPSLATE_FOSSIL.get());
 	// LANGRITE_SMELTABLES
 	private static final List<ItemLike> LANGRITE_SMELTABLES = List.of(
-			ModItems.RAW_LANGRITE.get());
+			ModItems.RAW_LANGRITE.get(),
+			ModBlocks.LANGRITE_NUGGET_BLOCK.get());
 	// FOSSIL_BLOCK_SMELTABLES
 	private static final List<ItemLike> FOSSIL_BLOCK_SMELTABLES = List.of(
 			ModBlocks.RAW_FOSSIL_BLOCK.get());
@@ -949,6 +950,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy(getHasName(ModItems.LANGRITE_INGOT.get()),
 						has(ModItems.LANGRITE_INGOT.get()))
 				.save(pWriter, UndeadRemains.MOD_ID + ":langrite_block_from_langrite");
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.LANGRITE_NUGGET_BLOCK.get(), 1)
+				.requires(ModItems.LANGRITE_NUGGET.get(), 9)
+				.unlockedBy(getHasName(ModItems.LANGRITE_INGOT.get()),
+						has(ModItems.LANGRITE_NUGGET.get()))
+				.save(pWriter, UndeadRemains.MOD_ID + ":langrite_nugget_block_from_langrite_nugget");
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LANGRITE_NUGGET.get(), 9)
+				.requires(ModItems.LANGRITE_INGOT.get(), 1)
+				.unlockedBy(getHasName(ModItems.LANGRITE_INGOT.get()),
+						has(ModItems.LANGRITE_INGOT.get()))
+				.save(pWriter, UndeadRemains.MOD_ID + ":langrite_nugget_from_langrite_ingot");
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LANGRITE_NUGGET.get(), 9)
+				.requires(ModBlocks.LANGRITE_NUGGET_BLOCK.get(), 1)
+				.unlockedBy(getHasName(ModBlocks.LANGRITE_NUGGET_BLOCK.get()),
+						has(ModBlocks.LANGRITE_NUGGET_BLOCK.get()))
+				.save(pWriter, UndeadRemains.MOD_ID + ":langrite_nugget_from_langrite_nugget_block");
 		// SHAPELESS BLOCK//
 		// SHAPELESS FOOD//
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.XANARIAN_KEBAB.get(), 1)// resulting

@@ -1,0 +1,188 @@
+{
+  "parent": "undeadremains:fossil",
+  "criteria": {
+    "craft_modified_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rabbit_foot_modified_fossil_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:echo_shard_modified_fossil_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:clock_modified_fossil_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_drumstick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:gold_block_modified_fossilized_drumstick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_fossils_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:the_quartz_modified_fossils_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:lightning_rod_modified_fossil_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:slime_ball_modified_fossil_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:scute_modified_fossil_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:blaze_rod_modified_fossil_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:nautilus_shell_modified_fossil_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:amethyst_modified_fossil_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.master_modifier.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:the_quartz_modified_fossils_eye"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.master_modifier.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_modified_helmet"
+    ],
+    [
+      "craft_modified_chestplate"
+    ],
+    [
+      "craft_modified_leggings"
+    ],
+    [
+      "craft_modified_boots"
+    ],
+    [
+      "craft_modified_sword"
+    ],
+    [
+      "craft_modified_pickaxe"
+    ],
+    [
+      "craft_modified_axe"
+    ],
+    [
+      "craft_modified_shovel"
+    ],
+    [
+      "craft_modified_hoe"
+    ],
+    [
+      "craft_modified_fossils_eye"
+    ],
+    [
+      "craft_modified_drumstick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

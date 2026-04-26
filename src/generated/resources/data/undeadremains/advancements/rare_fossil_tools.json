@@ -1,0 +1,99 @@
+{
+  "parent": "undeadremains:fossil_lucky_block",
+  "criteria": {
+    "get_rare_fossil_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_rare_fossil_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_rare_fossil_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_rare_fossil_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_rare_fossil_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.rare_fossil_tools.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:rare_fossil_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.rare_fossil_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_rare_fossil_sword"
+    ],
+    [
+      "get_rare_fossil_axe"
+    ],
+    [
+      "get_rare_fossil_pickaxe"
+    ],
+    [
+      "get_rare_fossil_hoe"
+    ],
+    [
+      "get_rare_fossil_shovel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

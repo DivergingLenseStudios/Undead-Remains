@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:rare_fossil",
+  "criteria": {
+    "get_fossil_lucky_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_lucky_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.fossil_lucky_block.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:fossil_lucky_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.fossil_lucky_block.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_fossil_lucky_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

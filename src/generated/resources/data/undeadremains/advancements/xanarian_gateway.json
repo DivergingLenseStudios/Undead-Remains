@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:metatorbernite_enricher",
+  "criteria": {
+    "has_xanarian_gateway": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_altar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.xanarian_gateway.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:fossil_altar"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.xanarian_gateway.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_xanarian_gateway"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

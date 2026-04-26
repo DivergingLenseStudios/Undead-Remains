@@ -1,0 +1,78 @@
+{
+  "parent": "undeadremains:fossil_armor",
+  "criteria": {
+    "craft_modified_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:echo_shard_modified_fossil_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:clock_modified_fossil_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:lightning_rod_modified_fossil_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:scute_modified_fossil_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.modified_fossil_armor.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:clock_modified_fossil_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.modified_fossil_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_modified_helmet",
+      "craft_modified_chestplate",
+      "craft_modified_leggings",
+      "craft_modified_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

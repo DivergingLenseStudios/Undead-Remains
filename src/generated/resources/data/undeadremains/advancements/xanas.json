@@ -1,0 +1,32 @@
+{
+  "parent": "undeadremains:metatorbernite_enricher",
+  "criteria": {
+    "reach_xanas": {
+      "conditions": {
+        "to": "undeadremains:fossildim"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.xanas.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:living_langstone"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.xanas.title"
+    }
+  },
+  "requirements": [
+    [
+      "reach_xanas"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

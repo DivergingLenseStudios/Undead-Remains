@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:root",
+  "criteria": {
+    "has_fossil": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.fossil.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:fossil"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.fossil.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_fossil"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -32,6 +32,7 @@ import net.diverginglensestudios.undeadremains.entity.client.horned_xanarian.Hor
 import net.diverginglensestudios.undeadremains.item.ModCreativeModTabs;
 import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.loot.ModLootTableModifiers;
+import net.diverginglensestudios.undeadremains.painting.ModPaintings;
 import net.diverginglensestudios.undeadremains.particles.MetatorberniteParticles;
 import net.diverginglensestudios.undeadremains.particles.ModParticles;
 import net.diverginglensestudios.undeadremains.recipe.ModRecipes;
@@ -90,6 +91,7 @@ public class UndeadRemains { // Define the Class for the Mod
 
 		ModItems.register(modEventBus);
 		ModBlocks.register(modEventBus);
+		ModPaintings.register(modEventBus);
 
 		ModLootTableModifiers.register(modEventBus);
 		// ModTerrablender.registerBiomes();
@@ -123,8 +125,12 @@ public class UndeadRemains { // Define the Class for the Mod
 					ModBlocks.POTTED_XANAS_FLOWER);
 			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XELKS_FLOWER.getId(),
 					ModBlocks.POTTED_XELKS_FLOWER);
-			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
+
+			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
 					ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
+			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.MUNDANE,
+					ModItems.SUCKER_TRUNK.get(), ModPotions.ANCHORED_POTION.get()));
+
 			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID,
 					ModSurfaceRules.makeRules());
 			Regions.register(new ModOverworldRegion(new ResourceLocation(UndeadRemains.MOD_ID, "overworld"),

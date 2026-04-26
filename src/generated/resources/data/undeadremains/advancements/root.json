@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "entered_world": {
+      "conditions": {},
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "undeadremains:textures/block/fossil_block.png",
+    "description": {
+      "translate": "advancement.undeadremains.root.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:fossil"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "entered_world"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

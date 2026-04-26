@@ -1,0 +1,91 @@
+{
+  "parent": "undeadremains:fossil_tools",
+  "criteria": {
+    "craft_modified_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rabbit_foot_modified_fossil_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:slime_ball_modified_fossil_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:blaze_rod_modified_fossil_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:nautilus_shell_modified_fossil_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_modified_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:amethyst_modified_fossil_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.modified_fossil_tools.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:amethyst_modified_fossil_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.modified_fossil_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_modified_sword",
+      "craft_modified_pickaxe",
+      "craft_modified_axe",
+      "craft_modified_shovel",
+      "craft_modified_hoe"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

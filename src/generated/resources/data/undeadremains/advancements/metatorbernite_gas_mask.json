@@ -1,0 +1,39 @@
+{
+  "parent": "undeadremains:gas_mask",
+  "criteria": {
+    "has_metatorbernite_gas_mask": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:metatorbernite_gas_mask"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.metatorbernite_gas_mask.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:metatorbernite_gas_mask",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.metatorbernite_gas_mask.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_metatorbernite_gas_mask"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

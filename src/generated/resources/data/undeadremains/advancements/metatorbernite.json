@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:root",
+  "criteria": {
+    "has_metatorbernite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:metatorbernite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.metatorbernite.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:metatorbernite"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.metatorbernite.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_metatorbernite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

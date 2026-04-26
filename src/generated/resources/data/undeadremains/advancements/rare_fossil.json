@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:fossil",
+  "criteria": {
+    "get_rare_fossil": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.rare_fossil.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:rare_fossil"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.rare_fossil.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_rare_fossil"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

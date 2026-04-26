@@ -1,0 +1,84 @@
+{
+  "parent": "undeadremains:fossil",
+  "criteria": {
+    "craft_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.fossil_armor.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:fossil_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.fossil_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_helmet"
+    ],
+    [
+      "craft_chestplate"
+    ],
+    [
+      "craft_leggings"
+    ],
+    [
+      "craft_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

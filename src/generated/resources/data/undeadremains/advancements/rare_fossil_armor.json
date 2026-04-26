@@ -1,0 +1,84 @@
+{
+  "parent": "undeadremains:fossil_lucky_block",
+  "criteria": {
+    "get_rare_fossil_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_rare_fossil_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_rare_fossil_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_rare_fossil_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:rare_fossil_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.rare_fossil_armor.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:rare_fossil_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.rare_fossil_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_rare_fossil_helmet"
+    ],
+    [
+      "get_rare_fossil_chestplate"
+    ],
+    [
+      "get_rare_fossil_leggings"
+    ],
+    [
+      "get_rare_fossil_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

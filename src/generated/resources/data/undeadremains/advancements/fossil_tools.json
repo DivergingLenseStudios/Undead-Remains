@@ -1,0 +1,99 @@
+{
+  "parent": "undeadremains:fossil",
+  "criteria": {
+    "craft_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:fossil_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.fossil_tools.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:fossil_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.fossil_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_sword"
+    ],
+    [
+      "craft_pickaxe"
+    ],
+    [
+      "craft_axe"
+    ],
+    [
+      "craft_shovel"
+    ],
+    [
+      "craft_hoe"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
