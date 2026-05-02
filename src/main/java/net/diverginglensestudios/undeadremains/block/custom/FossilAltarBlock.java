@@ -33,16 +33,24 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 
 public class FossilAltarBlock extends BaseEntityBlock{
+	public static final IntegerProperty CHARGE = IntegerProperty.create("charge", 0, 4);
 	public FossilAltarBlock(Properties pProperties) {
 		super(pProperties);
+		this.registerDefaultState(this.stateDefinition.any().setValue(CHARGE, 0));
 	}
 
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+		pBuilder.add(CHARGE);
+	}
 
 	public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
 

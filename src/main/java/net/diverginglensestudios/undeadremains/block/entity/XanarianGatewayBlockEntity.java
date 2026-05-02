@@ -115,6 +115,9 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
 	public void onLoad() {
 		super.onLoad();
 		lazyItemHandler = LazyOptional.of(() -> itemHandler);
+		if(!level.isClientSide) {
+			updateChargeState();
+		}
 	}
 
 	@Override
@@ -183,7 +186,7 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
 		this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
 				this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
 		this.charge++;
-		System.out.println("current charge is "+ charge);
+		updateChargeState();
 	}
 
 	private boolean hasRecipe() {
@@ -228,7 +231,17 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
 	public void consumeCharge() {
 		if (charge > 0) {
 			charge--;
+			updateChargeState();
 			setChanged();
+		}
+	}
+
+	private void updateChargeState() {
+		if (!level.isClientSide){
+			BlockState state = level.getBlockState(worldPosition);
+			if (state.getBlock() instanceof FossilAltarBlock) {
+				level.setBlock(worldPosition, state.setValue(FossilAltarBlock.CHARGE, this.charge), 3);
+			}
 		}
 	}
 }
