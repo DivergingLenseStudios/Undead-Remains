@@ -84,7 +84,7 @@ public class ModBiomeModifiers {
 
 		context.register(ADD_DROWNED_SKELETON, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
 				biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-				List.of(new MobSpawnSettings.SpawnerData(ModEntities.DROWNED_SKELETON.get(), 20, 1, 1))));
+				List.of(new MobSpawnSettings.SpawnerData(ModEntities.DROWNED_SKELETON.get(), 20, 0, 1))));
 
 		context.register(ADD_STRAY_ZOMBIE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
 				biomes.getOrThrow(Biomes.IS_COLD),
