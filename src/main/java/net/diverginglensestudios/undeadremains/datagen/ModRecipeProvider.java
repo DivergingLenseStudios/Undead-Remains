@@ -59,7 +59,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				"fossil");
 		oreSmelting(pWriter, LANGRITE_SMELTABLES, RecipeCategory.MISC, ModItems.LANGRITE_INGOT.get(), 0.25f,
 				200, "langrite");
-		oreSmelting(pWriter, FOSSIL_BLOCK_SMELTABLES, RecipeCategory.MISC, ModItems.FOSSIL.get(), 2.5f, 2000,
+		oreSmelting(pWriter, FOSSIL_BLOCK_SMELTABLES, RecipeCategory.MISC, ModBlocks.FOSSIL_BLOCK.get(), 2.5f, 2000,
 				"fossil");
 		oreSmelting(pWriter, List.of(ModBlocks.LANGSTONE_BRICKS.get()), RecipeCategory.MISC,
 				ModBlocks.CRACKED_LANGSTONE_BRICKS.get(), 0.25f, 100,
@@ -932,6 +932,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy(getHasName(ModItems.RAW_DEEPSLATE_FOSSIL.get()),
 						has(ModItems.RAW_DEEPSLATE_FOSSIL.get()))
 				.save(pWriter, UndeadRemains.MOD_ID + ":raw_fossil_block_from_raw_deepslate_fossil");
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.RAW_FOSSIL.get(), 9)
+				.requires(ModBlocks.RAW_FOSSIL_BLOCK.get(), 1)
+				.unlockedBy(getHasName(ModItems.RAW_FOSSIL.get()),
+						has(ModItems.RAW_FOSSIL.get()))
+				.save(pWriter, UndeadRemains.MOD_ID + ":raw_fossil_from_raw_fossil_block");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.METATORBERNITE_BLOCK.get(), 1)
 				.requires(ModItems.METATORBERNITE.get(), 9)
 				.unlockedBy(getHasName(ModItems.METATORBERNITE.get()),
