@@ -142,10 +142,10 @@ public class ModBlocks {
 
 	public static final RegistryObject<Block> FOSSIL_POLISHER = registerBlock("fossil_polisher",
 			() -> new FossilPolishingStationBlock(
-					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+					BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE).noOcclusion()));
 
 	public static final RegistryObject<Block> FOSSIL_ALTAR = registerBlock("fossil_altar",
-			() -> new FossilAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noLootTable()));
+			() -> new FossilAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
 	public static final RegistryObject<Block> FOSSIL_LUCKY_BLOCK = registerBlock("fossil_lucky_block",
 			() -> new FossilLuckyBlock(

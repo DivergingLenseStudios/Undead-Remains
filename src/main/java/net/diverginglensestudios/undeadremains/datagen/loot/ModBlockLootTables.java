@@ -47,6 +47,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(ModBlocks.SUPREME_PILLAR.get());
 		this.dropSelf(ModBlocks.CHISELED_SUPREME_BRICKS.get());
 		this.dropSelf(ModBlocks.FOSSIL_BLOCK.get());
+		this.dropSelf(ModBlocks.FOSSIL_ALTAR.get());
 		this.dropSelf(ModBlocks.LANGSTONE_BRICKS.get());
 		this.dropSelf(ModBlocks.LANGSTONE_PILLAR.get());
 		this.dropSelf(ModBlocks.LANGSTONE_STAIRS.get());
