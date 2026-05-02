@@ -184,23 +184,23 @@ public class ModItems {
 
 	public static final RegistryObject<Item> AMETHYST_MODIFIED_FOSSIL_SWORD = ITEMS.register(
 			"amethyst_modified_fossil_sword",
-			() -> new AmethystFossilSwordItem(ModToolTiers.FOSSIL, 5 - 1, 1.3f - 4,
+			() -> new AmethystFossilSwordItem(ModToolTiers.MODIFIED_FOSSIL, 5 - 1, 1.3f - 4,
 					new Item.Properties().stacksTo(1)));
 	public static final RegistryObject<Item> BLAZE_ROD_MODIFIED_FOSSIL_PICKAXE = ITEMS.register(
 			"blaze_rod_modified_fossil_pickaxe",
-			() -> new PickaxeItem(ModToolTiers.BLAZE_ROD_MODIFIED_FOSSIL, 4 - 1, 1.2f - 4,
+			() -> new PickaxeItem(ModToolTiers.MODIFIED_FOSSIL, 4 - 1, 1.2f - 4,
 					new Item.Properties()));
 	public static final RegistryObject<Item> RABBIT_FOOT_MODIFIED_FOSSIL_AXE = ITEMS.register(
 			"rabbit_foot_modified_fossil_axe",
-			() -> new ModifiedFossilAxeItem(ModToolTiers.RABBIT_FOOT_MODIFIED_FOSSIL, 9 - 1, 1 - 4,
+			() -> new ModifiedFossilAxeItem(ModToolTiers.MODIFIED_FOSSIL, 9 - 1, 1 - 4,
 					new Item.Properties()));
 	public static final RegistryObject<Item> NAUTILUS_SHELL_MODIFIED_FOSSIL_SHOVEL = ITEMS.register(
 			"nautilus_shell_modified_fossil_shovel",
-			() -> new ModifiedFossilShovel(ModToolTiers.NAUTILUS_SHELL_MODIFIED_FOSSIL, 4 - 1, 1 - 4,
+			() -> new ModifiedFossilShovel(ModToolTiers.MODIFIED_FOSSIL, 4 - 1, 1 - 4,
 					new Item.Properties()));
 	public static final RegistryObject<Item> SLIME_BALL_MODIFIED_FOSSIL_HOE = ITEMS.register(
 			"slime_ball_modified_fossil_hoe",
-			() -> new FossilHoeItem(ModToolTiers.SLIME_BALL_MODIFIED_FOSSIL, new Item.Properties()));
+			() -> new FossilHoeItem(ModToolTiers.MODIFIED_FOSSIL, new Item.Properties()));
 	// Fossil
 	public static final RegistryObject<Item> FOSSIL_HELMET = ITEMS.register("fossil_helmet",
 			() -> new ModSimpleArmorItem(ModArmorMaterials.FOSSIL, ArmorItem.Type.HELMET,

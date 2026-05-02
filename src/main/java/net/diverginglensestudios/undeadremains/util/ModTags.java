@@ -24,10 +24,7 @@ public class ModTags {
 		public static final TagKey<Block> LANGSTONE_REPLACEABLES = tag("langstone_replaceables");
 		public static final TagKey<Block> DEEP_LANGSTONE_REPLACEABLES = tag("deep_langstone_replaceables");
 		public static final TagKey<Block> NEEDS_SPIKE_TOOL = tag("needs_spike_tool");
-		public static final TagKey<Block> NEEDS_RABBIT_FOOT_MODIFIED_FOSSIL_TOOL = tag("needs_rabbit_foot_modified_tool");
-		public static final TagKey<Block> NEEDS_BLAZE_ROD_MODIFIED_FOSSIL_TOOL = tag("needs_blaze_rod_modified_tool");
-		public static final TagKey<Block> NEEDS_NAUTILUS_SHELL_MODIFIED_FOSSIL_TOOL = tag("needs_nautilus_shell_modified_tool");
-		public static final TagKey<Block> NEEDS_SLIME_BALL_MODIFIED_FOSSIL_TOOL = tag("needs_slime_ball_modified_tool");
+		public static final TagKey<Block> NEEDS_MODIFIED_FOSSIL_TOOL = tag("needs_modified_fossil_tool");
 
 		private static TagKey<Block> tag(String name) {
 			return BlockTags.create(new ResourceLocation(UndeadRemains.MOD_ID, name));
