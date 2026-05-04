@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-02T10:57:28.508635066	Loot Tables
+// 1.20.1	2026-05-04T11:30:14.24476969	Loot Tables
 711972a146f5c83257e403196b5df89212a6225a data/undeadremains/loot_tables/blocks/ancient_bricks.json
 7bcfbf5e39c6562343051c32ef5dc4d2774307dc data/undeadremains/loot_tables/blocks/ancient_pillar.json
 76a75524e5dcd7d1c9d5de5047a92ee68b60e2f2 data/undeadremains/loot_tables/blocks/ash_button.json
@@ -108,6 +108,7 @@ ba72fbb05ea93cb64692ed218cccede613dd13fe data/undeadremains/loot_tables/blocks/p
 1c459acb7993418490a94331a0c8dfaa0c6887e5 data/undeadremains/loot_tables/blocks/supreme_bricks.json
 ce361aaaed674b34793dde5af7bbc45482c47736 data/undeadremains/loot_tables/blocks/supreme_pillar.json
 edb3c85a5a9e591e309780531e891a3b0eeddfeb data/undeadremains/loot_tables/blocks/supreme_tiles.json
+a86bb41efa4fb3138b95e3da212ed0a763ceee9a data/undeadremains/loot_tables/blocks/xanarian_gateway.json
 5b1c044b7c74f786e3d2778597f27c227ce6c6df data/undeadremains/loot_tables/blocks/xanas_flower.json
 836f28f273361572e4f8457f68b9770537ca37c2 data/undeadremains/loot_tables/blocks/xand.json
 a88f93f5b38f31fdf4eccdba051a4857727da1d0 data/undeadremains/loot_tables/blocks/xans_leaves.json

@@ -326,7 +326,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.pattern("IRI")
 				.define('I', Blocks.IRON_BLOCK)
 				.define('R', Items.REDSTONE)
-				.define('C', ModBlocks.FOSSIL_ALTAR.get())
+				.define('C', ModBlocks.XANARIAN_GATEWAY.get())
 				.unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
 				.save(pWriter);
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.METATORBERNITE_ENRICHER_PART.get())
@@ -660,7 +660,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
 				.unlockedBy(getHasName(Blocks.STONECUTTER), has(Blocks.STONECUTTER))
 				.save(pWriter);
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FOSSIL_ALTAR.get())
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.XANARIAN_GATEWAY.get())
 				.pattern("AAA")
 				.pattern("CRC")
 				.pattern("AAA")
@@ -907,6 +907,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.save(pWriter, UndeadRemains.MOD_ID + ":metatorbernite_gas_mak_from_gas_mask");
 		// SHAPELESS ARMOR//
 		// SHAPELESS BLOCK//
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.XANARIAN_GATEWAY.get(), 1)
+				.requires(ModBlocks.FOSSIL_ALTAR.get())
+				.unlockedBy(getHasName(ModBlocks.FOSSIL_ALTAR.get()), has(ModBlocks.FOSSIL_ALTAR.get()))
+				.save(pWriter, UndeadRemains.MOD_ID + ":xanarian_gateway_from_fossil_altar");
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.ASH_PLANKS.get(), 4)
 				.requires(ModTags.Items.ASH_WOOD)
 				.unlockedBy(getHasName(ModBlocks.ASH_LOG.get()), has(ModBlocks.ASH_LOG.get()))

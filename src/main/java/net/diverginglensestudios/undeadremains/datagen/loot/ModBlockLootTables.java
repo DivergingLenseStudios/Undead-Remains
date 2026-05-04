@@ -121,6 +121,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(ModBlocks.LANGRITE_NUGGET_BLOCK.get());
 		this.dropSelf(ModBlocks.ANCIENT_BRICKS.get());
 		this.dropSelf(ModBlocks.BUBBLE_BLOCK.get());
+		this.dropSelf(ModBlocks.XANARIAN_GATEWAY.get());
 		this.dropOther(ModBlocks.CALIPO_BERRY_VINE.get(), Items.AIR);
 
 		this.add(ModBlocks.CALIPO_GRASS.get(),

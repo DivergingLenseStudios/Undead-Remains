@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-26T15:50:08.229551202	Advancements
+// 1.20.1	2026-05-04T13:13:21.838850548	Advancements
 d85b376ae6334c9a997b620a71b3102228cbaf6c data/undeadremains/advancements/fossil.json
 fe9ca172085776dc0a84f800f5e3bf9871edff49 data/undeadremains/advancements/fossil_armor.json
 eaa804c24f8ab4fdedb98272b42f7e92f2b829ce data/undeadremains/advancements/fossil_lucky_block.json
@@ -17,5 +17,5 @@ eb808de7936bf0db4c6a43685916016cd7662940 data/undeadremains/advancements/rare_fo
 d2f19dce53e67d8720c5299d20cf1d8c0cb7fecc data/undeadremains/advancements/rare_fossil_armor.json
 e4d5b9c0a9feee605b0c2f1590bd9c88ad8d58cd data/undeadremains/advancements/rare_fossil_tools.json
 581b412b96bdf69c22faea3373e7d1f0d352bf33 data/undeadremains/advancements/root.json
-9446a395df18df64b9e4004e499ae89982239ef0 data/undeadremains/advancements/xanarian_gateway.json
+e9e6a7ef9c18be15941341658f0fcb8aa90548f6 data/undeadremains/advancements/xanarian_gateway.json
 7b3d1d034fad8232a258619f06e4a6730bc8f64d data/undeadremains/advancements/xanas.json

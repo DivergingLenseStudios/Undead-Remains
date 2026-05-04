@@ -122,6 +122,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		evenSimplerBlockItem(ModBlocks.METATORBERNITE_ENRICHER_CONTROLLER);
 		evenSimplerBlockItem(ModBlocks.METATORBERNITE_ENRICHER_PART);
 		evenSimplerBlockItem(ModBlocks.FOSSIL_ALTAR);
+		evenSimplerBlockItem(ModBlocks.XANARIAN_GATEWAY);
 		evenSimplerBlockItem(ModBlocks.FOSSIL_SLAB);
 		evenSimplerBlockItem(ModBlocks.FOSSIL_PRESSURE_PLATE);
 		evenSimplerBlockItem(ModBlocks.FOSSIL_FENCE_GATE);

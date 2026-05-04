@@ -518,7 +518,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 			Advancement xanarian_gateway = Advancement.Builder.advancement()
 					.parent(metaturbonite)
 					.display(
-							ModBlocks.FOSSIL_ALTAR.get(),
+							ModBlocks.XANARIAN_GATEWAY.get(),
 							Component.translatable("advancement.undeadremains.xanarian_gateway.title"),
 							Component.translatable("advancement.undeadremains.xanarian_gateway.desc"),
 							null,
@@ -527,7 +527,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							true,
 							false)
 					.addCriterion("has_xanarian_gateway",
-							InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.FOSSIL_ALTAR.get()))
+							InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.XANARIAN_GATEWAY.get()))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "xanarian_gateway"), existingFileHelper);
 			//↓//////// XANAS////////↓//
 			Advancement xanas = Advancement.Builder.advancement()

@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-02T12:01:11.268402696	Item Models: undeadremains
+// 1.20.1	2026-05-04T13:03:16.243059813	Item Models: undeadremains
 2ab9beff061ae44e53920d54046f6ff3a3d6904a assets/undeadremains/models/item/amethyst_modified_fossil_sword.json
 dbef713152a3abb4439f879d96f5829998a2d16a assets/undeadremains/models/item/ash_boat.json
 966ddf2d5590b696a89ba29b85f4a8ab5382db6d assets/undeadremains/models/item/ash_button.json
@@ -406,6 +406,7 @@ e60e411672b73b7931b3d2d862377442356aa3da assets/undeadremains/models/item/wrap.j
 af7ddd6ff36d0f2c2bb0ea5742a6ca69220a868e assets/undeadremains/models/item/xanaranha_horn.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/undeadremains/models/item/xanaranha_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/undeadremains/models/item/xanarian_cannibal_spawn_egg.json
+483dd0d94c51cb0dfa492659f68ac0dc3792dad4 assets/undeadremains/models/item/xanarian_gateway.json
 7e485e04f1b54998c9deadc4080b07f6354ced6b assets/undeadremains/models/item/xanarian_horn.json
 cb94a549c90ce979dfa9b74c54a06f8547b9c0a1 assets/undeadremains/models/item/xanarian_kebab.json
 eaac090a5809ade568dcf711a16d0438eef65c14 assets/undeadremains/models/item/xanarian_kebab_wrap.json

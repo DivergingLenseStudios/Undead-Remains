@@ -131,7 +131,8 @@
 	"block.undeadremains.fossil_lucky_block": "Fossil Lucky Block",
 	"block.undeadremains.metatorbernite_lucky_block": "Metatorbernite Lucky Block",
 
-	"block.undeadremains.fossil_altar": "Xanarian Gateway",
+	"block.undeadremains.fossil_altar": "Xanarian Gateway (Old)",
+	"block.undeadremains.xanarian_gateway": "Xanarian Gateway",
 	"block.undeadremains.metatorbernite_enricher_controller": "Metatorbernite Enricher Controller",
 	"block.undeadremains.metatorbernite_enricher_part": "Metatorbernite Enricher Part",
 

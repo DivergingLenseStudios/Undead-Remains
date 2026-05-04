@@ -36,7 +36,7 @@ public class ModBlockEntities {
 	public static final RegistryObject<BlockEntityType<XanarianGatewayBlockEntity>> XANARIAN_GATEWAY_BE = BLOCK_ENTITIES
 			.register("xanarian_gateway_be",
 					() -> BlockEntityType.Builder.<XanarianGatewayBlockEntity>of(XanarianGatewayBlockEntity::new,
-							ModBlocks.FOSSIL_ALTAR.get()).build(null));
+							ModBlocks.XANARIAN_GATEWAY.get()).build(null));
 
 	public static final RegistryObject<BlockEntityType<BubbleBlockBlockEntity>> BUBBLE_BLOCK_BE = BLOCK_ENTITIES
 			.register("bubble_block_be",

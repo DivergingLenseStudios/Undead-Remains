@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "undeadremains:fossil_altar"
+              "undeadremains:xanarian_gateway"
             ]
           }
         ]
@@ -22,7 +22,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "undeadremains:fossil_altar"
+      "item": "undeadremains:xanarian_gateway"
     },
     "show_toast": true,
     "title": {

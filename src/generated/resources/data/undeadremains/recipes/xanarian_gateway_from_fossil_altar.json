@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "undeadremains:fossil_altar"
+    }
+  ],
+  "result": {
+    "item": "undeadremains:xanarian_gateway"
+  }
+}

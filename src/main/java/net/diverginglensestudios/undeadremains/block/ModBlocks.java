@@ -147,6 +147,9 @@ public class ModBlocks {
 	public static final RegistryObject<Block> FOSSIL_ALTAR = registerBlock("fossil_altar",
 			() -> new FossilAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+	public static final RegistryObject<Block> XANARIAN_GATEWAY = registerBlock("xanarian_gateway",
+			() -> new FossilAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
 	public static final RegistryObject<Block> FOSSIL_LUCKY_BLOCK = registerBlock("fossil_lucky_block",
 			() -> new FossilLuckyBlock(
 					BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BONE_BLOCK)));

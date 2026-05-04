@@ -111,7 +111,7 @@ public class FossilAltarBlock extends BaseEntityBlock{
 
 			serverPlayer.changeDimension(
 					targetWorld,
-					new ModFossilTeleporter(playerPos.below(), ModBlocks.FOSSIL_ALTAR.get())
+					new ModFossilTeleporter(playerPos.below(), ModBlocks.XANARIAN_GATEWAY.get())
 			);
 		}
 

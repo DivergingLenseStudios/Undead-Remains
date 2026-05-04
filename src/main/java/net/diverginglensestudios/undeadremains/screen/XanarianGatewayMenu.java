@@ -118,7 +118,7 @@ public class XanarianGatewayMenu extends AbstractContainerMenu {
 	@Override
 	public boolean stillValid(Player pPlayer) {
 		return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-				pPlayer, ModBlocks.FOSSIL_ALTAR.get());
+				pPlayer, ModBlocks.XANARIAN_GATEWAY.get());
 	}
 
 	private void addPlayerInventory(Inventory playerInventory) {

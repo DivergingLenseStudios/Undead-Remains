@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rare_fossil": {
+    "has_fossil_altar": {
       "conditions": {
         "items": [
           {
             "items": [
-              "undeadremains:rare_fossil"
+              "undeadremains:fossil_altar"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "undeadremains:fossil_altar"
+        "recipe": "undeadremains:xanarian_gateway_from_fossil_altar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_rare_fossil",
+      "has_fossil_altar",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "undeadremains:fossil_altar"
+      "undeadremains:xanarian_gateway_from_fossil_altar"
     ]
   },
   "sends_telemetry_event": false
