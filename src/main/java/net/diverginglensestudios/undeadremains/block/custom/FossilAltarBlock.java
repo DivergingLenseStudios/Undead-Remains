@@ -16,6 +16,7 @@ import net.diverginglensestudios.undeadremains.block.entity.XanarianGatewayBlock
 import net.diverginglensestudios.undeadremains.worldgen.dimension.ModDimensions;
 import net.diverginglensestudios.undeadremains.worldgen.portal.ModFossilTeleporter;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -132,6 +133,6 @@ public class FossilAltarBlock extends BaseEntityBlock{
 
 		return createTickerHelper(pBlockEntityType, ModBlockEntities.XANARIAN_GATEWAY_BE.get(),
 				(pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
-
 	}
+
 }
