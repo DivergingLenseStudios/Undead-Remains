@@ -82,9 +82,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		simpleBlockWithItem(ModBlocks.FOSSIL_POLISHER.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher")));
 
-		//simpleBlockWithItem(ModBlocks.FOSSIL_ALTAR.get(),
-		//		new ModelFile.UncheckedModelFile(modLoc("block/fossil_altar")));
-
 		simpleBlockWithItem(ModBlocks.BUBBLE_BLOCK.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/bubble_block")));
 

@@ -108,6 +108,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 		// MINEABLE_WITH_AXE
 		this.tag(BlockTags.MINEABLE_WITH_AXE)
 				.add(ModBlocks.ASH_TRAPDOOR.get())
+				.add(ModBlocks.CALIPO_FENCE.get())
 				.add(ModBlocks.ASH_DOOR.get())
 				.add(ModBlocks.ASH_HANGING_SIGN.get())
 				.add(ModBlocks.ASH_SIGN.get())
