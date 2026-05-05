@@ -88,7 +88,55 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 				.add(ModBlocks.BUBBLE_BLOCK.get())
 				.add(ModBlocks.ANCIENT_BRICKS.get())
 				.add(ModBlocks.ANCIENT_PILLAR.get())
+				.add(ModBlocks.XANARIAN_GATEWAY.get())
+				.add(ModBlocks.FOSSIL_BUTTON.get())
+				.add(ModBlocks.LANGSTONE_STAIRS.get())
+				.add(ModBlocks.LANGSTONE_SLAB.get())
+				.add(ModBlocks.METATORBERNITE_ENRICHER_PART.get())
+				.add(ModBlocks.METATORBERNITE_ENRICHER_CONTROLLER.get())
 				.add(ModBlocks.METATORBERNITE_ORE.get());
+
+		// MINEABLE_WITH_SHOVEL
+		this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
+				.add(ModBlocks.XAND.get());
+
+		// MINEABLE_WITH_HOE
+		this.tag(BlockTags.MINEABLE_WITH_HOE)
+				.add(ModBlocks.ASH_LEAVES.get())
+				.add(ModBlocks.CALIPO_LEAVES.get());
+
+		// MINEABLE_WITH_AXE
+		this.tag(BlockTags.MINEABLE_WITH_AXE)
+				.add(ModBlocks.ASH_TRAPDOOR.get())
+				.add(ModBlocks.ASH_DOOR.get())
+				.add(ModBlocks.ASH_HANGING_SIGN.get())
+				.add(ModBlocks.ASH_SIGN.get())
+				.add(ModBlocks.ASH_FENCE_GATE.get())
+				.add(ModBlocks.ASH_FENCE.get())
+				.add(ModBlocks.ASH_PRESSURE_PLATE.get())
+				.add(ModBlocks.ASH_BUTTON.get())
+				.add(ModBlocks.ASH_SLAB.get())
+				.add(ModBlocks.ASH_STAIRS.get())
+				.add(ModBlocks.ASH_PLANKS.get())
+				.add(ModBlocks.STRIPPED_ASH_WOOD.get())
+				.add(ModBlocks.STRIPPED_ASH_LOG.get())
+				.add(ModBlocks.ASH_WOOD.get())
+				.add(ModBlocks.ASH_LOG.get())
+				.add(ModBlocks.CALIPO_TRAPDOOR.get())
+				.add(ModBlocks.CALIPO_DOOR.get())
+				.add(ModBlocks.CALIPO_HANGING_SIGN.get())
+				.add(ModBlocks.CALIPO_SIGN.get())
+				.add(ModBlocks.CALIPO_FENCE_GATE.get())
+				.add(ModBlocks.CALIPO_PRESSURE_PLATE.get())
+				.add(ModBlocks.CALIPO_BUTTON.get())
+				.add(ModBlocks.FOSSIL_POLISHER.get())
+				.add(ModBlocks.CALIPO_LOG.get())
+				.add(ModBlocks.CALIPO_SLAB.get())
+				.add(ModBlocks.CALIPO_STAIRS.get())
+				.add(ModBlocks.CALIPO_PLANKS.get())
+				.add(ModBlocks.STRIPPED_CALIPO_WOOD.get())
+				.add(ModBlocks.STRIPPED_CALIPO_LOG.get())
+				.add(ModBlocks.CALIPO_WOOD.get());
 
 		// NEEDS_IRON_TOOL
 		this.tag(BlockTags.NEEDS_IRON_TOOL)
@@ -101,6 +149,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 		this.tag(BlockTags.NEEDS_STONE_TOOL)
 				.add(ModBlocks.RAW_FOSSIL_BLOCK.get())
 				.add(ModBlocks.FOSSIL_ORE.get())
+				.add(ModBlocks.DEEPSLATE_FOSSIL_ORE.get())
 				.add(ModBlocks.METATORBERNITE_ORE.get())
 				.add(ModBlocks.METATORBERNITE_BLOCK.get())
 				.add(ModBlocks.DEEP_LANGSTONE.get());
