@@ -6,6 +6,7 @@
 /***********************************************************/
 package net.diverginglensestudios.undeadremains.block.entity;
 
+import net.diverginglensestudios.undeadremains.block.ModBlocks;
 import net.diverginglensestudios.undeadremains.block.custom.FossilAltarBlock;
 import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.screen.XanarianGatewayMenu;
@@ -115,7 +116,20 @@ public class XanarianGatewayBlockEntity extends BlockEntity implements MenuProvi
 	public void onLoad() {
 		super.onLoad();
 		lazyItemHandler = LazyOptional.of(() -> itemHandler);
-		if(!level.isClientSide) {
+		if (!level.isClientSide) {
+			BlockState state = level.getBlockState(worldPosition);
+			if (state.is(ModBlocks.FOSSIL_ALTAR.get())) {
+				CompoundTag tag = this.saveWithoutMetadata();
+				level.setBlock(worldPosition,
+						ModBlocks.XANARIAN_GATEWAY.get()
+								.defaultBlockState()
+								.setValue(FossilAltarBlock.CHARGE, this.charge),3);
+				BlockEntity newBe = level.getBlockEntity(worldPosition);
+				if (newBe instanceof XanarianGatewayBlockEntity gateway) {
+					gateway.load(tag);
+					gateway.setChanged();
+				}
+			}
 			updateChargeState();
 		}
 	}

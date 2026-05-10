@@ -20,5 +20,4 @@ Goals:
 			-2d version for spike bat
 	-fixes
 		fix rotation of polisher
-		fix missing tags for breakable blocks
  */

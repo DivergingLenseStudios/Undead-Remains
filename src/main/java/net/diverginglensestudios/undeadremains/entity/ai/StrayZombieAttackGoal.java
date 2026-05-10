@@ -15,8 +15,8 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 public class StrayZombieAttackGoal extends MeleeAttackGoal {
 	private final StrayZombieEntity entity;
-	private int attackDelay = 12;
-	private int ticksUntilNextAttack = 8;
+	private int attackDelay = 8;
+	private int ticksUntilNextAttack = 12;
 	private boolean shouldCountTillNextAttack = false;
 
 	public StrayZombieAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
@@ -27,8 +27,8 @@ public class StrayZombieAttackGoal extends MeleeAttackGoal {
 	@Override
 	public void start() {
 		super.start();
-		attackDelay = 12;
-		ticksUntilNextAttack = 8;
+		attackDelay = 8;
+		ticksUntilNextAttack = 12;
 	}
 
 	@Override

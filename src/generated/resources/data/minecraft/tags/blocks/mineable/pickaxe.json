@@ -48,6 +48,12 @@
     "undeadremains:bubble_block",
     "undeadremains:ancient_bricks",
     "undeadremains:ancient_pillar",
+    "undeadremains:xanarian_gateway",
+    "undeadremains:fossil_button",
+    "undeadremains:langstone_stairs",
+    "undeadremains:langstone_slab",
+    "undeadremains:metatorbernite_enricher_part",
+    "undeadremains:metatorbernite_enricher_controller",
     "undeadremains:metatorbernite_ore"
   ]
 }
