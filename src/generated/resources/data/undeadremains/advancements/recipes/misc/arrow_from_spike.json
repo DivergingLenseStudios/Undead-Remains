@@ -39,7 +39,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:arrow"
+        "recipe": "undeadremains:arrow_from_spike"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -54,7 +54,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:arrow"
+      "undeadremains:arrow_from_spike"
     ]
   },
   "sends_telemetry_event": false

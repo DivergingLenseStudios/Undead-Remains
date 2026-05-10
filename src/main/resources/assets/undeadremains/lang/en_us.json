@@ -127,7 +127,6 @@
 	"item.undeadremains.ash_boat": "Ash Boat",
 	"item.undeadremains.ash_chest_boat": "Ash Chest Boat",
 
-
 	"block.undeadremains.fossil_lucky_block": "Fossil Lucky Block",
 	"block.undeadremains.metatorbernite_lucky_block": "Metatorbernite Lucky Block",
 
@@ -274,6 +273,11 @@
 	"block.undeadremains.ancient_bricks": "Ancient Bricks",
 	"block.undeadremains.ancient_pillar": "Ancient Pillar",
 	"block.undeadremains.xand": "Xand",
+
+	"painting.undeadremains.xanas.title": "Xanas",
+	"painting.undeadremains.xanas.author": "DivergingLenseStudios"
+
+
 
 	"item.undeadremains.undying_whispers_music_disc": "Undying Whispers Music Disc",
 	"item.undeadremains.undying_whispers_music_disc.desc": "Pordohiq - Undying Whispers",
