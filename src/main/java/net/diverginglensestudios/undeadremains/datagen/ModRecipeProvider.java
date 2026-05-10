@@ -317,7 +317,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy(getHasName(ModItems.SPIKE.get()), has(ModItems.SPIKE.get()))
 				.unlockedBy(getHasName(Items.STICK), has(Items.STICK))
 				.unlockedBy(getHasName(Items.FEATHER), has(Items.FEATHER))
-				.save(pWriter);
+				.save(pWriter, UndeadRemains.MOD_ID + ":arrow_from_spike");
 		// ITEMS//
 		// BLOCKS//
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.METATORBERNITE_ENRICHER_CONTROLLER.get())
