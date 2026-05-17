@@ -79,11 +79,9 @@ public class ModEvents {
 		ItemStack left = event.getLeft();
 		ItemStack right = event.getRight();
 
-		// Example:
-		// Diamond Sword + Ancient Skin
-
-		if (left.getItem() == ModItems.HARVESTER.get()
-				&& right.getItem() == ModItems.ITEM_SKIN_LESS_PIXLES.get()) {
+		//Low Pixel Skin
+		if (right.getItem() == ModItems.ITEM_SKIN_LESS_PIXLES.get()){
+				if (left.getItem() == ModItems.HARVESTER.get()) {
 
 			ItemStack output = left.copy();
 
@@ -93,6 +91,7 @@ public class ModEvents {
 			event.setCost(1);
 			output.setRepairCost(0);
 			event.setMaterialCost(1);
+}
 		}
 	}
 
