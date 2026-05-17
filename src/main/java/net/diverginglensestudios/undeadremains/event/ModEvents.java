@@ -18,6 +18,7 @@ import net.diverginglensestudios.undeadremains.entity.custom.Zombies.SmallWoodli
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.StrayZombieEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Zombies.TreeZombieEntity;
 import net.diverginglensestudios.undeadremains.item.ModItems;
+import net.diverginglensestudios.undeadremains.util.ItemSkinUtil;
 import net.diverginglensestudios.undeadremains.worldgen.dimension.ModDimensions;
 import net.diverginglensestudios.undeadremains.playerData.xanarianreputation.PlayerXanarianReputation;
 import net.diverginglensestudios.undeadremains.playerData.xanarianreputation.PlayerXanarianReputationProvider;
@@ -52,6 +53,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.ticks.WorldGenTickAccess;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
@@ -70,6 +72,29 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 @Mod.EventBusSubscriber(modid = UndeadRemains.MOD_ID)
 public class ModEvents {
 
+
+	@SubscribeEvent
+	public static void onAnvilUpdate(AnvilUpdateEvent event) {
+
+		ItemStack left = event.getLeft();
+		ItemStack right = event.getRight();
+
+		// Example:
+		// Diamond Sword + Ancient Skin
+
+		if (left.getItem() == ModItems.HARVESTER.get()
+				&& right.getItem() == ModItems.ITEM_SKIN_LESS_PIXLES.get()) {
+
+			ItemStack output = left.copy();
+
+			ItemSkinUtil.setSkin(output, "low_pixel");
+
+			event.setOutput(output);
+			event.setCost(1);
+			output.setRepairCost(0);
+			event.setMaterialCost(1);
+		}
+	}
 
 	@SubscribeEvent
 	public static void onMobDeath(LivingDeathEvent event) {

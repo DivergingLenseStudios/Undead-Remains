@@ -1,0 +1,11 @@
+{
+	"type": "undeadremains:item_skinning",
+
+	"base": {
+		"item": "undeadremains:harvester"
+	},
+
+	"addition": {
+		"item": "undeadremains:low_pixel"
+	}
+}

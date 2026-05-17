@@ -59,6 +59,8 @@ public class ModItems {
 	public static final RegistryObject<Item> XANARANHA_HORN_ON_A_STICK = ITEMS.register("xanaranha_horn_on_a_stick",
 			() -> new ModTooltipItem(new Item.Properties().stacksTo(1),
 					"tooltip.undeadremains.xanaranha_horn_on_a_stick"));
+	public static final RegistryObject<Item> ITEM_SKIN_LESS_PIXLES = ITEMS.register("item_skin_less_pixels",
+			() -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> BUBBLE = ITEMS.register("bubble",
 			() -> new Item(new Item.Properties().stacksTo(1)));

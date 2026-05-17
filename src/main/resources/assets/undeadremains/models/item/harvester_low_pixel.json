@@ -1,7 +1,7 @@
 {
 	"parent": "minecraft:item/handheld",
 	"textures": {
-		"layer0": "undeadremains:item/harvester"
+		"layer0": "undeadremains:item/harvester_low_pixel"
 	},
 
 	"display": {
@@ -41,14 +41,5 @@
 			"rotation": [0, 0, 90],
 			"scale": [1, 1, 0.65]
 		}
-	},
-	"overrides": [
-		{
-			"predicate": {
-				"undeadremains:skin": 1
-			},
-
-			"model": "undeadremains:item/harvester_low_pixel"
-		}
-	]
+	}
 }

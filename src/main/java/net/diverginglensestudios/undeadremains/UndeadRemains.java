@@ -39,7 +39,6 @@ import net.diverginglensestudios.undeadremains.recipe.ModRecipes;
 import net.diverginglensestudios.undeadremains.screen.GemPolishingStationScreen;
 import net.diverginglensestudios.undeadremains.screen.MetatorberniteEnricherScreen;
 import net.diverginglensestudios.undeadremains.screen.ModMenuTypes;
-import net.diverginglensestudios.undeadremains.screen.XanarianGatewayMenu;
 import net.diverginglensestudios.undeadremains.screen.XanarianGatewayScreen;
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.diverginglensestudios.undeadremains.util.BetterBrewingRecipe;
@@ -65,12 +64,14 @@ import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
+import net.diverginglensestudios.undeadremains.item.client.ClientItemProperties;
 
 import org.slf4j.Logger;
 
@@ -86,6 +87,8 @@ public class UndeadRemains { // Define the Class for the Mod
 
 	public UndeadRemains() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+
 
 		ModCreativeModTabs.register(modEventBus);
 
@@ -214,6 +217,9 @@ public class UndeadRemains { // Define the Class for the Mod
 			MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
 			MenuScreens.register(ModMenuTypes.XANARIAN_GATEWAY_MENU.get(), XanarianGatewayScreen::new);
 			MenuScreens.register(ModMenuTypes.METATORBERNITE_ENRICHER_MENU.get(), MetatorberniteEnricherScreen::new);
+			event.enqueueWork(() -> {
+				ClientItemProperties.register();
+			});
 		}
 
 		@SubscribeEvent

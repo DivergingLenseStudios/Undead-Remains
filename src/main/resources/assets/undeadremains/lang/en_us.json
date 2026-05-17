@@ -274,9 +274,11 @@
 	"block.undeadremains.ancient_pillar": "Ancient Pillar",
 	"block.undeadremains.xand": "Xand",
 
-	"painting.undeadremains.xanas.title": "Xanas",
-	"painting.undeadremains.xanas.author": "DivergingLenseStudios"
 
+	"painting.undeadremains.xanas.title": "Xanas",
+	"painting.undeadremains.xanas.author": "DivergingLenseStudios",
+	"painting.undeadremains.cannibal.title": "Cannibal",
+	"painting.undeadremains.cannibal.author": "DivergingLenseStudios",
 
 
 	"item.undeadremains.undying_whispers_music_disc": "Undying Whispers Music Disc",
@@ -327,7 +329,7 @@
 	"advancement.undeadremains.metatorbernite.title": "Metatorbernite",
 	"advancement.undeadremains.metatorbernite.desc": "Love is in the air? Wrong, Radioactive dust",
 	"advancement.undeadremains.metatorbernite_enricher.title": "Metatorbernite Enricher",
-	"advancement.undeadremains.metatorbernite_enricher.desc": "After crafting the metatorbernite enricher part + controller, build a 3x3x3 cube of part blocks with the controller in the middle and right click it",
+	"advancement.undeadremains.metatorbernite_enricher.desc": "After crafting the Metatorbernite enricher part + controller, build a 3x3x3 cube of part blocks with the controller in the middle and right click it",
 	"advancement.undeadremains.metaturbonite.title": "Turbocharged",
 	"advancement.undeadremains.metaturbonite.desc": "Combine Rare fossil, Metatorbernite, and an empty fuel cell in the Metatorbernite Enricher",
 	"advancement.undeadremains.xanas.title": "Welcome to Xanas",
@@ -336,21 +338,20 @@
 	"advancement.undeadremains.fossil_lucky_block.desc": "Try getting Lucky with a Lucky Block",
 	"advancement.undeadremains.xanarian_gateway.title": "Interplanetary travel",
 	"advancement.undeadremains.xanarian_gateway.desc": "Is this some kind of star gate?",
-
+	"advancement.undeadremains.metatorbernite_tools.title": "Swiss army knife",
+	"advancement.undeadremains.metatorbernite_tools.desc": "Obtain all metatorbernite tools",
+	"advancement.undeadremains.gas_mask.title": "Liquidator",
+	"advancement.undeadremains.gas_mask.desc": "Obtain a gas mask",
 	"advancement.undeadremains.rare_fossil.title": "Superior",
 	"advancement.undeadremains.rare_fossil.desc": "Obtain rare fossil",
-	"advancement.undeadremains.rare_fossil_armor.title": "Rare fossil Armor",
+	"advancement.undeadremains.rare_fossil_armor.title": "Looking sharp",
 	"advancement.undeadremains.rare_fossil_armor.desc": "Obtain a full set of rare fossil armor",
-	"advancement.undeadremains.rare_fossil_tools.title": "Rare fossil Tools",
+	"advancement.undeadremains.rare_fossil_tools.title": "I just hit the Jackpot!",
 	"advancement.undeadremains.rare_fossil_tools.desc": "Obtain all rare fossil tools",
-	"advancement.undeadremains.metatorbernite_armor.title": "Metatorbernite Armor",
+	"advancement.undeadremains.metatorbernite_armor.title": "Camouflesh",
 	"advancement.undeadremains.metatorbernite_armor.desc": "Obtain a full set of metatorbernite armor",
-	"advancement.undeadremains.gas_mask.title": "Gas Mask",
-	"advancement.undeadremains.gas_mask.desc": "Obtain a gas mask",
 	"advancement.undeadremains.metatorbernite_gas_mask.title": "Metatorbernite Gas Mask",
 	"advancement.undeadremains.metatorbernite_gas_mask.desc": "Obtain a metatorbernite gas mask",
-	"advancement.undeadremains.metatorbernite_tools.title": "Metatorbernite Tools",
-	"advancement.undeadremains.metatorbernite_tools.desc": "Obtain all metatorbernite tools",
 
 	"creativetab.tutorial_tab": "Undead Remains"
 
