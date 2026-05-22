@@ -109,6 +109,6 @@ public class FourEyedXanarianEntity extends AbstractXanarian {
 				.add(Attributes.FOLLOW_RANGE, 35.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
 				.add(Attributes.ATTACK_DAMAGE, 3.0D)
-				.add(Attributes.ARMOR, 3.0D);
+				.add(Attributes.ARMOR, 1.0D);
 	}
 }

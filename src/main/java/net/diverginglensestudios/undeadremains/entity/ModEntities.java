@@ -88,6 +88,10 @@ public class ModEntities {
 			() -> EntityType.Builder.<XanarianEntity>of(XanarianEntity::new, MobCategory.MONSTER)
 					.sized(1.4f, 3.95f).build("xanarian"));
 
+	public static final RegistryObject<EntityType<XanarianSoldierEntity>> XANARIAN_SOLDIER = ENTITY_TYPES.register("xanarian_soldier",
+			() -> EntityType.Builder.<XanarianSoldierEntity>of(XanarianSoldierEntity::new, MobCategory.MONSTER)
+					.sized(1.4f, 3.95f).build("xanarian_soldier"));
+
 	public static final RegistryObject<EntityType<HornedXanarianEntity>> HORNED_XANARIAN = ENTITY_TYPES.register(
 			"horned_xanarian",
 			() -> EntityType.Builder.<HornedXanarianEntity>of(HornedXanarianEntity::new, MobCategory.MONSTER)

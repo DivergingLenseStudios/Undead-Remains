@@ -50,6 +50,8 @@ public class ModModelLayers {
 			new ResourceLocation(UndeadRemains.MOD_ID, "small_woodling"), "main");
 	public static final ModelLayerLocation DROWNED_SKELETON_LAYER = new ModelLayerLocation(
 			new ResourceLocation(UndeadRemains.MOD_ID, "drowned_skeleton"), "main");
+	public static final ModelLayerLocation XANARIAN_SOLDIER_LAYER = new ModelLayerLocation(
+			new ResourceLocation(UndeadRemains.MOD_ID, "xanarian_soldier"), "main");
 
 
 	public static final ModelLayerLocation PINE_BOAT_LAYER = new ModelLayerLocation(

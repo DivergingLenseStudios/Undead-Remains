@@ -8,7 +8,7 @@
 package net.diverginglensestudios.undeadremains.entity.custom.Xanarians;
 
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
-import net.diverginglensestudios.undeadremains.entity.ai.HornedXanarianAttackGoal;
+import net.diverginglensestudios.undeadremains.entity.ai.XanarianAttackGoal;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -20,16 +20,16 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
-public class HornedXanarianEntity extends AbstractXanarian {
-	public HornedXanarianEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+public class XanarianSoldierEntity extends AbstractXanarian {
+	public XanarianSoldierEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 
 	}
 	private static final EntityDataAccessor<Boolean> ATTACKING =
-			SynchedEntityData.defineId(HornedXanarianEntity.class, EntityDataSerializers.BOOLEAN);
+			SynchedEntityData.defineId(XanarianSoldierEntity.class, EntityDataSerializers.BOOLEAN);
 
-	public HornedXanarianEntity(Level pLevel) {
-		this(ModEntities.HORNED_XANARIAN.get(), pLevel);
+	public XanarianSoldierEntity(Level pLevel) {
+		this(ModEntities.XANARIAN_SOLDIER.get(), pLevel);
 	}
 
 
@@ -57,7 +57,7 @@ public class HornedXanarianEntity extends AbstractXanarian {
 		}
 
 		if(this.isAttacking() && attackAnimationTimeout <= 0) {
-			attackAnimationTimeout = 36; // Length in ticks of your animation
+			attackAnimationTimeout = 37; // Length in ticks of your animation
 			attackAnimationState.start(this.tickCount);
 		} else {
 			--this.attackAnimationTimeout;
@@ -97,15 +97,15 @@ public class HornedXanarianEntity extends AbstractXanarian {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(2, new HornedXanarianAttackGoal(this, 1.25D, true));
+		//this.goalSelector.addGoal(2, new XanarianAttackGoal(this, 1.25D, true));
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
-				.add(Attributes.MAX_HEALTH, 90.0D)
+				.add(Attributes.MAX_HEALTH, 150.0D)
 				.add(Attributes.FOLLOW_RANGE, 65.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double)0.35F)
 				.add(Attributes.ATTACK_DAMAGE, 7.0D)
-				.add(Attributes.ARMOR, 5.0D);
+				.add(Attributes.ARMOR, 7.0D);
 	}
 }

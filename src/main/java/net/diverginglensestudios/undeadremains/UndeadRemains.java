@@ -28,6 +28,7 @@ import net.diverginglensestudios.undeadremains.entity.client.UndeadArcheologist.
 import net.diverginglensestudios.undeadremains.entity.client.Xanaranha.XanaranhaRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.Xanarian.XanarianRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.XanarianCannibal.XanarianCannibalRenderer;
+import net.diverginglensestudios.undeadremains.entity.client.XanarianSoldier.XanarianSoldierRenderer;
 import net.diverginglensestudios.undeadremains.entity.client.horned_xanarian.HornedXanarianRenderer;
 import net.diverginglensestudios.undeadremains.item.ModCreativeModTabs;
 import net.diverginglensestudios.undeadremains.item.ModItems;
@@ -199,9 +200,10 @@ public class UndeadRemains { // Define the Class for the Mod
 					pContext -> new SuckerRenderer(pContext));
 			EntityRenderers.register(ModEntities.HORNED_XANARIAN.get(),
 					pContext -> new HornedXanarianRenderer(pContext));
-
 			EntityRenderers.register(ModEntities.DROWNED_SKELETON.get(),
 					pContext -> new DrownedSkeletonRenderer(pContext));
+			EntityRenderers.register(ModEntities.XANARIAN_SOLDIER.get(),
+					pContext -> new XanarianSoldierRenderer(pContext));
 
 			EntityRenderers.register(ModEntities.MOD_BOAT.get(),
 					pContext -> new ModBoatRenderer(pContext, false));

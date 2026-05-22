@@ -106,6 +106,6 @@ public class XanarianEntity extends AbstractXanarian {
 				.add(Attributes.FOLLOW_RANGE, 50.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double)0.28F)
 				.add(Attributes.ATTACK_DAMAGE, 5.0D)
-				.add(Attributes.ARMOR, 5.0D);
+				.add(Attributes.ARMOR, 3.0D);
 	}
 }

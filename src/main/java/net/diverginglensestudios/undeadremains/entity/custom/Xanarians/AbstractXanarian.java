@@ -74,10 +74,11 @@ public class AbstractXanarian extends Monster {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(1,
 				new XanarianHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(),
-						ModEntities.XANARIAN.get(), ModEntities.HORNED_XANARIAN.get())));
+						ModEntities.XANARIAN.get(), ModEntities.HORNED_XANARIAN.get(), ModEntities.XANARIAN_SOLDIER.get())));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, AbstractFish.class, 10.0F, 1.5D, 1.2D));
 		this.goalSelector.addGoal(1, new AvoidEntityHoldingItemGoal<>(this, LivingEntity.class, ModItems.XANARANHA_HORN_ON_A_STICK.get(), 10.0F, 1.5D, 1.2D));
 		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
+		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, XanarianCannibalEntity.class, true));
 		this.goalSelector.addGoal(3, new XanarianReputationTargetGoal(this));
 		this.goalSelector.addGoal(3, new XanarianProtectPlayerGoal(this));
 		this.goalSelector.addGoal(6, new ModMoveThroughVillageGoal(this, 1.0D, true, 4, true));

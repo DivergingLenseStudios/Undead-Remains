@@ -18,11 +18,14 @@ import net.diverginglensestudios.undeadremains.item.custom.*;
 import net.diverginglensestudios.undeadremains.sound.ModSounds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import static net.minecraft.world.item.Items.registerBlock;
 
 public class ModItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,

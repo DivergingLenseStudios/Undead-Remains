@@ -30,6 +30,7 @@ import net.diverginglensestudios.undeadremains.entity.client.UndeadArcheologist.
 import net.diverginglensestudios.undeadremains.entity.client.Xanaranha.XanaranhaModel;
 import net.diverginglensestudios.undeadremains.entity.client.Xanarian.XanarianModel;
 import net.diverginglensestudios.undeadremains.entity.client.XanarianCannibal.XanarianCannibalModel;
+import net.diverginglensestudios.undeadremains.entity.client.XanarianSoldier.XanarianSoldierModel;
 import net.diverginglensestudios.undeadremains.entity.client.horned_xanarian.HornedXanarianModel;
 
 // Import Minecraft and Forge Elements
@@ -65,6 +66,7 @@ public class ModEventBusClientEvents {
 		event.registerLayerDefinition(ModModelLayers.BIG_WOODLING_LAYER, BigWoodlingModel::createBodyLayer);
 		event.registerLayerDefinition(ModModelLayers.SMALL_WOODLING_LAYER, SmallWoodlingModel::createBodyLayer);
 		event.registerLayerDefinition(ModModelLayers.DROWNED_SKELETON_LAYER, DrownedSkeletonModel::createBodyLayer);
+		event.registerLayerDefinition(ModModelLayers.XANARIAN_SOLDIER_LAYER, XanarianSoldierModel::createBodyLayer);
 
 		event.registerLayerDefinition(ModModelLayers.PINE_BOAT_LAYER, BoatModel::createBodyModel);
 		event.registerLayerDefinition(ModModelLayers.PINE_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);

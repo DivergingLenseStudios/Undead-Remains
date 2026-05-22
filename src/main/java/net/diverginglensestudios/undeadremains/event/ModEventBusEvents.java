@@ -48,6 +48,7 @@ public class ModEventBusEvents {
 		event.put(ModEntities.BIG_WOODLING.get(), BigWoodlingEntity.createAttributes().build());
 		event.put(ModEntities.SMALL_WOODLING.get(), SmallWoodlingEntity.createAttributes().build());
 		event.put(ModEntities.DROWNED_SKELETON.get(), DrownedSkeletonEntity.createAttributes().build());
+		event.put(ModEntities.XANARIAN_SOLDIER.get(), XanarianSoldierEntity.createAttributes().build());
 	}
 
 
