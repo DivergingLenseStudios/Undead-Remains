@@ -354,21 +354,20 @@ public class ModItems {
 	public static final RegistryObject<Item> STRAY_ZOMBIE_SPAWN_EGG = ITEMS.register("stray_zombie_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.STRAY_ZOMBIE, 0x394061, 0x394061, new Item.Properties()));
 
-	public static final RegistryObject<Item> XANARIAN_CANNIBAL_SPAWN_EGG = ITEMS.register(
-			"xanarian_cannibal_spawn_egg",
+	public static final RegistryObject<Item> XANARIAN_CANNIBAL_SPAWN_EGG = ITEMS.register("xanarian_cannibal_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.XANARIAN_CANNIBAL, 0x394061, 0x394061, new Item.Properties()));
 
-	public static final RegistryObject<Item> XANARANHA_SPAWN_EGG = ITEMS.register(
-			"xanaranha_spawn_egg",
+	public static final RegistryObject<Item> XANARANHA_SPAWN_EGG = ITEMS.register("xanaranha_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.XANARANHA, 0x303e39, 0x4f0937, new Item.Properties()));
 
-	public static final RegistryObject<Item> SUCKER_SPAWN_EGG = ITEMS.register(
-			"sucker_spawn_egg",
+	public static final RegistryObject<Item> SUCKER_SPAWN_EGG = ITEMS.register("sucker_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.SUCKER, 0x90aeb5, 0x4f334d, new Item.Properties()));
 
-	public static final RegistryObject<Item> DROWNED_SKELETON_SPAWN_EGG = ITEMS.register(
-			"drowned_skeleton_spawn_egg",
+	public static final RegistryObject<Item> DROWNED_SKELETON_SPAWN_EGG = ITEMS.register("drowned_skeleton_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.DROWNED_SKELETON, 0x598f9e, 0xbaad96, new Item.Properties()));
+
+	public static final RegistryObject<Item> XANARIAN_SOLDIER_SPAWN_EGG = ITEMS.register("xanarian_soldier_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.XANARIAN_SOLDIER, 0xa51b24, 0x98805b, new Item.Properties()));
 
 	// Signs
 	public static final RegistryObject<Item> ASH_SIGN = ITEMS.register("ash_sign",

@@ -123,6 +123,7 @@
 	"item.undeadremains.xanaranha_spawn_egg": "Xanaranha Spawn Egg",
 	"item.undeadremains.sucker_spawn_egg": "Sucker Spawn Egg",
 	"item.undeadremains.drowned_skeleton_spawn_egg": "Drowned Skeleton Spawn Egg",
+	"item.undeadremains.xanarian_soldier_spawn_egg": "Xanarian Soldier Spawn Egg",
 
 	"item.undeadremains.ash_boat": "Ash Boat",
 	"item.undeadremains.ash_chest_boat": "Ash Chest Boat",
@@ -237,6 +238,7 @@
 	"entity.undeadremains.xanarian": "Xanarian",
 	"entity.undeadremains.sucker": "Sucker",
 	"entity.undeadremains.bubble_block_bubble_projectile": "Bubble Block Bubble",
+	"entity.undeadremains.xanarian_soldier": "Xanarian Soldier",
 
 	"block.undeadremains.chiseled_langstone": "Chiseled Langstone",
 	"block.undeadremains.langstone_stairs": "Langstone Stairs",
