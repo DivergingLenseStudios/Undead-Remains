@@ -17,6 +17,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
@@ -97,7 +98,7 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		//this.goalSelector.addGoal(2, new XanarianAttackGoal(this, 1.25D, true));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.25D, true));
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -105,7 +106,7 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 				.add(Attributes.MAX_HEALTH, 150.0D)
 				.add(Attributes.FOLLOW_RANGE, 65.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double)0.35F)
-				.add(Attributes.ATTACK_DAMAGE, 7.0D)
+				.add(Attributes.ATTACK_DAMAGE, 15.0D)
 				.add(Attributes.ARMOR, 7.0D);
 	}
 }
