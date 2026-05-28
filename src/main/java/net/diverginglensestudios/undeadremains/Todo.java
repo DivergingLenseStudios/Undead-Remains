@@ -16,7 +16,6 @@ Goals:
 	-reworks
 		-Spike shoots spikes upon death
 		-Add weapon skins
-			-Smaller version for harvester
 			-2d version for spike bat
 	-fixes
 		fix rotation of polisher
