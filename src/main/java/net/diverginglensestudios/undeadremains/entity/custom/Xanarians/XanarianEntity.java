@@ -25,73 +25,41 @@ public class XanarianEntity extends AbstractXanarian {
 		super(pEntityType, pLevel);
 
 	}
-	private static final EntityDataAccessor<Boolean> ATTACKING =
-			SynchedEntityData.defineId(XanarianEntity.class, EntityDataSerializers.BOOLEAN);
 
 	public XanarianEntity(Level pLevel) {
 		this(ModEntities.XANARIAN.get(), pLevel);
 	}
-
+	private static final EntityDataAccessor<Integer> ATTACKTICKER =
+			SynchedEntityData.defineId(XanarianCannibalEntity.class, EntityDataSerializers.INT); //define ticker
 
 	public final AnimationState idleAnimationState = new AnimationState();
-	private int idleAnimationTimeout = 0;
-
 	public final AnimationState attackAnimationState = new AnimationState();
-	public int attackAnimationTimeout = 0;
 
-	@Override
 	public void tick() {
 		super.tick();
 
 		if(this.level().isClientSide()) {
-			setupAnimationStates();
-		}
-	}
+			this.idleAnimationState.animateWhen(this.getAttackTicker() <= 0, this.tickCount);//Idle animation plays when attack animations aren't playing
+			this.attackAnimationState.animateWhen(this.getAttackTicker() > 0, this.tickCount);//when the ticker is above 0, the respective animation plays
 
-	private void setupAnimationStates() {
-		if(this.idleAnimationTimeout <= 0) {
-			this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-			this.idleAnimationState.start(this.tickCount);
 		} else {
-			--this.idleAnimationTimeout;
-		}
-
-		if(this.isAttacking() && attackAnimationTimeout <= 0) {
-			attackAnimationTimeout = 37; // Length in ticks of your animation
-			attackAnimationState.start(this.tickCount);
-		} else {
-			--this.attackAnimationTimeout;
-		}
-
-		if(!this.isAttacking()) {
-			attackAnimationState.stop();
+			if (this.getAttackTicker()>0){
+				this.setAttackTicker(getAttackTicker()-1);//if the ticker is more than 0, then it gets reduced by 1 every tick
+			}
 		}
 	}
-
-	@Override
-	protected void updateWalkAnimation(float pPartialTick) {
-		float f;
-		if(this.getPose() == Pose.STANDING) {
-			f = Math.min(pPartialTick * 6F, 1f);
-		} else {
-			f = 0f;
-		}
-
-		this.walkAnimation.update(f, 0.2f);
+	public void setAttackTicker(Integer ticks) {
+		this.entityData.set(ATTACKTICKER, ticks);//command to set the value of the ticker
 	}
 
-	public void setAttacking(boolean attacking) {
-		this.entityData.set(ATTACKING, attacking);
-	}
-
-	public boolean isAttacking() {
-		return this.entityData.get(ATTACKING);
+	public Integer getAttackTicker() {
+		return this.entityData.get(ATTACKTICKER);//command to get the current value of the ticker
 	}
 
 	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
-		this.entityData.define(ATTACKING, false);
+		this.entityData.define(ATTACKTICKER, 0);
 	}
 
 	@Override

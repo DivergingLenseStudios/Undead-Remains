@@ -8,17 +8,14 @@
 package net.diverginglensestudios.undeadremains.entity.custom.Xanarians;
 
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
-import net.diverginglensestudios.undeadremains.entity.ai.XanarianAttackGoal;
 import net.diverginglensestudios.undeadremains.entity.ai.XanarianSoldierAttackGoal;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
@@ -27,7 +24,6 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 		super(pEntityType, pLevel);
 
 	}
-
 	public XanarianSoldierEntity(Level pLevel) {
 		this(ModEntities.XANARIAN_SOLDIER.get(), pLevel);
 	}
@@ -77,8 +73,6 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 		this.entityData.set(SLAMTICKER, ticks);//command to set the current value of the ticker
 	}
 
-
-
 	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
@@ -93,4 +87,12 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 
 	}
 
+	public static AttributeSupplier.Builder createAttributes() {
+		return Monster.createMonsterAttributes()
+				.add(Attributes.MAX_HEALTH, 150.0D)
+				.add(Attributes.FOLLOW_RANGE, 70.0D)
+				.add(Attributes.MOVEMENT_SPEED, (double)0.35F)
+				.add(Attributes.ATTACK_DAMAGE, 10.0D)
+				.add(Attributes.ARMOR, 7.0D);
+	}
 }

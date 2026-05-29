@@ -89,8 +89,6 @@ public class UndeadRemains { // Define the Class for the Mod
 	public UndeadRemains() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-
-
 		ModCreativeModTabs.register(modEventBus);
 
 		ModItems.register(modEventBus);
