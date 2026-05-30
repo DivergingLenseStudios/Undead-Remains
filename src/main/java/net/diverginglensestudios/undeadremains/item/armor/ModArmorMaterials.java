@@ -20,14 +20,17 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
 	FOSSIL("fossil", /* durability multiplier */26,
-			/* armor values for all pieces */ new int[] { /* helmet */(int) 1.5f, /* chestplate */(int) 5.5f,
-			(int) 4.5f, 2 },
+			/* armor values for all pieces */ new int[] {
+				/* helmet */(int) 1.5f,
+				/* chestplate */(int) 5.5f,
+				/* leggings */(int) 4.5f,
+				/* boots */2 },
 			/* enchantment value */ 25,
 			/* equip sound */SoundEvents.ARMOR_EQUIP_GENERIC, /* toughness */0, /* knockback res */0f,
 			/* 🤷‍♂️ */ () -> Ingredient.of(ModItems.FOSSIL.get())),
 
 	RARE_FOSSIL("rare_fossil", 35, new int[] { 4, 9, 7, 4 }, 30,
-			SoundEvents.ARMOR_EQUIP_NETHERITE, 3f, 1f, () -> Ingredient.of(ModItems.RARE_FOSSIL.get())),
+			SoundEvents.ARMOR_EQUIP_NETHERITE, 3f, 0.3f, () -> Ingredient.of(ModItems.RARE_FOSSIL.get())),
 
 	METATORBERNITE("metatorbernite", 20, new int[] { 3, 8, 5, 2 }, 30,
 			SoundEvents.ARMOR_EQUIP_NETHERITE, 0.5f, 0, () -> Ingredient.of(ModItems.METATORBERNITE.get())),
@@ -35,8 +38,8 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	SUNGLASSES("sunglasses", 5, new int[] { 1, 1, 1, 1 }, 10,
 			SoundEvents.ARMOR_EQUIP_LEATHER, 0.1f, 0f, () -> Ingredient.of(Items.GLASS)),
 
-	LANGRITE("langrite", 5, new int[] { 4, 9, 7, 4 }, 25,
-			SoundEvents.ARMOR_EQUIP_GOLD, 2.5f, 1.5f, () -> Ingredient.of(ModItems.LANGRITE_INGOT.get())),
+	LANGRITE("langrite", 40, new int[] { 4, 9, 7, 4 }, 25,
+			SoundEvents.ARMOR_EQUIP_GOLD, 2.5f, 0.5f, () -> Ingredient.of(ModItems.LANGRITE_INGOT.get())),
 
 	XANARIAN("xanarian", 20, new int[] { 2, 4, 3, 2 }, 25,
 			SoundEvents.ARMOR_EQUIP_GOLD, 2f, 0f, () -> Ingredient.of(ModItems.XANARIAN_SPINE.get())),
