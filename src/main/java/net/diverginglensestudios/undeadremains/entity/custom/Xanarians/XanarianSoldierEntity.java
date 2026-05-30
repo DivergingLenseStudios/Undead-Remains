@@ -8,16 +8,25 @@
 package net.diverginglensestudios.undeadremains.entity.custom.Xanarians;
 
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
-import net.diverginglensestudios.undeadremains.entity.ai.XanarianSoldierAttackGoal;
+import net.diverginglensestudios.undeadremains.entity.ai.*;
+import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+
+import java.util.List;
 
 public class XanarianSoldierEntity extends AbstractXanarian {
 	public XanarianSoldierEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
@@ -29,10 +38,10 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 	}
 
 	private static final EntityDataAccessor<Integer> SLASHTICKER =
-			SynchedEntityData.defineId(XanarianCannibalEntity.class, EntityDataSerializers.INT); //define ticker
+			SynchedEntityData.defineId(XanarianSoldierEntity.class, EntityDataSerializers.INT); //define ticker
 
 	private static final EntityDataAccessor<Integer> SLAMTICKER =
-			SynchedEntityData.defineId(XanarianCannibalEntity.class, EntityDataSerializers.INT); //define ticker
+			SynchedEntityData.defineId(XanarianSoldierEntity.class, EntityDataSerializers.INT); //define ticker
 
 
 	public final AnimationState idleAnimationState = new AnimationState();
@@ -82,7 +91,14 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 
 	@Override
 	protected void registerGoals() {
-		super.registerGoals();
+		this.goalSelector.addGoal(0, new FloatGoal(this));
+		this.goalSelector.addGoal(1, new XanarianHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(), ModEntities.XANARIAN.get(), ModEntities.HORNED_XANARIAN.get(), ModEntities.XANARIAN_SOLDIER.get())));
+		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
+		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, XanarianCannibalEntity.class, true));
+		this.goalSelector.addGoal(3, new XanarianReputationTargetGoal(this));
+		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(2, new XanarianSoldierAttackGoal(this, 1.25D, true));
 
 	}

@@ -27,75 +27,66 @@ public class FourEyedXanarianEntity extends AbstractXanarian {
 		super(pEntityType, pLevel);
 
 	}
-	private static final EntityDataAccessor<Boolean> ATTACKING =
-			SynchedEntityData.defineId(FourEyedXanarianEntity.class, EntityDataSerializers.BOOLEAN);
 
 	public FourEyedXanarianEntity(Level pLevel) {
 		this(ModEntities.FOUR_EYED_XANARIAN.get(), pLevel);
 	}
 
 
+	private static final EntityDataAccessor<Integer> SLAMTICKER =
+			SynchedEntityData.defineId(FourEyedXanarianEntity.class, EntityDataSerializers.INT); //define ticker
+
+	private static final EntityDataAccessor<Integer> THROWTICKER =
+			SynchedEntityData.defineId(FourEyedXanarianEntity.class, EntityDataSerializers.INT); //define ticker
+
+
+
 	public final AnimationState idleAnimationState = new AnimationState();
-	private int idleAnimationTimeout = 0;
+	public final AnimationState throwAnimationState = new AnimationState();
+	public final AnimationState slamAnimationState = new AnimationState();
 
-	public final AnimationState attackAnimationState = new AnimationState();
-	public int attackAnimationTimeout = 0;
-
-	@Override
 	public void tick() {
 		super.tick();
 
 		if(this.level().isClientSide()) {
-			setupAnimationStates();
-		}
-	}
+			this.idleAnimationState.animateWhen(this.getSlamTicker() <= 0 && this.getThrowTicker() <= 0, this.tickCount);//Idle animation plays when attack animations aren't playing
+			this.slamAnimationState.animateWhen(this.getSlamTicker() > 0, this.tickCount);//when the ticker is above 0, the respective animation plays
+			this.throwAnimationState.animateWhen(this.getThrowTicker() > 0, this.tickCount);//when the ticker is above 0, the respective animation plays
 
-	private void setupAnimationStates() {
-		if(this.idleAnimationTimeout <= 0) {
-			this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-			this.idleAnimationState.start(this.tickCount);
 		} else {
-			--this.idleAnimationTimeout;
-		}
-
-		if(this.isAttacking() && attackAnimationTimeout <= 0) {
-			attackAnimationTimeout = 31; // Length in ticks of your animation
-			attackAnimationState.start(this.tickCount);
-		} else {
-			--this.attackAnimationTimeout;
-		}
-
-		if(!this.isAttacking()) {
-			attackAnimationState.stop();
+			if (this.getSlamTicker()>0){
+				this.setSlamTicker(getSlamTicker()-1);//if the ticker is more than 0, then it gets reduced by 1 every tick
+			}
+			if (this.getThrowTicker()>0){
+				this.setThrowTicker(getThrowTicker()-1);//if the ticker is more than 0, then it gets reduced by 1 every tick
+			}
 		}
 	}
 
-	@Override
-	protected void updateWalkAnimation(float pPartialTick) {
-		float f;
-		if(this.getPose() == Pose.STANDING) {
-			f = Math.min(pPartialTick * 6F, 1f);
-		} else {
-			f = 0f;
-		}
 
-		this.walkAnimation.update(f, 0.2f);
+
+	public Integer getSlamTicker() {
+		return this.entityData.get(SLAMTICKER);//command to get the current value of the ticker
 	}
 
-	public void setAttacking(boolean attacking) {
-		this.entityData.set(ATTACKING, attacking);
+	public void setSlamTicker(Integer ticks) {
+		this.entityData.set(SLAMTICKER, ticks);//command to set the current value of the ticker
 	}
 
-	public boolean isAttacking() {
-		return this.entityData.get(ATTACKING);
+	public Integer getThrowTicker() {
+		return this.entityData.get(THROWTICKER);//command to get the current value of the ticker
+	}
+
+	public void setThrowTicker(Integer ticks) {
+		this.entityData.set(THROWTICKER, ticks);//command to set the current value of the ticker
 	}
 
 	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
-		this.entityData.define(ATTACKING, false);
+		this.entityData.define(SLAMTICKER, 0);
+		this.entityData.define(THROWTICKER, 0);
 	}
-
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
@@ -109,6 +100,7 @@ public class FourEyedXanarianEntity extends AbstractXanarian {
 				.add(Attributes.FOLLOW_RANGE, 35.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
 				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(Attributes.ATTACK_KNOCKBACK, 3)
 				.add(Attributes.ARMOR, 1.0D);
 	}
 }

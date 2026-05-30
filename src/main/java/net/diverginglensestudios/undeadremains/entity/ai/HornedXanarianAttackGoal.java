@@ -13,11 +13,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
+import java.util.Random;
+
 public class HornedXanarianAttackGoal extends MeleeAttackGoal {
 	private final HornedXanarianEntity entity;
-	private int attackDelay = 15;
-	private int ticksUntilNextAttack = 20;
-	private boolean shouldCountTillNextAttack = false;
 
 	public HornedXanarianAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
 		super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
@@ -27,54 +26,44 @@ public class HornedXanarianAttackGoal extends MeleeAttackGoal {
 	@Override
 	public void start() {
 		super.start();
-		attackDelay = 15;
-		ticksUntilNextAttack = 20;
 	}
 
 	@Override
 	protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-		if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
-			shouldCountTillNextAttack = true;
+		if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) { //if the enemy is in reach
 
-			if(isTimeToStartAttackAnimation()) {
-				entity.setAttacking(true);
+			if(isTimeToStartAttackAnimation()){ //if both tickers are at 0
+				Random random = new Random();
+				int choice = random.nextInt(3) + 1; // Number of events
+				if(choice == 1) {//selects one attack randomly
+					entity.setHitTicker(15);//length of animation (this starts the anim.)
+				} else if (choice == 2) {
+					entity.setThrowTicker(15);
+				} else if (choice == 3) {
+					entity.setSlamTicker(25);
+				}
+
 			}
-
-			if(isTimeToAttack()) {
+			if(isTimeToAttack()) {// if the ticker is at the point where the damage should happen
 				this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
 				performAttack(pEnemy);
 			}
-		} else {
-			resetAttackCooldown();
-			shouldCountTillNextAttack = false;
-			entity.setAttacking(false);
-			entity.attackAnimationTimeout = 0;
 		}
 	}
 
 	private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-		return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
-	}
-
-	protected void resetAttackCooldown() {
-		this.ticksUntilNextAttack = this.adjustedTickDelay(36);
+		return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy); //if enemy is within reach
 	}
 
 	protected boolean isTimeToAttack() {
-		return this.ticksUntilNextAttack <= 0;
+		return (entity.getHitTicker() == 9 || entity.getThrowTicker() == 11 || entity.getSlamTicker() == 12);//moment where damage should happen
 	}
 
 	protected boolean isTimeToStartAttackAnimation() {
-		return this.ticksUntilNextAttack <= attackDelay;
+		return entity.getHitTicker()<=0 && entity.getSlamTicker()<=0 && entity.getThrowTicker()<=0; //new animation can only start if the others are over
 	}
-
-	protected int getTicksUntilNextAttack() {
-		return this.ticksUntilNextAttack;
-	}
-
 
 	protected void performAttack(LivingEntity pEnemy) {
-		this.resetAttackCooldown();
 		this.mob.swing(InteractionHand.MAIN_HAND);
 		this.mob.doHurtTarget(pEnemy);
 	}
@@ -82,14 +71,10 @@ public class HornedXanarianAttackGoal extends MeleeAttackGoal {
 	@Override
 	public void tick() {
 		super.tick();
-		if(shouldCountTillNextAttack) {
-			this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
-		}
 	}
 
 	@Override
 	public void stop() {
-		entity.setAttacking(false);
 		super.stop();
 	}
 }

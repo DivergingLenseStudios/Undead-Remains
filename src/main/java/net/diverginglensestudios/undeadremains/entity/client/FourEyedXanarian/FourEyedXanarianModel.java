@@ -10,6 +10,7 @@ package net.diverginglensestudios.undeadremains.entity.client.FourEyedXanarian;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
+import net.diverginglensestudios.undeadremains.entity.animations.FourEyedXanarianAnimations;
 import net.diverginglensestudios.undeadremains.entity.animations.ModAnimationDefinitions;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.FourEyedXanarianEntity;
 
@@ -80,8 +81,9 @@ public class FourEyedXanarianModel<T extends Entity> extends HierarchicalModel<T
 	this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
-		this.animateWalk(ModAnimationDefinitions.FOUR_EYED_XANARIAN_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((FourEyedXanarianEntity) entity).attackAnimationState, ModAnimationDefinitions.FOUR_EYED_XANARIAN_ATTACK, ageInTicks, 1f);
+		this.animateWalk(FourEyedXanarianAnimations.FOUR_EYED_XANARIAN_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.animate(((FourEyedXanarianEntity) entity).throwAnimationState, FourEyedXanarianAnimations.FOUR_EYED_XANARIAN_THROW, ageInTicks, 1f);
+		this.animate(((FourEyedXanarianEntity) entity).slamAnimationState, FourEyedXanarianAnimations.FOUR_EYED_XANARIAN_SLAM, ageInTicks, 1f);
 	}
 
 private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {

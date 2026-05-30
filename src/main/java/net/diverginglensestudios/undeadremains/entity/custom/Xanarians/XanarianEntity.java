@@ -30,7 +30,7 @@ public class XanarianEntity extends AbstractXanarian {
 		this(ModEntities.XANARIAN.get(), pLevel);
 	}
 	private static final EntityDataAccessor<Integer> ATTACKTICKER =
-			SynchedEntityData.defineId(XanarianCannibalEntity.class, EntityDataSerializers.INT); //define ticker
+			SynchedEntityData.defineId(XanarianEntity.class, EntityDataSerializers.INT); //define ticker
 
 	public final AnimationState idleAnimationState = new AnimationState();
 	public final AnimationState attackAnimationState = new AnimationState();
@@ -74,6 +74,7 @@ public class XanarianEntity extends AbstractXanarian {
 				.add(Attributes.FOLLOW_RANGE, 50.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double)0.28F)
 				.add(Attributes.ATTACK_DAMAGE, 5.0D)
-				.add(Attributes.ARMOR, 3.0D);
+				.add(Attributes.ARMOR, 3.0D)
+				.add(Attributes.ATTACK_KNOCKBACK, 4);
 	}
 }

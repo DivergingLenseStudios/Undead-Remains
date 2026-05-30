@@ -10,6 +10,7 @@ package net.diverginglensestudios.undeadremains.entity.client.horned_xanarian;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
+import net.diverginglensestudios.undeadremains.entity.animations.HornedXanarianAnimations;
 import net.diverginglensestudios.undeadremains.entity.animations.ModAnimationDefinitions;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.HornedXanarianEntity;
 
@@ -92,8 +93,10 @@ public class HornedXanarianModel<T extends Entity> extends HierarchicalModel<T> 
 	this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
-		this.animateWalk(ModAnimationDefinitions.HORNED_XANARIAN_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((HornedXanarianEntity) entity).attackAnimationState, ModAnimationDefinitions.HORNED_XANARIAN_ATTACK, ageInTicks, 1f);
+		this.animateWalk(HornedXanarianAnimations.HORNED_XANARIAN_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.animate(((HornedXanarianEntity) entity).hitAnimationState, HornedXanarianAnimations.HORNED_XANARIAN_HIT, ageInTicks, 1f);
+		this.animate(((HornedXanarianEntity) entity).throwAnimationState, HornedXanarianAnimations.HORNED_XANARIAN_THROW, ageInTicks, 1f);
+		this.animate(((HornedXanarianEntity) entity).slamAnimationState, HornedXanarianAnimations.HORNED_XANARIAN_SLAM, ageInTicks, 1f);
 	}
 
 private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {

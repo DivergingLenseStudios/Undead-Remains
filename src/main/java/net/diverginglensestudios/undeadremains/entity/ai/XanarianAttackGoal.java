@@ -46,7 +46,7 @@ public class XanarianAttackGoal extends MeleeAttackGoal {
 	}
 
 	protected boolean isTimeToAttack() {
-		return (entity.getAttackTicker() == 7);//moment where damage should happen
+		return (entity.getAttackTicker() == 8);//moment where damage should happen (anim lengh - ticks until attack
 	}
 
 	protected boolean isTimeToStartAttackAnimation() {
