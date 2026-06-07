@@ -7,6 +7,7 @@
 
 package net.diverginglensestudios.undeadremains.entity.custom.Xanarians;
 
+import net.diverginglensestudios.undeadremains.block.ModBlocks;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.entity.ai.*;
 import net.diverginglensestudios.undeadremains.item.ModItems;
@@ -96,6 +97,8 @@ public class XanarianSoldierEntity extends AbstractXanarian {
 		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
 		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, XanarianCannibalEntity.class, true));
 		this.goalSelector.addGoal(3, new XanarianReputationTargetGoal(this));
+		this.goalSelector.addGoal(3, new XanarianProtectPlayerGoal(this));
+		this.goalSelector.addGoal(5, new GuardGoal(this, ModBlocks.ANCIENT_PILLAR.get(), 1.0D, 20));
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
