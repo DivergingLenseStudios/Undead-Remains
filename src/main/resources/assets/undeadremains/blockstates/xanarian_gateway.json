@@ -1,0 +1,9 @@
+{
+	"variants": {
+		"charge=0": { "model": "undeadremains:block/fossil_altar" },
+		"charge=1": { "model": "undeadremains:block/xanarian_gateway_1" },
+		"charge=2": { "model": "undeadremains:block/xanarian_gateway_2" },
+		"charge=3": { "model": "undeadremains:block/xanarian_gateway_3" },
+		"charge=4": { "model": "undeadremains:block/xanarian_gateway_4" }
+	}
+}
