@@ -1,0 +1,17 @@
+{
+	"structures": [
+		{
+			"structure": "undeadremains:xanarian_dungeon_boss",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"salt": 7348925,
+
+		"spacing": 50,
+
+		"separation": 6,
+
+		"type": "minecraft:random_spread"
+	}
+}
