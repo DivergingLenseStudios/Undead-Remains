@@ -1,0 +1,15 @@
+{
+	"name": "undeadremains:xanarian_dungeon_boss/entrance_pool",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 5,
+			"element": {
+				"location": "undeadremains:xanarian_dungeon_paintingroom",
+				"processors": "minecraft:empty",
+				"projection": "rigid",
+				"element_type": "minecraft:single_pool_element"
+			}
+		}
+	]
+}
