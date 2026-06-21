@@ -1,11 +1,11 @@
 {
-	"name": "undeadremains:xanarian_dungeon_boss/junction_pool",
+	"name": "undeadremains:xanarian_dungeon_boss/junction_pool_special",
 	"fallback": "minecraft:empty",
 	"elements": [
 		{
 			"weight": 5,
 			"element": {
-				"location": "undeadremains:xanarian_dungeon_fish",
+				"location": "undeadremains:xanarian_dungeon_paintingroom",
 				"processors": "minecraft:empty",
 				"projection": "rigid",
 				"element_type": "minecraft:single_pool_element"

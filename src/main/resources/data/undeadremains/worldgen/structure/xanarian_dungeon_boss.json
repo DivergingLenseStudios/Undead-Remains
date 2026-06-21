@@ -3,7 +3,7 @@
 
 	"start_pool": "undeadremains:xanarian_dungeon_boss/start_pool",
 
-	"size": 2,
+	"size": 7,
 	"max_distance_from_center": 80,
 
 	"biomes": "#undeadremains:has_structure/xanarian_dungeon_boss",
