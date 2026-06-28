@@ -16,10 +16,8 @@ Goals:
 	-reworks
 		-Spike shoots spikes upon death
 		-Add weapon skins
-			-2d version for spike bat
 	-fixes
 		fix rotation of polisher
-		fix portal spawning inside earth
 		fix flowers showing as 3D in hand
 		fix [17:04:46] [Worker-Main-2/ERROR] [minecraft/Util]: Detected setBlock in a far chunk [23, -40], pos: MutableBlockPos{x=370, y=124, z=-640},
 		 status: minecraft:features, currently generating: ResourceKey[minecraft:worldgen/placed_feature / undeadremains:xanas_flower_placed]
