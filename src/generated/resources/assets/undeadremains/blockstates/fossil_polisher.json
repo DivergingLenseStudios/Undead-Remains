@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "undeadremains:block/fossil_polisher",
+      "y": 90
+    },
+    "facing=north": {
       "model": "undeadremains:block/fossil_polisher"
+    },
+    "facing=south": {
+      "model": "undeadremains:block/fossil_polisher",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "undeadremains:block/fossil_polisher",
+      "y": 270
     }
   }
 }

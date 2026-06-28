@@ -79,9 +79,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 		glowVineBlock(ModBlocks.CALIPO_BERRY_VINE);
 
-		simpleBlockWithItem(ModBlocks.FOSSIL_POLISHER.get(),
-				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher")));
+		horizontalBlock(
+				ModBlocks.FOSSIL_POLISHER.get(),
+				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher"))
+		);
 
+		simpleBlockItem(
+				ModBlocks.FOSSIL_POLISHER.get(),
+				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher"))
+		);
 		simpleBlockWithItem(ModBlocks.BUBBLE_BLOCK.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/bubble_block")));
 
