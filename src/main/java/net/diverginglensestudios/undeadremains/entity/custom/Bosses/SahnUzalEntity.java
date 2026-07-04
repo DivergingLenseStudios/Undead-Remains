@@ -13,6 +13,7 @@ import net.diverginglensestudios.undeadremains.entity.ai.BetterRandomStrollGoal;
 import net.diverginglensestudios.undeadremains.entity.ai.FourEyedXanarianAttackGoal;
 import net.diverginglensestudios.undeadremains.entity.ai.SahnUzalAttackGoal;
 import net.diverginglensestudios.undeadremains.entity.custom.Other.Cm_Falling_Block_Entity;
+import net.diverginglensestudios.undeadremains.entity.custom.Other.SahnUzalBeamProjectileEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -27,6 +28,7 @@ import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -68,7 +70,8 @@ public class SahnUzalEntity extends Monster {
 		SLASH1,
 		SLASH2,
 		FLOOR_STAB,
-		SLAM
+		SLAM,
+		BEAM
 	}
 	public final AnimationState idleAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
@@ -139,12 +142,17 @@ public class SahnUzalEntity extends Monster {
 			this.slash2AnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.SLASH2, this.tickCount);
 			this.floorStabAnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.FLOOR_STAB, this.tickCount);
 			this.slamAnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.SLAM, this.tickCount);
-		}else {
+		}
+		else {
 			if (this.getAttackTicker()>0){
 				this.setAttackTicker(getAttackTicker()-1);//if the ticker is more than 0, then it gets reduced by 1 every tick
 				if (this.getTicksUntilHit()>0){
 					this.setTicksUntilHit(getTicksUntilHit()-1);//if the ticker is more than 0, then it gets reduced by 1 every tick
 				}
+			}
+			if (getAttackType() == AttackType.BEAM && getAttackTicker()>0){
+				this.getNavigation().stop();
+				fireBeam();
 			}
 		}
 		if (this.getAttackType() == AttackType.FLOOR_STAB && this.getTicksUntilHit() == 1) {
@@ -159,6 +167,26 @@ public class SahnUzalEntity extends Monster {
 			}
 		}
 	}
+	private void fireBeam(){
+		if (this.getTarget() == null){
+			return;
+		}
+		LivingEntity target = this.getTarget();
+
+		double deltaX = target.getX() - this.getX();
+		double deltaZ = target.getZ() - this.getZ();
+
+		float yaw = (float)(Math.atan2(deltaZ, deltaX) * (180F / Math.PI)) - 90F;
+
+		this.setYRot(yaw);
+
+		SahnUzalBeamProjectileEntity projectile = new SahnUzalBeamProjectileEntity(ModEntities.SAHN_UZAL_BEAM_PROJECTILE_ENTITY.get(), this.level());
+
+		projectile.setPos(this.getX(), this.getY() + 2.0D, this.getZ());
+		projectile.shoot(deltaX, 0, deltaZ, 0.5F, 0F);
+		level().addFreshEntity(projectile);
+	}
+
 	public void doEarthquake(Level level, BlockPos center, int radius) {
 		if (level.isClientSide()) return;
 		this.quakeActive = true;
@@ -176,7 +204,7 @@ public class SahnUzalEntity extends Monster {
 				if (Math.abs(dist - radius) < 0.5) {
 					BlockPos pos = center.offset(x, 0, z);
 
-					// Find the first solid block under the surface (so we don’t hit air)
+					// Find the first solid block under the surface (so it doesn`t hit air)
 					BlockPos groundPos = findSolidGround(level, pos, baseY);
 
 					if (groundPos != null) {

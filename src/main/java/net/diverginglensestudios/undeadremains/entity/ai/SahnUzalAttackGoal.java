@@ -38,7 +38,7 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 			if(isTimeToStartAttackAnimation()){ //if both tickers are at 0
 				//System.out.println("Choosing attack");
 				Random random = new Random();
-				int choice = random.nextInt(4) + 1; // Number of events
+				int choice = random.nextInt(5) + 1; // Number of events
 				if (choice==1){//////////Slash1//////////
 					//System.out.println("Attack 1 has been chosen");
 					this.performSlash1();
@@ -51,6 +51,9 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 				}else if (choice==4){//////////FLOOR_STAB//////////
 					//System.out.println("Attack 4 has been chosen");
 					this.performSlam();
+				}else if (choice==5){//////////BEAM//////////
+					//System.out.println("Attack 4 has been chosen");
+					this.performBeam();
 				}
 			}
 			if(isTimeToAttack()) {// if the ticker is at the point where the damage  should happen
@@ -61,13 +64,7 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 				}
 				performAttack(pEnemy);
 			}
-
-		}   /*else if (entity.getAttackTicker() >0 || entity.getTicksUntilHit()<0 || entity.getAttackType()!=AttackType.NONE){//if the enemy is not in reach, tickers are reset
-            System.out.println("Stopping Attack");
-            entity.setAttackTicker(0);
-            entity.setTicksUntilHit(0);
-            entity.setAttackType(AttackType.NONE);
-            } */
+		}
 	}
 
 	public void performSlash1() {
@@ -96,6 +93,13 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 		entity.setAttackType(AttackType.SLAM);
 		entity.setAttackTicker(56);//Lengh of animation +2
 		entity.setTicksUntilHit(27);//Ticks until the hit of the animation +1
+	}
+
+	public void performBeam() {
+
+		entity.setAttackType(AttackType.BEAM);
+		entity.setAttackTicker(100);
+		entity.setTicksUntilHit(0);
 	}
 
 	protected void performAttack(LivingEntity pEnemy) {

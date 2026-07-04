@@ -212,6 +212,7 @@ public class UndeadRemains { // Define the Class for the Mod
 			EntityRenderers.register(ModEntities.CUSTOMEFFECTCLOUD.get(),
 					pContext -> new NoopRenderer(pContext));
 			EntityRenderers.register(ModEntities.METATORBERNITE_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.SAHN_UZAL_BEAM_PROJECTILE_ENTITY.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.METATURBONITE_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BUBBLE_BLOCK_BUBBLE_PROJECTILE.get(), ThrownItemRenderer::new);
 			MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);

@@ -68,6 +68,9 @@ public class ModItems {
 	public static final RegistryObject<Item> BUBBLE = ITEMS.register("bubble",
 			() -> new Item(new Item.Properties().stacksTo(1)));
 
+	public static final RegistryObject<Item> BEAM = ITEMS.register("beam",
+			() -> new Item(new Item.Properties().stacksTo(1)));
+
 	// Advanced Items
 	public static final RegistryObject<Item> METATORBERNITE_GRENADE = ITEMS.register("metatorbernite_grenade",
 			() -> new MetatorberniteGrenadeItem(new Item.Properties()));

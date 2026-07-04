@@ -147,6 +147,13 @@ public class ModEntities {
 									MobCategory.MISC)
 							.sized(0.5f, 0.5f).build("metatorbernite_grenade_projectile"));
 
+	public static final RegistryObject<EntityType<SahnUzalBeamProjectileEntity>> SAHN_UZAL_BEAM_PROJECTILE_ENTITY = ENTITY_TYPES
+			.register("sahn_uzal_beam_projectile_entity",
+					() -> EntityType.Builder
+							.<SahnUzalBeamProjectileEntity>of(SahnUzalBeamProjectileEntity::new,
+									MobCategory.MISC)
+							.sized(1f, 1f).build("sahn_uzal_beam_projectile_entity"));
+
 	public static final RegistryObject<EntityType<MetaturboniteGrenadeProjectileEntity>> METATURBONITE_GRENADE_PROJECTILE = ENTITY_TYPES
 			.register("metaturbonite_grenade_projectile",
 					() -> EntityType.Builder
