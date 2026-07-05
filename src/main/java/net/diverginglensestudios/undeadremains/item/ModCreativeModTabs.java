@@ -129,6 +129,7 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModItems.LANGRITE_SHOVEL.get());
 						pOutput.accept(ModItems.LANGRITE_HOE.get());
 						pOutput.accept(ModItems.HARVESTER.get());
+						pOutput.accept(ModItems.ITEM_SKIN_LESS_PIXELS.get());
 
 						pOutput.accept(ModItems.LANGRITE_HELMET.get());
 						pOutput.accept(ModItems.LANGRITE_CHESTPLATE.get());

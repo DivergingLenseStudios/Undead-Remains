@@ -80,7 +80,7 @@ public class ModEvents {
 		ItemStack right = event.getRight();
 
 		//Low Pixel Skin
-		if (right.getItem() == ModItems.ITEM_SKIN_LESS_PIXLES.get()){
+		if (right.getItem() == ModItems.ITEM_SKIN_LESS_PIXELS.get()){
 				if (left.getItem() == ModItems.HARVESTER.get()) {
 
 			ItemStack output = left.copy();

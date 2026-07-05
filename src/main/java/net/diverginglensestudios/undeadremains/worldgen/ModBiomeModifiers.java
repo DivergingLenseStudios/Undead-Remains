@@ -57,9 +57,8 @@ public class ModBiomeModifiers {
 				HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.METATORBERNITE_ORE_PLACED_KEY)),
 				GenerationStep.Decoration.UNDERGROUND_ORES));
 
-
 		context.register(ADD_UNDEAD_ARCHEOLOGIST, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
-				biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+				biomes.getOrThrow(BiomeTags.HAS_TRAIL_RUINS),
 				List.of(new MobSpawnSettings.SpawnerData(ModEntities.UNDEAD_ARCHEOLOGIST.get(), 100, 2, 4))));
 
 		context.register(ADD_FOSSILIZED_ZOMBIE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
@@ -67,11 +66,11 @@ public class ModBiomeModifiers {
 				List.of(new MobSpawnSettings.SpawnerData(ModEntities.FOSSILIZED_ZOMBIE.get(), 100, 2, 4))));
 
 		context.register(ADD_COW_ZOMBIE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
-				biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+				biomes.getOrThrow(BiomeTags.IS_FOREST),
 				List.of(new MobSpawnSettings.SpawnerData(ModEntities.COW_ZOMBIE.get(), 100, 2, 4))));
 
 		context.register(ADD_SPIKE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
-				biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+				biomes.getOrThrow(Tags.Biomes.IS_DESERT),
 				List.of(new MobSpawnSettings.SpawnerData(ModEntities.SPIKE.get(), 100, 2, 4))));
 
 		context.register(ADD_TREE_ZOMBIE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
@@ -92,6 +91,7 @@ public class ModBiomeModifiers {
 	}
 
 	private static ResourceKey<BiomeModifier> registerKey(String name) {
-		return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(UndeadRemains.MOD_ID, name));
+		return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS,
+				new ResourceLocation(UndeadRemains.MOD_ID, name));
 	}
 }
