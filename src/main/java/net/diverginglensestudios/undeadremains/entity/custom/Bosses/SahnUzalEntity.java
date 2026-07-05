@@ -7,7 +7,6 @@
 
 package net.diverginglensestudios.undeadremains.entity.custom.Bosses;
 
-
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.entity.ai.BetterRandomStrollGoal;
 import net.diverginglensestudios.undeadremains.entity.ai.FourEyedXanarianAttackGoal;
@@ -24,6 +23,7 @@ import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
@@ -39,32 +39,35 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 import org.jetbrains.annotations.Nullable;
 
 public class SahnUzalEntity extends Monster {
-	private final ServerBossEvent bossEvent = (ServerBossEvent)(new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.PROGRESS)).setDarkenScreen(true);
+	private final ServerBossEvent bossEvent = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(),
+			BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.PROGRESS)).setDarkenScreen(true);
 
-	private static final EntityDataAccessor<Boolean> ATTACKING =
-			SynchedEntityData.defineId(SahnUzalEntity.class, EntityDataSerializers.BOOLEAN);
+	private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(SahnUzalEntity.class,
+			EntityDataSerializers.BOOLEAN);
 
-	private static final EntityDataAccessor<Boolean> SLEEPING =
-			SynchedEntityData.defineId(SahnUzalEntity.class, EntityDataSerializers.BOOLEAN);
+	private static final EntityDataAccessor<Boolean> SLEEPING = SynchedEntityData.defineId(SahnUzalEntity.class,
+			EntityDataSerializers.BOOLEAN);
 
-	private static final EntityDataAccessor<Integer> ATTACKTICKER =
-			SynchedEntityData.defineId(SahnUzalEntity.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Integer> ATTACKTICKER = SynchedEntityData.defineId(SahnUzalEntity.class,
+			EntityDataSerializers.INT);
 
-	private static final EntityDataAccessor<Integer> TICKSUNTILHIT =
-			SynchedEntityData.defineId(SahnUzalEntity.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Integer> TICKSUNTILHIT = SynchedEntityData.defineId(SahnUzalEntity.class,
+			EntityDataSerializers.INT);
 
-	private static final EntityDataAccessor<Integer> ATTACK_TYPE =
-			SynchedEntityData.defineId(SahnUzalEntity.class, EntityDataSerializers.INT);
-
+	private static final EntityDataAccessor<Integer> ATTACK_TYPE = SynchedEntityData.defineId(SahnUzalEntity.class,
+			EntityDataSerializers.INT);
 
 	public boolean SahnUzalStabQuakeTriggered = false;
+
 	public SahnUzalEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
+
 	public enum AttackType {
 		NONE,
 		SLASH1,
@@ -73,11 +76,13 @@ public class SahnUzalEntity extends Monster {
 		SLAM,
 		BEAM
 	}
+
 	public final AnimationState idleAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 	public final AnimationState slash1AnimationState = new AnimationState();
 	public final AnimationState slash2AnimationState = new AnimationState();
 	public final AnimationState floorStabAnimationState = new AnimationState();
+	public final AnimationState beamAnimationState = new AnimationState();
 	public final AnimationState slamAnimationState = new AnimationState();
 	public final AnimationState slamSlashAnimationState = new AnimationState();
 	public final AnimationState chargeUpAnimationState = new AnimationState();
@@ -130,27 +135,36 @@ public class SahnUzalEntity extends Monster {
 	@Override
 	public void tick() {
 		super.tick();
-		if (this.getHealth() < this.getMaxHealth() && this.getHealth() > 0){ //checks if boss health is smaller than Max and larger than 1
-			this.heal(1);
-			//this.setHealth(this.getHealth()+0.5f); //Heals the boss by 0.5 health every tick
-			this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth()); //Updates the bossbar every tick
+		if (this.getHealth() < this.getMaxHealth() && this.getHealth() > 0) { // checks if boss health is smaller than
+																				// Max and larger than 1
+			this.heal(0.25f);
+			// this.setHealth(this.getHealth()+0.5f); //Heals the boss by 0.5 health every
+			// tick
+			this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth()); // Updates the bossbar every tick
 
 		}
-		if(this.level().isClientSide()) {
+		if (this.level().isClientSide()) {
 			setupAnimationStates();
-			this.slash1AnimationState.animateWhen(this.getAttackTicker() > 0& this.getAttackType() == AttackType.SLASH1, this.tickCount);
-			this.slash2AnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.SLASH2, this.tickCount);
-			this.floorStabAnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.FLOOR_STAB, this.tickCount);
-			this.slamAnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.SLAM, this.tickCount);
-		}
-		else {
-			if (this.getAttackTicker()>0){
-				this.setAttackTicker(getAttackTicker()-1);//if the ticker is more than 0, then it gets reduced by 1 every tick
-				if (this.getTicksUntilHit()>0){
-					this.setTicksUntilHit(getTicksUntilHit()-1);//if the ticker is more than 0, then it gets reduced by 1 every tick
+			this.slash1AnimationState.animateWhen(
+					this.getAttackTicker() > 0 & this.getAttackType() == AttackType.SLASH1, this.tickCount);
+			this.slash2AnimationState.animateWhen(
+					this.getAttackTicker() > 0 && this.getAttackType() == AttackType.SLASH2, this.tickCount);
+			this.floorStabAnimationState.animateWhen(
+					this.getAttackTicker() > 0 && this.getAttackType() == AttackType.FLOOR_STAB, this.tickCount);
+			this.beamAnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.BEAM,
+					this.tickCount);
+			this.slamAnimationState.animateWhen(this.getAttackTicker() > 0 && this.getAttackType() == AttackType.SLAM,
+					this.tickCount);
+		} else {
+			if (this.getAttackTicker() > 0) {
+				this.setAttackTicker(getAttackTicker() - 1);// if the ticker is more than 0, then it gets reduced by 1
+															// every tick
+				if (this.getTicksUntilHit() > 0) {
+					this.setTicksUntilHit(getTicksUntilHit() - 1);// if the ticker is more than 0, then it gets reduced
+																	// by 1 every tick
 				}
 			}
-			if (getAttackType() == AttackType.BEAM && getAttackTicker()>0){
+			if (getAttackType() == AttackType.BEAM && 120 >= getAttackTicker() && getAttackTicker() >= 30) {
 				this.getNavigation().stop();
 				fireBeam();
 			}
@@ -167,28 +181,47 @@ public class SahnUzalEntity extends Monster {
 			}
 		}
 	}
-	private void fireBeam(){
-		if (this.getTarget() == null){
-			return;
-		}
-		LivingEntity target = this.getTarget();
 
-		double deltaX = target.getX() - this.getX();
-		double deltaZ = target.getZ() - this.getZ();
+private void fireBeam() {
+	if (this.getTarget() == null) return;
 
-		float yaw = (float)(Math.atan2(deltaZ, deltaX) * (180F / Math.PI)) - 90F;
+	LivingEntity target = this.getTarget();
 
-		this.setYRot(yaw);
+	double dx = target.getX() - this.getX();
+	double dz = target.getZ() - this.getZ();
 
-		SahnUzalBeamProjectileEntity projectile = new SahnUzalBeamProjectileEntity(ModEntities.SAHN_UZAL_BEAM_PROJECTILE_ENTITY.get(), this.level());
+	float yaw = (float)(Math.atan2(dz, dx) * (180F / Math.PI)) - 90F;
 
-		projectile.setPos(this.getX(), this.getY() + 2.0D, this.getZ());
-		projectile.shoot(deltaX, 0, deltaZ, 0.5F, 0F);
-		level().addFreshEntity(projectile);
-	}
+	this.setYRot(yaw);
+
+	float rad = yaw * ((float)Math.PI / 180F);
+
+	Vec3 lookVec = new Vec3(-Mth.sin(rad), 0, Mth.cos(rad));
+	Vec3 rightVec = new Vec3(lookVec.z, 0, -lookVec.x);
+
+	double sideOffset = 1.3D;
+	double forwardOffset = 2.0D;
+	double heightOffset = 2.0D;
+
+	double spawnX = this.getX()+ lookVec.x * forwardOffset+ rightVec.x * sideOffset;
+	double spawnY = this.getY() + heightOffset;
+	double spawnZ = this.getZ()+ lookVec.z * forwardOffset+ rightVec.z * sideOffset;
+
+	SahnUzalBeamProjectileEntity projectile =new SahnUzalBeamProjectileEntity(ModEntities.SAHN_UZAL_BEAM_PROJECTILE_ENTITY.get(),this.level());
+
+	projectile.setPos(spawnX, spawnY, spawnZ);
+	double shootX = target.getX() - spawnX;
+	double shootY = (target.getY() + target.getEyeHeight() * 0.5D) - spawnY;
+	double shootZ = target.getZ() - spawnZ;
+
+	projectile.shoot(shootX, shootY, shootZ, 0.5F, 0F);
+
+	this.level().addFreshEntity(projectile);
+}
 
 	public void doEarthquake(Level level, BlockPos center, int radius) {
-		if (level.isClientSide()) return;
+		if (level.isClientSide())
+			return;
 		this.quakeActive = true;
 		this.quakeRadius = 0;
 		this.quakeMaxRadius = radius;
@@ -239,8 +272,9 @@ public class SahnUzalEntity extends Monster {
 		}
 		return null;
 	}
-	private void setupAnimationStates() { //I dont really understand this part but it works
-		if(this.idleAnimationTimeout <= 0) {
+
+	private void setupAnimationStates() { // I dont really understand this part but it works
+		if (this.idleAnimationTimeout <= 0) {
 			this.idleAnimationTimeout = this.random.nextInt(40) + 80;
 			this.idleAnimationState.start(this.tickCount);
 		} else {
@@ -248,16 +282,16 @@ public class SahnUzalEntity extends Monster {
 		}
 	}
 
-	public void setAttacking(boolean attacking) { //command to set entity to attacking state
+	public void setAttacking(boolean attacking) { // command to set entity to attacking state
 		this.entityData.set(ATTACKING, attacking);
 	}
 
-	public boolean isAttacking() {  //command to check if entity is attacking
+	public boolean isAttacking() { // command to check if entity is attacking
 		return this.entityData.get(ATTACKING);
 	}
 
 	@Override
-	protected void defineSynchedData() { //Sets default values for entity data
+	protected void defineSynchedData() { // Sets default values for entity data
 		super.defineSynchedData();
 		this.entityData.define(ATTACKING, false);
 		this.entityData.define(ATTACKTICKER, 0);
@@ -286,10 +320,11 @@ public class SahnUzalEntity extends Monster {
 				.add(Attributes.ATTACK_DAMAGE, 10f);
 	}
 
-	public void stopSeenByPlayer(ServerPlayer pPlayer) {    //Add the given player to the list of players tracking
-		super.stopSeenByPlayer(pPlayer);                    //this entity. For instance, a player may track a
-		this.bossEvent.removePlayer(pPlayer);               //boss in order to view its associated boss bar.
+	public void stopSeenByPlayer(ServerPlayer pPlayer) { // Add the given player to the list of players tracking
+		super.stopSeenByPlayer(pPlayer); // this entity. For instance, a player may track a
+		this.bossEvent.removePlayer(pPlayer); // boss in order to view its associated boss bar.
 	}
+
 	@Nullable
 	@Override
 	protected SoundEvent getAmbientSound() {

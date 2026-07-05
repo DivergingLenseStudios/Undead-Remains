@@ -5,10 +5,9 @@
 /* https://github.com/DivergingLenseStudios/Undead-Remains */
 /***********************************************************/
 
+//This is probably no longer needed
 package net.diverginglensestudios.undeadremains.entity.custom.Bosses;
 
-
-import net.diverginglensestudios.undeadremains.entity.ai.FourEyedXanarianAttackGoal;
 import net.diverginglensestudios.undeadremains.entity.ai.SupremeKnightAttackGoal;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;

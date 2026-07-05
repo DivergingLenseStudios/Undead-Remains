@@ -89,7 +89,6 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 	}
 
 	public void performSlam() {
-		//System.out.println("Performing slash 1");
 		entity.setAttackType(AttackType.SLAM);
 		entity.setAttackTicker(56);//Lengh of animation +2
 		entity.setTicksUntilHit(27);//Ticks until the hit of the animation +1
@@ -98,12 +97,11 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 	public void performBeam() {
 
 		entity.setAttackType(AttackType.BEAM);
-		entity.setAttackTicker(100);
+		entity.setAttackTicker(142);
 		entity.setTicksUntilHit(0);
 	}
 
 	protected void performAttack(LivingEntity pEnemy) {
-		//System.out.println("Performing attack");
 		entity.setTicksUntilHit(0);
 		this.mob.swing(InteractionHand.MAIN_HAND);
 		this.mob.doHurtTarget(pEnemy);
