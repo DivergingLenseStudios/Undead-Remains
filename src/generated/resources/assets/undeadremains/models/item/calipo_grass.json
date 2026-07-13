@@ -1,3 +1,6 @@
 {
-  "parent": "undeadremains:block/calipo_grass"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "undeadremains:block/calipo_grass"
+  }
 }

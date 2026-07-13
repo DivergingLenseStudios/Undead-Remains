@@ -24,6 +24,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
+import javax.annotation.Nonnull;
+
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -39,9 +41,9 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 	public static class UndeadremainsAdvancementGenerator implements AdvancementGenerator {
 
 		@Override
-		public void generate(HolderLookup.Provider registries,
-				Consumer<Advancement> saver,
-				ExistingFileHelper existingFileHelper) {
+		public void generate(@Nonnull HolderLookup.Provider registries,
+				@Nonnull Consumer<Advancement> saver,
+				@Nonnull ExistingFileHelper existingFileHelper) {
 
 			Advancement root = Advancement.Builder.advancement()
 					.display(
@@ -56,7 +58,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.addCriterion("entered_world", PlayerTrigger.TriggerInstance.tick())
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "root"), existingFileHelper);
 
-			//↓////////FOSSIL////////↓//
+			// ↓////////FOSSIL////////↓//
 			Advancement fossil = Advancement.Builder.advancement()
 					.parent(root)
 					.display(
@@ -71,7 +73,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.addCriterion("has_fossil", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FOSSIL.get()))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "fossil"), existingFileHelper);
 
-			//↓////////FOSSIL_TOOLS////////↓//
+			// ↓////////FOSSIL_TOOLS////////↓//
 			Advancement fossil_tools = Advancement.Builder.advancement()
 					.parent(fossil) // your Fossil advancement reference
 					.display(
@@ -103,7 +105,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							new ResourceLocation(UndeadRemains.MOD_ID, "fossil_tools"),
 							existingFileHelper);
 
-			//↓////////MODIFIED_FOSSIL_TOOLS////////↓//
+			// ↓////////MODIFIED_FOSSIL_TOOLS////////↓//
 			Advancement modified_fossil_tools = Advancement.Builder.advancement()
 					.parent(fossil_tools) // your Fossil advancement reference
 					.display(
@@ -139,10 +141,10 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "modified_fossil_tools"),
 							existingFileHelper);
-			//↑//////// MODIFIED_FOSSIL_TOOLS////////↑//
-			//↑//////// FOSSIL_TOOLS////////↑//
+			// ↑//////// MODIFIED_FOSSIL_TOOLS////////↑//
+			// ↑//////// FOSSIL_TOOLS////////↑//
 
-			//↓//////// FOSSIL_ARMOR//////////
+			// ↓//////// FOSSIL_ARMOR//////////
 			Advancement fossil_armor = Advancement.Builder.advancement()
 					.parent(fossil) // your Fossil advancement reference
 					.display(
@@ -170,7 +172,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							new ResourceLocation(UndeadRemains.MOD_ID, "fossil_armor"),
 							existingFileHelper);
 
-			//↓//////// MODIFIED_FOSSIL_ARMOR////////↓//
+			// ↓//////// MODIFIED_FOSSIL_ARMOR////////↓//
 			Advancement modified_fossil_armor = Advancement.Builder.advancement()
 					.parent(fossil_armor) // your Fossil advancement reference
 					.display(
@@ -201,10 +203,10 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "modified_fossil_armor"),
 							existingFileHelper);
-			//↑//////// MODIFIED_FOSSIL_ARMOR////////↑//
-			//↑//////// FOSSIL_ARMOR//////////
+			// ↑//////// MODIFIED_FOSSIL_ARMOR////////↑//
+			// ↑//////// FOSSIL_ARMOR//////////
 
-			//↓//////// MASTER_MODIFIER//////////
+			// ↓//////// MASTER_MODIFIER//////////
 			Advancement master_modifier = Advancement.Builder.advancement()
 					.parent(fossil) // your Fossil advancement reference
 					.display(
@@ -254,9 +256,9 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "master_modifier"),
 							existingFileHelper);
-			//↑//////// MASTER_MODIFIER////////↑//
+			// ↑//////// MASTER_MODIFIER////////↑//
 
-			//↓//////// RARE_FOSSIL////////↓//
+			// ↓//////// RARE_FOSSIL////////↓//
 			Advancement rare_fossil = Advancement.Builder.advancement()
 					.parent(fossil)
 					.display(
@@ -276,7 +278,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							new ResourceLocation(UndeadRemains.MOD_ID, "rare_fossil"),
 							existingFileHelper);
 
-			//↓//////// FOSSIL_LUCKY_BLOCK////////↓//
+			// ↓//////// FOSSIL_LUCKY_BLOCK////////↓//
 			Advancement fossil_lucky_block = Advancement.Builder.advancement()
 					.parent(rare_fossil)
 					.display(
@@ -295,9 +297,9 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "fossil_lucky_block"),
 							existingFileHelper);
-			//↓//////// RARE_FOSSIL_ARMOR////////↓//
+			// ↓//////// RARE_FOSSIL_ARMOR////////↓//
 			Advancement rare_fossil_armor = Advancement.Builder.advancement()
-					.parent(fossil_lucky_block) 
+					.parent(fossil_lucky_block)
 					.display(
 							ModItems.RARE_FOSSIL_CHESTPLATE.get(),
 							Component.translatable("advancement.undeadremains.rare_fossil_armor.title"),
@@ -326,11 +328,11 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "rare_fossil_armor"),
 							existingFileHelper);
-			//↑//////// RARE_FOSSIL_ARMOR////////↑//
-			
-			//↓//////// RARE_FOSSIL_TOOLS////////↓//
+			// ↑//////// RARE_FOSSIL_ARMOR////////↑//
+
+			// ↓//////// RARE_FOSSIL_TOOLS////////↓//
 			Advancement rare_fossil_tools = Advancement.Builder.advancement()
-					.parent(fossil_lucky_block) 
+					.parent(fossil_lucky_block)
 					.display(
 							ModItems.RARE_FOSSIL_SWORD.get(),
 							Component.translatable("advancement.undeadremains.rare_fossil_tools.title"),
@@ -363,12 +365,12 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "rare_fossil_tools"),
 							existingFileHelper);
-			//↑//////// RARE_FOSSIL_TOOLS////////↑//
-			//↑//////// FOSSIL_LUCKY_BLOCK////////↑//
-			//↑//////// RARE_FOSSIL////////↑//
-			//↑//////// FOSSIL////////↑//
+			// ↑//////// RARE_FOSSIL_TOOLS////////↑//
+			// ↑//////// FOSSIL_LUCKY_BLOCK////////↑//
+			// ↑//////// RARE_FOSSIL////////↑//
+			// ↑//////// FOSSIL////////↑//
 
-			//↓//////// METATORBERNITE////////↓//
+			// ↓//////// METATORBERNITE////////↓//
 			Advancement metatorbernite = Advancement.Builder.advancement()
 					.parent(root)
 					.display(
@@ -383,9 +385,9 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.addCriterion("has_metatorbernite",
 							InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.METATORBERNITE.get()))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "metatorbernite"), existingFileHelper);
-			//↓//////// METATORBERNITE_ARMOR////////↓//
+			// ↓//////// METATORBERNITE_ARMOR////////↓//
 			Advancement metatorbernite_armor = Advancement.Builder.advancement()
-					.parent(metatorbernite) 
+					.parent(metatorbernite)
 					.display(
 							ModItems.METATORBERNITE_CHESTPLATE.get(),
 							Component.translatable("advancement.undeadremains.metatorbernite_armor.title"),
@@ -414,11 +416,11 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "metatorbernite_armor"),
 							existingFileHelper);
-			//↑//////// METATORBERNITE_ARMOR////////↑//
+			// ↑//////// METATORBERNITE_ARMOR////////↑//
 
-			//↓//////// METATORBERNITE_TOOLS////////↓//
+			// ↓//////// METATORBERNITE_TOOLS////////↓//
 			Advancement metatorbernite_tools = Advancement.Builder.advancement()
-					.parent(metatorbernite) 
+					.parent(metatorbernite)
 					.display(
 							ModItems.METATORBERNITE_SWORDAXE.get(),
 							Component.translatable("advancement.undeadremains.metatorbernite_tools.title"),
@@ -440,9 +442,9 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "metatorbernite_tools"),
 							existingFileHelper);
-			//↑//////// METATORBERNITE_TOOLS////////↑//
-			
-			//↓//////// GAS_MASK//////////↓//
+			// ↑//////// METATORBERNITE_TOOLS////////↑//
+
+			// ↓//////// GAS_MASK//////////↓//
 			Advancement gas_mask = Advancement.Builder.advancement()
 					.parent(metatorbernite)
 					.display(
@@ -457,7 +459,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.addCriterion("has_gas_mask",
 							InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GAS_MASK.get()))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "gas_mask"), existingFileHelper);
-			//↓//////// METATORBERNITE_GAS_MASK////////↓//
+			// ↓//////// METATORBERNITE_GAS_MASK////////↓//
 			Advancement metatorbernite_gas_mask = Advancement.Builder.advancement()
 					.parent(gas_mask)
 					.display(
@@ -471,13 +473,14 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							false)
 					.addCriterion("has_metatorbernite_gas_mask",
 							InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.METATORBERNITE_GAS_MASK.get()))
-					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "metatorbernite_gas_mask"), existingFileHelper);
-			//↑//////// METATORBERNITE_GAS_MASK////////↑//
-			//↑//////// GAS_MASK////////↑//
+					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "metatorbernite_gas_mask"),
+							existingFileHelper);
+			// ↑//////// METATORBERNITE_GAS_MASK////////↑//
+			// ↑//////// GAS_MASK////////↑//
 
-			//↓//////// METATORBERNITE_ENRICHER////////↓//
+			// ↓//////// METATORBERNITE_ENRICHER////////↓//
 			Advancement metatorbernite_enricher = Advancement.Builder.advancement()
-					.parent(metatorbernite) 
+					.parent(metatorbernite)
 					.display(
 							ModItems.METATORBERNITE_ENRICHER_CONTROLLER_ITEM.get(),
 							Component.translatable("advancement.undeadremains.metatorbernite_enricher.title"),
@@ -498,7 +501,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver,
 							new ResourceLocation(UndeadRemains.MOD_ID, "metatorbernite_enricher"),
 							existingFileHelper);
-			//↓//////// METATURBONITE////////↓//
+			// ↓//////// METATURBONITE////////↓//
 			Advancement metaturbonite = Advancement.Builder.advancement()
 					.parent(metatorbernite_enricher)
 					.display(
@@ -513,7 +516,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.addCriterion("has_metaturbonite",
 							InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.METATURBONITE.get()))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "metaturbonite"), existingFileHelper);
-			//↓//////// XANARIAN_GATEWAY////////↓//
+			// ↓//////// XANARIAN_GATEWAY////////↓//
 			Advancement xanarian_gateway = Advancement.Builder.advancement()
 					.parent(metaturbonite)
 					.display(
@@ -528,7 +531,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.addCriterion("has_xanarian_gateway",
 							InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.XANARIAN_GATEWAY.get()))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "xanarian_gateway"), existingFileHelper);
-			//↓//////// XANAS////////↓//
+			// ↓//////// XANAS////////↓//
 			Advancement xanas = Advancement.Builder.advancement()
 					.parent(xanarian_gateway)
 					.display(
@@ -541,13 +544,14 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							true,
 							false)
 					.addCriterion("reach_xanas",
-					ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ModDimensions.FOSSILDIM_LEVEL_KEY))
+							ChangeDimensionTrigger.TriggerInstance
+									.changedDimensionTo(ModDimensions.FOSSILDIM_LEVEL_KEY))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "xanas"), existingFileHelper);
-			//↑//////// XANAS////////↑//
-			//↑//////// XANARIAN_GATEWAY////////↑//
-			//↑//////// METATURBONITE////////↑//
-			//↑//////// METATORBERNITE_ENRICHER////////↑//
-			//↑////////METATORBERNITE////////↑//
+			// ↑//////// XANAS////////↑//
+			// ↑//////// XANARIAN_GATEWAY////////↑//
+			// ↑//////// METATURBONITE////////↑//
+			// ↑//////// METATORBERNITE_ENRICHER////////↑//
+			// ↑////////METATORBERNITE////////↑//
 		}
 	}
 }

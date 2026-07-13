@@ -1,3 +1,6 @@
 {
-  "parent": "undeadremains:block/xanas_flower"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "undeadremains:block/xanas_flower"
+  }
 }

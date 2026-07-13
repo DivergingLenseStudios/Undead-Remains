@@ -11,22 +11,14 @@ import java.util.function.Function;
 
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.block.ModBlocks;
-import net.diverginglensestudios.undeadremains.block.custom.CalipoBerryVineBlock;
 import net.diverginglensestudios.undeadremains.block.custom.XansLeavesBlock;
-import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.data.models.blockstates.PropertyDispatch;
-import net.minecraft.data.models.blockstates.Variant;
-import net.minecraft.data.models.blockstates.VariantProperties;
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -81,13 +73,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 		horizontalBlock(
 				ModBlocks.FOSSIL_POLISHER.get(),
-				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher"))
-		);
+				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher")));
 
 		simpleBlockItem(
 				ModBlocks.FOSSIL_POLISHER.get(),
-				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher"))
-		);
+				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher")));
 		simpleBlockWithItem(ModBlocks.BUBBLE_BLOCK.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/bubble_block")));
 
@@ -138,31 +128,36 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		blockItem(ModBlocks.STRIPPED_CALIPO_WOOD);
 		blockItem(ModBlocks.ANCIENT_PILLAR);
 
-
 		// Flowers
-		simpleBlockWithItem(ModBlocks.XANAS_FLOWER.get(),
+		simpleBlock(ModBlocks.XANAS_FLOWER.get(),
 				models().cross(blockTexture(ModBlocks.XANAS_FLOWER.get()).getPath(),
 						blockTexture(ModBlocks.XANAS_FLOWER.get())).renderType("cutout"));
+
 		simpleBlockWithItem(ModBlocks.POTTED_XANAS_FLOWER.get(),
 				models().singleTexture("potted_xanas_flower", new ResourceLocation("flower_pot_cross"), "plant",
 						blockTexture(ModBlocks.XANAS_FLOWER.get())).renderType("cutout"));
-		simpleBlockWithItem(ModBlocks.ROXA_FLOWER.get(),
+
+		simpleBlock(ModBlocks.ROXA_FLOWER.get(),
 				models().cross(blockTexture(ModBlocks.ROXA_FLOWER.get()).getPath(),
 						blockTexture(ModBlocks.ROXA_FLOWER.get())).renderType("cutout"));
+
 		simpleBlockWithItem(ModBlocks.POTTED_ROXA_FLOWER.get(),
 				models().singleTexture("potted_roxa_flower", new ResourceLocation("flower_pot_cross"), "plant",
 						blockTexture(ModBlocks.ROXA_FLOWER.get())).renderType("cutout"));
-		simpleBlockWithItem(ModBlocks.LYXOR_FLOWER.get(),
+
+		simpleBlock(ModBlocks.LYXOR_FLOWER.get(),
 				models().cross(blockTexture(ModBlocks.LYXOR_FLOWER.get()).getPath(),
 						blockTexture(ModBlocks.LYXOR_FLOWER.get())).renderType("cutout"));
-		simpleBlockWithItem(ModBlocks.XELKS_FLOWER.get(),
+
+		simpleBlock(ModBlocks.XELKS_FLOWER.get(),
 				models().cross(blockTexture(ModBlocks.XELKS_FLOWER.get()).getPath(),
 						blockTexture(ModBlocks.XELKS_FLOWER.get())).renderType("cutout"));
+
 		simpleBlockWithItem(ModBlocks.POTTED_XELKS_FLOWER.get(),
 				models().singleTexture("potted_xelks_flower", new ResourceLocation("flower_pot_cross"), "plant",
 						blockTexture(ModBlocks.XELKS_FLOWER.get())).renderType("cutout"));
 
-		simpleBlockWithItem(ModBlocks.CALIPO_GRASS.get(),
+		simpleBlock(ModBlocks.CALIPO_GRASS.get(),
 				models().cross(blockTexture(ModBlocks.CALIPO_GRASS.get()).getPath(),
 						blockTexture(ModBlocks.CALIPO_GRASS.get())).renderType("cutout"));
 
@@ -286,10 +281,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 	private ConfiguredModel[] xansLeafStates(BlockState state, CropBlock block, String modelName, String textureName) {
 		ConfiguredModel[] models = new ConfiguredModel[1];
+
+		IntegerProperty age = ((XansLeavesBlock) block).getAgeProperty();
+
+		if (age == null) {
+			return models;
+		}
+
 		models[0] = new ConfiguredModel(models()
-				.crop(modelName + state.getValue(((XansLeavesBlock) block).getAgeProperty()),
+				.crop(modelName + state.getValue(age),
 						new ResourceLocation(UndeadRemains.MOD_ID,
-								"block/" + textureName + state.getValue(((XansLeavesBlock) block).getAgeProperty())))
+								"block/" + textureName + state.getValue(age)))
 				.renderType("cutout"));
 
 		return models;
@@ -340,6 +342,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		String baseName = ForgeRegistries.BLOCKS.getKey(block).getPath();
 		String noBerriesModel = baseName;
 		String berriesModel = baseName + "_berries";
+
 		ModelFile noBerries = models()
 				.cross(noBerriesModel,
 						new ResourceLocation(UndeadRemains.MOD_ID, "block/" + baseName))
@@ -348,12 +351,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
 				.cross(berriesModel,
 						new ResourceLocation(UndeadRemains.MOD_ID, "block/" + berriesModel))
 				.renderType("cutout");
-		getVariantBuilder(block).forAllStates(state -> {
-			boolean hasBerries = state.getValue(CalipoBerryVineBlock.BERRIES);
-			return ConfiguredModel.builder()
-					.modelFile(hasBerries ? withBerries : noBerries)
-					.build();
-		});
-	}
 
+		BooleanProperty hasBerriesProperty = BlockStateProperties.BERRIES;
+
+		if (hasBerriesProperty != null) {
+			getVariantBuilder(block).forAllStates(state -> {
+				boolean hasBerries = state.getValue(hasBerriesProperty);
+				return ConfiguredModel.builder()
+						.modelFile(hasBerries ? withBerries : noBerries)
+						.build();
+			});
+		} else {
+			simpleBlockWithItem(block, noBerries);
+		}
+	}
 }

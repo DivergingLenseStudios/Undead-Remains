@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#minecraft:has_structure/trail_ruins",
   "spawners": {
     "type": "undeadremains:undead_archeologist",
     "maxCount": 4,

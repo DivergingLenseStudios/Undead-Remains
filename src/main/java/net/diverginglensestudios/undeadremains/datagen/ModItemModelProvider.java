@@ -96,6 +96,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 		// Saplings
 		saplingItem(ModBlocks.ASH_SAPLING);
 		saplingItem(ModBlocks.CALIPO_SAPLING);
+		// Flowers & Grass
+		saplingItem(ModBlocks.XANAS_FLOWER);
+		saplingItem(ModBlocks.ROXA_FLOWER);
+		saplingItem(ModBlocks.LYXOR_FLOWER);
+		saplingItem(ModBlocks.XELKS_FLOWER);
+		saplingItem(ModBlocks.CALIPO_GRASS);
 		// Music_Discs
 		simpleItem(ModItems.UNDYING_WHISPERS_MUSIC_DISC);
 		// Doors
