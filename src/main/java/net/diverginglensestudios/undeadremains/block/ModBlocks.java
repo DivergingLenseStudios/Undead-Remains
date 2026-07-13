@@ -14,7 +14,6 @@ import net.diverginglensestudios.undeadremains.block.multiblock.metatorberniteen
 import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.util.ModWoodTypes;
 import net.diverginglensestudios.undeadremains.worldgen.tree.*;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
