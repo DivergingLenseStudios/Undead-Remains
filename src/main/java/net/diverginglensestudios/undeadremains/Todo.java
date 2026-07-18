@@ -11,8 +11,7 @@ Goals:
 			-improve xand generation
 	-Balancing
 		-Fossil polisher
-		-maybe armor
 	-reworks
 		-Spike shoots spikes upon death
-		-Add weapon skins
+		-Sahn Uzal earthquake blocks make damage
  */

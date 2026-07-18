@@ -38,7 +38,8 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 			if(isTimeToStartAttackAnimation()){ //if both tickers are at 0
 				//System.out.println("Choosing attack");
 				Random random = new Random();
-				int choice = random.nextInt(5) + 1; // Number of events
+				//int choice = random.nextInt(5) + 1; // Number of events
+				int choice = 3;
 				if (choice==1){//////////Slash1//////////
 					//System.out.println("Attack 1 has been chosen");
 					this.performSlash1();
@@ -59,7 +60,7 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 			if(isTimeToAttack()) {// if the ticker is at the point where the damage  should happen
 				this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
 				if (entity.getAttackType() == AttackType.FLOOR_STAB && entity.getTicksUntilHit() == 1 && entity.SahnUzalStabQuakeTriggered == false){
-					entity.doEarthquake(entity.level(), entity.blockPosition(), 5);
+					entity.doEarthquake(entity.level(), entity.blockPosition(), 12);
 					entity.SahnUzalStabQuakeTriggered = true;
 				}
 				performAttack(pEnemy);
@@ -68,14 +69,12 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 	}
 
 	public void performSlash1() {
-		//System.out.println("Performing slash 1");
 		entity.setAttackType(AttackType.SLASH1);
 		entity.setAttackTicker(32);//Lengh of animation +2
 		entity.setTicksUntilHit(17);//Ticks until the hit of the animation +1
 	}
 
 	public void performSlash2() {
-		//System.out.println("Performing slash 2");
 		entity.setAttackType(AttackType.SLASH2);
 		entity.setAttackTicker(47);//Lengh of animation +2
 		entity.setTicksUntilHit(24);//Ticks until the hit of the animation +1

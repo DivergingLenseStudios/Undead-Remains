@@ -38,6 +38,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
@@ -89,6 +90,7 @@ public class SahnUzalEntity extends Monster {
 	private int quakeRadius = 0;
 	private int quakeMaxRadius = 0;
 	private int quakeDelay = 0;
+	private BlockPos quakeCenter;
 	private boolean quakeActive = false;
 
 	public Integer getAttackTicker() {
@@ -169,55 +171,15 @@ public class SahnUzalEntity extends Monster {
 				fireBeam();
 			}
 		}
-		if (this.getAttackType() == AttackType.FLOOR_STAB && this.getTicksUntilHit() == 1) {
-			doEarthquake(level(), blockPosition(), 6);
-		}
 		if (quakeActive && !level().isClientSide() && quakeDelay-- <= 0) {
-			createRing(level(), blockPosition(), quakeRadius);
+			createRing(level(), quakeCenter, quakeRadius);
 			quakeRadius++;
-			quakeDelay = 5; // 5 ticks between rings
+			quakeDelay = 2; //ticks between rings
 			if (quakeRadius > quakeMaxRadius) {
 				quakeActive = false;
 			}
 		}
 	}
-
-private void fireBeam() {
-	if (this.getTarget() == null) return;
-
-	LivingEntity target = this.getTarget();
-
-	double dx = target.getX() - this.getX();
-	double dz = target.getZ() - this.getZ();
-
-	float yaw = (float)(Math.atan2(dz, dx) * (180F / Math.PI)) - 90F;
-
-	this.setYRot(yaw);
-
-	float rad = yaw * ((float)Math.PI / 180F);
-
-	Vec3 lookVec = new Vec3(-Mth.sin(rad), 0, Mth.cos(rad));
-	Vec3 rightVec = new Vec3(lookVec.z, 0, -lookVec.x);
-
-	double sideOffset = 1.3D;
-	double forwardOffset = 2.0D;
-	double heightOffset = 2.0D;
-
-	double spawnX = this.getX()+ lookVec.x * forwardOffset+ rightVec.x * sideOffset;
-	double spawnY = this.getY() + heightOffset;
-	double spawnZ = this.getZ()+ lookVec.z * forwardOffset+ rightVec.z * sideOffset;
-
-	SahnUzalBeamProjectileEntity projectile =new SahnUzalBeamProjectileEntity(ModEntities.SAHN_UZAL_BEAM_PROJECTILE_ENTITY.get(),this.level());
-
-	projectile.setPos(spawnX, spawnY, spawnZ);
-	double shootX = target.getX() - spawnX;
-	double shootY = (target.getY() + target.getEyeHeight() * 0.5D) - spawnY;
-	double shootZ = target.getZ() - spawnZ;
-
-	projectile.shoot(shootX, shootY, shootZ, 0.5F, 0F);
-
-	this.level().addFreshEntity(projectile);
-}
 
 	public void doEarthquake(Level level, BlockPos center, int radius) {
 		if (level.isClientSide())
@@ -226,6 +188,7 @@ private void fireBeam() {
 		this.quakeRadius = 0;
 		this.quakeMaxRadius = radius;
 		this.quakeDelay = 0;
+		this.quakeCenter = center;
 	}
 
 	private void createRing(Level level, BlockPos center, int radius) {
@@ -253,7 +216,7 @@ private void fireBeam() {
 									state,
 									10 // duration before it disappears
 							);
-							falling.setDeltaMovement(0, 0.5D, 0); // upward launch
+							falling.setDeltaMovement(0, 0.35D, 0); // upward launch
 							level.addFreshEntity(falling);
 						}
 					}
@@ -271,6 +234,43 @@ private void fireBeam() {
 			}
 		}
 		return null;
+	}
+
+	private void fireBeam() {
+		if (this.getTarget() == null) return;
+
+		LivingEntity target = this.getTarget();
+
+		double dx = target.getX() - this.getX();
+		double dz = target.getZ() - this.getZ();
+
+		float yaw = (float)(Math.atan2(dz, dx) * (180F / Math.PI)) - 90F;
+
+		this.setYRot(yaw);
+
+		float rad = yaw * ((float)Math.PI / 180F);
+
+		Vec3 lookVec = new Vec3(-Mth.sin(rad), 0, Mth.cos(rad));
+		Vec3 rightVec = new Vec3(lookVec.z, 0, -lookVec.x);
+
+		double sideOffset = 1.3D;
+		double forwardOffset = 2.0D;
+		double heightOffset = 2.0D;
+
+		double spawnX = this.getX()+ lookVec.x * forwardOffset+ rightVec.x * sideOffset;
+		double spawnY = this.getY() + heightOffset;
+		double spawnZ = this.getZ()+ lookVec.z * forwardOffset+ rightVec.z * sideOffset;
+
+		SahnUzalBeamProjectileEntity projectile =new SahnUzalBeamProjectileEntity(ModEntities.SAHN_UZAL_BEAM_PROJECTILE_ENTITY.get(),this.level());
+
+		projectile.setPos(spawnX, spawnY, spawnZ);
+		double shootX = target.getX() - spawnX;
+		double shootY = (target.getY() + target.getEyeHeight() * 0.5D) - spawnY;
+		double shootZ = target.getZ() - spawnZ;
+
+		projectile.shoot(shootX, shootY, shootZ, 0.5F, 0F);
+
+		this.level().addFreshEntity(projectile);
 	}
 
 	private void setupAnimationStates() { // I dont really understand this part but it works
@@ -320,9 +320,9 @@ private void fireBeam() {
 				.add(Attributes.ATTACK_DAMAGE, 10f);
 	}
 
-	public void stopSeenByPlayer(ServerPlayer pPlayer) { // Add the given player to the list of players tracking
-		super.stopSeenByPlayer(pPlayer); // this entity. For instance, a player may track a
-		this.bossEvent.removePlayer(pPlayer); // boss in order to view its associated boss bar.
+	public void stopSeenByPlayer(ServerPlayer pPlayer) {    // Add the given player to the list of players tracking
+		super.stopSeenByPlayer(pPlayer);                    // this entity. For instance, a player may track a
+		this.bossEvent.removePlayer(pPlayer);               // boss in order to view its associated boss bar.
 	}
 
 	@Nullable
