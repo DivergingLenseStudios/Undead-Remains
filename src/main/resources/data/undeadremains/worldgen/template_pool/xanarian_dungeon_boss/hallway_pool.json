@@ -21,18 +21,9 @@
 			}
 		},
 		{
-			"weight": 1,
+			"weight": 5,
 			"element": {
-				"location": "undeadremains:xanarian_dungeon_faketrap",
-				"processors": "minecraft:empty",
-				"projection": "rigid",
-				"element_type": "minecraft:single_pool_element"
-			}
-		},
-		{
-			"weight": 2,
-			"element": {
-				"location": "undeadremains:xanarian_dungeon_falltrap",
+				"location": "undeadremains:xanarian_dungeon_flower_hall",
 				"processors": "minecraft:empty",
 				"projection": "rigid",
 				"element_type": "minecraft:single_pool_element"
@@ -51,6 +42,24 @@
 			"weight": 3,
 			"element": {
 				"location": "undeadremains:xanarian_dungeon_tunnel",
+				"processors": "minecraft:empty",
+				"projection": "rigid",
+				"element_type": "minecraft:single_pool_element"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"location": "undeadremains:xanarian_dungeon_faketrap",
+				"processors": "minecraft:empty",
+				"projection": "rigid",
+				"element_type": "minecraft:single_pool_element"
+			}
+		},
+		{
+			"weight": 1,
+			"element": {
+				"location": "undeadremains:xanarian_dungeon_falltrap",
 				"processors": "minecraft:empty",
 				"projection": "rigid",
 				"element_type": "minecraft:single_pool_element"

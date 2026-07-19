@@ -1,6 +1,9 @@
 /*
 Goals:
 	-Xanas
+		- fixes
+			- Smelt Langrite Ore
+			- Calipo Berries give hunger
 		-Add dungeon
 			-Design rooms
 			-Add boss Fossil and Xanarian

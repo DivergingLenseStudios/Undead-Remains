@@ -141,5 +141,65 @@ public class ModChestLootTables implements LootTableSubProvider {
 										.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0f)))
 										.when(LootItemRandomChanceCondition.randomChance(1f)))));
 
+			consumer.accept(new ResourceLocation("undeadremains", "chests/vine_room_chest"),
+				LootTable.lootTable()
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.LANGRITE_INGOT.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 2.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(0.25f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.LANGRITE_NUGGET.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(0.5f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0f))
+								.add(LootItem.lootTableItem(ModItems.CALIPO_BERRIES.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(0.5f))))
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModBlocks.LANGRITE_ORE.get())
+										.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0f)))
+										.when(LootItemRandomChanceCondition.randomChance(0.35f)))));
+
+		consumer.accept(new ResourceLocation("undeadremains", "chests/trap_room_chest"),
+			LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModBlocks.METATORBERNITE_LUCKY_BLOCK.get())
+					.apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
+					.when(LootItemRandomChanceCondition.randomChance(1f))))
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModItems.METATORBERNITE.get())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 4.0f)))
+						.when(LootItemRandomChanceCondition.randomChance(1))))
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModItems.RAW_FOSSIL.get())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0f)))
+						.when(LootItemRandomChanceCondition.randomChance(1f)))));
+
+		consumer.accept(new ResourceLocation("undeadremains", "chests/t_junction_chest"),
+			LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModItems.XANARIAN_LEATHER.get())
+					.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0f)))
+					.when(LootItemRandomChanceCondition.randomChance(1f))))
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModItems.XANARIAN_SPINE.get())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0f, 1.0f)))
+						.when(LootItemRandomChanceCondition.randomChance(1))))
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModItems.RAW_XANARIAN_MEAT.get())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 3.0f)))
+						.when(LootItemRandomChanceCondition.randomChance(1f))))
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModItems.XANARANHA_HORN.get())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0f)))
+						.when(LootItemRandomChanceCondition.randomChance(1f))))
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModBlocks.XANAS_FLOWER.get())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0f)))
+						.when(LootItemRandomChanceCondition.randomChance(1f))))
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+					.add(LootItem.lootTableItem(ModItems.CALIPO_BERRIES.get())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 3.0f)))
+						.when(LootItemRandomChanceCondition.randomChance(1f)))));
 	}
 }
