@@ -18,9 +18,8 @@ public class ModFoods {
 			.saturationMod(0.1f).effect(() -> new MobEffectInstance(MobEffects.NIGHT_VISION, 200), 1f)
 			.build();
 
-	public static final FoodProperties THE_QUARTZ_MODIFIED_FOSSILS_EYE = new FoodProperties.Builder().nutrition(1)
-			.fast()
-			.saturationMod(0.1f)
+	public static final FoodProperties THE_QUARTZ_MODIFIED_FOSSILS_EYE = new FoodProperties.Builder().nutrition(2).fast()
+			.saturationMod(0.2f)
 			.effect(() -> new MobEffectInstance(ModEffects.FOSSIL_VISION.get(), 2000), 1f).build();
 
 	public static final FoodProperties FOSSILIZED_DRUMSTICK = new FoodProperties.Builder().nutrition(2)
@@ -34,51 +33,51 @@ public class ModFoods {
 			.effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 6000, 0), 1.0F)
 			.effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 2400, 3), 1.0F).alwaysEat().build();
 
-	public static final FoodProperties RAW_XANARIAN_MEAT = new FoodProperties.Builder().nutrition(1)
-			.saturationMod(0.1f)
+	public static final FoodProperties RAW_XANARIAN_MEAT = new FoodProperties.Builder().nutrition(4).meat()
+			.saturationMod(0.3f)
 			.build();
 
-	public static final FoodProperties XANARIAN_MEAT = new FoodProperties.Builder().nutrition(2)
-			.saturationMod(0.2f)
+	public static final FoodProperties XANARIAN_MEAT = new FoodProperties.Builder().nutrition(6).meat()
+			.saturationMod(0.6f)
 			.build();
 
-	public static final FoodProperties XANARIAN_SHISH_KEBAB = new FoodProperties.Builder().nutrition((int) 2.5f)
+	public static final FoodProperties XANARIAN_SHISH_KEBAB = new FoodProperties.Builder().nutrition(6).meat()
 			.fast()
-			.saturationMod(0.2f)
+			.saturationMod(0.8f)
 			.build();
 
-	public static final FoodProperties XANARIAN_KEBAB_WRAP = new FoodProperties.Builder().nutrition(4)
-			.saturationMod(0.2f)
+	public static final FoodProperties XANARIAN_KEBAB_WRAP = new FoodProperties.Builder().nutrition(8).meat()
+			.saturationMod(0.8f)
 			.build();
 
-	public static final FoodProperties XANARIAN_KEBAB = new FoodProperties.Builder().nutrition(4)
-			.saturationMod(0.2f)
+	public static final FoodProperties XANARIAN_KEBAB = new FoodProperties.Builder().nutrition(8).meat()
+			.saturationMod(0.8f)
 			.build();
 
-	public static final FoodProperties WRAP = new FoodProperties.Builder().nutrition(1)
+	public static final FoodProperties WRAP = new FoodProperties.Builder().nutrition(2).meat()
+			.saturationMod(0.3f)
+			.build();
+
+	public static final FoodProperties CALIPO_BERRIES = new FoodProperties.Builder().nutrition(1).fast()
 			.saturationMod(0.1f)
 			.build();
 
-	public static final FoodProperties CALIPO_BERRIES = new FoodProperties.Builder().nutrition((int) 0.5f).fast()
+	public static final FoodProperties XANS_LEAF = new FoodProperties.Builder().nutrition(1).fast()
 			.saturationMod(0.1f)
 			.build();
 
-	public static final FoodProperties XANS_LEAF = new FoodProperties.Builder().nutrition((int) 0.5f).fast()
-			.saturationMod(0.1f)
-			.build();
+	public static final FoodProperties RAW_XANARANHA = new FoodProperties.Builder().nutrition(3).meat()
+			.saturationMod(0.f).build();
 
-	public static final FoodProperties RAW_XANARANHA = new FoodProperties.Builder().nutrition(3)
-			.saturationMod(0.1f).build();
+	public static final FoodProperties COOKED_XANARANHA = new FoodProperties.Builder().nutrition(6).meat()
+			.saturationMod(0.6f).build();
 
-	public static final FoodProperties COOKED_XANARANHA = new FoodProperties.Builder().nutrition(6)
-			.saturationMod(0.2f).build();
-
-	public static final FoodProperties SUCKER_TRUNK = new FoodProperties.Builder().nutrition((int) 0.5f)
+	public static final FoodProperties SUCKER_TRUNK = new FoodProperties.Builder().nutrition(2).meat()
 			.saturationMod(0.1f)
 			.effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 0), 1.0F)
 			.build();
 
-	public static final FoodProperties COOKED_SUCKER_TRUNK = new FoodProperties.Builder().nutrition((int) 1.5f)
-			.saturationMod(0.1f)
+	public static final FoodProperties COOKED_SUCKER_TRUNK = new FoodProperties.Builder().nutrition(4).meat()
+			.saturationMod(0.4f)
 			.build();
 }
