@@ -2,7 +2,6 @@
 Goals:
 	-Xanas
 		- fixes
-			- Smelt Langrite Ore
 			- Calipo Berries give hunger
 		-Add dungeon
 			-Design rooms
@@ -14,6 +13,7 @@ Goals:
 			-improve xand generation
 	-Balancing
 		-Fossil polisher
+		- Langrite Ore should give less langrite
 	-reworks
 		-Spike shoots spikes upon death
 		-Sahn Uzal earthquake blocks make damage

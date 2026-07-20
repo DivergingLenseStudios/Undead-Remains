@@ -35,7 +35,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	// LANGRITE_SMELTABLES
 	private static final List<ItemLike> LANGRITE_SMELTABLES = List.of(
 			ModItems.RAW_LANGRITE.get(),
-			ModBlocks.LANGRITE_NUGGET_BLOCK.get());
+			ModBlocks.LANGRITE_NUGGET_BLOCK.get(),
+			ModBlocks.LANGRITE_ORE.get(),
+			ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get());
 	// FOSSIL_BLOCK_SMELTABLES
 	private static final List<ItemLike> FOSSIL_BLOCK_SMELTABLES = List.of(
 			ModBlocks.RAW_FOSSIL_BLOCK.get());

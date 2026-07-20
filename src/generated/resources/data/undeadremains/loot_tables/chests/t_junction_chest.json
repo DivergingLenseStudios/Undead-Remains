@@ -77,7 +77,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "undeadremains:xanarian_meat"
+          "name": "undeadremains:raw_xanarian_meat"
         }
       ],
       "rolls": 1.0

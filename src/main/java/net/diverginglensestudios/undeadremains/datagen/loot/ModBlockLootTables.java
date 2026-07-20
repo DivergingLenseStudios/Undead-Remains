@@ -158,11 +158,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
 		this.add(ModBlocks.LANGRITE_ORE.get(),
 				block -> createNormalOreDrops(ModBlocks.LANGRITE_ORE.get(), ModItems.RAW_LANGRITE.get(),
-						1, 3));
+						1, 2));
 
 		this.add(ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get(),
 				block -> createNormalOreDrops(ModBlocks.DEEP_LANGSTONE_LANGRITE_ORE.get(), ModItems.RAW_LANGRITE.get(),
-						1, 3));
+						1, 2));
 
 		// Slabs
 		this.add(ModBlocks.FOSSIL_SLAB.get(),
