@@ -11,12 +11,10 @@ package net.diverginglensestudios.undeadremains.event;
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.effects.ModEffects;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
+import net.diverginglensestudios.undeadremains.entity.custom.Other.SpikeProjectileEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.AbstractXanarian;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.XanarianCannibalEntity;
-import net.diverginglensestudios.undeadremains.entity.custom.Zombies.BigWoodlingEntity;
-import net.diverginglensestudios.undeadremains.entity.custom.Zombies.SmallWoodlingEntity;
-import net.diverginglensestudios.undeadremains.entity.custom.Zombies.StrayZombieEntity;
-import net.diverginglensestudios.undeadremains.entity.custom.Zombies.TreeZombieEntity;
+import net.diverginglensestudios.undeadremains.entity.custom.Zombies.*;
 import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.util.ItemSkinUtil;
 import net.diverginglensestudios.undeadremains.worldgen.dimension.ModDimensions;
@@ -114,6 +112,28 @@ public class ModEvents {
 				smallWoodling.moveTo(treeZombie.getX() + 0.5, treeZombie.getY(), treeZombie.getZ() + 0.5,
 						treeZombie.getYRot(), 0);
 				serverLevel.addFreshEntity(smallWoodling);
+			}
+		}
+		else if (entity instanceof SpikeEntity spikeEntity) {
+			Level level = spikeEntity.level();
+			if (!level.isClientSide) {
+				int projectileCount = 8;
+				float speed = 0.15F;
+
+				for (int i = 0; i < projectileCount; i++) {
+					double angle = (Math.PI * 2.0D * i) / projectileCount;
+
+					double xMotion = Math.cos(angle) * speed;
+					double zMotion = Math.sin(angle) * speed;
+
+					SpikeProjectileEntity projectile = new SpikeProjectileEntity(ModEntities.SPIKE_PROJECTILE.get(), spikeEntity.level());
+
+					projectile.setPos(spikeEntity.getX(), spikeEntity.getY() + 0.5D, spikeEntity.getZ());
+
+					projectile.setDeltaMovement(xMotion, 0.15D, zMotion);
+
+					spikeEntity.level().addFreshEntity(projectile);
+				}
 			}
 		}
 		// If a normal zombie dies in powder snow, replace it with our StrayZombie

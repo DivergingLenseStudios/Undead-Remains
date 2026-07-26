@@ -168,6 +168,13 @@ public class ModEntities {
 									MobCategory.MISC)
 							.sized(0.5f, 0.5f).build("bubble_block_bubble_projectile"));
 
+	public static final RegistryObject<EntityType<SpikeProjectileEntity>> SPIKE_PROJECTILE = ENTITY_TYPES
+			.register("spike_projectile",
+					() -> EntityType.Builder
+							.<SpikeProjectileEntity>of(SpikeProjectileEntity::new,
+									MobCategory.MISC)
+							.sized(0.5f, 0.5f).build("spike_projectile"));
+
 
 
 	public static void register(IEventBus eventBus) {
