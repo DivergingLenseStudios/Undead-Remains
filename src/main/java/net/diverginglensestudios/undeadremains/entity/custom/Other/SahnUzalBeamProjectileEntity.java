@@ -9,9 +9,7 @@ package net.diverginglensestudios.undeadremains.entity.custom.Other;
 
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.item.ModItems;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -24,18 +22,15 @@ public class SahnUzalBeamProjectileEntity extends ThrowableItemProjectile {
 		super(type, level);
 	}
 
-	public SahnUzalBeamProjectileEntity(Level level) {
-		super(ModEntities.BUBBLE_BLOCK_BUBBLE_PROJECTILE.get(), level);
-	}
-
 	public SahnUzalBeamProjectileEntity(Level level, LivingEntity shooter) {
-		super(ModEntities.BUBBLE_BLOCK_BUBBLE_PROJECTILE.get(), shooter, level);
+		super(ModEntities.SAHN_UZAL_BEAM_PROJECTILE_ENTITY.get(), shooter, level);
 	}
 
 	@Override
 	protected Item getDefaultItem() {
 		return ModItems.BEAM.get();
 	}
+
 
 	@Override
 	public boolean isNoGravity() {
@@ -69,6 +64,7 @@ public class SahnUzalBeamProjectileEntity extends ThrowableItemProjectile {
 
 		this.discard();
 	}
+
 
 	@Override
 	protected void onHit(HitResult result) {

@@ -2,6 +2,7 @@ package net.diverginglensestudios.undeadremains.entity.custom.Other;
 
 
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
+import net.diverginglensestudios.undeadremains.entity.custom.Bosses.SahnUzalEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -19,6 +20,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraft.world.entity.LivingEntity;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import java.util.List;
+
+import java.util.UUID;
 
 //Created by L_Ender
 
@@ -79,7 +87,18 @@ public class Cm_Falling_Block_Entity extends Entity {
 		if (tickCount > 300) {
 			discard();
 		}
-
+		if (!level().isClientSide) {
+			List<LivingEntity> entities = level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox());
+			for (LivingEntity entity : entities) {
+				if (entity instanceof SahnUzalEntity) {
+					continue;
+				}
+				if (!hitEntities.contains(entity.getUUID())) {
+					entity.hurt(damageSources().fallingBlock(this), 8.0F);
+					hitEntities.add(entity.getUUID());
+				}
+			}
+		}
 	}
 
 	protected void addAdditionalSaveData(CompoundTag p_31973_) {
@@ -103,5 +122,7 @@ public class Cm_Falling_Block_Entity extends Entity {
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
+
+	private final Set<UUID> hitEntities = new HashSet<>();
 
 }

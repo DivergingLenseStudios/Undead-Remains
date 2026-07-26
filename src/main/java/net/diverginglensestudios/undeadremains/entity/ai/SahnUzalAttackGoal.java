@@ -36,10 +36,9 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 		if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) { //if the enemy is in reach
 
 			if(isTimeToStartAttackAnimation()){ //if both tickers are at 0
-				//System.out.println("Choosing attack");
 				Random random = new Random();
-				//int choice = random.nextInt(5) + 1; // Number of events
-				int choice = 3;
+				int choice = random.nextInt(5) + 1; // Number of events
+				//int choice = 3;
 				if (choice==1){//////////Slash1//////////
 					//System.out.println("Attack 1 has been chosen");
 					this.performSlash1();
@@ -59,12 +58,12 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 			}
 			if(isTimeToAttack()) {// if the ticker is at the point where the damage  should happen
 				this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
-				if (entity.getAttackType() == AttackType.FLOOR_STAB && entity.getTicksUntilHit() == 1 && entity.SahnUzalStabQuakeTriggered == false){
-					entity.doEarthquake(entity.level(), entity.blockPosition(), 12);
-					entity.SahnUzalStabQuakeTriggered = true;
-				}
 				performAttack(pEnemy);
 			}
+		}
+		if (entity.getAttackType() == AttackType.FLOOR_STAB && entity.getTicksUntilHit() == 1 && entity.SahnUzalStabQuakeTriggered == false){
+			entity.doEarthquake(entity.level(), entity.blockPosition(), 12);
+			entity.SahnUzalStabQuakeTriggered = true;
 		}
 	}
 
