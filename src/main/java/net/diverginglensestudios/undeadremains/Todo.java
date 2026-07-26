@@ -6,13 +6,9 @@ Goals:
 		-Add boss Fossil and Xanarian
 	-Fully add xanarian cannibal
 	-improve worldgen
-		-fix hole in roof
-		-add more block variety
 		-improve xand generation
 	-Balancing
 		-Fossil polisher
-		- Langrite Ore should give less langrite
 	-reworks
 		-Spike shoots spikes upon death
-		-Sahn Uzal earthquake blocks make damage
  */
