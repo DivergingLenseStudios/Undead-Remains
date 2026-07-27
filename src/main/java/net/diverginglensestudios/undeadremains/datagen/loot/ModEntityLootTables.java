@@ -49,6 +49,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 				ModEntities.HORNED_XANARIAN.get(),
 				ModEntities.SUCKER.get(),
 				ModEntities.DROWNED_SKELETON.get(),
+				ModEntities.SAHN_UZAL.get(),
 				ModEntities.XANARANHA.get());
 	}
 
@@ -176,6 +177,16 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 														1.0F)))
 										.when(LootItemRandomChanceCondition
 												.randomChance(0.05f)))));
+
+		this.add(ModEntities.SAHN_UZAL.get(),
+				LootTable.lootTable()
+						.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f))
+								.add(LootItem.lootTableItem(ModItems.SAHN_UZAL_TROPHY_ITEM.get())
+										.apply(SetItemCountFunction.setCount(
+												ConstantValue.exactly(
+														1.0f)))
+										.when(LootItemRandomChanceCondition
+												.randomChance(1.0f)))));
 
 		this.add(ModEntities.COW_ZOMBIE.get(),
 				LootTable.lootTable()

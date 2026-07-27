@@ -302,6 +302,9 @@ public class ModItems {
 	public static final RegistryObject<Item> XANS_LEAF_SEEDS = ITEMS.register("xans_leaf_seeds",
 			() -> new ItemNameBlockItem(ModBlocks.XANS_LEAVES.get(), new Item.Properties()));
 
+	public static final RegistryObject<Item> SAHN_UZAL_TROPHY_ITEM = ITEMS.register("sahn_uzal_trophy",
+			() -> new ItemNameBlockItem(ModBlocks.SAHN_UZAL_TROPHY.get(), new Item.Properties()));
+
 	// Music
 	public static final RegistryObject<Item> UNDYING_WHISPERS_MUSIC_DISC = ITEMS.register(
 			"undying_whispers_music_disc",

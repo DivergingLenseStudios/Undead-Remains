@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_redstone": {
+    "has_ash_sign": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:redstone"
+              "undeadremains:ash_sign"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_redstone",
+      "has_ash_sign",
       "has_the_recipe"
     ]
   ],

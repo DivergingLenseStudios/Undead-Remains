@@ -162,8 +162,18 @@ public class ModBlocks {
 			() -> new StructureExtenderBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK)));
 
 	public static final RegistryObject<Block> BUBBLE_BLOCK = registerBlock("bubble_block",
-			() -> new BubbleBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
-					.sound(SoundType.CORAL_BLOCK)));
+			() -> new BubbleBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.CORAL_BLOCK)));
+
+	public static final RegistryObject<Block> METATORBERNITE_ENRICHER_CONTROLLER = BLOCKS.register(
+			"metatorbernite_enricher_controller",
+			() -> new MetatorberniteEnricherController(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+	public static final RegistryObject<Block> METATORBERNITE_ENRICHER_PART = BLOCKS.register(
+			"metatorbernite_enricher_part",
+			() -> new MetatorberniteEnricherPart(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+
+	public static final RegistryObject<Block> SAHN_UZAL_TROPHY = BLOCKS.register("sahn_uzal_trophy",
+			() -> new HorizontalRotationBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.STONE).noOcclusion()));
 
 	// Differenty shaped blocks
 	// Fossil
@@ -458,13 +468,7 @@ public class ModBlocks {
 					BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).noOcclusion().noCollission(),
 					ModBlocks.LIVING_LANGSTONE, false));
 
-	public static final RegistryObject<Block> METATORBERNITE_ENRICHER_CONTROLLER = BLOCKS.register(
-			"metatorbernite_enricher_controller",
-			() -> new MetatorberniteEnricherController(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
-	public static final RegistryObject<Block> METATORBERNITE_ENRICHER_PART = BLOCKS.register(
-			"metatorbernite_enricher_part",
-			() -> new MetatorberniteEnricherPart(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 	//////////////////// BLOCKS////////////////////
 
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

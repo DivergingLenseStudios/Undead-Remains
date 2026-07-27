@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "undeadremains:block/sahn_uzal_trophy",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "undeadremains:block/sahn_uzal_trophy"
+    },
+    "facing=south": {
+      "model": "undeadremains:block/sahn_uzal_trophy",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "undeadremains:block/sahn_uzal_trophy",
+      "y": 270
+    }
+  }
+}

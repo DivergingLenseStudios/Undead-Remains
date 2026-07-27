@@ -74,12 +74,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		horizontalBlock(
 				ModBlocks.FOSSIL_POLISHER.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher")));
-
 		simpleBlockItem(
 				ModBlocks.FOSSIL_POLISHER.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/fossil_polisher")));
+		horizontalBlock(
+				ModBlocks.SAHN_UZAL_TROPHY.get(),
+				new ModelFile.UncheckedModelFile(modLoc("block/sahn_uzal_trophy")));
+		simpleBlockItem(
+				ModBlocks.SAHN_UZAL_TROPHY.get(),
+				new ModelFile.UncheckedModelFile(modLoc("block/sahn_uzal_trophy")));
 		simpleBlockWithItem(ModBlocks.BUBBLE_BLOCK.get(),
 				new ModelFile.UncheckedModelFile(modLoc("block/bubble_block")));
+
+
 
 		simpleBlock(ModBlocks.LIVING_LANGSTONE.get(), models().cubeBottomTop(
 				"living_langstone",

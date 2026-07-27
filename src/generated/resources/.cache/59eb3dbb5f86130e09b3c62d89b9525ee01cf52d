@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-20T10:25:21.7960764	Loot Tables
+// 1.20.1	2026-07-27T14:57:10.5155107	Loot Tables
 711972a146f5c83257e403196b5df89212a6225a data/undeadremains/loot_tables/blocks/ancient_bricks.json
 7bcfbf5e39c6562343051c32ef5dc4d2774307dc data/undeadremains/loot_tables/blocks/ancient_pillar.json
 76a75524e5dcd7d1c9d5de5047a92ee68b60e2f2 data/undeadremains/loot_tables/blocks/ash_button.json
@@ -100,6 +100,7 @@ ba72fbb05ea93cb64692ed218cccede613dd13fe data/undeadremains/loot_tables/blocks/p
 4b9acb7448f6d3e2604dae412ecde02958933ff2 data/undeadremains/loot_tables/blocks/raw_fossil_block.json
 5b7311ca1cd100a2a2906bc76c8e08e9a78f3628 data/undeadremains/loot_tables/blocks/raw_langrite_block.json
 0f2557006e977c5cfd25de1355087c97b7858ec4 data/undeadremains/loot_tables/blocks/roxa_flower.json
+7d825fae3e713a9e589f45d8d1459947d9c2c856 data/undeadremains/loot_tables/blocks/sahn_uzal_trophy.json
 098017fbd6f70076f873ca669d4d9b3e1d779490 data/undeadremains/loot_tables/blocks/stripped_ash_log.json
 87bba88d80e30cd7f3e831f80c2f09b93aa3da0f data/undeadremains/loot_tables/blocks/stripped_ash_wood.json
 08767eb76bc0cc12b6d4d07df25932253833d688 data/undeadremains/loot_tables/blocks/stripped_calipo_log.json
@@ -127,6 +128,7 @@ fcc7a30b6d3457d82c9d198ea69ecf5ecab6dfee data/undeadremains/loot_tables/entities
 529f998b5e000f849da47875fa92ca1c75086029 data/undeadremains/loot_tables/entities/four_eyed_xanarian.json
 8fdeb4195e284e696f6c119daaa31fa12a7f86dc data/undeadremains/loot_tables/entities/hammer_zombie.json
 bc415c0a3a2f3fb269a4eda5c7aa0485c87f1c3c data/undeadremains/loot_tables/entities/horned_xanarian.json
+686219cdbe8f201e8632104281aca898d9f46be9 data/undeadremains/loot_tables/entities/sahn_uzal.json
 0cb7b8585fa8700f7728df6a84ed893bca2312d9 data/undeadremains/loot_tables/entities/small_woodling.json
 e53f8f38a04fefe7a76ec6bbba1652593292fd44 data/undeadremains/loot_tables/entities/spike.json
 940016fe37ee2334f1adb219a017306f8243d433 data/undeadremains/loot_tables/entities/stray_zombie.json

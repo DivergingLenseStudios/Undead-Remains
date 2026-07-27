@@ -91,6 +91,8 @@ public class ModCreativeModTabs {
 						pOutput.accept(ModBlocks.CHISELED_SUPREME_BRICKS.get());
 						pOutput.accept(ModBlocks.SUPREME_PILLAR.get());
 
+						pOutput.accept(ModItems.SAHN_UZAL_TROPHY_ITEM.get());
+
 						pOutput.accept(ModItems.METATORBERNITE.get());
 						pOutput.accept(ModItems.METATURBONITE.get());
 						pOutput.accept(ModItems.EMPTY_FUEL_CELL.get());

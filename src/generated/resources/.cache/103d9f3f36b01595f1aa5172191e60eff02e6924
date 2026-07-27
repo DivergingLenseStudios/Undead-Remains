@@ -1,9 +1,9 @@
-// 1.20.1	2026-07-13T15:45:49.377553636	Registries
+// 1.20.1	2026-07-27T13:35:46.8579851	Registries
 6651ee0dde6125861be617304c26d0295a06fabe data/undeadremains/dimension/fossildim.json
 58144749eb3dc6f2a408ebd319ec04fcd25f7982 data/undeadremains/dimension_type/fossildim_type.json
 b9ba1e7dcf9aa0f789e571d7731693ffb2d3b0fe data/undeadremains/forge/biome_modifier/add_cow_zombie.json
-030923e2941117be82e0872a30a0f73cfc4d1649 data/undeadremains/forge/biome_modifier/add_fossil_ore.json
 380eecbdf2d9632e5e17e2033869e7ee90c721ee data/undeadremains/forge/biome_modifier/add_fossilized_zombie.json
+030923e2941117be82e0872a30a0f73cfc4d1649 data/undeadremains/forge/biome_modifier/add_fossil_ore.json
 dd9f5a7c0950e983d3fa02bdb4b3a03a3551077b data/undeadremains/forge/biome_modifier/add_hammer_zombie.json
 5c26c846cbe2aba83b1d2a8ba95d6622b5cfefd6 data/undeadremains/forge/biome_modifier/add_metatorbernite_ore.json
 0a73ef957c1b9c0c26167047ab27de7fe370496d data/undeadremains/forge/biome_modifier/add_spike.json
