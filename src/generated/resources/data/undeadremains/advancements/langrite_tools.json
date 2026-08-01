@@ -1,5 +1,5 @@
 {
-  "parent": "undeadremains:metatorbernite",
+  "parent": "undeadremains:langrite",
   "criteria": {
     "craft_langrite_axe": {
       "conditions": {

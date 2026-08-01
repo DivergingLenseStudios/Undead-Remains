@@ -19,7 +19,7 @@
     "description": {
       "translate": "advancement.undeadremains.maximum_xanarian_reputation.desc"
     },
-    "frame": "goal",
+    "frame": "challenge",
     "hidden": false,
     "icon": {
       "item": "undeadremains:xanarian_horn"

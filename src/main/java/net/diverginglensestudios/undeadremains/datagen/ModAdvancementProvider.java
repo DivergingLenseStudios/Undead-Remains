@@ -566,7 +566,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "langrite"), existingFileHelper);
 			// ↓//////// LANGRITE_TOOLS////////↓//
 			Advancement langrite_tools = Advancement.Builder.advancement()
-					.parent(metatorbernite)
+					.parent(langrite)
 					.display(
 							ModItems.LANGRITE_SWORD.get(),
 							Component.translatable("advancement.undeadremains.langrite_tools.title"),
@@ -599,7 +599,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 			// ↑//////// LANGRITE_TOOLS////////↑//
 			// ↓//////// LANGRITE_ARMOR////////↓//
 			Advancement langrite_armor = Advancement.Builder.advancement()
-					.parent(metatorbernite)
+					.parent(langrite)
 					.display(
 							ModItems.LANGRITE_HELMET.get(),
 							Component.translatable("advancement.undeadremains.langrite_armor.title"),
@@ -636,7 +636,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							Component.translatable("advancement.undeadremains.maximum_xanarian_reputation.title"),
 							Component.translatable("advancement.undeadremains.maximum_xanarian_reputation.desc"),
 							null,
-							FrameType.GOAL,
+							FrameType.CHALLENGE,
 							true,
 							true,
 							false)
@@ -652,7 +652,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							Component.translatable("advancement.undeadremains.minimum_xanarian_reputation.title"),
 							Component.translatable("advancement.undeadremains.minimum_xanarian_reputation.desc"),
 							null,
-							FrameType.GOAL,
+							FrameType.CHALLENGE,
 							true,
 							true,
 							false)
