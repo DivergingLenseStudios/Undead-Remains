@@ -1,0 +1,84 @@
+{
+  "parent": "undeadremains:metatorbernite",
+  "criteria": {
+    "craft_langrite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_langrite_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_langrite_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_langrite_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.langrite_armor.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:langrite_helmet",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.langrite_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_langrite_helmet"
+    ],
+    [
+      "craft_langrite_chestplate"
+    ],
+    [
+      "craft_langrite_leggings"
+    ],
+    [
+      "craft_langrite_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

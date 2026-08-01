@@ -1,0 +1,99 @@
+{
+  "parent": "undeadremains:metatorbernite",
+  "criteria": {
+    "craft_langrite_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_langrite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_langrite_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_langrite_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_langrite_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.langrite_tools.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:langrite_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.langrite_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_langrite_sword"
+    ],
+    [
+      "craft_langrite_pickaxe"
+    ],
+    [
+      "craft_langrite_axe"
+    ],
+    [
+      "craft_langrite_shovel"
+    ],
+    [
+      "craft_langrite_hoe"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

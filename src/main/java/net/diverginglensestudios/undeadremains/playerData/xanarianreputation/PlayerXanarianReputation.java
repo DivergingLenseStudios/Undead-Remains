@@ -8,8 +8,10 @@
 package net.diverginglensestudios.undeadremains.playerData.xanarianreputation;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 
@@ -30,6 +32,13 @@ public class PlayerXanarianReputation {
 
 		if (old != xanarianreputation) {
 			onReputationChanged(player, xanarianreputation);
+
+			if (xanarianreputation == MIN_XANARIAN_REPUTATION) {
+				grantAdvancement(player, "minimum_xanarian_reputation");
+			}
+			else if (xanarianreputation == MAX_XANARIAN_REPUTATION) {
+				grantAdvancement(player, "maximum_xanarian_reputation");
+			}
 		}
 	}
 	public int getXanarianReputation() {
@@ -56,6 +65,16 @@ public class PlayerXanarianReputation {
 		else {
 			player.displayClientMessage(Component.literal("Xanarian Reputation is now " + newValue + ". ")
 					.append(Component.literal("(Good)").withStyle(ChatFormatting.GREEN)),true);
+		}
+	}
+	private void grantAdvancement(ServerPlayer player, String advancementId) {
+		Advancement advancement = player.server.getAdvancements()
+				.getAdvancement(new ResourceLocation("undeadremains", advancementId));
+
+		if (advancement != null) {
+			for (String criterion : advancement.getCriteria().keySet()) {
+				player.getAdvancements().award(advancement, criterion);
+			}
 		}
 	}
 }

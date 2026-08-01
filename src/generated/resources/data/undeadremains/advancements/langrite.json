@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:xanarian_gateway",
+  "criteria": {
+    "has_langrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "undeadremains:langrite_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.langrite.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:langrite_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.langrite.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_langrite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -15,12 +15,14 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.ChangeDimensionTrigger;
+import net.minecraft.advancements.critereon.ImpossibleTrigger;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
@@ -547,6 +549,117 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							ChangeDimensionTrigger.TriggerInstance
 									.changedDimensionTo(ModDimensions.FOSSILDIM_LEVEL_KEY))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "xanas"), existingFileHelper);
+			// ↓//////// LANGRITE////////↓//
+			Advancement langrite = Advancement.Builder.advancement()
+					.parent(xanarian_gateway)
+					.display(
+							ModItems.LANGRITE_INGOT.get(),
+							Component.translatable("advancement.undeadremains.langrite.title"),
+							Component.translatable("advancement.undeadremains.langrite.desc"),
+							null,
+							FrameType.TASK,
+							true,
+							true,
+							false)
+					.addCriterion("has_langrite",
+							InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LANGRITE_INGOT.get()))
+					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "langrite"), existingFileHelper);
+			// ↓//////// LANGRITE_TOOLS////////↓//
+			Advancement langrite_tools = Advancement.Builder.advancement()
+					.parent(metatorbernite)
+					.display(
+							ModItems.LANGRITE_SWORD.get(),
+							Component.translatable("advancement.undeadremains.langrite_tools.title"),
+							Component.translatable("advancement.undeadremains.langrite_tools.desc"),
+							null,
+							FrameType.GOAL,
+							true,
+							false,
+							false)
+
+					.addCriterion("craft_langrite_sword",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_SWORD.get()))
+					.addCriterion("craft_langrite_pickaxe",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_PICKAXE.get()))
+					.addCriterion("craft_langrite_axe",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_AXE.get()))
+					.addCriterion("craft_langrite_shovel",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_SHOVEL.get()))
+					.addCriterion("craft_langrite_hoe",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_HOE.get()))
+					.requirements(RequirementsStrategy.AND)
+					.save(saver,
+							new ResourceLocation(UndeadRemains.MOD_ID, "langrite_tools"),
+							existingFileHelper);
+			// ↑//////// LANGRITE_TOOLS////////↑//
+			// ↓//////// LANGRITE_ARMOR////////↓//
+			Advancement langrite_armor = Advancement.Builder.advancement()
+					.parent(metatorbernite)
+					.display(
+							ModItems.LANGRITE_HELMET.get(),
+							Component.translatable("advancement.undeadremains.langrite_armor.title"),
+							Component.translatable("advancement.undeadremains.langrite_armor.desc"),
+							null,
+							FrameType.GOAL,
+							true,
+							false,
+							false)
+
+					.addCriterion("craft_langrite_helmet",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_HELMET.get()))
+					.addCriterion("craft_langrite_chestplate",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_CHESTPLATE.get()))
+					.addCriterion("craft_langrite_leggings",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_LEGGINGS.get()))
+					.addCriterion("craft_langrite_boots",
+							InventoryChangeTrigger.TriggerInstance
+									.hasItems(ModItems.LANGRITE_BOOTS.get()))
+					.requirements(RequirementsStrategy.AND)
+					.save(saver,
+							new ResourceLocation(UndeadRemains.MOD_ID, "langrite_armor"),
+							existingFileHelper);
+			// ↑//////// LANGRITE_ARMOR////////↑//
+			// ↑//////// LANGRITE////////↑//
+			// ↓//////// MAX_XANARIAN_REP////////↓//
+			Advancement maximum_xanarian_reputation = Advancement.Builder.advancement()
+					.parent(xanarian_gateway)
+					.display(
+							ModItems.XANARIAN_HORN.get(),
+							Component.translatable("advancement.undeadremains.maximum_xanarian_reputation.title"),
+							Component.translatable("advancement.undeadremains.maximum_xanarian_reputation.desc"),
+							null,
+							FrameType.GOAL,
+							true,
+							true,
+							false)
+					.addCriterion("has_maximum_xanarian_reputation",
+							InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.AIR))
+					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "maximum_xanarian_reputation"), existingFileHelper);
+			// ↑//////// MAX_XANARIAN_REP////////↑//
+			// ↓//////// MIN_XANARIAN_REP////////↓//
+			Advancement minimum_xanarian_reputation = Advancement.Builder.advancement()
+					.parent(xanarian_gateway)
+					.display(
+							ModItems.XANARANHA_HORN.get(),
+							Component.translatable("advancement.undeadremains.minimum_xanarian_reputation.title"),
+							Component.translatable("advancement.undeadremains.minimum_xanarian_reputation.desc"),
+							null,
+							FrameType.GOAL,
+							true,
+							true,
+							false)
+					.addCriterion("has_minimum_xanarian_reputation",
+							InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.AIR))
+					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "minimum_xanarian_reputation"), existingFileHelper);
+			// ↑//////// MIN_XANARIAN_REP////////↑//
 			// ↑//////// XANAS////////↑//
 			// ↑//////// XANARIAN_GATEWAY////////↑//
 			// ↑//////// METATURBONITE////////↑//

@@ -1,0 +1,38 @@
+{
+  "parent": "undeadremains:xanarian_gateway",
+  "criteria": {
+    "has_minimum_xanarian_reputation": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:air"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.minimum_xanarian_reputation.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:xanaranha_horn"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.minimum_xanarian_reputation.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_minimum_xanarian_reputation"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

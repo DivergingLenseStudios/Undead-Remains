@@ -355,8 +355,20 @@
 	"advancement.undeadremains.rare_fossil_tools.desc": "Obtain all rare fossil tools",
 	"advancement.undeadremains.metatorbernite_armor.title": "Camouflesh",
 	"advancement.undeadremains.metatorbernite_armor.desc": "Obtain a full set of metatorbernite armor",
+	"advancement.undeadremains.maximum_xanarian_reputation.title": "Honorary Xanarian",
+	"advancement.undeadremains.maximum_xanarian_reputation.desc": "Get the your xanarian reputation to the max by killing creepers and xanaranhas",
+	"advancement.undeadremains.minimum_xanarian_reputation.title": "Enemy of Xanas",
+	"advancement.undeadremains.minimum_xanarian_reputation.desc": "Reduce your xanarian reputation to the minimum by killing xanarians",
+
+	"advancement.undeadremains.langrite_armor.title": "Langrite Armor",
+	"advancement.undeadremains.langrite_armor.desc": "Obtain a full set of langrite armor",
 	"advancement.undeadremains.metatorbernite_gas_mask.title": "Metatorbernite Gas Mask",
 	"advancement.undeadremains.metatorbernite_gas_mask.desc": "Obtain a metatorbernite gas mask",
+	"advancement.undeadremains.langrite.title": "Langrite",
+	"advancement.undeadremains.langrite.desc": "Obtain a langrite ingot",
+	"advancement.undeadremains.langrite_tools.title": "Langrite Tools",
+	"advancement.undeadremains.langrite_tools.desc": "Obtain all langrite tools",
+
 
 	"creativetab.tutorial_tab": "Undead Remains"
 
