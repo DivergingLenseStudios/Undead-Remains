@@ -11,6 +11,7 @@ package net.diverginglensestudios.undeadremains.event;
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.effects.ModEffects;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
+import net.diverginglensestudios.undeadremains.entity.custom.Fish.XanaranhaEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Other.SpikeProjectileEntity;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.AbstractXanarian;
 import net.diverginglensestudios.undeadremains.entity.custom.Xanarians.XanarianCannibalEntity;
@@ -172,6 +173,17 @@ public class ModEvents {
 		}
 		//If a Creeper is killed in Xanas, reputation goes up
 		else if (entity instanceof Creeper creeper && creeper.level().dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY){
+			DamageSource source = event.getSource();
+			if (!(source.getEntity()instanceof ServerPlayer player)){
+				return;
+			}
+			player.getCapability(PlayerXanarianReputationProvider.PLAYER_XANARIAN_REPUTATION)
+					.ifPresent(rep -> {
+						rep.addXanarianReputation(player, 5);
+					});
+		}
+		//If a Xanaranha is killed in Xanas, reputation goes up
+		else if (entity instanceof XanaranhaEntity xanaranha && xanaranha.level().dimension() == ModDimensions.FOSSILDIM_LEVEL_KEY){
 			DamageSource source = event.getSource();
 			if (!(source.getEntity()instanceof ServerPlayer player)){
 				return;
