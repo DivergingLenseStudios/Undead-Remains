@@ -102,136 +102,94 @@
   "ore_veins_enabled": false,
   "sea_level": 32,
   "spawn_target": [],
-"surface_rule": {
-  "type": "minecraft:sequence",
-  "sequence": [
-    {
-      "type": "minecraft:condition",
-      "if_true": {
-        "type": "minecraft:not",
-        "invert": {
-          "type": "minecraft:vertical_gradient",
-          "false_at_and_above": {
-            "below_top": 0
-          },
-          "random_name": "minecraft:bedrock_roof",
-          "true_at_and_below": {
-            "below_top": 5
-          }
-        }
-      },
-      "then_run": {
-        "type": "minecraft:block",
-        "result_state": {
-          "Name": "minecraft:bedrock"
-        }
-      }
-    },
-    {
-      "type": "minecraft:condition",
-      "if_true": {
-        "type": "minecraft:vertical_gradient",
-        "false_at_and_above": {
-          "above_bottom": 5
+  "surface_rule": {
+    "type": "minecraft:sequence",
+    "sequence": [
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:stone_depth",
+          "add_surface_depth": true,
+          "offset": 4,
+          "secondary_depth_range": 0,
+          "surface_type": "floor"
         },
-        "random_name": "minecraft:bedrock_floor",
-        "true_at_and_below": {
-          "above_bottom": 0
-        }
-      },
-      "then_run": {
-        "type": "minecraft:block",
-        "result_state": {
-          "Name": "minecraft:bedrock"
-        }
-      }
-    },
-    {
-      "type": "minecraft:condition",
-      "if_true": {
-        "type": "minecraft:stone_depth",
-        "add_surface_depth": false,
-        "offset": 0,
-        "secondary_depth_range": 0,
-        "surface_type": "floor"
-      },
-      "then_run": {
-        "type": "minecraft:sequence",
-        "sequence": [
-          {
-            "type": "minecraft:condition",
-            "if_true": {
-              "type": "minecraft:vertical_gradient",
-              "false_at_and_above": {
-                "absolute": 35
+        "then_run": {
+          "type": "minecraft:sequence",
+          "sequence": [
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:y_above",
+                "anchor": {
+                  "absolute": 28
+                },
+                "surface_depth_multiplier": 0,
+                "add_stone_depth": false
               },
-              "random_name": "undeadremains:xand_sea_level",
-              "true_at_and_below": {
-                "absolute": 28
+              "then_run": {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:not",
+                  "invert": {
+                    "type": "minecraft:y_above",
+                    "anchor": {
+                      "absolute": 35
+                    },
+                    "surface_depth_multiplier": 0,
+                    "add_stone_depth": false
+                  }
+                },
+                "then_run": {
+                  "type": "minecraft:condition",
+                  "if_true": {
+                    "type": "minecraft:water",
+                    "offset": -1,
+                    "surface_depth_multiplier": 1,
+                    "add_stone_depth": true
+                  },
+                  "then_run": {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:not",
+                      "invert": {
+                        "type": "minecraft:steep"
+                      }
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "undeadremains:xand"
+                      }
+                    }
+                  }
+                }
               }
             },
-            "then_run": {
+            {
               "type": "minecraft:condition",
               "if_true": {
                 "type": "minecraft:water",
-                "add_stone_depth": false,
-                "offset": -1,
-                "surface_depth_multiplier": 0
+                "offset": 0,
+                "surface_depth_multiplier": 0,
+                "add_stone_depth": false
               },
               "then_run": {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "undeadremains:xand"
+                  "Name": "undeadremains:living_langstone"
                 }
               }
-            }
-          },
-          {
-            "type": "minecraft:condition",
-            "if_true": {
-              "type": "minecraft:water",
-              "offset": 0,
-              "surface_depth_multiplier": 0,
-              "add_stone_depth": false
             },
-            "then_run": {
+            {
               "type": "minecraft:block",
               "result_state": {
-                "Name": "undeadremains:living_langstone"
+                "Name": "undeadremains:langstone"
               }
             }
-          },
-          {
-            "type": "minecraft:block",
-            "result_state": {
-              "Name": "undeadremains:langstone"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "minecraft:condition",
-      "if_true": {
-        "type": "minecraft:vertical_gradient",
-        "false_at_and_above": {
-          "absolute": 8
-        },
-        "random_name": "undeadremains:deep_langstone",
-        "true_at_and_below": {
-          "absolute": 0
-        }
-      },
-      "then_run": {
-        "type": "minecraft:block",
-        "result_state": {
-          "Name": "undeadremains:deep_langstone",
-          "Properties": {
-            "axis": "y"
-          }
+          ]
         }
       }
-    }
-  ]
-}
+    ]
+  }
 }
