@@ -1,0 +1,40 @@
+{
+  "parent": "undeadremains:find_xanarian_dungeon",
+  "criteria": {
+    "kill_sahn_uzal": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "undeadremains:sahn_uzal"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.kill_sahn_uzal.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:sahn_uzal_trophy"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.kill_sahn_uzal.title"
+    }
+  },
+  "requirements": [
+    [
+      "kill_sahn_uzal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

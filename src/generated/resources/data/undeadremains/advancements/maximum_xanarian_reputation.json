@@ -1,5 +1,5 @@
 {
-  "parent": "undeadremains:xanarian_gateway",
+  "parent": "undeadremains:xanas",
   "criteria": {
     "has_maximum_xanarian_reputation": {
       "conditions": {

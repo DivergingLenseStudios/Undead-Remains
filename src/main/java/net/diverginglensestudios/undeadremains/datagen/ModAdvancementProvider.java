@@ -9,18 +9,18 @@ package net.diverginglensestudios.undeadremains.datagen;
 
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.block.ModBlocks;
+import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.worldgen.dimension.ModDimensions;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
-import net.minecraft.advancements.critereon.ChangeDimensionTrigger;
-import net.minecraft.advancements.critereon.ImpossibleTrigger;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.PlayerTrigger;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -549,9 +549,49 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							ChangeDimensionTrigger.TriggerInstance
 									.changedDimensionTo(ModDimensions.FOSSILDIM_LEVEL_KEY))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "xanas"), existingFileHelper);
+			// ↓//////// FIND_XANARIAN_DUNGEON////////↓//
+			Advancement find_xanarian_dungeon = Advancement.Builder.advancement()
+					.parent(xanas)
+					.display(
+							ModBlocks.ANCIENT_PILLAR.get(),
+							Component.translatable("advancement.undeadremains.find_xanarian_dungeon.title"),
+							Component.translatable("advancement.undeadremains.find_xanarian_dungeon.desc"),
+							null,
+							FrameType.TASK,
+							true,
+							true,
+							false)
+					.addCriterion("find_xanarian_dungeon",
+							PlayerTrigger.TriggerInstance.located(
+									LocationPredicate.Builder.location()
+											.setStructure(ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(UndeadRemains.MOD_ID,
+													"xanarian_dungeon_boss"))).build()))
+					.save(saver,
+							new ResourceLocation(UndeadRemains.MOD_ID, "find_xanarian_dungeon"),
+							existingFileHelper);
+			// ↓////////KILL_SAHN_UZAL////////↓//
+			Advancement kill_sahn_uzal = Advancement.Builder.advancement()
+					.parent(find_xanarian_dungeon)
+					.display(
+							ModBlocks.SAHN_UZAL_TROPHY.get(),
+							Component.translatable("advancement.undeadremains.kill_sahn_uzal.title"),
+							Component.translatable("advancement.undeadremains.kill_sahn_uzal.desc"),
+							null,
+							FrameType.CHALLENGE,
+							true,
+							true,
+							false)
+					.addCriterion("kill_sahn_uzal",
+							KilledTrigger.TriggerInstance.playerKilledEntity(
+									EntityPredicate.Builder.entity().of(ModEntities.SAHN_UZAL.get()).build()))
+					.save(saver,
+							new ResourceLocation(UndeadRemains.MOD_ID, "kill_sahn_uzal"),
+							existingFileHelper);
+			// ↑////////KILL_SAHN_UZAL////////↑//
+			// ↑//////// FIND_XANARIAN_DUNGEON////////↑//
 			// ↓//////// LANGRITE////////↓//
 			Advancement langrite = Advancement.Builder.advancement()
-					.parent(xanarian_gateway)
+					.parent(xanas)
 					.display(
 							ModItems.LANGRITE_INGOT.get(),
 							Component.translatable("advancement.undeadremains.langrite.title"),
@@ -630,7 +670,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 			// ↑//////// LANGRITE////////↑//
 			// ↓//////// MAX_XANARIAN_REP////////↓//
 			Advancement maximum_xanarian_reputation = Advancement.Builder.advancement()
-					.parent(xanarian_gateway)
+					.parent(xanas)
 					.display(
 							ModItems.XANARIAN_HORN.get(),
 							Component.translatable("advancement.undeadremains.maximum_xanarian_reputation.title"),
@@ -646,7 +686,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 			// ↑//////// MAX_XANARIAN_REP////////↑//
 			// ↓//////// MIN_XANARIAN_REP////////↓//
 			Advancement minimum_xanarian_reputation = Advancement.Builder.advancement()
-					.parent(xanarian_gateway)
+					.parent(xanas)
 					.display(
 							ModItems.XANARANHA_HORN.get(),
 							Component.translatable("advancement.undeadremains.minimum_xanarian_reputation.title"),

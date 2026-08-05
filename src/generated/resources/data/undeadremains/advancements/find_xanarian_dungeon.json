@@ -1,0 +1,42 @@
+{
+  "parent": "undeadremains:xanas",
+  "criteria": {
+    "find_xanarian_dungeon": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "undeadremains:xanarian_dungeon_boss"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.undeadremains.find_xanarian_dungeon.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "undeadremains:ancient_pillar"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.find_xanarian_dungeon.title"
+    }
+  },
+  "requirements": [
+    [
+      "find_xanarian_dungeon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

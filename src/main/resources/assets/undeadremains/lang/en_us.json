@@ -368,6 +368,10 @@
 	"advancement.undeadremains.langrite.desc": "Obtain a langrite ingot",
 	"advancement.undeadremains.langrite_tools.title": "Langrite Tools",
 	"advancement.undeadremains.langrite_tools.desc": "Obtain all langrite tools",
+	"advancement.undeadremains.find_xanarian_dungeon.title": "Xanarian Dungeon",
+	"advancement.undeadremains.find_xanarian_dungeon.desc": "Find the Xanarian dungeon. It generates inside the rock at the top of the dimension",
+	"advancement.undeadremains.kill_sahn_uzal.title": "Sahn Uzal",
+	"advancement.undeadremains.kill_sahn_uzal.desc": "Defeat Sahn Uzal",
 
 
 	"creativetab.tutorial_tab": "Undead Remains"
