@@ -76,6 +76,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		simpleItem(ModItems.LANGRITE_NUGGET);
 		simpleItem(ModItems.BUBBLE);
 		simpleItem(ModItems.BEAM);
+		simpleItem(ModItems.ITEM_SKIN_LESS_PIXELS);
 		// Food
 		simpleItem(ModItems.FOSSILIZED_DRUMSTICK);
 		simpleItem(ModItems.GOLD_BLOCK_MODIFIED_FOSSILIZED_DRUMSTICK);
