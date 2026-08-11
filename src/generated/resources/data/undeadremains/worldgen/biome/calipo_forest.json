@@ -120,6 +120,12 @@
         "maxCount": 4,
         "minCount": 2,
         "weight": 5
+      },
+      {
+        "type": "undeadremains:xanarian_cannibal",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 3
       }
     ],
     "underground_water_creature": [],

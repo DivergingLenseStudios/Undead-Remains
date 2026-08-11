@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-27T13:35:46.8579851	Registries
+// 1.20.1	2026-08-11T09:18:14.0250038	Registries
 6651ee0dde6125861be617304c26d0295a06fabe data/undeadremains/dimension/fossildim.json
 58144749eb3dc6f2a408ebd319ec04fcd25f7982 data/undeadremains/dimension_type/fossildim_type.json
 b9ba1e7dcf9aa0f789e571d7731693ffb2d3b0fe data/undeadremains/forge/biome_modifier/add_cow_zombie.json
@@ -12,7 +12,7 @@ dd9f5a7c0950e983d3fa02bdb4b3a03a3551077b data/undeadremains/forge/biome_modifier
 aba6474308ca54ec5d18892adf0d44880387d2ef data/undeadremains/forge/biome_modifier/add_undead_archeologist.json
 843aaf89c1cb68cd21b8e27ec5f1d8059e43036c data/undeadremains/worldgen/biome/ancient_ash_forest.json
 431d42a95e5cd24050e0399ee0ca2300115d0793 data/undeadremains/worldgen/biome/bone_valley.json
-c39a1224cae14f092b1f4cb580111b7fa3390afe data/undeadremains/worldgen/biome/calipo_forest.json
+2943e468315e51b695bc4f2169028f78468823cc data/undeadremains/worldgen/biome/calipo_forest.json
 0282f44e7de085f63e370063648e225d8912048f data/undeadremains/worldgen/biome/creeper_caverns.json
 f4dbab7e09d3aebde3bd70242c1b49e6a859c9aa data/undeadremains/worldgen/configured_feature/ash.json
 98b021503c0231216d4d3a909a88ec8f15738d1c data/undeadremains/worldgen/configured_feature/bonetree_key.json

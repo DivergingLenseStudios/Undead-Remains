@@ -79,8 +79,9 @@ public class XanarianCannibalEntity extends Monster {
 	protected void registerGoals() {
 		//this.goalSelector.addGoal(1, new BetterHurtByTargetGoal(this).setAlertOthers(List.of(ModEntities.FOUR_EYED_XANARIAN.get(), ModEntities.XANARIAN.get(),ModEntities.HORNED_XANARIAN.get())));
 		this.goalSelector.addGoal(1, new FloatGoal(this));
-		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, true));
-		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, true));
+		this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		this.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class, true));
+		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 2, true));
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -114,10 +115,12 @@ public class XanarianCannibalEntity extends Monster {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
-				.add(Attributes.FOLLOW_RANGE, 35.0D)
+				.add(Attributes.MAX_HEALTH, 100.0D)
+				.add(Attributes.FOLLOW_RANGE, 100.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double)0.23F)
-				.add(Attributes.ATTACK_DAMAGE, 3.0D)
-				.add(Attributes.ARMOR, 2.0D);
+				.add(Attributes.ATTACK_DAMAGE, 15.0D)
+				.add(Attributes.ARMOR, 3.0D)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 5.0D);
 	}
 
 	@Override

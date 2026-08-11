@@ -152,6 +152,7 @@ public class ModBiomes {
 		spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.FOUR_EYED_XANARIAN.get(), 5, 2, 4));
 		spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.XANARIAN.get(), 5, 2, 4));
 		spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.HORNED_XANARIAN.get(), 5, 2, 4));
+		spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.XANARIAN_CANNIBAL.get(), 3, 1, 1));
 		spawnBuilder.addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.XANARANHA.get(), 20, 5, 8));
 		spawnBuilder.addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.SUCKER.get(), 20, 5, 8));
 
