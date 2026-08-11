@@ -317,6 +317,7 @@
 	"tooltip.undeadremains.slime_ball_modified_fossil_hoe":"Replant seeds immediately by right clicking on a crop",
 	"tooltip.undeadremains.xanaranha_horn_on_a_stick":"Scares away xanarians",
 	"tooltip.undeadremains.metatorbernite_grenade":"Produces a lingering gas cloud",
+	"tooltip.undeadremains.item_skin_less_pixels": "Combine with Harvester in anvil to change how it looks",
 
 	"advancement.undeadremains.root.title": "Undead Remains",
 	"advancement.undeadremains.root.desc": "Thank you for playing the Undead Remains Mod",
