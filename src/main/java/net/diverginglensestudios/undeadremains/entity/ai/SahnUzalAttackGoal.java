@@ -25,6 +25,7 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 		entity = ((SahnUzalEntity) pMob);
 	}
 
+
 	@Override
 	public void start() {
 		super.start();
@@ -33,36 +34,39 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 	@SuppressWarnings("null")
 	@Override
 	protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-		if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) { //if the enemy is in reach
-
-			if(isTimeToStartAttackAnimation()){ //if both tickers are at 0
-				Random random = new Random();
-				int choice = random.nextInt(5) + 1; // Number of events
-				//int choice = 3;
-				if (choice==1){//////////Slash1//////////
-					//System.out.println("Attack 1 has been chosen");
-					this.performSlash1();
-				}else if (choice==2){//////////Slash2//////////
-					//System.out.println("Attack 2 has been chosen");
-					this.performSlash2();
-				}else if (choice==3){//////////FLOOR_STAB//////////
-					//System.out.println("Attack 3 has been chosen");
-					this.performFloorStab();
-				}else if (choice==4){//////////FLOOR_STAB//////////
-					//System.out.println("Attack 4 has been chosen");
-					this.performSlam();
-				}else if (choice==5){//////////BEAM//////////
-					//System.out.println("Attack 4 has been chosen");
-					this.performBeam();
+		boolean inMeleeRange = isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr);
+		double rangedRangeSqr = 16 * 16;
+		boolean inRangedRange = pDistToEnemySqr <= rangedRangeSqr;
+		if (isTimeToStartAttackAnimation()) {
+			Random random = new Random();
+			if (inMeleeRange) {
+				int roll = random.nextInt(100);//weighted random
+				if (roll < 30) {
+					performSlash1();
+				}
+				else if (roll < 60) {
+					performSlash2();
+				}
+				else if (roll < 90) {
+					performSlam();
+				}
+				else {
+					performFloorStab();
+				}
+			} else if (inRangedRange){
+				int choice = random.nextInt(2);
+				switch (choice) {
+					case 0 -> performFloorStab();
+					case 1 -> performBeam();
 				}
 			}
-			if(isTimeToAttack()) {// if the ticker is at the point where the damage  should happen
-				this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
-				performAttack(pEnemy);
-			}
 		}
-		if (entity.getAttackType() == AttackType.FLOOR_STAB && entity.getTicksUntilHit() == 1 && entity.SahnUzalStabQuakeTriggered == false){
-			entity.doEarthquake(entity.level(), entity.blockPosition(), 12);
+		if (inMeleeRange && isTimeToAttack()) {
+			this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
+			performAttack(pEnemy);
+		}
+		if (entity.getAttackType() == AttackType.FLOOR_STAB && entity.getTicksUntilHit() == 1 && !entity.SahnUzalStabQuakeTriggered) {
+			entity.doEarthquake(entity.level(), entity.blockPosition(), 15);
 			entity.SahnUzalStabQuakeTriggered = true;
 		}
 	}
@@ -75,25 +79,24 @@ public class SahnUzalAttackGoal extends MeleeAttackGoal {
 
 	public void performSlash2() {
 		entity.setAttackType(AttackType.SLASH2);
-		entity.setAttackTicker(47);//Lengh of animation +2
-		entity.setTicksUntilHit(24);//Ticks until the hit of the animation +1
+		entity.setAttackTicker(47);
+		entity.setTicksUntilHit(24);
 	}
 
 	public void performFloorStab() {
 		entity.setAttackType(AttackType.FLOOR_STAB);
-		entity.setAttackTicker(67);//Lengh of animation +2
-		entity.setTicksUntilHit(24);//Ticks until the hit of the animation +1
+		entity.setAttackTicker(67);
+		entity.setTicksUntilHit(24);
 		entity.SahnUzalStabQuakeTriggered = false;
 	}
 
 	public void performSlam() {
 		entity.setAttackType(AttackType.SLAM);
-		entity.setAttackTicker(56);//Lengh of animation +2
-		entity.setTicksUntilHit(27);//Ticks until the hit of the animation +1
+		entity.setAttackTicker(56);
+		entity.setTicksUntilHit(27);
 	}
 
 	public void performBeam() {
-
 		entity.setAttackType(AttackType.BEAM);
 		entity.setAttackTicker(142);
 		entity.setTicksUntilHit(0);
