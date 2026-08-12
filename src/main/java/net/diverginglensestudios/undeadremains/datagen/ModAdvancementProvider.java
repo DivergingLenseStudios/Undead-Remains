@@ -9,6 +9,7 @@ package net.diverginglensestudios.undeadremains.datagen;
 
 import net.diverginglensestudios.undeadremains.UndeadRemains;
 import net.diverginglensestudios.undeadremains.block.ModBlocks;
+import net.diverginglensestudios.undeadremains.effects.ModPotions;
 import net.diverginglensestudios.undeadremains.entity.ModEntities;
 import net.diverginglensestudios.undeadremains.item.ModItems;
 import net.diverginglensestudios.undeadremains.worldgen.dimension.ModDimensions;
@@ -19,9 +20,11 @@ import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
@@ -74,7 +77,24 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
 							false)
 					.addCriterion("has_fossil", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FOSSIL.get()))
 					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "fossil"), existingFileHelper);
-
+			// ↓////////FOSSIL_HEART////////↓//
+			Advancement fossil_heart = Advancement.Builder.advancement()
+					.parent(fossil)
+					.display(
+							Items.POTION,
+							Component.translatable("advancement.undeadremains.fossil_heart.title"),
+							Component.translatable("advancement.undeadremains.fossil_heart.desc"),
+							null,
+							FrameType.TASK,
+							true,
+							false,
+							false)
+					.addCriterion("fossilized_heart",
+							InventoryChangeTrigger.TriggerInstance.hasItems(
+									ItemPredicate.Builder.item().of(Items.POTION).hasNbt(new CompoundTag() {{
+										putString("Potion", "undeadremains:fossilized_heart_potion");}}).build()))
+					.save(saver, new ResourceLocation(UndeadRemains.MOD_ID, "fossil_heart"), existingFileHelper);
+			// ↑//////// FOSSIL_HEART////////↑//
 			// ↓////////FOSSIL_TOOLS////////↓//
 			Advancement fossil_tools = Advancement.Builder.advancement()
 					.parent(fossil) // your Fossil advancement reference

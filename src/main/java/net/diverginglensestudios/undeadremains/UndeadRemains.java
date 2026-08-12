@@ -127,7 +127,7 @@ public class UndeadRemains { // Define the Class for the Mod
 			((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.XELKS_FLOWER.getId(),
 					ModBlocks.POTTED_XELKS_FLOWER);
 
-			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.THICK,
+			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
 					ModItems.FOSSIL.get(), ModPotions.FOSSILIZED_HEART_POTION.get()));
 			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.MUNDANE,
 					ModItems.SUCKER_TRUNK.get(), ModPotions.ANCHORED_POTION.get()));
@@ -139,14 +139,6 @@ public class UndeadRemains { // Define the Class for the Mod
 		});
 	}
 
-	/*
-	 * private void addCreative(BuildCreativeModeTabContentsEvent event) {
-	 * if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-	 * event.accept(ModItems.FOSSIL);
-	 * event.accept(ModItems.RAW_FOSSIL);
-	 * }
-	 * }
-	 */
 
 	// You can use SubscribeEvent and let the Event Bus discover methods to call
 	@SubscribeEvent

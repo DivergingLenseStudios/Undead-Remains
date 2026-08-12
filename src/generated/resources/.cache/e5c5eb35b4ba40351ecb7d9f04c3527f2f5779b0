@@ -1,7 +1,8 @@
-// 1.20.1	2026-08-05T12:48:17.3282048	Advancements
+// 1.20.1	2026-08-12T11:06:39.6388636	Advancements
 5b4b5d842e49dde47dec4e914b2f7a47357d702f data/undeadremains/advancements/find_xanarian_dungeon.json
 d85b376ae6334c9a997b620a71b3102228cbaf6c data/undeadremains/advancements/fossil.json
 fe9ca172085776dc0a84f800f5e3bf9871edff49 data/undeadremains/advancements/fossil_armor.json
+ef987365ae2e6cadada2906d43ba8fc9cc1436e5 data/undeadremains/advancements/fossil_heart.json
 eaa804c24f8ab4fdedb98272b42f7e92f2b829ce data/undeadremains/advancements/fossil_lucky_block.json
 51c75b5d4d4c8fa8c9acf1a6a770585bf6ebb9dd data/undeadremains/advancements/fossil_tools.json
 4e62c9b458db008ec4bfa357bc614acff1352602 data/undeadremains/advancements/gas_mask.json

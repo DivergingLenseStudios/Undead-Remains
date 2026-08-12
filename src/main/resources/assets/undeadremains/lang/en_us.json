@@ -362,6 +362,12 @@
 	"advancement.undeadremains.maximum_xanarian_reputation.desc": "Get the your xanarian reputation to the max by killing creepers and xanaranhas",
 	"advancement.undeadremains.minimum_xanarian_reputation.title": "Enemy of Xanas",
 	"advancement.undeadremains.minimum_xanarian_reputation.desc": "Reduce your xanarian reputation to the minimum by killing xanarians",
+	"advancement.undeadremains.find_xanarian_dungeon.title": "Remains of Xanas",
+	"advancement.undeadremains.find_xanarian_dungeon.desc": "Find the Xanarian dungeon. It generates inside the rock at the top of the dimension",
+	"advancement.undeadremains.kill_sahn_uzal.title": "Sahn Uzal",
+	"advancement.undeadremains.kill_sahn_uzal.desc": "Defeat Sahn Uzal",
+	"advancement.undeadremains.fossil_heart.title": "Heart of Fossil",
+	"advancement.undeadremains.fossil_heart.desc": "Craft a fossilized heart potion from fossil and an akward potion",
 
 	"advancement.undeadremains.langrite_armor.title": "Langrite Armor",
 	"advancement.undeadremains.langrite_armor.desc": "Obtain a full set of langrite armor",
@@ -371,11 +377,6 @@
 	"advancement.undeadremains.langrite.desc": "Obtain a langrite ingot",
 	"advancement.undeadremains.langrite_tools.title": "Langrite Tools",
 	"advancement.undeadremains.langrite_tools.desc": "Obtain all langrite tools",
-	"advancement.undeadremains.find_xanarian_dungeon.title": "Xanarian Dungeon",
-	"advancement.undeadremains.find_xanarian_dungeon.desc": "Find the Xanarian dungeon. It generates inside the rock at the top of the dimension",
-	"advancement.undeadremains.kill_sahn_uzal.title": "Sahn Uzal",
-	"advancement.undeadremains.kill_sahn_uzal.desc": "Defeat Sahn Uzal",
-
 
 	"creativetab.tutorial_tab": "Undead Remains"
 

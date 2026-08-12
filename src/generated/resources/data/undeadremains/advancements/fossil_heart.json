@@ -1,0 +1,39 @@
+{
+  "parent": "undeadremains:fossil",
+  "criteria": {
+    "fossilized_heart": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:potion"
+            ],
+            "nbt": "{Potion:\"undeadremains:fossilized_heart_potion\"}"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.undeadremains.fossil_heart.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:potion"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.undeadremains.fossil_heart.title"
+    }
+  },
+  "requirements": [
+    [
+      "fossilized_heart"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
