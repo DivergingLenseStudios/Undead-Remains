@@ -151,12 +151,10 @@
 	"block.undeadremains.langrite_nugget_block": "Langrite Nugget Block",
 	"block.undeadremains.fossil_ore": "Fossil Ore",
 	"block.undeadremains.deepslate_fossil_ore": "Deepslate Fossil Ore",
-	"block.undeadremains.nether_fossil_ore": "Nether Fossil Ore",
 
 	"block.undeadremains.metatorbernite_block": "Metatorbernite Block",
 
 	"block.undeadremains.ash_sapling": "Ash Sapling",
-	"block.undeadremains.creeper_sapling": "Creeper Sapling",
 	"block.undeadremains.calipo_sapling": "Calipo Sapling",
 	"Item.undeadremains.xans_leaves_seeds": "Xans Leaves Seeds",
 
@@ -225,6 +223,7 @@
 	"block.undeadremains.calipo_hanging_sign": "Calipo Hanging Sign",
 
 	"entity.undeadremains.mod_chest_boat": "Boat with Chest",
+	"entity.undeadremains.mod_boat": "Boat",
 	"entity.undeadremains.tree_zombie": "Tree Zombie",
 	"entity.undeadremains.stray_zombie": "Stray Zombie",
 	"entity.undeadremains.big_woodling": "Big Woodling",
@@ -291,11 +290,12 @@
 	"item.undeadremains.undying_whispers_music_disc": "Undying Whispers Music Disc",
 	"item.undeadremains.undying_whispers_music_disc.desc": "Pordohiq - Undying Whispers",
 
-	"effect.undeadremains.fossilized_heart.desc": "Fossilized Heart",
+	"effect.undeadremains.fossilized_heart.desc": "stops healing",
 	"effect.undeadremains.fossilized_heart": "Fossilized Heart",
 	"effect.undeadremains.fossil_vision.desc": "Counteracts Darkness",
 	"effect.undeadremains.fossil_vision": "Fossil Vision",
 	"effect.undeadremains.anchored": "Anchored",
+	"effect.undeadremains.anchored.desc": "Pulls you down",
 
 	"item.minecraft.tipped_arrow.effect.fossilized_heart_potion": "Arrow of Fossilized Heart",
 	"item.minecraft.potion.effect.fossilized_heart_potion": "Potion of Fossilized Heart",
