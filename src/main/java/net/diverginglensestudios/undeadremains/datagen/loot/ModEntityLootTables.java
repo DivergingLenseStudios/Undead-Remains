@@ -47,6 +47,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 				ModEntities.FOUR_EYED_XANARIAN.get(),
 				ModEntities.XANARIAN.get(),
 				ModEntities.HORNED_XANARIAN.get(),
+				ModEntities.XANARIAN_SOLDIER.get(),
 				ModEntities.SUCKER.get(),
 				ModEntities.DROWNED_SKELETON.get(),
 				ModEntities.SAHN_UZAL.get(),
@@ -402,6 +403,16 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 												ConstantValue.exactly(1.0f)))
 										.when(LootItemRandomChanceCondition
 												.randomChance(1f)))));
+
+
+		this.add(ModEntities.XANARIAN_SOLDIER.get(),
+				LootTable.lootTable()
+						.withPool(LootPool.lootPool()
+								.setRolls(ConstantValue.exactly(1.0f))
+								.when(LootItemRandomChanceCondition.randomChance(0.2f))
+								.add(LootItem.lootTableItem(ModItems.HARVESTER.get()))
+								.add(LootItem.lootTableItem(ModItems.ITEM_SKIN_LESS_PIXELS.get()))
+						));
 
 	}
 }

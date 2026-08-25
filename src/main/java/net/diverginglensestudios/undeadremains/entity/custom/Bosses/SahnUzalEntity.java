@@ -178,6 +178,7 @@ public class SahnUzalEntity extends Monster {
 			if (quakeRadius > quakeMaxRadius) {
 				quakeActive = false;
 			}
+
 		}
 	}
 
